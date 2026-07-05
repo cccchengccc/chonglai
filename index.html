@@ -425,22 +425,22 @@
     <div class="sg">
       <label>TA的性别是</label>
       <div class="g2" id="gg">
-        <div class="gb" data-v="male" onclick="sg(this)">男性</div>
-        <div class="gb" data-v="female" onclick="sg(this)">女性</div>
+        <div class="gb" data-v="male">男性</div>
+        <div class="gb" data-v="female">女性</div>
       </div>
     </div>
 
     <div class="sg">
       <label>轨迹</label>
       <div class="g2" id="dg">
-        <div class="gb on" data-v="理想线" onclick="sd(this)">理想线</div>
-        <div class="gb" data-v="现实线" onclick="sd(this)">现实线</div>
+        <div class="gb on" data-v="理想线">理想线</div>
+        <div class="gb" data-v="现实线">现实线</div>
       </div>
     </div>
 
     <div id="gn" style="display:none"></div>
-    <button class="btn-p" onclick="goIntro()" id="btnGo" disabled>了解 TA</button>
-    <button class="btn-s" onclick="showGal()">结局图鉴</button>
+    <button class="btn-p" id="btnGo" disabled>了解 TA</button>
+    <button class="btn-s">结局图鉴</button>
   </div>
 
   <!-- ===== 加载 ===== -->
@@ -483,7 +483,7 @@
     <div class="chat" id="chat"></div>
     <div class="oa hidden" id="oa">
     <div id="pauseBtn" style="display:none">
-      <button class="ob" id="continueBtn" onclick="U.cont()" style="text-align:center;letter-spacing:3px;color:var(--text-dim)">回应 TA</button>
+      <button class="ob" id="continueBtn" style="text-align:center;letter-spacing:3px;color:var(--text-dim)">回应 TA</button>
     </div>
     <div id="optC"></div>
   </div>
@@ -501,7 +501,7 @@
     <div class="rs"><h3>关键数据</h3><div id="stats"></div></div>
     <div class="rs"><h3>选择回顾</h3><div id="choices"></div></div>
     <div class="end-act">
-      <button class="btn-r" onclick="restartSame()">重来一次</button>
+      <button class="btn-r">重来一次</button>
       <button class="btn-b">返回主菜单</button>
     </div>
   </div>
@@ -535,7 +535,7 @@ const U={g:null,selG:null,selD:'理想线',
   tr(v){document.getElementById('tb').style.width=v+'%';document.getElementById('tv').textContent=v;const l=document.getElementById('tlv');l.textContent=v>=85?'信任':v>=70?'亲近':v>=50?'平淡':'疏远'},
   op(opts){const c=document.getElementById('optC'),a=document.getElementById('oa');c.innerHTML='';a.classList.remove('hidden');opts.forEach((o,i)=>{const b=document.createElement('button');b.className='ob'+(o.condition?' dis':'');b.textContent=`${['A','B','C'][i]}. ${o.text||''}`;b.onclick=()=>this.pk(i,o.id);c.appendChild(b)})},
   hide(){document.getElementById('oa').classList.add('hidden')},
-  async pk(i,id){if(!this.g)return;this.hide();const d=await DL.load(this.g.state.personality),s=d.scenes[this.g.state.currentScene],o=s?.options?.find(x=>x.id===id);if(o){this.bub("pl",o.text||"");await sl(200);if(o.reaction){this.bub("re",o.reaction);await sl(400)}}const r=await this.g.chooseOption(id);if(r&&typeof r==="string"&&r.startsWith("BE-")){this.end(r)}},,
+  async pk(i,id){if(!this.g)return;this.hide();const d=await DL.load(this.g.state.personality),s=d.scenes[this.g.state.currentScene],o=s?.options?.find(x=>x.id===id);if(o){this.bub("pl",o.text||"");await sl(200);if(o.reaction){this.bub("re",o.reaction);await sl(400)}}const r=await this.g.chooseOption(id);if(r&&typeof r==="string"&&r.startsWith("BE-")){this.end(r)}},
   async end(code){const d=this.g.state,s=await DL.load(d.personality);GameEngine.saveEndingToGallery(d.personality,code,d.trust);this.scr('endScreen');const vt=this.g.getEndingVariant(code,s),bt=s.endings?.[code]?.text||'';const em={'BE-1':'💔','BE-2':'💔','BE-3':'💔','NE-1':'🌊','GE-1':'🔥','PE-1':'✨'};document.getElementById('eEmoji').textContent=em[code]||'💔';document.getElementById('eCode').textContent=code;const nm={'BE-1':'被动模式','BE-2':'工具箱关闭','BE-3':'你留下的是功能','NE-1':'冰层融化','GE-1':'行动被看见','PE-1':'不用解释的回应'};document.getElementById('eTitle').textContent=nm[code]||code;document.getElementById('eText').textContent=this._t((this.g.state.currentScene===null)?(vt||bt):(s.endings?.[code]?.text||''));this.recap(s);this.g.saveGame()},
   recap(sd){const r=this.g.getRecap();const h=r.trustHistory;let ch='';if(h.length>1){const mx=Math.max(100,...h.map(x=>x.trust));ch='<div class="chart">';h.forEach((x,i)=>{const p=Math.max(2,(x.trust/mx)*40);const c=x.change>0?'p':x.change<0?'n':'z';ch+=`<div class="bar ${c}" style="height:${p}px" title="第${i}步: ${x.trust} (${x.change>0?'+':''}${x.change||0})"></div>`});ch+='</div>'}else{ch='<div style="color:var(--text-dimmer);font-size:12px">数据不足</div>'}document.getElementById('tChart').innerHTML=ch;const fc=r.flagCount;document.getElementById('stats').innerHTML=`<div class="rs-r"><span class="l">最终信任值</span><span class="v ${r.trust>=70?'g':r.trust<30?'ag':'gr'}">${r.trust}</span></div><div class="rs-r"><span class="l">关键 Flag</span><span class="v">${fc}/9</span></div><div class="rs-r"><span class="l">经历场景</span><span class="v">${r.sceneHistory.length}</span></div><div class="rs-r"><span class="l">选择次数</span><span class="v">${r.choiceHistory.length}</span></div><div class="rs-r"><span class="l">解锁碎片</span><span class="v">${r.unlockedMemories.length}/7</span></div><div class="rs-r"><span class="l">轨迹</span><span class="v">${r.difficulty}</span></div>`;let ch2='';if(!r.choiceHistory.length){ch2='<div style="color:var(--text-dimmer);font-size:12px">暂无记录</div>'}else{r.choiceHistory.forEach((c,i)=>{const cls=c.trustChange>0?'p':c.trustChange<0?'n':'';const sign=c.trustChange>0?'+':'';ch2+=`<div class="ch-item"><div class="sc">${c.scene} · 选项 ${c.optionId}</div><div class="tx">${this._t(c.text||'')}</div><div class="delta ${cls}">信任值 ${sign}${c.trustChange||0}</div></div>`})}document.getElementById('choices').innerHTML=ch2},
   cont(){document.getElementById("pauseBtn").style.display="none";const opts=this._pendingOpts||[];this.op(opts)}
@@ -575,6 +575,25 @@ function restartSame(){startGame()}
 function sl(ms){return new Promise(r=>setTimeout(r,ms))}
 
 function showGal(){const g=GameEngine.getGallery();U.scr('galleryScreen');const c=document.getElementById('galC');const LB={'BE-1':'💔 被动模式','BE-2':'💔 工具箱关闭','BE-3':'💔 你留下的是功能','NE-1':'🌊 冰层融化','GE-1':'🔥 行动被看见','PE-1':'✨ 不用解释的回应'};const CS={'BE-1':'b','BE-2':'b','BE-3':'b','NE-1':'n','GE-1':'g','PE-1':'p'};const NM={'ISTJ':'物流师','ISFJ':'守卫者','INFJ':'提倡者','INTJ':'建筑师','ISTP':'鉴赏家','ISFP':'探险家','INFP':'调停者','INTP':'逻辑学家','ESTP':'企业家','ESFP':'表演者','ENFP':'竞选者','ENTP':'辩论家','ESTJ':'总经理','ESFJ':'执政官','ENFJ':'主人公','ENTJ':'指挥官'};const ks=Object.keys(g);if(!ks.length){c.innerHTML='<div class="gal-emp">还没有解锁任何结局<br>去挽回 TA 吧</div>';return}let h='';ks.forEach(k=>{const es=g[k]||[];h+=`<div class="gal-p"><div class="hd"><span class="c">${k}</span><span class="nm">${NM[k]||''}</span></div><div class="gal-bs">${es.map(e=>`<span class="gal-b ${CS[e.ending]||'b'}">${LB[e.ending]||e.ending}</span>`).join('')}</div><div class="gal-ft"><span>已解锁 ${es.length}/6</span><span>${Math.round(es.length/6*100)}%</span></div></div>`});c.innerHTML=h}
+
+// 按钮事件绑定
+(function(){
+  document.getElementById("btnGo").onclick = goIntro;
+  var galBtns = document.querySelectorAll(".btn-s");
+  if(galBtns[0]) galBtns[0].onclick = showGal;
+  var gg = document.getElementById("gg");
+  if(gg) gg.onclick = function(e){
+    var el = e.target.closest(".gb");
+    if(!el) return;
+    if(el.dataset.v) sg(el);
+  };
+  var dg = document.getElementById("dg");
+  if(dg) dg.onclick = function(e){
+    var el = e.target.closest(".gb");
+    if(!el) return;
+    if(el.dataset.v) sd(el);
+  };
+})();
 </script>
 </body>
 </html>
