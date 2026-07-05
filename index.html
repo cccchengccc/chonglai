@@ -519,16 +519,10 @@
 
 <script src="GameEngine.js">
   document.querySelectorAll('#dg .gb').forEach(function(el){
-    el.addEventListener('click',function(){sd(el)})
   });
-  document.getElementById('btnGo').addEventListener('click',goIntro);
   var galBtn=document.querySelector('.btn-s');
-  if(galBtn)galBtn.addEventListener('click',showGal);
   // 开始按钮在intro页面，由HTML直接调用
   // 返回按钮
-  var backBtns=document.querySelectorAll('.btn-s');
-  backBtns.forEach(function(b){b.addEventListener('click',backStart)});
-});
 </script>
 <script>
 const DL={cache:{},async load(p){if(this.cache[p])return this.cache[p];const r=await fetch(`scripts/${p}.json`);const d=await r.json();this.cache[p]=d;return d}};
