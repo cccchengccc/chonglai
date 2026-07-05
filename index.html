@@ -493,17 +493,19 @@
   <!-- ===== 结局/复盘 ===== -->
   <div id="endScreen" class="screen">
     <div class="end-hd">
-      <div class="emoji" id="eEmoji">💔</div>
-      <div class="code" id="eCode">BE-1</div>
-      <div class="title" id="eTitle">被动模式</div>
+      <div class="code" id="eCode">ISTP</div>
+      <div class="title" id="eTitle">💔 被动模式</div>
     </div>
-    <div class="end-t" id="eText"></div>
-    <div class="rs" id="trustRS"><h3>信任值变化</h3><div id="tChart"></div></div>
-    <div class="rs"><h3>关键数据</h3><div id="stats"></div></div>
-
-    <div class="end-act">
-      <button class="btn-r" onclick="restartSame()">重来</button>
-      <button class="btn-b" onclick="backStart()">返回主菜单</button>
+    <div id="endNarrArea"><div class="end-narr" id="eNarr"></div></div>
+    <div id="endMonoArea" style="display:none"><div class="end-mono" id="eMono"></div></div>
+    <div id="endBtnArea" style="display:none"><button class="btn-p" onclick="showEndResult()" style="margin-top:12px">查看结果</button></div>
+    <div id="endResultArea" style="display:none">
+      <div class="rs"><h3>信任值变化</h3><div id="tChart"></div></div>
+      <div class="rs"><h3>关键数据</h3><div id="stats"></div></div>
+      <div class="end-act">
+        <button class="btn-r" onclick="restartSame()">重来</button>
+        <button class="btn-b" onclick="backStart()">返回主菜单</button>
+      </div>
     </div>
   </div>
 
