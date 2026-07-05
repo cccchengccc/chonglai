@@ -114,7 +114,7 @@
   select:hover,select:focus{border-color:var(--border-hover)}
 
   .g2{display:flex;gap:10px}
-  .g2 .b{
+  .g2 .gb{
     flex:1;
     padding:14px;
     border-radius:var(--radius);
@@ -129,8 +129,8 @@
     transition:all .3s ease;
     font-weight:300;
   }
-  .g2 .b:hover{border-color:var(--border-hover);color:var(--text)}
-  .g2 .b.on{
+  .g2 .gb{-webkit-tap-highlight-color:transparent;touch-action:manipulation}.g2 .gb:hover{border-color:var(--border-hover);color:var(--text)}
+  .g2 .gb.on{
     border-color:var(--accent);
     color:var(--accent);
     background:var(--accent-soft);
@@ -395,7 +395,7 @@
     .b.pa .t,.b.pl .t{font-size:12px;padding:10px 12px}
     .ob{font-size:11px;padding:11px 12px}
     .sg select{font-size:13px;padding:12px 14px}
-    .g2 .b{font-size:13px;padding:12px}
+    .g2 .gb{font-size:13px;padding:12px}
   }
 </style>
 </head>
@@ -425,16 +425,16 @@
     <div class="sg">
       <label>TA的性别是</label>
       <div class="g2" id="gg">
-        <div class="b" data-v="male" onclick="sg(this)">男性</div>
-        <div class="b" data-v="female" onclick="sg(this)">女性</div>
+        <div class="gb" data-v="male" onclick="sg(this)">男性</div>
+        <div class="gb" data-v="female" onclick="sg(this)">女性</div>
       </div>
     </div>
 
     <div class="sg">
       <label>轨迹</label>
       <div class="g2" id="dg">
-        <div class="b on" data-v="理想线" onclick="sd(this)">理想线</div>
-        <div class="b" data-v="现实线" onclick="sd(this)">现实线</div>
+        <div class="gb on" data-v="理想线" onclick="sd(this)">理想线</div>
+        <div class="gb" data-v="现实线" onclick="sd(this)">现实线</div>
       </div>
     </div>
 
@@ -537,8 +537,8 @@ const U={g:null,selG:null,selD:'理想线',
   async render(id,r){this.clr();if(id==='S-01'){const d=await DL.load(this.g.state.personality),c=d.裂痕记忆||{},t=this.g.state.裂痕类型,tn=['被入侵','被情感压迫','被忽视的付出'];if(c[`type_${t}`]){this.bub('sys','✦ '+tn[t]);await sl(300)}}if(r.narrative?.trim()){this.bub('nar',r.narrative.trim());await sl(300)}if(r.dialogue?.trim()){await sl(200);this.bub('pa',r.dialogue.trim());await sl(400)}if(r.sceneHint){await sl(100);this.bub('sys',r.sceneHint)}this.tr(this.g.state.trust);await sl(300);this.showPause()},
 };
 
-function sg(el){document.querySelectorAll('#gg .b').forEach(b=>b.classList.remove('on'));el.classList.add('on');U.selG=el.dataset.v;ub()}
-function sd(el){document.querySelectorAll('#dg .b').forEach(b=>b.classList.remove('on'));el.classList.add('on');U.selD=el.dataset.v}
+function sg(el){document.querySelectorAll('#gg .gb').forEach(b=>b.classList.remove('on'));el.classList.add('on');U.selG=el.dataset.v;ub()}
+function sd(el){document.querySelectorAll('#dg .gb').forEach(b=>b.classList.remove('on'));el.classList.add('on');U.selD=el.dataset.v}
 function ub(){const b=document.getElementById('btnGo'),p=document.getElementById('selP').value;b.disabled=!(p&&U.selG)}
 document.getElementById('selP').onchange=ub;
 
