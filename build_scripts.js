@@ -309,6 +309,25 @@ function extractSceneData(mdContent) {
     }
   }
 
+  // 合并对话中孤立的引号行
+  for (const sid of Object.keys(scenes)) {
+    const s = scenes[sid];
+    if (s.dialogue) {
+      const lines = s.dialogue.split('\n');
+      const merged = [];
+      for (let li = 0; li < lines.length; li++) {
+        const l = lines[li].trim();
+        if (!l) { merged.push(''); continue; }
+        if (merged.length > 0 && /^[“”「」""''》」 ]+$/.test(l)) {
+          merged[merged.length - 1] += l;
+        } else {
+          merged.push(l);
+        }
+      }
+      s.dialogue = merged.join('\n');
+    }
+  }
+
   return scenes;
 }
 
