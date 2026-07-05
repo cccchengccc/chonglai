@@ -537,6 +537,1126 @@ const U={g:null,selG:null,selD:'理想线',
   async end(code){
   const d=this.g.state;const s=await DL.load(d.personality);const pid=d.personality;
   GameEngine.saveEndingToGallery(pid,code,d.trust);this.scr('endScreen');
+  const em={'BE-1':'💔','BE-2':'💔','BE-3':'💔','NE-1':'🌊','GE-1':'🔥','PE-1':'✨'};
+  const nm={'BE-1':'被动模式','BE-2':'工具箱关闭','BE-3':'你留下的是功能','NE-1':'冰层融化','GE-1':'行动被看见','PE-1':'不用解释的回应'};
+  document.getElementById('eCode').textContent=pid;
+  document.getElementById('eTitle').textContent=(em[code]||'')+' '+(nm[code]||code);
+  var txt=s.endings?.[code]?.text||'';
+  var el=document.getElementById('eNarr');el.textContent='';
+  document.getElementById('endNarrArea').style.display='block';
+  document.getElementById('endMonoArea').style.display='none';
+  document.getElementById('endBtnArea').style.display='none';
+  document.getElementById('endResultArea').style.display='none';
+  var i=0,t=txt,len=t.length;
+  function ty(){
+    if(i<len){el.textContent=t.substring(0,i+1)+'|';i++;setTimeout(ty,20+Math.random()*30);}
+    else{
+      el.textContent=t;
+      setTimeout(function(){document.getElementById('endBtnArea').style.display='block'},500);
+    }
+  }
+  setTimeout(ty,400);
+  this.g.saveGame()
+},tml lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>重来</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600&family=Noto+Sans+SC:wght@300;400;500&display=swap');
+
+  *{margin:0;padding:0;box-sizing:border-box}
+
+  :root{
+    --bg:#0b0b12;
+    --surface:#12121e;
+    --surface2:#1a1a2a;
+    --border:rgba(255,255,255,0.06);
+    --border-hover:rgba(255,255,255,0.12);
+    --accent:#c47a7a;
+    --accent-soft:rgba(196,122,122,0.12);
+    --text:#e8e6e3;
+    --text-dim:rgba(232,230,227,0.75);
+    --text-dimmer:rgba(232,230,227,0.55);
+    --gold:#c4a67a;
+    --gold-soft:rgba(196,166,122,0.1);
+    --radius:12px;
+    --radius-sm:8px;
+    --font-serif:'Noto Serif SC','Source Han Serif SC','STSong',serif;
+    --font-sans:'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;
+  }
+
+  html{background:var(--bg)}
+  body{
+    font-family:var(--font-sans);
+    background:var(--bg);
+    color:var(--text);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  #app{
+    width:100%;
+    max-width:480px;
+    min-height:100vh;
+    background:var(--bg);
+    display:flex;
+    flex-direction:column;
+    position:relative;
+  }
+
+  .screen{display:none;flex-direction:column;height:100vh}
+  .screen.active{display:flex}
+
+  /* ===== 开始画面 ===== */
+  #startScreen{
+    justify-content:center;
+    align-items:center;
+    padding:60px 36px;
+    text-align:center;
+  }
+
+  #startScreen h1{
+    font-family:var(--font-serif);
+    font-size:56px;
+    font-weight:300;
+    letter-spacing:20px;
+    color:var(--text);
+    margin-bottom:20px;
+    opacity:0.9;
+  }
+
+  .tagline{
+    font-size:13px;
+    color:var(--text-dim);
+    letter-spacing:6px;
+    font-weight:300;
+    margin-bottom:56px;
+    line-height:2;
+  }
+
+  .sg{
+    width:100%;
+    margin-bottom:28px;
+    text-align:left;
+  }
+  .sg:last-of-type{margin-bottom:36px}
+
+  .sg label{
+    display:block;
+    font-size:11px;
+    color:var(--text-dimmer);
+    letter-spacing:2px;
+    margin-bottom:10px;
+    font-weight:300;
+    text-transform:uppercase;
+  }
+
+  select{
+    width:100%;
+    padding:14px 16px;
+    border-radius:var(--radius);
+    border:1px solid var(--border);
+    background:var(--surface);
+    color:var(--text);
+    font-size:14px;
+    font-family:var(--font-sans);
+    appearance:none;
+    cursor:pointer;
+    outline:none;
+    transition:border-color .3s;
+    letter-spacing:1px;
+  }
+  select:hover,select:focus{border-color:var(--border-hover)}
+
+  .g2{display:flex;gap:10px}
+  .g2 .b{
+    flex:1;
+    padding:14px;
+    border-radius:var(--radius);
+    border:1px solid var(--border);
+    background:var(--surface);
+    color:var(--text-dim);
+    font-size:14px;
+    font-family:var(--font-sans);
+    cursor:pointer;
+    text-align:center;
+    letter-spacing:2px;
+    transition:all .3s ease;
+    font-weight:300;
+  }
+  .g2 .b:hover{border-color:var(--border-hover);color:var(--text)}
+  .g2 .b.on{
+    border-color:var(--accent);
+    color:var(--accent);
+    background:var(--accent-soft);
+  }
+
+  .btn-p{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:var(--radius);
+    background:var(--text);
+    color:var(--bg);
+    font-size:14px;
+    font-family:var(--font-sans);
+    font-weight:500;
+    letter-spacing:3px;
+    cursor:pointer;
+    transition:opacity .3s;
+    margin-top:4px;
+  }
+  .btn-p:hover{opacity:.85}
+  .btn-p:disabled{opacity:.2;cursor:not-allowed}
+
+  .btn-s{
+    width:100%;
+    padding:13px;
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    background:transparent;
+    color:var(--text-dimmer);
+    font-size:12px;
+    font-family:var(--font-sans);
+    letter-spacing:2px;
+    cursor:pointer;
+    transition:all .3s;
+    margin-top:10px;
+  }
+  .btn-s:hover{border-color:var(--border-hover);color:var(--text)}
+
+  #genderNote{
+    margin:0 0 8px;
+    padding:10px 14px;
+    border-radius:var(--radius-sm);
+    font-size:12px;
+    line-height:1.6;
+    display:none;
+  }
+
+  /* ===== 加载 ===== */
+  #loadingScreen{justify-content:center;align-items:center;gap:16px}
+  .spinner{width:24px;height:24px;border:1.5px solid var(--border);border-top-color:var(--text-dim);border-radius:50%;animation:sp .8s linear infinite}
+  @keyframes sp{to{transform:rotate(360deg)}}
+  .load-t{font-size:12px;color:var(--text-dimmer);letter-spacing:2px;font-weight:300}
+
+  /* ===== 人格简介 ===== */
+  #introScreen{padding:48px 36px;overflow-y:auto}
+  .intro-h{text-align:center;margin-bottom:32px}
+  .intro-h .code{font-size:11px;color:var(--text-dimmer);letter-spacing:3px;margin-bottom:6px}
+  .intro-h .name{font-family:var(--font-serif);font-size:26px;font-weight:300;letter-spacing:6px;color:var(--text);margin-bottom:4px}
+  .intro-h .theme{font-size:13px;color:var(--text-dim);font-style:italic;letter-spacing:1px;line-height:1.6}
+  .intro-k{
+    background:var(--gold-soft);
+    border:1px solid rgba(196,166,122,0.15);
+    border-radius:var(--radius);
+    padding:20px 22px;
+    text-align:center;
+    margin-bottom:20px;
+  }
+  .intro-k .l{font-size:10px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-weight:300}
+  .intro-k .v{font-family:var(--font-serif);font-size:15px;color:var(--text);line-height:1.7;font-style:italic;letter-spacing:0.5px}
+  .intro-s{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:18px 20px;
+    margin-bottom:12px;
+  }
+  .intro-s .l{font-size:10px;color:var(--text-dimmer);letter-spacing:2px;margin-bottom:8px;font-weight:300;text-transform:uppercase}
+  .intro-s .v{font-size:13px;color:var(--text);line-height:1.8;letter-spacing:0.5px}
+
+  .end-narr{font-size:14px;color:var(--text);line-height:2;white-space:pre-wrap;padding:4px 0}.end-mono{font-family:var(--font-serif);font-size:20px;color:var(--text);line-height:1.8;text-align:center;padding:20px 12px;font-style:italic;letter-spacing:2px;font-weight:300}
+  
+  /* ===== 游戏画面 ===== */
+  #gameScreen{position:relative}
+  .gh{
+    padding:16px 20px 12px;
+    background:rgba(11,11,18,0.92);
+    border-bottom:1px solid var(--border);
+    position:sticky;top:0;z-index:100;
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+  }
+  .gh-t{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+  .gh-p{display:flex;align-items:baseline;gap:6px}
+  .gh-p .c{font-size:13px;color:var(--accent);letter-spacing:1px}
+  .gh-p .n{font-size:11px;color:var(--text-dimmer);letter-spacing:1px}
+  .gh-d{
+    font-size:10px;
+    padding:4px 12px;
+    border-radius:20px;
+    letter-spacing:1px;
+    border:1px solid var(--border);
+    color:var(--text-dimmer);
+    font-weight:300;
+  }
+  .gh-d.rl{border-color:var(--gold-soft);color:var(--gold)}
+
+  .tb{height:2px;background:rgba(255,255,255,0.04);border-radius:1px;overflow:hidden}
+  .tb-in{height:100%;border-radius:1px;transition:width .8s cubic-bezier(.4,0,.2,1);background:linear-gradient(90deg,var(--accent),var(--gold))}
+  .tl{display:flex;justify-content:space-between;font-size:10px;color:var(--text-dim);margin-top:5px;letter-spacing:0.5px}
+
+  .chat{
+    flex:1;
+    overflow-y:auto;
+    padding:24px 20px 160px;
+    scroll-behavior:smooth;
+  }
+  .chat::-webkit-scrollbar{width:2px}
+  .chat::-webkit-scrollbar-thumb{background:rgba(255,255,255,.05);border-radius:1px}
+
+  .b{margin-bottom:20px}
+  .b.sys{text-align:center}
+  .b.sys .t{display:inline-block;padding:5px 14px;font-size:10px;color:var(--text-dimmer);letter-spacing:1px;font-weight:300}
+  .b.pa{display:flex;flex-direction:column;align-items:flex-start}
+  .b.pa .t{
+    max-width:88%;
+    padding:14px 18px;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:4px 16px 16px 16px;
+    color:var(--text);
+    line-height:1.8;
+    font-size:14px;
+    white-space:pre-wrap;
+    font-weight:300;
+  }
+  .b.pl{display:flex;flex-direction:column;align-items:flex-end}
+  .b.pl .t{
+    max-width:88%;
+    padding:14px 18px;
+    background:var(--accent-soft);
+    border:1px solid rgba(196,122,122,0.15);
+    border-radius:16px 4px 16px 16px;
+    color:var(--text);
+    line-height:1.8;
+    font-size:14px;
+    white-space:pre-wrap;
+    font-weight:300;
+  }
+  .b.nar{text-align:center;margin:8px 0}
+  .b.nar .t{font-size:13px;color:var(--text-dim);line-height:1.9;padding:4px;font-style:italic;letter-spacing:0.5px}
+  .b.re{font-size:12px;color:var(--text-dim);padding:0 4px 4px;letter-spacing:0.5px}
+  .b.fade{animation:fIn .5s ease}
+  @keyframes fIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+  .oa{
+    position:fixed;bottom:0;left:50%;transform:translateX(-50%);
+    width:100%;max-width:480px;
+    padding:14px 20px 24px;
+    background:rgba(11,11,18,0.95);
+    border-top:1px solid var(--border);
+    z-index:200;
+    transition:transform .4s cubic-bezier(.4,0,.2,1);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+  }
+  .oa.hidden{transform:translateX(-50%) translateY(110%)}
+
+  .ob{
+    width:100%;
+    padding:15px 18px;
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    background:var(--surface);
+    color:var(--text);
+    font-size:13px;
+    font-family:var(--font-sans);
+    cursor:pointer;
+    margin-bottom:10px;
+    transition:all .3s;
+    text-align:left;
+    line-height:1.6;
+    letter-spacing:0.5px;
+    font-weight:300;
+  }
+  .ob:last-child{margin-bottom:0}
+  .ob:hover{border-color:var(--border-hover);background:var(--surface2)}
+  .ob.dis{opacity:.2;cursor:not-allowed}
+
+  /* ===== 结局 / 复盘 ===== */
+  #endScreen{overflow-y:auto;padding:48px 36px 40px}
+  .end-hd{text-align:center;margin-bottom:32px}
+  .end-hd .emoji{font-size:48px;margin-bottom:8px;opacity:.6}
+  .end-hd .code{font-size:10px;color:var(--text-dimmer);letter-spacing:2px;margin-bottom:6px}
+  .end-hd .title{font-family:var(--font-serif);font-size:24px;font-weight:300;letter-spacing:4px;color:var(--text)}
+  .end-t{font-size:13px;color:var(--text);line-height:2;max-width:380px;margin:0 auto 28px;text-align:left;white-space:pre-wrap;letter-spacing:0.5px}
+
+  .rs{border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;margin-bottom:14px}
+  .rs h3{font-size:10px;color:var(--text-dimmer);letter-spacing:2px;font-weight:300;margin-bottom:12px;text-transform:uppercase}
+  .rs-r{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.03)}
+  .rs-r:last-child{border:none}
+  .rs-r .l{font-size:12px;color:var(--text-dimmer);font-weight:300}
+  .rs-r .v{font-size:13px;color:var(--text)}
+  .rs-r .v.g{color:var(--gold)}
+  .rs-r .v.ag{color:var(--accent)}
+  .rs-r .v.gr{color:var(--text-dim)}
+
+  .ch-item{padding:8px 0;border-bottom:1px solid rgba(255,255,255,.03)}
+  .ch-item:last-child{border:none}
+  .ch-item .sc{font-size:10px;color:var(--text-dimmer);letter-spacing:1px}
+  .ch-item .tx{font-size:12px;color:var(--text);margin:3px 0;line-height:1.5;font-weight:300}
+  .ch-item .delta{font-size:11px}
+  .ch-item .delta.p{color:var(--gold)}.ch-item .delta.n{color:var(--accent)}
+
+  .end-act{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+  .end-act button{padding:14px;border-radius:var(--radius);font-size:13px;letter-spacing:2px;cursor:pointer;transition:all .3s;font-family:var(--font-sans)}
+  .btn-r{border:1px solid var(--text-dim);background:transparent;color:var(--text-dim)}
+  .btn-r:hover{border-color:var(--text);color:var(--text)}
+  .btn-b{border:1px solid var(--border);background:transparent;color:var(--text-dimmer)}
+  .btn-b:hover{border-color:var(--border-hover);color:var(--text-dim)}
+
+  .chart{display:flex;align-items:flex-end;gap:2px;height:40px;padding:4px 0}
+  .chart .bar{flex:1;border-radius:1px;transition:height .6s ease;min-height:2px}
+  .chart .bar.p{background:var(--gold)}
+  .chart .bar.n{background:var(--accent)}
+  .chart .bar.z{background:rgba(255,255,255,.06)}
+
+  /* ===== 图鉴 ===== */
+  #galleryScreen{padding:48px 36px;overflow-y:auto}
+  .gal-h{display:flex;align-items:center;margin-bottom:32px}
+  .gal-h h2{font-family:var(--font-serif);font-size:20px;font-weight:300;letter-spacing:4px;flex:1}
+  .gal-bk{font-size:12px;color:var(--text-dimmer);cursor:pointer;background:none;border:none;font-family:var(--font-sans);letter-spacing:1px;transition:color .3s}
+  .gal-bk:hover{color:var(--text-dim)}
+  .gal-emp{text-align:center;color:var(--text-dim);font-size:13px;line-height:2;padding:48px 0;font-weight:300}
+  .gal-p{border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;margin-bottom:10px}
+  .gal-p .hd{display:flex;align-items:baseline;gap:8px;margin-bottom:8px}
+  .gal-p .hd .c{font-size:13px;color:var(--text);letter-spacing:1px}
+  .gal-p .hd .nm{font-size:11px;color:var(--text-dimmer);letter-spacing:1px}
+  .gal-bs{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:6px}
+  .gal-b{border-radius:3px;padding:3px 8px;font-size:10px;letter-spacing:1px;font-weight:300}
+  .gal-b.b{border:1px solid rgba(196,122,122,.25);color:var(--accent);background:var(--accent-soft)}
+  .gal-b.n{border:1px solid rgba(232,230,227,.15);color:var(--text-dim)}
+  .gal-b.g{border:1px solid rgba(196,166,122,.2);color:var(--gold);background:var(--gold-soft)}
+  .gal-b.p{border:1px solid rgba(196,166,122,.3);color:var(--gold);background:var(--gold-soft)}
+  .gal-ft{display:flex;justify-content:space-between;font-size:10px;color:var(--text-dimmer);letter-spacing:1px}
+
+  .cr{background:rgba(196,166,122,.06);border:1px solid rgba(196,166,122,.12);border-radius:var(--radius-sm);padding:10px 14px;font-size:11px;color:var(--gold);margin-bottom:16px;text-align:center;letter-spacing:1px;font-weight:300}
+
+  @media(max-width:480px){
+    #app{max-width:100%}
+    #startScreen{padding:48px 28px}
+    #startScreen h1{font-size:44px;letter-spacing:14px}
+    .b.pa .t,.b.pl .t{max-width:92%;font-size:13px}
+    .intro-h .name{font-size:22px}
+    #endScreen{padding:40px 28px}
+    .ob{font-size:12px;padding:13px 14px;word-break:break-word}
+    .b.pa .t,.b.pl .t{font-size:13px;padding:12px 14px;word-break:break-word}
+    .gh{padding:12px 14px 10px}
+    .chat{padding:16px 14px 190px}
+    .rs{padding:14px 16px}
+  }
+  @media(max-width:360px){
+    #startScreen h1{font-size:36px;letter-spacing:10px}
+    .b.pa .t,.b.pl .t{font-size:12px;padding:10px 12px}
+    .ob{font-size:11px;padding:11px 12px}
+    .sg select{font-size:13px;padding:12px 14px}
+    .g2 .b{font-size:13px;padding:12px}
+  }
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- ===== 开始画面 ===== -->
+  <div id="startScreen" class="screen active">
+    <h1>重来</h1>
+    <div class="tagline">重来一次，又会是怎样的结果</div>
+
+    <div class="sg">
+      <label>TA的性格是</label>
+      <select id="selP">
+        <option value="">— 请选择 —</option>
+        <option value="ISTJ">ISTJ · 物流师</option><option value="ISFJ">ISFJ · 守卫者</option>
+        <option value="INFJ">INFJ · 提倡者</option><option value="INTJ">INTJ · 建筑师</option>
+        <option value="ISTP">ISTP · 鉴赏家</option><option value="ISFP">ISFP · 探险家</option>
+        <option value="INFP">INFP · 调停者</option><option value="INTP">INTP · 逻辑学家</option>
+        <option value="ESTP">ESTP · 企业家</option><option value="ESFP">ESFP · 表演者</option>
+        <option value="ENFP">ENFP · 竞选者</option><option value="ENTP">ENTP · 辩论家</option>
+        <option value="ESTJ">ESTJ · 总经理</option><option value="ESFJ">ESFJ · 执政官</option>
+        <option value="ENFJ">ENFJ · 主人公</option><option value="ENTJ">ENTJ · 指挥官</option>
+      </select>
+    </div>
+
+    <div class="sg">
+      <label>TA的性别是</label>
+      <div class="g2" id="gg">
+        <div class="b" data-v="male" onclick="sg(this)">男性</div>
+        <div class="b" data-v="female" onclick="sg(this)">女性</div>
+      </div>
+    </div>
+
+    <div class="sg">
+      <label>轨迹</label>
+      <div class="g2" id="dg">
+        <div class="b on" data-v="理想线" onclick="sd(this)">理想线</div>
+        <div class="b" data-v="现实线" onclick="sd(this)">现实线</div>
+      </div>
+    </div>
+
+    <div id="gn" style="display:none"></div>
+    <button class="btn-p" onclick="goIntro()" id="btnGo" disabled>了解 TA</button>
+    <button class="btn-s" onclick="showGal()">结局图鉴</button>
+  </div>
+
+  <!-- ===== 加载 ===== -->
+  <div id="loadingScreen" class="screen">
+    <div class="spinner"></div>
+    <div class="load-t">正在编织故事…</div>
+  </div>
+
+  <!-- ===== 人格简介 ===== -->
+  <div id="introScreen" class="screen">
+    <div class="intro-h">
+      <div class="code" id="iCode">ISTP</div>
+      <div class="name" id="iName">鉴赏家</div>
+      <div class="theme" id="iTheme"></div>
+    </div>
+    <div class="intro-k">
+      <div class="l">关于 TA</div>
+      <div class="v" id="iKey"></div>
+    </div>
+    <div class="intro-s"><div class="l">藏在心里的</div><div class="v" id="iNeed"></div></div>
+    <div class="intro-s"><div class="l">无声的边界</div><div class="v" id="iMine"></div></div>
+    <div class="intro-s"><div class="l">暗流</div><div class="v" id="iConflict"></div></div>
+    <button class="btn-p" onclick="startGame()" style="margin-top:12px">开始重来</button>
+    <button class="btn-s" onclick="backStart()">返回</button>
+  </div>
+
+  <!-- ===== 游戏画面 ===== -->
+  <div id="gameScreen" class="screen">
+    <div class="gh">
+      <div class="gh-t">
+        <div class="gh-p">
+          <span class="c" id="ghCode">ISTP</span>
+          <span class="n" id="ghName">鉴赏家</span>
+        </div>
+        <span class="gh-d" id="ghDiff">理想线</span>
+      </div>
+      
+    </div>
+    <div class="chat" id="chat"></div>
+    <div class="oa hidden" id="oa">
+    <div id="pauseBtn" style="display:none">
+      <button class="ob" id="continueBtn" onclick="U.cont()" style="text-align:center;letter-spacing:3px;color:var(--text-dim)">回应 TA</button>
+    </div>
+    <div id="optC"></div>
+  </div>
+  </div>
+
+  <!-- ===== 结局/复盘 ===== -->
+  <div id="endScreen" class="screen">
+    <div class="end-hd">
+<div class="code" id="eCode">ISTP</div>
+      <div class="title" id="eTitle">💔 被动模式</div>
+    </div>
+    <div id="endNarrArea"><div class="end-narr" id="eNarr"></div></div>
+    <div id="endMonoArea" style="display:none"><div class="end-mono" id="eMono"></div></div>
+    <div id="endBtnArea" style="display:none"><button class="btn-p" onclick="showEndResult()" style="margin-top:12px">查看结果</button></div>
+    <div id="endResultArea" style="display:none">
+      <div class="end-t" id="eText"></div>
+      <div class="rs"><h3>信任值变化</h3><div id="tChart"></div></div>
+      <div class="rs"><h3>关键数据</h3><div id="stats"></div></div>
+      <div class="end-act">
+        <button class="btn-r" onclick="restartSame()">重来</button>
+        <button class="btn-b" onclick="backStart()">返回主菜单</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 图鉴 ===== -->
+  <div id="galleryScreen" class="screen">
+    <div class="gal-h">
+      <h2>结局图鉴</h2>
+      <button class="gal-bk" onclick="backStart()">← 返回</button>
+    </div>
+    <div id="galC"></div>
+  </div>
+
+</div>
+
+<script src="GameEngine.js?v=7a5afe5"></script>
+<script>
+const DL={cache:{},async load(p){if(this.cache[p])return this.cache[p];const r=await fetch(`scripts/${p}.json`);const d=await r.json();this.cache[p]=d;return d}};
+
+const U={g:null,selG:null,selD:'理想线',
+  scr(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active')},
+  clr(){document.getElementById('chat').innerHTML=''},
+  _t(s){if(!s)return s;const g=this.g?.state?.partnerGender||'male';return s.replace(/\{TA\}/g,g==='male'?'他':'她').replace(/\{TA的\}/g,g==='male'?'他的':'她的').replace(/\{TA自己\}/g,g==='male'?'他自己':'她自己')},
+  bub(t,txt){const a=document.getElementById("chat"),d=document.createElement("div");d.className="b "+t;if(t==="nar"){var ps=this._t(txt).split(/\n/).filter(function(p){return p.trim()});d.innerHTML="<div class=\'t\'>"+ps.map(function(p){return"<p style=\'margin-bottom:0.6em;line-height:1.9\'>"+p+"</p>"}).join("")+"</div>"}else{d.innerHTML="<div class=\'t\'>"+this._t(txt)+"</div>"}a.appendChild(d);a.scrollTop=a.scrollHeight;return d},
+  tr(v){document.getElementById('tb').style.width=v+'%';document.getElementById('tv').textContent=v;const l=document.getElementById('tlv');l.textContent=v>=85?'信任':v>=70?'亲近':v>=50?'平淡':'疏远'},
+  op(opts){const c=document.getElementById('optC'),a=document.getElementById('oa');c.innerHTML='';a.classList.remove('hidden');opts.forEach((o,i)=>{const b=document.createElement('button');b.className='ob'+(o.condition?' dis':'');b.textContent=`${['A','B','C'][i]}. ${o.text||''}`;b.onclick=()=>this.pk(i,o.id);c.appendChild(b)})},
+  hide(){document.getElementById('oa').classList.add('hidden')},
+  async pk(i,id){if(!this.g)return;this.hide();const d=await DL.load(this.g.state.personality),s=d.scenes[this.g.state.currentScene],o=s?.options?.find(x=>x.id===id);if(o){this.bub("pl",o.text||"");await sl(200);if(o.reaction){this.bub("re",o.reaction);await sl(400)}}this.g.setSkipEnter(true);const r=await this.g.chooseOption(id);if(r&&typeof r==="string"&&r.includes("E-")){this.end(r)}else if(r&&r.nextScene){U._pendingAdvance=r;document.getElementById("oa").classList.remove("hidden");document.getElementById("pauseBtn").style.display="block";document.getElementById("continueBtn").textContent="在那之后…";document.getElementById("optC").innerHTML=""}},
+  async end(code){
+  const d=this.g.state;const s=await DL.load(d.personality);const pid=d.personality;
+  GameEngine.saveEndingToGallery(pid,code,d.trust);this.scr('endScreen');
+  const em={'BE-1':'💔','BE-2':'💔','BE-3':'💔','NE-1':'🌊','GE-1':'🔥','PE-1':'✨'};
+  const nm={'BE-1':'被动模式','BE-2':'工具箱关闭','BE-3':'你留下的是功能','NE-1':'冰层融化','GE-1':'行动被看见','PE-1':'不用解释的回应'};
+  document.getElementById('eCode').textContent=pid;
+  document.getElementById('eTitle').textContent=(em[code]||'')+' '+(nm[code]||code);
+  var txt=s.endings?.[code]?.text||'';
+  var el=document.getElementById('eNarr');el.textContent='';
+  document.getElementById('endNarrArea').style.display='block';
+  document.getElementById('endMonoArea').style.display='none';
+  document.getElementById('endBtnArea').style.display='none';
+  document.getElementById('endResultArea').style.display='none';
+  var i=0,t=txt,len=t.length;
+  function ty(){
+    if(i<len){el.textContent=t.substring(0,i+1)+'|';i++;setTimeout(ty,20+Math.random()*30);}
+    else{el.textContent=t;
+      var spi=t.indexOf('内心独白：');
+      if(spi>0){
+        var mono=t.substring(spi+5).replace(/[A-Z]+口吧/,'').replace(/[“”\"]/g,'').trim();
+        if(mono){document.getElementById('endMonoArea').style.display='block';document.getElementById('eMono').textContent='「'+mono+'」';}
+      }
+      setTimeout(function(){document.getElementById('endBtnArea').style.display='block'},500);
+    }
+  }
+  setTimeout(ty,400);
+  this.g.saveGame()
+},tml lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>重来</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600&family=Noto+Sans+SC:wght@300;400;500&display=swap');
+
+  *{margin:0;padding:0;box-sizing:border-box}
+
+  :root{
+    --bg:#0b0b12;
+    --surface:#12121e;
+    --surface2:#1a1a2a;
+    --border:rgba(255,255,255,0.06);
+    --border-hover:rgba(255,255,255,0.12);
+    --accent:#c47a7a;
+    --accent-soft:rgba(196,122,122,0.12);
+    --text:#e8e6e3;
+    --text-dim:rgba(232,230,227,0.75);
+    --text-dimmer:rgba(232,230,227,0.55);
+    --gold:#c4a67a;
+    --gold-soft:rgba(196,166,122,0.1);
+    --radius:12px;
+    --radius-sm:8px;
+    --font-serif:'Noto Serif SC','Source Han Serif SC','STSong',serif;
+    --font-sans:'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;
+  }
+
+  html{background:var(--bg)}
+  body{
+    font-family:var(--font-sans);
+    background:var(--bg);
+    color:var(--text);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  #app{
+    width:100%;
+    max-width:480px;
+    min-height:100vh;
+    background:var(--bg);
+    display:flex;
+    flex-direction:column;
+    position:relative;
+  }
+
+  .screen{display:none;flex-direction:column;height:100vh}
+  .screen.active{display:flex}
+
+  /* ===== 开始画面 ===== */
+  #startScreen{
+    justify-content:center;
+    align-items:center;
+    padding:60px 36px;
+    text-align:center;
+  }
+
+  #startScreen h1{
+    font-family:var(--font-serif);
+    font-size:56px;
+    font-weight:300;
+    letter-spacing:20px;
+    color:var(--text);
+    margin-bottom:20px;
+    opacity:0.9;
+  }
+
+  .tagline{
+    font-size:13px;
+    color:var(--text-dim);
+    letter-spacing:6px;
+    font-weight:300;
+    margin-bottom:56px;
+    line-height:2;
+  }
+
+  .sg{
+    width:100%;
+    margin-bottom:28px;
+    text-align:left;
+  }
+  .sg:last-of-type{margin-bottom:36px}
+
+  .sg label{
+    display:block;
+    font-size:11px;
+    color:var(--text-dimmer);
+    letter-spacing:2px;
+    margin-bottom:10px;
+    font-weight:300;
+    text-transform:uppercase;
+  }
+
+  select{
+    width:100%;
+    padding:14px 16px;
+    border-radius:var(--radius);
+    border:1px solid var(--border);
+    background:var(--surface);
+    color:var(--text);
+    font-size:14px;
+    font-family:var(--font-sans);
+    appearance:none;
+    cursor:pointer;
+    outline:none;
+    transition:border-color .3s;
+    letter-spacing:1px;
+  }
+  select:hover,select:focus{border-color:var(--border-hover)}
+
+  .g2{display:flex;gap:10px}
+  .g2 .b{
+    flex:1;
+    padding:14px;
+    border-radius:var(--radius);
+    border:1px solid var(--border);
+    background:var(--surface);
+    color:var(--text-dim);
+    font-size:14px;
+    font-family:var(--font-sans);
+    cursor:pointer;
+    text-align:center;
+    letter-spacing:2px;
+    transition:all .3s ease;
+    font-weight:300;
+  }
+  .g2 .b:hover{border-color:var(--border-hover);color:var(--text)}
+  .g2 .b.on{
+    border-color:var(--accent);
+    color:var(--accent);
+    background:var(--accent-soft);
+  }
+
+  .btn-p{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:var(--radius);
+    background:var(--text);
+    color:var(--bg);
+    font-size:14px;
+    font-family:var(--font-sans);
+    font-weight:500;
+    letter-spacing:3px;
+    cursor:pointer;
+    transition:opacity .3s;
+    margin-top:4px;
+  }
+  .btn-p:hover{opacity:.85}
+  .btn-p:disabled{opacity:.2;cursor:not-allowed}
+
+  .btn-s{
+    width:100%;
+    padding:13px;
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    background:transparent;
+    color:var(--text-dimmer);
+    font-size:12px;
+    font-family:var(--font-sans);
+    letter-spacing:2px;
+    cursor:pointer;
+    transition:all .3s;
+    margin-top:10px;
+  }
+  .btn-s:hover{border-color:var(--border-hover);color:var(--text)}
+
+  #genderNote{
+    margin:0 0 8px;
+    padding:10px 14px;
+    border-radius:var(--radius-sm);
+    font-size:12px;
+    line-height:1.6;
+    display:none;
+  }
+
+  /* ===== 加载 ===== */
+  #loadingScreen{justify-content:center;align-items:center;gap:16px}
+  .spinner{width:24px;height:24px;border:1.5px solid var(--border);border-top-color:var(--text-dim);border-radius:50%;animation:sp .8s linear infinite}
+  @keyframes sp{to{transform:rotate(360deg)}}
+  .load-t{font-size:12px;color:var(--text-dimmer);letter-spacing:2px;font-weight:300}
+
+  /* ===== 人格简介 ===== */
+  #introScreen{padding:48px 36px;overflow-y:auto}
+  .intro-h{text-align:center;margin-bottom:32px}
+  .intro-h .code{font-size:11px;color:var(--text-dimmer);letter-spacing:3px;margin-bottom:6px}
+  .intro-h .name{font-family:var(--font-serif);font-size:26px;font-weight:300;letter-spacing:6px;color:var(--text);margin-bottom:4px}
+  .intro-h .theme{font-size:13px;color:var(--text-dim);font-style:italic;letter-spacing:1px;line-height:1.6}
+  .intro-k{
+    background:var(--gold-soft);
+    border:1px solid rgba(196,166,122,0.15);
+    border-radius:var(--radius);
+    padding:20px 22px;
+    text-align:center;
+    margin-bottom:20px;
+  }
+  .intro-k .l{font-size:10px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-weight:300}
+  .intro-k .v{font-family:var(--font-serif);font-size:15px;color:var(--text);line-height:1.7;font-style:italic;letter-spacing:0.5px}
+  .intro-s{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:18px 20px;
+    margin-bottom:12px;
+  }
+  .intro-s .l{font-size:10px;color:var(--text-dimmer);letter-spacing:2px;margin-bottom:8px;font-weight:300;text-transform:uppercase}
+  .intro-s .v{font-size:13px;color:var(--text);line-height:1.8;letter-spacing:0.5px}
+
+  .end-narr{font-size:14px;color:var(--text);line-height:2;white-space:pre-wrap;padding:4px 0}.end-mono{font-family:var(--font-serif);font-size:20px;color:var(--text);line-height:1.8;text-align:center;padding:20px 12px;font-style:italic;letter-spacing:2px;font-weight:300}
+  
+  /* ===== 游戏画面 ===== */
+  #gameScreen{position:relative}
+  .gh{
+    padding:16px 20px 12px;
+    background:rgba(11,11,18,0.92);
+    border-bottom:1px solid var(--border);
+    position:sticky;top:0;z-index:100;
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+  }
+  .gh-t{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+  .gh-p{display:flex;align-items:baseline;gap:6px}
+  .gh-p .c{font-size:13px;color:var(--accent);letter-spacing:1px}
+  .gh-p .n{font-size:11px;color:var(--text-dimmer);letter-spacing:1px}
+  .gh-d{
+    font-size:10px;
+    padding:4px 12px;
+    border-radius:20px;
+    letter-spacing:1px;
+    border:1px solid var(--border);
+    color:var(--text-dimmer);
+    font-weight:300;
+  }
+  .gh-d.rl{border-color:var(--gold-soft);color:var(--gold)}
+
+  .tb{height:2px;background:rgba(255,255,255,0.04);border-radius:1px;overflow:hidden}
+  .tb-in{height:100%;border-radius:1px;transition:width .8s cubic-bezier(.4,0,.2,1);background:linear-gradient(90deg,var(--accent),var(--gold))}
+  .tl{display:flex;justify-content:space-between;font-size:10px;color:var(--text-dim);margin-top:5px;letter-spacing:0.5px}
+
+  .chat{
+    flex:1;
+    overflow-y:auto;
+    padding:24px 20px 160px;
+    scroll-behavior:smooth;
+  }
+  .chat::-webkit-scrollbar{width:2px}
+  .chat::-webkit-scrollbar-thumb{background:rgba(255,255,255,.05);border-radius:1px}
+
+  .b{margin-bottom:20px}
+  .b.sys{text-align:center}
+  .b.sys .t{display:inline-block;padding:5px 14px;font-size:10px;color:var(--text-dimmer);letter-spacing:1px;font-weight:300}
+  .b.pa{display:flex;flex-direction:column;align-items:flex-start}
+  .b.pa .t{
+    max-width:88%;
+    padding:14px 18px;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:4px 16px 16px 16px;
+    color:var(--text);
+    line-height:1.8;
+    font-size:14px;
+    white-space:pre-wrap;
+    font-weight:300;
+  }
+  .b.pl{display:flex;flex-direction:column;align-items:flex-end}
+  .b.pl .t{
+    max-width:88%;
+    padding:14px 18px;
+    background:var(--accent-soft);
+    border:1px solid rgba(196,122,122,0.15);
+    border-radius:16px 4px 16px 16px;
+    color:var(--text);
+    line-height:1.8;
+    font-size:14px;
+    white-space:pre-wrap;
+    font-weight:300;
+  }
+  .b.nar{text-align:center;margin:8px 0}
+  .b.nar .t{font-size:13px;color:var(--text-dim);line-height:1.9;padding:4px;font-style:italic;letter-spacing:0.5px}
+  .b.re{font-size:12px;color:var(--text-dim);padding:0 4px 4px;letter-spacing:0.5px}
+  .b.fade{animation:fIn .5s ease}
+  @keyframes fIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+  .oa{
+    position:fixed;bottom:0;left:50%;transform:translateX(-50%);
+    width:100%;max-width:480px;
+    padding:14px 20px 24px;
+    background:rgba(11,11,18,0.95);
+    border-top:1px solid var(--border);
+    z-index:200;
+    transition:transform .4s cubic-bezier(.4,0,.2,1);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+  }
+  .oa.hidden{transform:translateX(-50%) translateY(110%)}
+
+  .ob{
+    width:100%;
+    padding:15px 18px;
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    background:var(--surface);
+    color:var(--text);
+    font-size:13px;
+    font-family:var(--font-sans);
+    cursor:pointer;
+    margin-bottom:10px;
+    transition:all .3s;
+    text-align:left;
+    line-height:1.6;
+    letter-spacing:0.5px;
+    font-weight:300;
+  }
+  .ob:last-child{margin-bottom:0}
+  .ob:hover{border-color:var(--border-hover);background:var(--surface2)}
+  .ob.dis{opacity:.2;cursor:not-allowed}
+
+  /* ===== 结局 / 复盘 ===== */
+  #endScreen{overflow-y:auto;padding:48px 36px 40px}
+  .end-hd{text-align:center;margin-bottom:32px}
+  .end-hd .emoji{font-size:48px;margin-bottom:8px;opacity:.6}
+  .end-hd .code{font-size:10px;color:var(--text-dimmer);letter-spacing:2px;margin-bottom:6px}
+  .end-hd .title{font-family:var(--font-serif);font-size:24px;font-weight:300;letter-spacing:4px;color:var(--text)}
+  .end-t{font-size:13px;color:var(--text);line-height:2;max-width:380px;margin:0 auto 28px;text-align:left;white-space:pre-wrap;letter-spacing:0.5px}
+
+  .rs{border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;margin-bottom:14px}
+  .rs h3{font-size:10px;color:var(--text-dimmer);letter-spacing:2px;font-weight:300;margin-bottom:12px;text-transform:uppercase}
+  .rs-r{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.03)}
+  .rs-r:last-child{border:none}
+  .rs-r .l{font-size:12px;color:var(--text-dimmer);font-weight:300}
+  .rs-r .v{font-size:13px;color:var(--text)}
+  .rs-r .v.g{color:var(--gold)}
+  .rs-r .v.ag{color:var(--accent)}
+  .rs-r .v.gr{color:var(--text-dim)}
+
+  .ch-item{padding:8px 0;border-bottom:1px solid rgba(255,255,255,.03)}
+  .ch-item:last-child{border:none}
+  .ch-item .sc{font-size:10px;color:var(--text-dimmer);letter-spacing:1px}
+  .ch-item .tx{font-size:12px;color:var(--text);margin:3px 0;line-height:1.5;font-weight:300}
+  .ch-item .delta{font-size:11px}
+  .ch-item .delta.p{color:var(--gold)}.ch-item .delta.n{color:var(--accent)}
+
+  .end-act{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+  .end-act button{padding:14px;border-radius:var(--radius);font-size:13px;letter-spacing:2px;cursor:pointer;transition:all .3s;font-family:var(--font-sans)}
+  .btn-r{border:1px solid var(--text-dim);background:transparent;color:var(--text-dim)}
+  .btn-r:hover{border-color:var(--text);color:var(--text)}
+  .btn-b{border:1px solid var(--border);background:transparent;color:var(--text-dimmer)}
+  .btn-b:hover{border-color:var(--border-hover);color:var(--text-dim)}
+
+  .chart{display:flex;align-items:flex-end;gap:2px;height:40px;padding:4px 0}
+  .chart .bar{flex:1;border-radius:1px;transition:height .6s ease;min-height:2px}
+  .chart .bar.p{background:var(--gold)}
+  .chart .bar.n{background:var(--accent)}
+  .chart .bar.z{background:rgba(255,255,255,.06)}
+
+  /* ===== 图鉴 ===== */
+  #galleryScreen{padding:48px 36px;overflow-y:auto}
+  .gal-h{display:flex;align-items:center;margin-bottom:32px}
+  .gal-h h2{font-family:var(--font-serif);font-size:20px;font-weight:300;letter-spacing:4px;flex:1}
+  .gal-bk{font-size:12px;color:var(--text-dimmer);cursor:pointer;background:none;border:none;font-family:var(--font-sans);letter-spacing:1px;transition:color .3s}
+  .gal-bk:hover{color:var(--text-dim)}
+  .gal-emp{text-align:center;color:var(--text-dim);font-size:13px;line-height:2;padding:48px 0;font-weight:300}
+  .gal-p{border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;margin-bottom:10px}
+  .gal-p .hd{display:flex;align-items:baseline;gap:8px;margin-bottom:8px}
+  .gal-p .hd .c{font-size:13px;color:var(--text);letter-spacing:1px}
+  .gal-p .hd .nm{font-size:11px;color:var(--text-dimmer);letter-spacing:1px}
+  .gal-bs{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:6px}
+  .gal-b{border-radius:3px;padding:3px 8px;font-size:10px;letter-spacing:1px;font-weight:300}
+  .gal-b.b{border:1px solid rgba(196,122,122,.25);color:var(--accent);background:var(--accent-soft)}
+  .gal-b.n{border:1px solid rgba(232,230,227,.15);color:var(--text-dim)}
+  .gal-b.g{border:1px solid rgba(196,166,122,.2);color:var(--gold);background:var(--gold-soft)}
+  .gal-b.p{border:1px solid rgba(196,166,122,.3);color:var(--gold);background:var(--gold-soft)}
+  .gal-ft{display:flex;justify-content:space-between;font-size:10px;color:var(--text-dimmer);letter-spacing:1px}
+
+  .cr{background:rgba(196,166,122,.06);border:1px solid rgba(196,166,122,.12);border-radius:var(--radius-sm);padding:10px 14px;font-size:11px;color:var(--gold);margin-bottom:16px;text-align:center;letter-spacing:1px;font-weight:300}
+
+  @media(max-width:480px){
+    #app{max-width:100%}
+    #startScreen{padding:48px 28px}
+    #startScreen h1{font-size:44px;letter-spacing:14px}
+    .b.pa .t,.b.pl .t{max-width:92%;font-size:13px}
+    .intro-h .name{font-size:22px}
+    #endScreen{padding:40px 28px}
+    .ob{font-size:12px;padding:13px 14px;word-break:break-word}
+    .b.pa .t,.b.pl .t{font-size:13px;padding:12px 14px;word-break:break-word}
+    .gh{padding:12px 14px 10px}
+    .chat{padding:16px 14px 190px}
+    .rs{padding:14px 16px}
+  }
+  @media(max-width:360px){
+    #startScreen h1{font-size:36px;letter-spacing:10px}
+    .b.pa .t,.b.pl .t{font-size:12px;padding:10px 12px}
+    .ob{font-size:11px;padding:11px 12px}
+    .sg select{font-size:13px;padding:12px 14px}
+    .g2 .b{font-size:13px;padding:12px}
+  }
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- ===== 开始画面 ===== -->
+  <div id="startScreen" class="screen active">
+    <h1>重来</h1>
+    <div class="tagline">重来一次，又会是怎样的结果</div>
+
+    <div class="sg">
+      <label>TA的性格是</label>
+      <select id="selP">
+        <option value="">— 请选择 —</option>
+        <option value="ISTJ">ISTJ · 物流师</option><option value="ISFJ">ISFJ · 守卫者</option>
+        <option value="INFJ">INFJ · 提倡者</option><option value="INTJ">INTJ · 建筑师</option>
+        <option value="ISTP">ISTP · 鉴赏家</option><option value="ISFP">ISFP · 探险家</option>
+        <option value="INFP">INFP · 调停者</option><option value="INTP">INTP · 逻辑学家</option>
+        <option value="ESTP">ESTP · 企业家</option><option value="ESFP">ESFP · 表演者</option>
+        <option value="ENFP">ENFP · 竞选者</option><option value="ENTP">ENTP · 辩论家</option>
+        <option value="ESTJ">ESTJ · 总经理</option><option value="ESFJ">ESFJ · 执政官</option>
+        <option value="ENFJ">ENFJ · 主人公</option><option value="ENTJ">ENTJ · 指挥官</option>
+      </select>
+    </div>
+
+    <div class="sg">
+      <label>TA的性别是</label>
+      <div class="g2" id="gg">
+        <div class="b" data-v="male" onclick="sg(this)">男性</div>
+        <div class="b" data-v="female" onclick="sg(this)">女性</div>
+      </div>
+    </div>
+
+    <div class="sg">
+      <label>轨迹</label>
+      <div class="g2" id="dg">
+        <div class="b on" data-v="理想线" onclick="sd(this)">理想线</div>
+        <div class="b" data-v="现实线" onclick="sd(this)">现实线</div>
+      </div>
+    </div>
+
+    <div id="gn" style="display:none"></div>
+    <button class="btn-p" onclick="goIntro()" id="btnGo" disabled>了解 TA</button>
+    <button class="btn-s" onclick="showGal()">结局图鉴</button>
+  </div>
+
+  <!-- ===== 加载 ===== -->
+  <div id="loadingScreen" class="screen">
+    <div class="spinner"></div>
+    <div class="load-t">正在编织故事…</div>
+  </div>
+
+  <!-- ===== 人格简介 ===== -->
+  <div id="introScreen" class="screen">
+    <div class="intro-h">
+      <div class="code" id="iCode">ISTP</div>
+      <div class="name" id="iName">鉴赏家</div>
+      <div class="theme" id="iTheme"></div>
+    </div>
+    <div class="intro-k">
+      <div class="l">关于 TA</div>
+      <div class="v" id="iKey"></div>
+    </div>
+    <div class="intro-s"><div class="l">藏在心里的</div><div class="v" id="iNeed"></div></div>
+    <div class="intro-s"><div class="l">无声的边界</div><div class="v" id="iMine"></div></div>
+    <div class="intro-s"><div class="l">暗流</div><div class="v" id="iConflict"></div></div>
+    <button class="btn-p" onclick="startGame()" style="margin-top:12px">开始重来</button>
+    <button class="btn-s" onclick="backStart()">返回</button>
+  </div>
+
+  <!-- ===== 游戏画面 ===== -->
+  <div id="gameScreen" class="screen">
+    <div class="gh">
+      <div class="gh-t">
+        <div class="gh-p">
+          <span class="c" id="ghCode">ISTP</span>
+          <span class="n" id="ghName">鉴赏家</span>
+        </div>
+        <span class="gh-d" id="ghDiff">理想线</span>
+      </div>
+      
+    </div>
+    <div class="chat" id="chat"></div>
+    <div class="oa hidden" id="oa">
+    <div id="pauseBtn" style="display:none">
+      <button class="ob" id="continueBtn" onclick="U.cont()" style="text-align:center;letter-spacing:3px;color:var(--text-dim)">回应 TA</button>
+    </div>
+    <div id="optC"></div>
+  </div>
+  </div>
+
+  <!-- ===== 结局/复盘 ===== -->
+  <div id="endScreen" class="screen">
+    <div class="end-hd">
+<div class="code" id="eCode">ISTP</div>
+      <div class="title" id="eTitle">💔 被动模式</div>
+    </div>
+    <div id="endNarrArea"><div class="end-narr" id="eNarr"></div></div>
+    <div id="endMonoArea" style="display:none"><div class="end-mono" id="eMono"></div></div>
+    <div id="endBtnArea" style="display:none"><button class="btn-p" onclick="showEndResult()" style="margin-top:12px">查看结果</button></div>
+    <div id="endResultArea" style="display:none">
+      <div class="end-t" id="eText"></div>
+      <div class="rs"><h3>信任值变化</h3><div id="tChart"></div></div>
+      <div class="rs"><h3>关键数据</h3><div id="stats"></div></div>
+      <div class="end-act">
+        <button class="btn-r" onclick="restartSame()">重来</button>
+        <button class="btn-b" onclick="backStart()">返回主菜单</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 图鉴 ===== -->
+  <div id="galleryScreen" class="screen">
+    <div class="gal-h">
+      <h2>结局图鉴</h2>
+      <button class="gal-bk" onclick="backStart()">← 返回</button>
+    </div>
+    <div id="galC"></div>
+  </div>
+
+</div>
+
+<script src="GameEngine.js?v=7a5afe5"></script>
+<script>
+const DL={cache:{},async load(p){if(this.cache[p])return this.cache[p];const r=await fetch(`scripts/${p}.json`);const d=await r.json();this.cache[p]=d;return d}};
+
+const U={g:null,selG:null,selD:'理想线',
+  scr(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active')},
+  clr(){document.getElementById('chat').innerHTML=''},
+  _t(s){if(!s)return s;const g=this.g?.state?.partnerGender||'male';return s.replace(/\{TA\}/g,g==='male'?'他':'她').replace(/\{TA的\}/g,g==='male'?'他的':'她的').replace(/\{TA自己\}/g,g==='male'?'他自己':'她自己')},
+  bub(t,txt){const a=document.getElementById("chat"),d=document.createElement("div");d.className="b "+t;if(t==="nar"){var ps=this._t(txt).split(/\n/).filter(function(p){return p.trim()});d.innerHTML="<div class=\'t\'>"+ps.map(function(p){return"<p style=\'margin-bottom:0.6em;line-height:1.9\'>"+p+"</p>"}).join("")+"</div>"}else{d.innerHTML="<div class=\'t\'>"+this._t(txt)+"</div>"}a.appendChild(d);a.scrollTop=a.scrollHeight;return d},
+  tr(v){document.getElementById('tb').style.width=v+'%';document.getElementById('tv').textContent=v;const l=document.getElementById('tlv');l.textContent=v>=85?'信任':v>=70?'亲近':v>=50?'平淡':'疏远'},
+  op(opts){const c=document.getElementById('optC'),a=document.getElementById('oa');c.innerHTML='';a.classList.remove('hidden');opts.forEach((o,i)=>{const b=document.createElement('button');b.className='ob'+(o.condition?' dis':'');b.textContent=`${['A','B','C'][i]}. ${o.text||''}`;b.onclick=()=>this.pk(i,o.id);c.appendChild(b)})},
+  hide(){document.getElementById('oa').classList.add('hidden')},
+  async pk(i,id){if(!this.g)return;this.hide();const d=await DL.load(this.g.state.personality),s=d.scenes[this.g.state.currentScene],o=s?.options?.find(x=>x.id===id);if(o){this.bub("pl",o.text||"");await sl(200);if(o.reaction){this.bub("re",o.reaction);await sl(400)}}this.g.setSkipEnter(true);const r=await this.g.chooseOption(id);if(r&&typeof r==="string"&&r.includes("E-")){this.end(r)}else if(r&&r.nextScene){U._pendingAdvance=r;document.getElementById("oa").classList.remove("hidden");document.getElementById("pauseBtn").style.display="block";document.getElementById("continueBtn").textContent="在那之后…";document.getElementById("optC").innerHTML=""}},
+  async end(code){
+  const d=this.g.state;const s=await DL.load(d.personality);const pid=d.personality;
+  GameEngine.saveEndingToGallery(pid,code,d.trust);this.scr('endScreen');
   const ecd=code;const em={'BE-1':'💔','BE-2':'💔','BE-3':'💔','NE-1':'🌊','GE-1':'🔥','PE-1':'✨'};
   const nm={'BE-1':'被动模式','BE-2':'工具箱关闭','BE-3':'你留下的是功能','NE-1':'冰层融化','GE-1':'行动被看见','PE-1':'不用解释的回应'};
   document.getElementById('eCode').textContent=pid;
