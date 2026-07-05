@@ -18,8 +18,8 @@
     --accent:#c47a7a;
     --accent-soft:rgba(196,122,122,0.12);
     --text:#e8e6e3;
-    --text-dim:rgba(232,230,227,0.4);
-    --text-dimmer:rgba(232,230,227,0.25);
+    --text-dim:rgba(232,230,227,0.75);
+    --text-dimmer:rgba(232,230,227,0.55);
     --gold:#c4a67a;
     --gold-soft:rgba(196,166,122,0.1);
     --radius:12px;
@@ -168,7 +168,7 @@
     transition:all .3s;
     margin-top:10px;
   }
-  .btn-s:hover{border-color:var(--border-hover);color:var(--text-dim)}
+  .btn-s:hover{border-color:var(--border-hover);color:var(--text)}
 
   #genderNote{
     margin:0 0 8px;
@@ -209,7 +209,7 @@
     margin-bottom:12px;
   }
   .intro-s .l{font-size:10px;color:var(--text-dimmer);letter-spacing:2px;margin-bottom:8px;font-weight:300;text-transform:uppercase}
-  .intro-s .v{font-size:13px;color:var(--text-dim);line-height:1.8;letter-spacing:0.5px}
+  .intro-s .v{font-size:13px;color:var(--text);line-height:1.8;letter-spacing:0.5px}
 
   /* ===== 游戏画面 ===== */
   #gameScreen{position:relative}
@@ -238,7 +238,7 @@
 
   .tb{height:2px;background:rgba(255,255,255,0.04);border-radius:1px;overflow:hidden}
   .tb-in{height:100%;border-radius:1px;transition:width .8s cubic-bezier(.4,0,.2,1);background:linear-gradient(90deg,var(--accent),var(--gold))}
-  .tl{display:flex;justify-content:space-between;font-size:10px;color:var(--text-dimmer);margin-top:5px;letter-spacing:0.5px}
+  .tl{display:flex;justify-content:space-between;font-size:10px;color:var(--text-dim);margin-top:5px;letter-spacing:0.5px}
 
   .chat{
     flex:1;
@@ -279,8 +279,8 @@
     font-weight:300;
   }
   .b.nar{text-align:center;margin:8px 0}
-  .b.nar .t{font-size:13px;color:var(--text-dimmer);line-height:1.9;padding:4px;font-style:italic;letter-spacing:0.5px}
-  .b.re{font-size:12px;color:var(--text-dimmer);padding:0 4px 4px;letter-spacing:0.5px}
+  .b.nar .t{font-size:13px;color:var(--text-dim);line-height:1.9;padding:4px;font-style:italic;letter-spacing:0.5px}
+  .b.re{font-size:12px;color:var(--text-dim);padding:0 4px 4px;letter-spacing:0.5px}
   .b.fade{animation:fIn .5s ease}
   @keyframes fIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 
@@ -324,7 +324,7 @@
   .end-hd .emoji{font-size:48px;margin-bottom:8px;opacity:.6}
   .end-hd .code{font-size:10px;color:var(--text-dimmer);letter-spacing:2px;margin-bottom:6px}
   .end-hd .title{font-family:var(--font-serif);font-size:24px;font-weight:300;letter-spacing:4px;color:var(--text)}
-  .end-t{font-size:13px;color:var(--text-dim);line-height:2;max-width:380px;margin:0 auto 28px;text-align:left;white-space:pre-wrap;letter-spacing:0.5px}
+  .end-t{font-size:13px;color:var(--text);line-height:2;max-width:380px;margin:0 auto 28px;text-align:left;white-space:pre-wrap;letter-spacing:0.5px}
 
   .rs{border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;margin-bottom:14px}
   .rs h3{font-size:10px;color:var(--text-dimmer);letter-spacing:2px;font-weight:300;margin-bottom:12px;text-transform:uppercase}
@@ -339,7 +339,7 @@
   .ch-item{padding:8px 0;border-bottom:1px solid rgba(255,255,255,.03)}
   .ch-item:last-child{border:none}
   .ch-item .sc{font-size:10px;color:var(--text-dimmer);letter-spacing:1px}
-  .ch-item .tx{font-size:12px;color:var(--text-dim);margin:3px 0;line-height:1.5;font-weight:300}
+  .ch-item .tx{font-size:12px;color:var(--text);margin:3px 0;line-height:1.5;font-weight:300}
   .ch-item .delta{font-size:11px}
   .ch-item .delta.p{color:var(--gold)}.ch-item .delta.n{color:var(--accent)}
 
@@ -362,7 +362,7 @@
   .gal-h h2{font-family:var(--font-serif);font-size:20px;font-weight:300;letter-spacing:4px;flex:1}
   .gal-bk{font-size:12px;color:var(--text-dimmer);cursor:pointer;background:none;border:none;font-family:var(--font-sans);letter-spacing:1px;transition:color .3s}
   .gal-bk:hover{color:var(--text-dim)}
-  .gal-emp{text-align:center;color:var(--text-dimmer);font-size:13px;line-height:2;padding:48px 0;font-weight:300}
+  .gal-emp{text-align:center;color:var(--text-dim);font-size:13px;line-height:2;padding:48px 0;font-weight:300}
   .gal-p{border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;margin-bottom:10px}
   .gal-p .hd{display:flex;align-items:baseline;gap:8px;margin-bottom:8px}
   .gal-p .hd .c{font-size:13px;color:var(--text);letter-spacing:1px}
