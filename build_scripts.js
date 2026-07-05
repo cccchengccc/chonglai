@@ -241,11 +241,15 @@ function extractSceneData(mdContent) {
       continue;
     }
 
-    // 累积叙事文本
-    if (section === 'narrative' && line.trim()) {
-      // 跳过纯场景元数据
+    // 累积叙事文本（保留空行为段落分隔）
+    if (section === 'narrative') {
       if (!line.startsWith('【') && !line.startsWith('场景 ')) {
-        scenes[currentScene].narrative += line + '\n';
+        if (line.trim()) {
+          scenes[currentScene].narrative += line + '\n';
+        } else {
+          // 空行 = 段落分隔
+          scenes[currentScene].narrative += '\n';
+        }
       }
     }
 
@@ -302,14 +306,6 @@ function extractSceneData(mdContent) {
     if (conditions.length > 0) {
       scene.onEnter = { conditions };
       scene.dialogue = '';  // 由onEnter条件决定对话
-    }
-  }
-
-  // 叙事文本自动分段：按。！？拆分长句
-  for (const sid of Object.keys(scenes)) {
-    const s = scenes[sid];
-    if (s.narrative) {
-      s.narrative = s.narrative.replace(/([。！？」」])(?!\n)/g, '$1\n\n');
     }
   }
 
