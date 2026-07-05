@@ -516,7 +516,7 @@
 
 </div>
 
-<script src="GameEngine.js"></script>
+<script src="GameEngine.js?v=7a5afe5"></script>
 <script>
 const DL={cache:{},async load(p){if(this.cache[p])return this.cache[p];const r=await fetch(`scripts/${p}.json`);const d=await r.json();this.cache[p]=d;return d}};
 
@@ -565,7 +565,7 @@ function backStart(){U.scr('startScreen');U.g=null}
 
 async function startGame(){const p=document.getElementById('selP').value,d=U.selD,g=U.selG;if(!p||!g)return;U.scr('loadingScreen');U.g=new GameEngine(DL);const dt=await DL.load(p);document.getElementById('ghCode').textContent=p;document.getElementById('ghName').textContent=dt.meta.name;const de=document.getElementById('ghDiff');de.textContent=d;de.className=d==='现实线'?'gh-d rl':'gh-d';U.g.subscribe(e=>{if(e.type==='scene'&&U._skipAdvance){U._pendingRender={id:e.sceneId,scene:e.scene}}else if(e.type==='scene'){U.render(e.sceneId,e.scene)}if(e.type==='choice'&&e.nextScene&&!e.nextScene.startsWith('__')){}});U.scr('gameScreen');U.clr();await U.g.startGame(p,d,g)}
 
-function restartSame(){U._pendingAdvance=null;U._pendingRender=null;U._skipAdvance=false;U._pendingOpts=[];document.getElementById("pauseBtn").style.display="none";startGame()}
+function restartSame(){U._pendingAdvance=null;U._pendingRender=null;U._skipAdvance=false;U._pendingOpts=[];document.getElementById("pauseBtn").style.display="none";goIntro()}
 function sl(ms){return new Promise(r=>setTimeout(r,ms))}
 
 function showGal(){const g=GameEngine.getGallery();U.scr('galleryScreen');const c=document.getElementById('galC');const LB={'BE-1':'💔 被动模式','BE-2':'💔 工具箱关闭','BE-3':'💔 你留下的是功能','NE-1':'🌊 冰层融化','GE-1':'🔥 行动被看见','PE-1':'✨ 不用解释的回应'};const CS={'BE-1':'b','BE-2':'b','BE-3':'b','NE-1':'n','GE-1':'g','PE-1':'p'};const NM={'ISTJ':'物流师','ISFJ':'守卫者','INFJ':'提倡者','INTJ':'建筑师','ISTP':'鉴赏家','ISFP':'探险家','INFP':'调停者','INTP':'逻辑学家','ESTP':'企业家','ESFP':'表演者','ENFP':'竞选者','ENTP':'辩论家','ESTJ':'总经理','ESFJ':'执政官','ENFJ':'主人公','ENTJ':'指挥官'};const ks=Object.keys(g);if(!ks.length){c.innerHTML='<div class="gal-emp">还没有解锁任何结局<br>去挽回 TA 吧</div>';return}let h='';ks.forEach(k=>{const es=g[k]||[];h+=`<div class="gal-p"><div class="hd"><span class="c">${k}</span><span class="nm">${NM[k]||''}</span></div><div class="gal-bs">${es.map(e=>`<span class="gal-b ${CS[e.ending]||'b'}">${LB[e.ending]||e.ending}</span>`).join('')}</div><div class="gal-ft"><span>已解锁 ${es.length}/6</span><span>${Math.round(es.length/6*100)}%</span></div></div>`});c.innerHTML=h}
