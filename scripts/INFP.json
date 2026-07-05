@@ -135,7 +135,7 @@
       "title": "作品被评价",
       "type": "free_roam",
       "narrative": "{TA}给你看了一篇{TA}最近写的东西——不是完整的，是片段。{TA}说：“我还没想好要不要写完。”\r\n你看完之后，{TA}轻声问了一句：\r\n",
-      "dialogue": "INFP（受 F-02 状态影响）：\n若 F-02 为“已触发”：“……你看完的时候，没有说‘好’或‘不好’。你只是看了。”\n若 F-02 为“未触发”：“……你觉得怎么样？”\n",
+      "dialogue": "",
       "sceneHint": "",
       "options": [
         {
@@ -186,7 +186,18 @@
           "fatalError": null
         }
       ],
-      "onEnter": null,
+      "onEnter": {
+        "conditions": [
+          {
+            "check": "plotFlags[\"F-02\"]===\"已触发\"",
+            "dialogue": "……你看完的时候，没有说‘好’或‘不好’。你只是看了。"
+          },
+          {
+            "check": "plotFlags[\"F-02\"]===\"未触发\"",
+            "dialogue": "……你觉得怎么样？"
+          }
+        ]
+      },
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-02",
       "condition": "无"
@@ -318,7 +329,7 @@
       "title": "旧诗歌",
       "type": "free_roam",
       "narrative": "你翻到一本很旧的本子——不是日记，是一本诗歌抄录本。里面都是{TA}抄下来的别人的诗，但在每一页的空白处，有{TA}用铅笔写的小字。有的是回应，有的是“我也这样想过”，有的是“这句话我想了很久”。\r\n其中一首诗的旁边，{TA}用铅笔写了一句很轻的话：“有一天，我想写一首不需要解释的诗。”\r\n你问{TA}：“你写了吗？”\r\n{TA}看了一眼：\r\n",
-      "dialogue": "INFP（受 F-02 状态影响）：\n若 F-02 为“已触发”：“……还没写。但最近有在想。因为有人说{TA}愿意走进我的‘如果’。”\n若 F-02 为“未触发”：“……还没写。可能永远也不会写。”\n",
+      "dialogue": "",
       "sceneHint": "",
       "options": [
         {
@@ -369,7 +380,18 @@
           "fatalError": null
         }
       ],
-      "onEnter": null,
+      "onEnter": {
+        "conditions": [
+          {
+            "check": "plotFlags[\"F-02\"]===\"已触发\"",
+            "dialogue": "……还没写。但最近有在想。因为有人说{TA}愿意走进我的‘如果’。"
+          },
+          {
+            "check": "plotFlags[\"F-02\"]===\"未触发\"",
+            "dialogue": "……还没写。可能永远也不会写。"
+          }
+        ]
+      },
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-02",
       "condition": "无"
@@ -501,7 +523,7 @@
       "title": "被误解",
       "type": "free_roam",
       "narrative": "{TA}今天状态不太好。{TA}说：“今天有人说我‘太理想主义了’。说我不切实际。”\r\n{TA}停了一下，然后问了你一句：\r\n",
-      "dialogue": "INFP（受 F-01 和 F-03 状态影响）：\n若 F-01 为“已触发”且 F-03 为“已触发”：“……我想了一下——‘不切实际’对我来说，是什么意思。我以前觉得那是缺点。现在我在想，那是不是我的另一种语言。”\n若未触发以上组合：“……不切实际就是‘想太多’的意思吧。我确实想太多了。”\n",
+      "dialogue": "",
       "sceneHint": "",
       "options": [
         {
@@ -552,7 +574,18 @@
           "fatalError": null
         }
       ],
-      "onEnter": null,
+      "onEnter": {
+        "conditions": [
+          {
+            "check": "plotFlags[\"F-01\"]===\"已触发\" && plotFlags[\"F-03\"]===\"已触发\"",
+            "dialogue": "……我想了一下——‘不切实际’对我来说，是什么意思。我以前觉得那是缺点。现在我在想，那是不是我的另一种语言。"
+          },
+          {
+            "check": "true",
+            "dialogue": "……不切实际就是‘想太多’的意思吧。我确实想太多了。"
+          }
+        ]
+      },
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-03",
       "condition": "无"

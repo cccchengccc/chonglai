@@ -133,7 +133,7 @@
       "title": "冲动被劝阻",
       "type": "free_roam",
       "narrative": "{TA}说{TA}“想去一个地方”——听起来完全是临时起意。{TA}说的时候眼睛是亮的，像是刚想到。然后{TA}停了一下，看了你一眼，声音低了一点：\r\n",
-      "dialogue": "ESTP（受 F-02 状态影响）：\n若 F-02 为“已触发”：“……你想去吗？”\n若 F-02 为“未触发”或“未触发”：“……算了。可能不太方便。”\n",
+      "dialogue": "",
       "sceneHint": "",
       "options": [
         {
@@ -184,7 +184,18 @@
           "fatalError": null
         }
       ],
-      "onEnter": null,
+      "onEnter": {
+        "conditions": [
+          {
+            "check": "plotFlags[\"F-02\"]===\"已触发\"",
+            "dialogue": "……你想去吗？"
+          },
+          {
+            "check": "plotFlags[\"F-02\"]===\"未触发\" || plotFlags[\"F-02\"]===\"未触发\"",
+            "dialogue": "……算了。可能不太方便。"
+          }
+        ]
+      },
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-02",
       "condition": "无"
@@ -314,7 +325,7 @@
       "title": "旧票根",
       "type": "free_roam",
       "narrative": "你在{TA}抽屉里发现一张很旧的票根——不是电影票，不是火车票，是一张入场券，地点你从来没听说过，日期是很久以前的。票根被夹在一本笔记本里，平整，没有折痕。\r\n你问{TA}：“这是什么地方？”\r\n{TA}看了一眼：\r\n",
-      "dialogue": "ESTP（受 F-02 状态影响）：\n若 F-02 为“已触发”：“……那是我一个人去的一个地方。那天我没有告诉任何人。我回来之后也没有说。但我留着那张票——因为那天我自己站了一会儿。”\n若 F-02 为“未触发”：“……一个很早以前去的地方。当时没想那么多就去了。”\n",
+      "dialogue": "",
       "sceneHint": "",
       "options": [
         {
@@ -365,7 +376,18 @@
           "fatalError": null
         }
       ],
-      "onEnter": null,
+      "onEnter": {
+        "conditions": [
+          {
+            "check": "plotFlags[\"F-02\"]===\"已触发\"",
+            "dialogue": "……那是我一个人去的一个地方。那天我没有告诉任何人。我回来之后也没有说。但我留着那张票——因为那天我自己站了一会儿。"
+          },
+          {
+            "check": "plotFlags[\"F-02\"]===\"未触发\"",
+            "dialogue": "……一个很早以前去的地方。当时没想那么多就去了。"
+          }
+        ]
+      },
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-02",
       "condition": "无"
@@ -497,7 +519,7 @@
       "title": "被限制行动",
       "type": "free_roam",
       "narrative": "你说了一句：“你能不能先想好再去？”——{TA}正在穿鞋。{TA}停住了。不是“生气”的停，是“被按住了”的停。然后{TA}说：\r\n",
-      "dialogue": "ESTP（受 F-01 和 F-04 状态影响）：\n若 F-01 为“已触发”且 F-04 为“已触发”：“……你刚才说的‘想好’——是想好路线，还是想好‘为什么要去’？”\n若未触发以上组合：“……你说的‘想好’是指什么？我带上导航算想好了吗？”\n",
+      "dialogue": "",
       "sceneHint": "",
       "options": [
         {
@@ -548,7 +570,18 @@
           "fatalError": null
         }
       ],
-      "onEnter": null,
+      "onEnter": {
+        "conditions": [
+          {
+            "check": "plotFlags[\"F-01\"]===\"已触发\" && plotFlags[\"F-04\"]===\"已触发\"",
+            "dialogue": "……你刚才说的‘想好’——是想好路线，还是想好‘为什么要去’？"
+          },
+          {
+            "check": "true",
+            "dialogue": "……你说的‘想好’是指什么？我带上导航算想好了吗？"
+          }
+        ]
+      },
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-04",
       "condition": "无"

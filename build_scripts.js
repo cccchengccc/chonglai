@@ -283,17 +283,19 @@ function extractSceneData(mdContent) {
     for (const line of lines) {
       const tl = line.trim();
       if (!tl) continue;
+      // 引号集合：直引号" + 中文弯引号""
+      var qq = '["\'"\\u201c\\u201d]'; // 构建regex来源
       // 双条件: 若 F-XX 为"状态"且 F-YY 为"状态"："text"
-      let m = tl.match(/^若 (F-\d+) 为["']([^"']+)["']且 (F-\d+) 为["']([^"']+)["']：?["']([^"']*)["']/);
+      let m = tl.match(new RegExp('^若 (F-\\d+) 为'+qq+'([^"\\u201c\\u201d]+)'+qq+'且 (F-\\d+) 为'+qq+'([^"\\u201c\\u201d]+)'+qq+'：?'+qq+'([^"\\u201c\\u201d]*)'+qq));
       if (m) { conditions.push({check: 'plotFlags["'+m[1]+'"]==="'+m[2]+'" && plotFlags["'+m[3]+'"]==="'+m[4]+'"', dialogue: m[5]}); continue; }
       // 单条件: 若 F-XX 为"状态"："text"
-      m = tl.match(/^若 (F-\d+) 为["']([^"']+)["']：?["']([^"']*)["']/);
+      m = tl.match(new RegExp('^若 (F-\\d+) 为'+qq+'([^"\\u201c\\u201d]+)'+qq+'：?'+qq+'([^"\\u201c\\u201d]*)'+qq));
       if (m) { conditions.push({check: 'plotFlags["'+m[1]+'"]==="'+m[2]+'"', dialogue: m[3]}); continue; }
       // 默认: 若未触发以上组合："text"
-      m = tl.match(/^若未触发以上组合：?["']([^"']*)["']/);
+      m = tl.match(new RegExp('^若未触发以上组合：?'+qq+'([^"\\u201c\\u201d]*)'+qq));
       if (m) { conditions.push({check: 'true', dialogue: m[1]}); continue; }
       // 或条件: 若 F-XX 为"状态1"或"状态2"："text"
-      m = tl.match(/^若 (F-\d+) 为["']([^"']+)["']或["']([^"']+)["']：?["']([^"']*)["']/);
+      m = tl.match(new RegExp('^若 (F-\\d+) 为'+qq+'([^"\\u201c\\u201d]+)'+qq+'或'+qq+'([^"\\u201c\\u201d]+)'+qq+'：?'+qq+'([^"\\u201c\\u201d]*)'+qq));
       if (m) { conditions.push({check: 'plotFlags["'+m[1]+'"]==="'+m[2]+'" || plotFlags["'+m[1]+'"]==="'+m[3]+'"', dialogue: m[4]}); continue; }
     }
 

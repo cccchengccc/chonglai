@@ -133,7 +133,7 @@
       "title": "理论被质疑",
       "type": "free_roam",
       "narrative": "{TA}今天情绪不太好——不是低落，是“被堵住”的那种。你问{TA}，{TA}说：“我在一个论坛上说了我的想法——结果好几个人说我的逻辑有问题。”\r\n{TA}没有生气。{TA}说这话的时候很平，像是“我在报告一个数据”：\r\n",
-      "dialogue": "INTP（受 F-02 状态影响）：\n若 F-02 为“已触发”：“……{TA}们说的其中一点，我其实在上个月自己推翻过。但{TA}们不知道。我也没有写进去。”\n若 F-02 为“未触发”：“……算了。可能真的是我逻辑有问题。”\n",
+      "dialogue": "",
       "sceneHint": "",
       "options": [
         {
@@ -186,7 +186,18 @@
           "fatalError": null
         }
       ],
-      "onEnter": null,
+      "onEnter": {
+        "conditions": [
+          {
+            "check": "plotFlags[\"F-02\"]===\"已触发\"",
+            "dialogue": "……{TA}们说的其中一点，我其实在上个月自己推翻过。但{TA}们不知道。我也没有写进去。"
+          },
+          {
+            "check": "plotFlags[\"F-02\"]===\"未触发\"",
+            "dialogue": "……算了。可能真的是我逻辑有问题。"
+          }
+        ]
+      },
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-02",
       "condition": "无"
@@ -318,7 +329,7 @@
       "title": "旧文档",
       "type": "free_roam",
       "narrative": "你翻到{TA}电脑上一个很久以前的文档——文件名是“关于XX的思考（未完成）”。日期是很久以前的。打开来看，里面是一堆没写完的句子，中间有很多空白，最后一行写着：“我还没有想清楚，但我想先记下来。”\r\n你问{TA}：“你还会回去看这种‘没想清楚’的东西吗？”\r\n{TA}看了一眼：\r\n",
-      "dialogue": "INTP（受 F-03 状态影响）：\n若 F-03 为“已触发”：“……以前不会。但最近会。因为有人告诉我‘未完成’也可以被看到。”\n若 F-03 为“未触发”：“……不会。写了就是写了。不会再看了。”\n",
+      "dialogue": "",
       "sceneHint": "",
       "options": [
         {
@@ -369,7 +380,18 @@
           "fatalError": null
         }
       ],
-      "onEnter": null,
+      "onEnter": {
+        "conditions": [
+          {
+            "check": "plotFlags[\"F-03\"]===\"已触发\"",
+            "dialogue": "……以前不会。但最近会。因为有人告诉我‘未完成’也可以被看到。"
+          },
+          {
+            "check": "plotFlags[\"F-03\"]===\"未触发\"",
+            "dialogue": "……不会。写了就是写了。不会再看了。"
+          }
+        ]
+      },
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-03",
       "condition": "无"
@@ -501,7 +523,7 @@
       "title": "被要求承诺",
       "type": "free_roam",
       "narrative": "你们在聊一件关于未来的事。你问了{TA}一个问题——不是很大，但需要{TA}做出一个表态。{TA}安静了很久，然后说：\r\n",
-      "dialogue": "INTP（受 F-01 和 F-04 状态影响）：\n若 F-01 为“已触发”且 F-04 为“已触发”：“……我没办法现在就给你答案。我需要想一下。不是因为它不重要——是因为它很重要。”\n若未触发以上组合：“……我不知道。下次再说？”\n",
+      "dialogue": "",
       "sceneHint": "",
       "options": [
         {
@@ -552,7 +574,18 @@
           "fatalError": null
         }
       ],
-      "onEnter": null,
+      "onEnter": {
+        "conditions": [
+          {
+            "check": "plotFlags[\"F-01\"]===\"已触发\" && plotFlags[\"F-04\"]===\"已触发\"",
+            "dialogue": "……我没办法现在就给你答案。我需要想一下。不是因为它不重要——是因为它很重要。"
+          },
+          {
+            "check": "true",
+            "dialogue": "……我不知道。下次再说？"
+          }
+        ]
+      },
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-04",
       "condition": "无"

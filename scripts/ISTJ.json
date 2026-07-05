@@ -133,7 +133,7 @@
       "title": "计划被打乱",
       "type": "free_roam",
       "narrative": "你们本来有一个计划——{TA}安排好了时间、地点、路线。然后在出发前，一个突发状况打乱了所有安排。你在等{TA的}反应——{TA}通常会快速调整，重新规划。但今天{TA}没有。{TA}只是站在那里，看着手机，安静了很久。\r\n然后{TA}开口了：\r\n",
-      "dialogue": "ISTJ（受 F-02 状态影响）：\n若 F-02 为“已触发”：“……计划被打乱了。我需要重新排。”\n若 F-02 为“未触发”：“……算了。下次再说吧。”\n",
+      "dialogue": "",
       "sceneHint": "",
       "options": [
         {
@@ -184,7 +184,18 @@
           "fatalError": null
         }
       ],
-      "onEnter": null,
+      "onEnter": {
+        "conditions": [
+          {
+            "check": "plotFlags[\"F-02\"]===\"已触发\"",
+            "dialogue": "……计划被打乱了。我需要重新排。"
+          },
+          {
+            "check": "plotFlags[\"F-02\"]===\"未触发\"",
+            "dialogue": "……算了。下次再说吧。"
+          }
+        ]
+      },
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-02",
       "condition": "无"
@@ -314,7 +325,7 @@
       "title": "旧日程本",
       "type": "free_roam",
       "narrative": "你翻到{TA}书柜里一本很旧的本子——不是日记，是{TA}多年前的日程本。每一页都写满了：几点到几点做什么、见了谁、完成了什么。字迹很整齐，像印刷体。\r\n你翻到其中一页，看到一行字：“{TA}那天说了‘改天’。我等了三个星期。”\r\n你问{TA}：“这个是什么？”\r\n{TA}看了一眼：\r\n",
-      "dialogue": "ISTJ（受 F-01 状态影响）：\n若 F-01 为“已触发”：“……那是几年前的事了。你说‘改天一起去看’。我等了三周。后来我自己去了。”\n若 F-01 为“未触发”：“……以前的记录。没什么。”\n",
+      "dialogue": "",
       "sceneHint": "",
       "options": [
         {
@@ -365,7 +376,18 @@
           "fatalError": null
         }
       ],
-      "onEnter": null,
+      "onEnter": {
+        "conditions": [
+          {
+            "check": "plotFlags[\"F-01\"]===\"已触发\"",
+            "dialogue": "……那是几年前的事了。你说‘改天一起去看’。我等了三周。后来我自己去了。"
+          },
+          {
+            "check": "plotFlags[\"F-01\"]===\"未触发\"",
+            "dialogue": "……以前的记录。没什么。"
+          }
+        ]
+      },
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-01",
       "condition": "无"
@@ -497,7 +519,7 @@
       "title": "被要求承诺",
       "type": "free_roam",
       "narrative": "你问{TA}一个关于未来的问题——不是大事，但需要{TA}给一个明确的时间。{TA}安静了一会儿，然后说：\r\n",
-      "dialogue": "ISTJ（受 F-01 和 F-04 状态影响）：\n若 F-01 为“已触发”且 F-04 为“已触发”：“……我需要确认一下日历。不是因为不想答应——是因为如果答应了，我想确定我做得到。”\n若未触发以上组合：“……再说吧。到时候看。”\n",
+      "dialogue": "",
       "sceneHint": "",
       "options": [
         {
@@ -548,7 +570,18 @@
           "fatalError": null
         }
       ],
-      "onEnter": null,
+      "onEnter": {
+        "conditions": [
+          {
+            "check": "plotFlags[\"F-01\"]===\"已触发\" && plotFlags[\"F-04\"]===\"已触发\"",
+            "dialogue": "……我需要确认一下日历。不是因为不想答应——是因为如果答应了，我想确定我做得到。"
+          },
+          {
+            "check": "true",
+            "dialogue": "……再说吧。到时候看。"
+          }
+        ]
+      },
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-04",
       "condition": "无"
