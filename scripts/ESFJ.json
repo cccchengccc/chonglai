@@ -133,7 +133,7 @@
       "title": "聚会冷场",
       "type": "free_roam",
       "narrative": "你们在一个聚会上。大家聊着聊着，忽然出现了几秒钟的沉默——不是那种“大家都有话要说”的沉默，是那种“谁都不知道下一句该接什么”的尴尬。\r\n你注意到{TA}动了一下，几乎要开口了——然后又停住了。{TA}端起杯子喝了一口水，没有去填那个空。\r\n",
-      "dialogue": "",
+      "dialogue": "ESFJ（受 F-01 状态影响）：\n若 F-01 为“已触发”：“……我在练习不替所有人填每一个空。有点不习惯。”\n若 F-01 为“未触发”或“未触发”：“……我本来想说话的。但我在想，是不是可以不说。”\n",
       "sceneHint": "",
       "options": [
         {
@@ -184,14 +184,7 @@
           "fatalError": null
         }
       ],
-      "onEnter": {
-        "conditions": [
-          {
-            "check": "plotFlags[\"F-01\"] === \"已触发\"",
-            "dialogue": "……我在练习不替所有人填每一个空。有点不习惯。"
-          }
-        ]
-      },
+      "onEnter": null,
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-01",
       "condition": "无"
@@ -321,7 +314,7 @@
       "title": "旧邀请函",
       "type": "free_roam",
       "narrative": "你翻到一本旧相册，里面夹着一张泛黄的邀请函——是{TA}多年前亲手写的，邀请大家去一个聚会。字迹很漂亮，措辞很用心。聚会本身的照片也在后面——所有人都在笑，气氛很好。\r\n你问{TA}：“你还留着这个？”\r\n{TA}看了一眼：\r\n",
-      "dialogue": "",
+      "dialogue": "ESFJ（受 F-02 状态影响）：\n若 F-02 为“已触发”：“……那是第一次有人跟我说‘你组织得真好’。我留着它，不是因为那次聚会多好——是那句话让我觉得我做这些是值得的。”\n若 F-02 为“未触发”：“……留着是因为我写了很久。后来很少写这样的东西了。”\n",
       "sceneHint": "",
       "options": [
         {
@@ -372,18 +365,7 @@
           "fatalError": null
         }
       ],
-      "onEnter": {
-        "conditions": [
-          {
-            "check": "plotFlags[\"F-02\"] === \"已触发\"",
-            "dialogue": "……那是第一次有人跟我说‘你组织得真好’。我留着它，不是因为那次聚会多好——是那句话让我觉得我做这些是值得的。"
-          },
-          {
-            "check": "plotFlags[\"F-02\"] === \"未触发\"",
-            "dialogue": "……留着是因为我写了很久。后来很少写这样的东西了。"
-          }
-        ]
-      },
+      "onEnter": null,
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-02",
       "condition": "无"
@@ -515,7 +497,7 @@
       "title": "被索取过度",
       "type": "free_roam",
       "narrative": "{TA}今天比平时更安静。你问{TA}“怎么了”，{TA}犹豫了一下才开口：\r\n",
-      "dialogue": "",
+      "dialogue": "ESFJ（受 F-02 和 F-04 状态影响）：\n若 F-02 为“已触发”且 F-04 为“已触发”：“……今天有人让我帮忙做一件很花时间的事。我本来想答应。但我想了一下——我选不帮。”\n若未触发以上组合：“……今天有人让我帮忙做一件很花时间的事。我不知道怎么拒绝。所以答应了。”\n",
       "sceneHint": "",
       "options": [
         {
@@ -566,18 +548,7 @@
           "fatalError": null
         }
       ],
-      "onEnter": {
-        "conditions": [
-          {
-            "check": "plotFlags[\"F-02\"] === \"已触发\" && plotFlags[\"F-04\"] === \"已触发\"",
-            "dialogue": "……今天有人让我帮忙做一件很花时间的事。我本来想答应。但我想了一下——我选不帮。"
-          },
-          {
-            "check": "true",
-            "dialogue": "……今天有人让我帮忙做一件很花时间的事。我不知道怎么拒绝。所以答应了。"
-          }
-        ]
-      },
+      "onEnter": null,
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-04",
       "condition": "无"
@@ -672,7 +643,7 @@
     },
     "PE-1": {
       "title": "不用安排的位置",
-      "text": "那本记录本有一页新内容。不是记录礼物的——是记录{TA自己}喜欢的东西。不是别人送给{TA的}，是“{TA}想要”的东西。{TA}在那一页的右下角写了一行小字：“以前我觉得把自己写进去太自私了。直到有人说‘你不需要安排什么’。原来我可以只以‘我’的形式被看见。”你后来在{TA的}书架上看到那本笔记本被打开，放在显眼的位置。{TA}在练习“不用安排也能被看见”。\r\nESFJ 内心独白：“我开始写‘我自己’了。不是别人送我的，是我想要的东西。原来那些也可以被写进去。”\r\n七、碎片记忆系统\r\n编号\t解锁条件\t碎片内容\r\n1\t触发 Anchor-01（看见停止）\t“{TA}说‘二十多次’——{TA}数了聚会次数。{TA}知道我组织的每一场。”\r\n2\t触发 Anchor-02（承认维系）\t“{TA}说‘你是选了做这些’——{TA}把主语还给我了。那些事不是我‘天生就会’——是我一直在选。”\r\n3\t触发 Anchor-03（接收记录）\t“{TA}翻开那本记录本。{TA}说‘你在看我有没有珍惜’——{TA}读到了那页真正在记录的东西。”\r\n4\t触发 Anchor-04（察觉减少）\t“{TA}说‘三次、两次、一次’——{TA}列出来了。{TA}知道我从哪里开始收手的。”\r\n5\t触发 Anchor-05（接住冷漠）\t“我问{TA}‘是在等我来挂吗’。{TA}说‘你挂了很多次’——{TA}承认了{TA}接受过。”\r\n6\t触发 Anchor-07（看见维系）\t“{TA}说‘你刚才没有去填那个空’——{TA}注意到我在练习停下来。”\r\n7\t触发 Anchor-09（边界回应）\t“我说‘我在练习说‘不’’——{TA}没有说‘你早该这样了’。{TA}说‘你在练习’。{TA}把那当成一种学习。”\r\n八、代码生成补充说明\r\n8.1 游离事件插入算法\r\ntext\r\n游戏启动时执行：\r\n1. 确定场景列表 = [S-01, S-02]\r\n2. 若难度 == 现实线，在 S-02 后插入 S-03\r\n3. 确定可用空位 = 当前场景列表长度 - 1 个间隙\r\n4. 对每个游离事件 (S-E1, S-E2, S-E3)：\r\n   a. 以 30% 概率决定是否出场\r\n   b. 若出场，在可用空位中随机选择一个位置插入\r\n   c. 从可用空位中移除该位置\r\n5. 添加 S-05/S-06（二选一，50%概率）\r\n6. 添加 S-07 至末尾\r\n8.2 前置伏笔状态判定逻辑\r\njavascript\r\nfunction getESFJLine(sceneId, flags) {\r\n  if (sceneId === \"S-E1\") {\r\n    if (flags[\"F-01\"] === \"已触发\") {\r\n      return \"……我在练习不替所有人填每一个空。有点不习惯。\";\r\n    } else {\r\n      return \"……我本来想说话的。但我在想，是不是可以不说。\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E2\") {\r\n    if (flags[\"F-02\"] === \"已触发\") {\r\n      return \"……那是第一次有人跟我说‘你组织得真好’。我留着它，不是因为那次聚会多好——是那句话让我觉得我做这些是值得的。\";\r\n    } else {\r\n      return \"……留着是因为我写了很久。后来很少写这样的东西了。\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E3\") {\r\n    if (flags[\"F-02\"] === \"已触发\" && flags[\"F-04\"] === \"已触发\") {\r\n      return \"……今天有人让我帮忙做一件很花时间的事。我本来想答应。但我想了一下——我选不帮。\";\r\n    } else {\r\n      return \"……今天有人让我帮忙做一件很花时间的事。我不知道怎么拒绝。所以答应了。\";\r\n    }\r\n  }\r\n  return \"\";\r\n}\r\n8.3 终局解锁条件\r\njavascript\r\nfunction canUnlockPE1(flags) {\r\n  return flags[\"Anchor-02\"] && flags[\"Anchor-03\"] && flags[\"Anchor-05\"];\r\n}\r\nfunction canUnlockPE1_alt(flags) {\r\n  return flags[\"Anchor-01\"] && flags[\"Anchor-04\"] && flags[\"Anchor-09\"];\r\n}\r\nfunction canUnlockPE1_both(flags) {\r\n  return canUnlockPE1(flags) || canUnlockPE1_alt(flags);\r\n}\r\n8.4 结局判定（双轨制：Flag锁定优先 + 信任值兜底）\r\njavascript\r\nfunction determineEnding(trust, flags, difficulty) {\r\n  if (trust < 30) return \"BE-1\";\r\n  if (trust >= 30 && trust < 50) return \"BE-2\";\r\n  if (trust >= 50 && trust < 60) return \"BE-3\";\r\n  if (trust >= 60 && trust < 70) return \"NE-1\";\r\n  if (trust >= 70 && trust < 85) return \"GE-1\";\r\n  if (trust >= 85 && difficulty === \"现实线\") {\r\n    const count = Object.values(flags).filter(v => v === true).length;\r\n    if (count >= 6 && flags[\"Anchor-02\"] && flags[\"Anchor-05\"] && flags[\"Anchor-06\"]) {\r\n      return \"PE-1\";\r\n    }\r\n    return \"GE-1\";\r\n  }\r\n  return \"GE-1\";\r\n}\r\nESFJ 剧本 END\n",
+      "text": "那本记录本有一页新内容。不是记录礼物的——是记录{TA自己}喜欢的东西。不是别人送给{TA的}，是“{TA}想要”的东西。{TA}在那一页的右下角写了一行小字：“以前我觉得把自己写进去太自私了。直到有人说‘你不需要安排什么’。原来我可以只以‘我’的形式被看见。”你后来在{TA的}书架上看到那本笔记本被打开，放在显眼的位置。{TA}在练习“不用安排也能被看见”。\r\nESFJ 内心独白：“我开始写‘我自己’了。不是别人送我的，是我想要的东西。原来那些也可以被写进去。”\r\n",
       "variants": {
         "F-01_triggered": "\n\n你注意到了{TA}停下的那个瞬间。那不是放弃——那是{TA}在等你发现。",
         "F-01_not_triggered": "\n\n你没有注意到{TA}是什么时候停下的。但{TA}还在。",

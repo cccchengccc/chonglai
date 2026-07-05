@@ -318,7 +318,7 @@
       "title": "家人干涉",
       "type": "free_roam",
       "narrative": "你妈妈给你打了个电话，声音很大——你忘了关免提。“那个人有什么好？天天加班，以后结婚了你一个人守着家？”\r\n{TA}正坐在旁边看书。{TA}翻了一页。手指没有抖。\r\n",
-      "dialogue": "",
+      "dialogue": "INTJ（受 F-01 状态影响）：\n若 F-01 为“已触发”：“……你妈说得对。你考虑一下。”\n若 F-01 为“未触发”：“……{TA}说的是事实。”\n",
       "sceneHint": "",
       "options": [
         {
@@ -369,18 +369,7 @@
           "fatalError": null
         }
       ],
-      "onEnter": {
-        "conditions": [
-          {
-            "check": "plotFlags[\"F-01\"] === \"已触发\"",
-            "dialogue": "……你妈说得对。你考虑一下。"
-          },
-          {
-            "check": "plotFlags[\"F-01\"] === \"未触发\"",
-            "dialogue": "……{TA}说的是事实。"
-          }
-        ]
-      },
+      "onEnter": null,
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-01",
       "condition": "无"
@@ -512,7 +501,7 @@
       "title": "旧物发现",
       "type": "free_roam",
       "narrative": "你在整理书柜时，发现了一个旧信封。里面是你刚开始谈恋爱时写给{TA的}第一张便签纸——“今天很开心，你笑起来还挺好看的”。\r\n{TA}保留了三年。纸已经发黄了，但没有任何折痕。\r\n",
-      "dialogue": "",
+      "dialogue": "INTJ（受 F-01 和 F-03 状态影响）：\n若 F-01 为“已触发”且 F-03 为“已触发”：“……我留着是因为它证明了一件事——你那时候就看见我了。”\n若未触发以上组合：“哦，忘了丢。”\n",
       "sceneHint": "",
       "options": [
         {
@@ -563,18 +552,7 @@
           "fatalError": null
         }
       ],
-      "onEnter": {
-        "conditions": [
-          {
-            "check": "plotFlags[\"F-01\"] === \"已触发\" && plotFlags[\"F-03\"] === \"已触发\"",
-            "dialogue": "……我留着是因为它证明了一件事——你那时候就看见我了。"
-          },
-          {
-            "check": "true",
-            "dialogue": "哦，忘了丢。"
-          }
-        ]
-      },
+      "onEnter": null,
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-03",
       "condition": "无"
@@ -669,7 +647,7 @@
     },
     "PE-1": {
       "title": "炽热共生",
-      "text": "凌晨两点，你手机亮了一下。是{TA}发来的一条语音消息。你点开，{TA的}声音有些生硬，甚至能听到{TA}清了清嗓子，像是在做某种极不擅长的自我暴露：\r\n“……今天谢谢你。还有，胃药我刚才吃了。你在沙发上给我留的那张字条……我看到了。上面写的‘如果太累就停下来，我在这里’——这句话，我接受了。还有，西藏我不会去。因为……我查了天气，那地方太干燥了，不适合你皮肤。你皮肤干燥会过敏。”\r\nINTJ 内心独白：“{TA}看见了全部的我——包括我最丑陋的失控。{TA}没有逃。{TA}是那个接住逻辑也接住混乱的人。如果不是{TA}，那就没有人了。”\r\n七、碎片记忆系统\r\n编号\t解锁条件\t碎片内容\r\n1\t触发 Anchor-01（被看见）\t“{TA}替我认领了那半句话。{TA}看到了我藏起来的东西。”\r\n2\t触发 Anchor-02（逻辑尊重）\t“{TA}问我数据模型的时候，眼睛是亮的。那种亮我见过——我自己照镜子的时候也有。”\r\n3\t触发 Anchor-03（共担重量）\t“我把计划表发给{TA的}时候，手指是冷的。比我想象的冷。我在怕什么？”\r\n4\t触发 Anchor-04（危机不逃）\t“{TA}理完线，说了声‘顺手’。我盯着那根线看了半分钟。{TA}学会了我的语言。”\r\n5\t触发 Anchor-05（接纳失序）\t“{TA}说‘我不关机’——我取消了西藏的收藏。因为我发现{TA}还会在。”\r\n6\t触发 Anchor-07（职场认同）\t“{TA}说‘你心里清楚’——{TA}知道我确实清楚。{TA}不是在安慰我。”\r\n7\t触发 Anchor-09（时间回响）\t“{TA}把新便签放进我包里。我看到的时候，正在开会。我走神了3秒。”\r\n八、代码生成补充说明\r\n8.1 游离事件插入算法\r\ntext\r\n游戏启动时执行：\r\n1. 确定场景列表 = [S-01, S-02]\r\n2. 若难度 == 现实线，在 S-02 后插入 S-03\r\n3. 确定可用空位 = 当前场景列表长度 - 1 个间隙\r\n4. 对每个游离事件 (S-E1, S-E2, S-E3)：\r\n   a. 以 30% 概率决定是否出场\r\n   b. 若出场，在可用空位中随机选择一个位置插入\r\n   c. 从可用空位中移除该位置\r\n5. 添加 S-05/S-06（二选一，50%概率）\r\n6. 添加 S-07 至末尾\r\n8.2 前置伏笔状态判定逻辑\r\njavascript\r\nfunction getINTJLine(sceneId, flags) {\r\n  if (sceneId === \"S-E2\") {\r\n    if (flags[\"F-01\"] === \"已触发\") {\r\n      return \"……你妈说得对。你考虑一下。\";\r\n    } else {\r\n      return \"……{TA}说的是事实。\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E3\") {\r\n    if (flags[\"F-01\"] === \"已触发\" && flags[\"F-03\"] === \"已触发\") {\r\n      return \"……我留着是因为它证明了一件事——你那时候就看见我了。\";\r\n    } else {\r\n      return \"哦，忘了丢。\";\r\n    }\r\n  }\r\n  return \"\";\r\n}\r\n8.3 终局解锁条件\r\njavascript\r\nfunction canUnlockPE1(flags) {\r\n  return flags[\"Anchor-02\"] && flags[\"Anchor-03\"] && flags[\"Anchor-05\"];\r\n}\r\nfunction canUnlockPE1_alt(flags) {\r\n  return flags[\"Anchor-01\"] && flags[\"Anchor-04\"] && flags[\"Anchor-09\"];\r\n}\r\nfunction canUnlockPE1_both(flags) {\r\n  return canUnlockPE1(flags) || canUnlockPE1_alt(flags);\r\n}\r\n8.4 结局判定（双轨制：Flag锁定优先 + 信任值兜底）\r\njavascript\r\nfunction determineEnding(trust, flags, difficulty) {\r\n  if (trust < 30) return \"BE-1\";\r\n  if (trust >= 30 && trust < 50) return \"BE-2\";\r\n  if (trust >= 50 && trust < 60) return \"BE-3\";\r\n  if (trust >= 60 && trust < 70) return \"NE-1\";\r\n  if (trust >= 70 && trust < 85) return \"GE-1\";\r\n  if (trust >= 85 && difficulty === \"现实线\") {\r\n    const count = Object.values(flags).filter(v => v === true).length;\r\n    if (count >= 6 && flags[\"Anchor-02\"] && flags[\"Anchor-05\"] && flags[\"Anchor-06\"]) {\r\n      return \"PE-1\";\r\n    }\r\n    return \"GE-1\";\r\n  }\r\n  return \"GE-1\";\r\n}\r\nINTJ 剧本 END\n",
+      "text": "凌晨两点，你手机亮了一下。是{TA}发来的一条语音消息。你点开，{TA的}声音有些生硬，甚至能听到{TA}清了清嗓子，像是在做某种极不擅长的自我暴露：\r\n“……今天谢谢你。还有，胃药我刚才吃了。你在沙发上给我留的那张字条……我看到了。上面写的‘如果太累就停下来，我在这里’——这句话，我接受了。还有，西藏我不会去。因为……我查了天气，那地方太干燥了，不适合你皮肤。你皮肤干燥会过敏。”\r\nINTJ 内心独白：“{TA}看见了全部的我——包括我最丑陋的失控。{TA}没有逃。{TA}是那个接住逻辑也接住混乱的人。如果不是{TA}，那就没有人了。”\r\n",
       "variants": {
         "F-01_triggered": "\n\n你注意到了{TA}停下的那个瞬间。那不是放弃——那是{TA}在等你发现。",
         "F-01_not_triggered": "\n\n你没有注意到{TA}是什么时候停下的。但{TA}还在。",

@@ -133,7 +133,7 @@
       "title": "冲动被劝阻",
       "type": "free_roam",
       "narrative": "{TA}说{TA}“想去一个地方”——听起来完全是临时起意。{TA}说的时候眼睛是亮的，像是刚想到。然后{TA}停了一下，看了你一眼，声音低了一点：\r\n",
-      "dialogue": "",
+      "dialogue": "ESTP（受 F-02 状态影响）：\n若 F-02 为“已触发”：“……你想去吗？”\n若 F-02 为“未触发”或“未触发”：“……算了。可能不太方便。”\n",
       "sceneHint": "",
       "options": [
         {
@@ -184,14 +184,7 @@
           "fatalError": null
         }
       ],
-      "onEnter": {
-        "conditions": [
-          {
-            "check": "plotFlags[\"F-02\"] === \"已触发\"",
-            "dialogue": "……你想去吗？"
-          }
-        ]
-      },
+      "onEnter": null,
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-02",
       "condition": "无"
@@ -321,7 +314,7 @@
       "title": "旧票根",
       "type": "free_roam",
       "narrative": "你在{TA}抽屉里发现一张很旧的票根——不是电影票，不是火车票，是一张入场券，地点你从来没听说过，日期是很久以前的。票根被夹在一本笔记本里，平整，没有折痕。\r\n你问{TA}：“这是什么地方？”\r\n{TA}看了一眼：\r\n",
-      "dialogue": "",
+      "dialogue": "ESTP（受 F-02 状态影响）：\n若 F-02 为“已触发”：“……那是我一个人去的一个地方。那天我没有告诉任何人。我回来之后也没有说。但我留着那张票——因为那天我自己站了一会儿。”\n若 F-02 为“未触发”：“……一个很早以前去的地方。当时没想那么多就去了。”\n",
       "sceneHint": "",
       "options": [
         {
@@ -372,18 +365,7 @@
           "fatalError": null
         }
       ],
-      "onEnter": {
-        "conditions": [
-          {
-            "check": "plotFlags[\"F-02\"] === \"已触发\"",
-            "dialogue": "……那是我一个人去的一个地方。那天我没有告诉任何人。我回来之后也没有说。但我留着那张票——因为那天我自己站了一会儿。"
-          },
-          {
-            "check": "plotFlags[\"F-02\"] === \"未触发\"",
-            "dialogue": "……一个很早以前去的地方。当时没想那么多就去了。"
-          }
-        ]
-      },
+      "onEnter": null,
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-02",
       "condition": "无"
@@ -515,7 +497,7 @@
       "title": "被限制行动",
       "type": "free_roam",
       "narrative": "你说了一句：“你能不能先想好再去？”——{TA}正在穿鞋。{TA}停住了。不是“生气”的停，是“被按住了”的停。然后{TA}说：\r\n",
-      "dialogue": "",
+      "dialogue": "ESTP（受 F-01 和 F-04 状态影响）：\n若 F-01 为“已触发”且 F-04 为“已触发”：“……你刚才说的‘想好’——是想好路线，还是想好‘为什么要去’？”\n若未触发以上组合：“……你说的‘想好’是指什么？我带上导航算想好了吗？”\n",
       "sceneHint": "",
       "options": [
         {
@@ -566,18 +548,7 @@
           "fatalError": null
         }
       ],
-      "onEnter": {
-        "conditions": [
-          {
-            "check": "plotFlags[\"F-01\"] === \"已触发\" && plotFlags[\"F-04\"] === \"已触发\"",
-            "dialogue": "……你刚才说的‘想好’——是想好路线，还是想好‘为什么要去’？"
-          },
-          {
-            "check": "true",
-            "dialogue": "……你说的‘想好’是指什么？我带上导航算想好了吗？"
-          }
-        ]
-      },
+      "onEnter": null,
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-04",
       "condition": "无"
@@ -672,7 +643,7 @@
     },
     "PE-1": {
       "title": "那十分钟共享",
-      "text": "{TA}重新打开那个备忘录。{TA}在最上面写了一条新条目：“和{TA}一起去的那片空地——十分钟。划掉了。”{TA}在旁边画了一个句号——不是问号，是句号。{TA}已经完成了那件最重要的事。\r\nESTP 内心独白：“{TA}说‘要。什么时候’——我第一次觉得‘去一个地方’不是最重要的。‘{TA}在’才是。我把那条最长的备忘录划掉了。”\r\n七、碎片记忆系统\r\n编号\t解锁条件\t碎片内容\r\n1\t触发 Anchor-01（看见取消）\t“{TA}说‘七条没划掉’——{TA}看了我的备忘录。{TA}知道我在计划，但把计划留在那里没动。”\r\n2\t触发 Anchor-02（跟上节奏）\t“{TA}问我‘那里怎么样’——不是‘为什么不叫我’。{TA}走进了我的行动里。”\r\n3\t触发 Anchor-03（接纳停顿）\t“{TA}说‘如果我不动了还会有人在我旁边吗’——{TA}说出了{TA}在安静里真正想问的那句。”\r\n4\t触发 Anchor-04（主动靠近）\t“{TA}说‘你是在测试我会不会发现你不在的时候我在找你’——{TA}把我的行动翻译成了问题。”\r\n5\t触发 Anchor-05（接住黑暗）\t“{TA}说‘那个想象是什么时候出现的’——{TA}没有说‘你不会一个人’。{TA}走进了我的想象里。”\r\n6\t触发 Anchor-07（行动同行）\t“我说‘想去’——{TA}说‘那就去’。{TA}没有问‘去哪’‘多远’‘安不安全’。{TA}上了车。”\r\n7\t触发 Anchor-09（边界回应）\t“{TA}说‘我说先想好再去——你听了之后停了一下。你在想什么’——{TA}在意的是我停的那一下，不是我说的话。”\r\n八、代码生成补充说明\r\n8.1 游离事件插入算法\r\ntext\r\n游戏启动时执行：\r\n1. 确定场景列表 = [S-01, S-02]\r\n2. 若难度 == 现实线，在 S-02 后插入 S-03\r\n3. 确定可用空位 = 当前场景列表长度 - 1 个间隙\r\n4. 对每个游离事件 (S-E1, S-E2, S-E3)：\r\n   a. 以 30% 概率决定是否出场\r\n   b. 若出场，在可用空位中随机选择一个位置插入\r\n   c. 从可用空位中移除该位置\r\n5. 添加 S-05/S-06（二选一，50%概率）\r\n6. 添加 S-07 至末尾\r\n8.2 前置伏笔状态判定逻辑\r\njavascript\r\nfunction getESTPLine(sceneId, flags) {\r\n  if (sceneId === \"S-E1\") {\r\n    if (flags[\"F-02\"] === \"已触发\") {\r\n      return \"……你想去吗？\";\r\n    } else {\r\n      return \"……算了。可能不太方便。\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E2\") {\r\n    if (flags[\"F-02\"] === \"已触发\") {\r\n      return \"……那是我一个人去的一个地方。那天我没有告诉任何人。我回来之后也没有说。但我留着那张票——因为那天我自己站了一会儿。\";\r\n    } else {\r\n      return \"……一个很早以前去的地方。当时没想那么多就去了。\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E3\") {\r\n    if (flags[\"F-01\"] === \"已触发\" && flags[\"F-04\"] === \"已触发\") {\r\n      return \"……你刚才说的‘想好’——是想好路线，还是想好‘为什么要去’？\";\r\n    } else {\r\n      return \"……你说的‘想好’是指什么？我带上导航算想好了吗？\";\r\n    }\r\n  }\r\n  return \"\";\r\n}\r\n8.3 终局解锁条件\r\njavascript\r\nfunction canUnlockPE1(flags) {\r\n  return flags[\"Anchor-02\"] && flags[\"Anchor-03\"] && flags[\"Anchor-05\"];\r\n}\r\nfunction canUnlockPE1_alt(flags) {\r\n  return flags[\"Anchor-01\"] && flags[\"Anchor-04\"] && flags[\"Anchor-09\"];\r\n}\r\nfunction canUnlockPE1_both(flags) {\r\n  return canUnlockPE1(flags) || canUnlockPE1_alt(flags);\r\n}\r\n8.4 结局判定（双轨制：Flag锁定优先 + 信任值兜底）\r\njavascript\r\nfunction determineEnding(trust, flags, difficulty) {\r\n  if (trust < 30) return \"BE-1\";\r\n  if (trust >= 30 && trust < 50) return \"BE-2\";\r\n  if (trust >= 50 && trust < 60) return \"BE-3\";\r\n  if (trust >= 60 && trust < 70) return \"NE-1\";\r\n  if (trust >= 70 && trust < 85) return \"GE-1\";\r\n  if (trust >= 85 && difficulty === \"现实线\") {\r\n    const count = Object.values(flags).filter(v => v === true).length;\r\n    if (count >= 6 && flags[\"Anchor-02\"] && flags[\"Anchor-05\"] && flags[\"Anchor-06\"]) {\r\n      return \"PE-1\";\r\n    }\r\n    return \"GE-1\";\r\n  }\r\n  return \"GE-1\";\r\n}\r\nESTP 剧本 END\n",
+      "text": "{TA}重新打开那个备忘录。{TA}在最上面写了一条新条目：“和{TA}一起去的那片空地——十分钟。划掉了。”{TA}在旁边画了一个句号——不是问号，是句号。{TA}已经完成了那件最重要的事。\r\nESTP 内心独白：“{TA}说‘要。什么时候’——我第一次觉得‘去一个地方’不是最重要的。‘{TA}在’才是。我把那条最长的备忘录划掉了。”\r\n",
       "variants": {
         "F-01_triggered": "\n\n你注意到了{TA}停下的那个瞬间。那不是放弃——那是{TA}在等你发现。",
         "F-01_not_triggered": "\n\n你没有注意到{TA}是什么时候停下的。但{TA}还在。",

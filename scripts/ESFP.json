@@ -133,7 +133,7 @@
       "title": "快乐被评判",
       "type": "free_roam",
       "narrative": "你们在一个聚会上。{TA}全程在“发光”——笑声最大、动作最夸张、跟所有人聊得最多。你看到{TA}讲了一个故事，手舞足蹈，然后有人笑着说了一句：“你这也太夸张了吧。”\r\n{TA}顿了一下——很快，不到一秒钟——然后{TA}接了一句：“哈哈我就是这样啊。”然后继续笑。但你注意到，{TA}之后讲第二个故事的时候，动作幅度变小了。\r\n",
-      "dialogue": "",
+      "dialogue": "ESFP（受 F-01 状态影响）：\n若 F-01 为“已触发”：“……{TA}说的也对。我有时候是挺夸张的。但我在想——夸张的那个我，是不是真的我。”\n若 F-01 为“未触发”或“未触发”：“……{TA}说的也对。我有时候是挺夸张的。”\n",
       "sceneHint": "",
       "options": [
         {
@@ -184,14 +184,7 @@
           "fatalError": null
         }
       ],
-      "onEnter": {
-        "conditions": [
-          {
-            "check": "plotFlags[\"F-01\"] === \"已触发\"",
-            "dialogue": "……{TA}说的也对。我有时候是挺夸张的。但我在想——夸张的那个我，是不是真的我。"
-          }
-        ]
-      },
+      "onEnter": null,
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-01",
       "condition": "无"
@@ -321,7 +314,7 @@
       "title": "旧合照",
       "type": "free_roam",
       "narrative": "你翻到{TA的}手机相册——一张很旧的合照，是很多年前{TA}和一群朋友拍的。{TA}站在中间，笑得很用力——那种“用力”不是“开心”，是“我在这个位置应该笑”的用力。旁边的人都在笑，但没有人像{TA}那样笑得“完整”。\r\n你问{TA}：“这是什么时候的？”\r\n{TA}看了一眼：\r\n",
-      "dialogue": "",
+      "dialogue": "ESFP（受 F-02 状态影响）：\n若 F-02 为“已触发”：“……那次聚会我很紧张。因为我想让大家觉得我很好相处。所以我笑得很用力。现在看这张照片——我能认出来哪个笑是真的。”\n若 F-02 为“未触发”：“……那次聚会我好像很开心。但看照片的时候，我不太确定那个笑是不是真的。”\n",
       "sceneHint": "",
       "options": [
         {
@@ -372,18 +365,7 @@
           "fatalError": null
         }
       ],
-      "onEnter": {
-        "conditions": [
-          {
-            "check": "plotFlags[\"F-02\"] === \"已触发\"",
-            "dialogue": "……那次聚会我很紧张。因为我想让大家觉得我很好相处。所以我笑得很用力。现在看这张照片——我能认出来哪个笑是真的。"
-          },
-          {
-            "check": "plotFlags[\"F-02\"] === \"未触发\"",
-            "dialogue": "……那次聚会我好像很开心。但看照片的时候，我不太确定那个笑是不是真的。"
-          }
-        ]
-      },
+      "onEnter": null,
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-02",
       "condition": "无"
@@ -515,7 +497,7 @@
       "title": "被要求安静",
       "type": "free_roam",
       "narrative": "你们在一起的时候，{TA}正在兴奋地说着什么——语速快、声音亮、手舞足蹈。然后你旁边有人说了一句：“你能不能安静一下？”\r\n{TA}停住了。不是“生气”的停，是“被按了暂停键”的停。然后{TA}轻轻说了一句：“……哦。好。”\r\n{TA}安静了。但那种安静是“缩起来了”的安静，不是“放松了”的安静。\r\n",
-      "dialogue": "",
+      "dialogue": "ESFP（受 F-01 和 F-04 状态影响）：\n若 F-01 为“已触发”且 F-04 为“已触发”：“……我刚才在想要不要继续说话。然后我想到了你说的‘你可以不用笑’。那我可以不用说话吗？”\n若未触发以上组合：“……我是不是真的话太多了。”\n",
       "sceneHint": "",
       "options": [
         {
@@ -566,18 +548,7 @@
           "fatalError": null
         }
       ],
-      "onEnter": {
-        "conditions": [
-          {
-            "check": "plotFlags[\"F-01\"] === \"已触发\" && plotFlags[\"F-04\"] === \"已触发\"",
-            "dialogue": "……我刚才在想要不要继续说话。然后我想到了你说的‘你可以不用笑’。那我可以不用说话吗？"
-          },
-          {
-            "check": "true",
-            "dialogue": "……我是不是真的话太多了。"
-          }
-        ]
-      },
+      "onEnter": null,
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-04",
       "condition": "无"
@@ -672,7 +643,7 @@
     },
     "PE-1": {
       "title": "不用表演",
-      "text": "{TA}删了手机里那个“快乐表情包合集”——那是{TA}用来“在任何对话中插入快乐”的工具箱。{TA}说：“我好像不太需要那个了。”{TA}不再需要用“预设的表情”来应对这个世界。{TA}发明了一种新的姿势：{TA}只是站在那里，什么也不做。然后{TA}发现自己还在。\r\nESFP 内心独白：“{TA}坐在那四十分钟没有说话。后来我学会了——不说话也可以。不笑也可以。不发光的也可以。因为{TA}在。”\r\n七、碎片记忆系统\r\n编号\t解锁条件\t碎片内容\r\n1\t触发 Anchor-01（看穿表演）\t“{TA}说‘你笑的时候声音特别大’——我从来没有注意过自己用音量来掩饰沉默。{TA}替我听到了。”\r\n2\t触发 Anchor-02（接纳低落）\t“{TA}说‘那你可以试试看’——{TA}让我练习‘不快乐的自己能不能坐得住’。我坐住了。{TA}没有走。”\r\n3\t触发 Anchor-03（看见真实）\t“那天我没有收拾自己、没有开灯、没有笑。{TA}坐在沙发的另一侧。我之后学会了不笑也可以存在。”\r\n4\t触发 Anchor-04（不催快乐）\t“{TA}说‘你可以不用笑’——我站在阳台角落。{TA}在旁边。那个‘不用表演’的感觉第一次出现。”\r\n5\t触发 Anchor-05（接住坠落）\t“我说‘如果我不让所有人开心了，我是什么’。{TA}说‘那你会做什么’——{TA}愿意听那个空白。”\r\n6\t触发 Anchor-07（快乐接纳）\t“{TA}说我‘夸张’——{TA}问我‘你怎么理解夸张’。{TA}把我被贴的标签拿过来问我了。”\r\n7\t触发 Anchor-09（空间给予）\t“{TA}说‘你能不能安静一下’——我安静了。{TA}问我‘你是在缩还是放松’。{TA}帮我分清了安静和缩的区别。”\r\n八、代码生成补充说明\r\n8.1 游离事件插入算法\r\ntext\r\n游戏启动时执行：\r\n1. 确定场景列表 = [S-01, S-02]\r\n2. 若难度 == 现实线，在 S-02 后插入 S-03\r\n3. 确定可用空位 = 当前场景列表长度 - 1 个间隙\r\n4. 对每个游离事件 (S-E1, S-E2, S-E3)：\r\n   a. 以 30% 概率决定是否出场\r\n   b. 若出场，在可用空位中随机选择一个位置插入\r\n   c. 从可用空位中移除该位置\r\n5. 添加 S-05/S-06（二选一，50%概率）\r\n6. 添加 S-07 至末尾\r\n8.2 前置伏笔状态判定逻辑\r\njavascript\r\nfunction getESFPLine(sceneId, flags) {\r\n  if (sceneId === \"S-E1\") {\r\n    if (flags[\"F-01\"] === \"已触发\") {\r\n      return \"……{TA}说的也对。我有时候是挺夸张的。但我在想——夸张的那个我，是不是真的我。\";\r\n    } else {\r\n      return \"……{TA}说的也对。我有时候是挺夸张的。\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E2\") {\r\n    if (flags[\"F-02\"] === \"已触发\") {\r\n      return \"……那次聚会我很紧张。因为我想让大家觉得我很好相处。所以我笑得很用力。现在看这张照片——我能认出来哪个笑是真的。\";\r\n    } else {\r\n      return \"……那次聚会我好像很开心。但看照片的时候，我不太确定那个笑是不是真的。\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E3\") {\r\n    if (flags[\"F-01\"] === \"已触发\" && flags[\"F-04\"] === \"已触发\") {\r\n      return \"……我刚才在想要不要继续说话。然后我想到了你说的‘你可以不用笑’。那我可以不用说话吗？\";\r\n    } else {\r\n      return \"……我是不是真的话太多了。\";\r\n    }\r\n  }\r\n  return \"\";\r\n}\r\n8.3 终局解锁条件\r\njavascript\r\nfunction canUnlockPE1(flags) {\r\n  return flags[\"Anchor-02\"] && flags[\"Anchor-03\"] && flags[\"Anchor-05\"];\r\n}\r\nfunction canUnlockPE1_alt(flags) {\r\n  return flags[\"Anchor-01\"] && flags[\"Anchor-04\"] && flags[\"Anchor-09\"];\r\n}\r\nfunction canUnlockPE1_both(flags) {\r\n  return canUnlockPE1(flags) || canUnlockPE1_alt(flags);\r\n}\r\n8.4 结局判定（双轨制：Flag锁定优先 + 信任值兜底）\r\njavascript\r\nfunction determineEnding(trust, flags, difficulty) {\r\n  if (trust < 30) return \"BE-1\";\r\n  if (trust >= 30 && trust < 50) return \"BE-2\";\r\n  if (trust >= 50 && trust < 60) return \"BE-3\";\r\n  if (trust >= 60 && trust < 70) return \"NE-1\";\r\n  if (trust >= 70 && trust < 85) return \"GE-1\";\r\n  if (trust >= 85 && difficulty === \"现实线\") {\r\n    const count = Object.values(flags).filter(v => v === true).length;\r\n    if (count >= 6 && flags[\"Anchor-02\"] && flags[\"Anchor-05\"] && flags[\"Anchor-06\"]) {\r\n      return \"PE-1\";\r\n    }\r\n    return \"GE-1\";\r\n  }\r\n  return \"GE-1\";\r\n}\r\nESFP 剧本 END\n",
+      "text": "{TA}删了手机里那个“快乐表情包合集”——那是{TA}用来“在任何对话中插入快乐”的工具箱。{TA}说：“我好像不太需要那个了。”{TA}不再需要用“预设的表情”来应对这个世界。{TA}发明了一种新的姿势：{TA}只是站在那里，什么也不做。然后{TA}发现自己还在。\r\nESFP 内心独白：“{TA}坐在那四十分钟没有说话。后来我学会了——不说话也可以。不笑也可以。不发光的也可以。因为{TA}在。”\r\n",
       "variants": {
         "F-01_triggered": "\n\n你注意到了{TA}停下的那个瞬间。那不是放弃——那是{TA}在等你发现。",
         "F-01_not_triggered": "\n\n你没有注意到{TA}是什么时候停下的。但{TA}还在。",

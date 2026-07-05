@@ -135,7 +135,7 @@
       "title": "作品被评价",
       "type": "free_roam",
       "narrative": "{TA}给你看了一篇{TA}最近写的东西——不是完整的，是片段。{TA}说：“我还没想好要不要写完。”\r\n你看完之后，{TA}轻声问了一句：\r\n",
-      "dialogue": "",
+      "dialogue": "INFP（受 F-02 状态影响）：\n若 F-02 为“已触发”：“……你看完的时候，没有说‘好’或‘不好’。你只是看了。”\n若 F-02 为“未触发”：“……你觉得怎么样？”\n",
       "sceneHint": "",
       "options": [
         {
@@ -186,18 +186,7 @@
           "fatalError": null
         }
       ],
-      "onEnter": {
-        "conditions": [
-          {
-            "check": "plotFlags[\"F-02\"] === \"已触发\"",
-            "dialogue": "……你看完的时候，没有说‘好’或‘不好’。你只是看了。"
-          },
-          {
-            "check": "plotFlags[\"F-02\"] === \"未触发\"",
-            "dialogue": "……你觉得怎么样？"
-          }
-        ]
-      },
+      "onEnter": null,
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-02",
       "condition": "无"
@@ -329,7 +318,7 @@
       "title": "旧诗歌",
       "type": "free_roam",
       "narrative": "你翻到一本很旧的本子——不是日记，是一本诗歌抄录本。里面都是{TA}抄下来的别人的诗，但在每一页的空白处，有{TA}用铅笔写的小字。有的是回应，有的是“我也这样想过”，有的是“这句话我想了很久”。\r\n其中一首诗的旁边，{TA}用铅笔写了一句很轻的话：“有一天，我想写一首不需要解释的诗。”\r\n你问{TA}：“你写了吗？”\r\n{TA}看了一眼：\r\n",
-      "dialogue": "",
+      "dialogue": "INFP（受 F-02 状态影响）：\n若 F-02 为“已触发”：“……还没写。但最近有在想。因为有人说{TA}愿意走进我的‘如果’。”\n若 F-02 为“未触发”：“……还没写。可能永远也不会写。”\n",
       "sceneHint": "",
       "options": [
         {
@@ -380,18 +369,7 @@
           "fatalError": null
         }
       ],
-      "onEnter": {
-        "conditions": [
-          {
-            "check": "plotFlags[\"F-02\"] === \"已触发\"",
-            "dialogue": "……还没写。但最近有在想。因为有人说{TA}愿意走进我的‘如果’。"
-          },
-          {
-            "check": "plotFlags[\"F-02\"] === \"未触发\"",
-            "dialogue": "……还没写。可能永远也不会写。"
-          }
-        ]
-      },
+      "onEnter": null,
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-02",
       "condition": "无"
@@ -523,7 +501,7 @@
       "title": "被误解",
       "type": "free_roam",
       "narrative": "{TA}今天状态不太好。{TA}说：“今天有人说我‘太理想主义了’。说我不切实际。”\r\n{TA}停了一下，然后问了你一句：\r\n",
-      "dialogue": "",
+      "dialogue": "INFP（受 F-01 和 F-03 状态影响）：\n若 F-01 为“已触发”且 F-03 为“已触发”：“……我想了一下——‘不切实际’对我来说，是什么意思。我以前觉得那是缺点。现在我在想，那是不是我的另一种语言。”\n若未触发以上组合：“……不切实际就是‘想太多’的意思吧。我确实想太多了。”\n",
       "sceneHint": "",
       "options": [
         {
@@ -574,18 +552,7 @@
           "fatalError": null
         }
       ],
-      "onEnter": {
-        "conditions": [
-          {
-            "check": "plotFlags[\"F-01\"] === \"已触发\" && plotFlags[\"F-03\"] === \"已触发\"",
-            "dialogue": "……我想了一下——‘不切实际’对我来说，是什么意思。我以前觉得那是缺点。现在我在想，那是不是我的另一种语言。"
-          },
-          {
-            "check": "true",
-            "dialogue": "……不切实际就是‘想太多’的意思吧。我确实想太多了。"
-          }
-        ]
-      },
+      "onEnter": null,
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-03",
       "condition": "无"
@@ -680,7 +647,7 @@
     },
     "PE-1": {
       "title": "灵魂同行",
-      "text": "你没有收到{TA的}消息。你收到了一封邮件——标题是《给那个记得兔子的人》。里面是{TA的}全部诗稿，从第一篇到最后一篇。在第一页上，{TA}写了一行字：“这是完整的我了。如果你还愿意看——那我们也完整了。”\r\nINFP 内心独白：“我从来没有给别人看过全部的诗。因为每一首里都有一个‘我不够好’的角落。但{TA}记住了那只兔子。那只兔子是我最害怕被看到的部分——{TA}记住了它，而且{TA}没有说‘再买一只就行’。”\r\n七、碎片记忆系统\r\n编号\t解锁条件\t碎片内容\r\n1\t触发 Anchor-01（看见撤退）\t“{TA}问我那个‘如果’文件夹——我以为{TA}从没注意过。{TA}注意到了。”\r\n2\t触发 Anchor-02（进入世界）\t“{TA}读了那首诗。{TA}问我‘你写到最后一句为什么停住了’——从来没有人问过这个。”\r\n3\t触发 Anchor-03（守护价值）\t“我说了那只兔子的事。{TA}没有替我妈辩解。{TA}说‘你的难过是应该的’。”\r\n4\t触发 Anchor-04（不审判）\t“我在整理那些票根——{TA}在整理{TA的}。{TA}说‘我也留了’。”\r\n5\t触发 Anchor-05（接住失控）\t“我对{TA}发了脾气。{TA}没走。{TA}问我‘你是不是已经问过自己一百遍’——{TA}是对的。”\r\n6\t触发 Anchor-07（守护理想）\t“我给{TA}看了一篇没写完的东西。{TA}没有说‘好’或‘不好’。{TA}问我‘你在想什么’。”\r\n7\t触发 Anchor-09（接纳存在）\t“{TA}说我不切实际——{TA}问我‘你有没有想过，你切的是另一种实’。那是第一次有人帮我定义我的‘实’。”\r\n八、代码生成补充说明\r\n8.1 游离事件插入算法\r\ntext\r\n游戏启动时执行：\r\n1. 确定场景列表 = [S-01, S-02]\r\n2. 若难度 == 现实线，在 S-02 后插入 S-03\r\n3. 确定可用空位 = 当前场景列表长度 - 1 个间隙\r\n4. 对每个游离事件 (S-E1, S-E2, S-E3)：\r\n   a. 以 30% 概率决定是否出场\r\n   b. 若出场，在可用空位中随机选择一个位置插入\r\n   c. 从可用空位中移除该位置\r\n5. 添加 S-05/S-06（二选一，50%概率）\r\n6. 添加 S-07 至末尾\r\n8.2 前置伏笔状态判定逻辑\r\njavascript\r\nfunction getINFPLine(sceneId, flags) {\r\n  if (sceneId === \"S-E1\") {\r\n    if (flags[\"F-02\"] === \"已触发\") {\r\n      return \"……你看完的时候，没有说‘好’或‘不好’。你只是看了。\";\r\n    } else {\r\n      return \"……你觉得怎么样？\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E2\") {\r\n    if (flags[\"F-02\"] === \"已触发\") {\r\n      return \"……还没写。但最近有在想。因为有人说{TA}愿意走进我的‘如果’。\";\r\n    } else {\r\n      return \"……还没写。可能永远也不会写。\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E3\") {\r\n    if (flags[\"F-01\"] === \"已触发\" && flags[\"F-03\"] === \"已触发\") {\r\n      return \"……我想了一下——‘不切实际’对我来说，是什么意思。我以前觉得那是缺点。现在我在想，那是不是我的另一种语言。\";\r\n    } else {\r\n      return \"……不切实际就是‘想太多’的意思吧。我确实想太多了。\";\r\n    }\r\n  }\r\n  return \"\";\r\n}\r\n8.3 终局解锁条件\r\njavascript\r\nfunction canUnlockPE1(flags) {\r\n  return flags[\"Anchor-02\"] && flags[\"Anchor-03\"] && flags[\"Anchor-05\"];\r\n}\r\nfunction canUnlockPE1_alt(flags) {\r\n  return flags[\"Anchor-01\"] && flags[\"Anchor-04\"] && flags[\"Anchor-09\"];\r\n}\r\nfunction canUnlockPE1_both(flags) {\r\n  return canUnlockPE1(flags) || canUnlockPE1_alt(flags);\r\n}\r\n8.4 结局判定（双轨制：Flag锁定优先 + 信任值兜底）\r\njavascript\r\nfunction determineEnding(trust, flags, difficulty) {\r\n  if (trust < 30) return \"BE-1\";\r\n  if (trust >= 30 && trust < 50) return \"BE-2\";\r\n  if (trust >= 50 && trust < 60) return \"BE-3\";\r\n  if (trust >= 60 && trust < 70) return \"NE-1\";\r\n  if (trust >= 70 && trust < 85) return \"GE-1\";\r\n  if (trust >= 85 && difficulty === \"现实线\") {\r\n    const count = Object.values(flags).filter(v => v === true).length;\r\n    if (count >= 6 && flags[\"Anchor-02\"] && flags[\"Anchor-05\"] && flags[\"Anchor-06\"]) {\r\n      return \"PE-1\";\r\n    }\r\n    return \"GE-1\";\r\n  }\r\n  return \"GE-1\";\r\n}\r\nINFP 剧本 END\n",
+      "text": "你没有收到{TA的}消息。你收到了一封邮件——标题是《给那个记得兔子的人》。里面是{TA的}全部诗稿，从第一篇到最后一篇。在第一页上，{TA}写了一行字：“这是完整的我了。如果你还愿意看——那我们也完整了。”\r\nINFP 内心独白：“我从来没有给别人看过全部的诗。因为每一首里都有一个‘我不够好’的角落。但{TA}记住了那只兔子。那只兔子是我最害怕被看到的部分——{TA}记住了它，而且{TA}没有说‘再买一只就行’。”\r\n",
       "variants": {
         "F-01_triggered": "\n\n你注意到了{TA}停下的那个瞬间。那不是放弃——那是{TA}在等你发现。",
         "F-01_not_triggered": "\n\n你没有注意到{TA}是什么时候停下的。但{TA}还在。",

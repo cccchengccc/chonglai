@@ -289,6 +289,11 @@ function extractEndings(mdContent) {
     }
 
     if (currentEnding && line.trim() && !line.startsWith('#')) {
+      // 遇到碎片记忆系统或代码生成补充说明就停止
+      if (line.includes('碎片记忆系统') || line.includes('代码生成补充说明')) {
+        currentEnding = null;
+        continue;
+      }
       endings[currentEnding].text += line + '\n';
     }
   }

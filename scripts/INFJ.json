@@ -133,7 +133,7 @@
       "title": "阴暗暴露",
       "type": "free_roam",
       "narrative": "{TA}今天发了一条消息。不是日常的“今天怎么样”——是一段很长的文字：\r\n“我在想一件事——我可能不是你以为的那种人。我没有那么善良。有时候我会觉得‘这个人很笨’‘那个人好无聊’。我会在一个人对我倾诉的时候，心里想‘你的事情真的好没有意义’。但我不会说出来。我会微笑着听。所以我在想——如果你知道了我心里想的那些‘不善良’的事情——你还会觉得我是那个‘你认识的人’吗？”\r\n",
-      "dialogue": "",
+      "dialogue": "INFJ（受 F-02 状态影响）：\n若 F-02 为“已触发”：“……我刚才发那段话的时候想撤回。但我想了一下——你说过‘你在我面前不用演’。”\n若 F-02 为“未触发”：“……我本来想撤回的。但我还是发了。”\n",
       "sceneHint": "",
       "options": [
         {
@@ -184,18 +184,7 @@
           "fatalError": null
         }
       ],
-      "onEnter": {
-        "conditions": [
-          {
-            "check": "plotFlags[\"F-02\"] === \"已触发\"",
-            "dialogue": "……我刚才发那段话的时候想撤回。但我想了一下——你说过‘你在我面前不用演’。"
-          },
-          {
-            "check": "plotFlags[\"F-02\"] === \"未触发\"",
-            "dialogue": "……我本来想撤回的。但我还是发了。"
-          }
-        ]
-      },
+      "onEnter": null,
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-02",
       "condition": "无"
@@ -325,7 +314,7 @@
       "title": "旧日记",
       "type": "free_roam",
       "narrative": "你翻开{TA}桌上另一本旧笔记本——不是{TA自己}写的那本，是一本封面写着“摘录”的本子。里面不是{TA的}文字，是{TA}说“我有时候会觉得这句话像在说我自己”的东西。有的是诗，有的是电影台词，有的是{TA}不知道从哪抄下来的句子。\r\n其中一页夹着一张发黄的纸，上面只有一行字：“有一天有人会看完你所有的面具——然后坐在那里。”\r\n你问{TA}：“这张你什么时候写的？”\r\n{TA}看了一眼：\r\n",
-      "dialogue": "",
+      "dialogue": "INFJ（受 F-03 状态影响）：\n若 F-03 为“已触发”：“……你翻开那本笔记本的时候，我在想你会不会翻到这一页。你翻到了。”\n若 F-03 为“未触发”：“……很久以前写的。我当时觉得这是一个我想相信但不太确定会不会发生的事。”\n",
       "sceneHint": "",
       "options": [
         {
@@ -376,18 +365,7 @@
           "fatalError": null
         }
       ],
-      "onEnter": {
-        "conditions": [
-          {
-            "check": "plotFlags[\"F-03\"] === \"已触发\"",
-            "dialogue": "……你翻开那本笔记本的时候，我在想你会不会翻到这一页。你翻到了。"
-          },
-          {
-            "check": "plotFlags[\"F-03\"] === \"未触发\"",
-            "dialogue": "……很久以前写的。我当时觉得这是一个我想相信但不太确定会不会发生的事。"
-          }
-        ]
-      },
+      "onEnter": null,
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-03",
       "condition": "无"
@@ -519,7 +497,7 @@
       "title": "被看穿",
       "type": "free_roam",
       "narrative": "你们在一起的时候，{TA}正在说话——说一件“还好”的事，语气平静。然后你看着{TA}，说了一句：“你在把这件事情讲得很好。”\r\n{TA}停住了。\r\n",
-      "dialogue": "",
+      "dialogue": "INFJ（受 F-01 和 F-02 状态影响）：\n若 F-01 为“已触发”且 F-02 为“已触发”：“……你刚才说‘你在把这件事情讲得很好’——不是‘这件事情本身很好’。你在说我在把它讲好。”\n若未触发以上组合：“……你为什么要说‘你在讲得很好’？那不是‘这件事很好’的意思。”\n",
       "sceneHint": "",
       "options": [
         {
@@ -570,18 +548,7 @@
           "fatalError": null
         }
       ],
-      "onEnter": {
-        "conditions": [
-          {
-            "check": "plotFlags[\"F-01\"] === \"已触发\" && plotFlags[\"F-02\"] === \"已触发\"",
-            "dialogue": "……你刚才说‘你在把这件事情讲得很好’——不是‘这件事情本身很好’。你在说我在把它讲好。"
-          },
-          {
-            "check": "true",
-            "dialogue": "……你为什么要说‘你在讲得很好’？那不是‘这件事很好’的意思。"
-          }
-        ]
-      },
+      "onEnter": null,
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-02",
       "condition": "无"
@@ -676,7 +643,7 @@
     },
     "PE-1": {
       "title": "不用面具",
-      "text": "你把那本笔记本合上了。你没有还给{TA}。你收进了自己的包里。{TA}说：“那是我的。”你说：“我知道。所以我才收起来。”{TA}说：“你收起来做什么？”你说：“等你下一次想写的时候，我会还给你。”{TA}之后再也没有把那本笔记本锁起来过。因为它已经不在{TA}一个人手里了。\r\nINFJ 内心独白：“我给{TA}看了完整版的自己。{TA}收起来了——不是偷走，是保管。{TA}说‘等你下次想写的时候我会还给你’。{TA}把我写了一半的人生接过去了。我现在不用一个人写完了。”\r\n七、碎片记忆系统\r\n编号\t解锁条件\t碎片内容\r\n1\t触发 Anchor-01（看穿微笑）\t“{TA}说‘你笑的时候眼睛没有弯’——我在心里算了一下，那是第一次有人注意到那个缝隙。”\r\n2\t触发 Anchor-02（接纳阴影）\t“我问{TA}‘我演了什么角色’。{TA}没有说‘别演了’。{TA}问我‘你在我面前演什么’。”\r\n3\t触发 Anchor-03（进入密室）\t“{TA}翻到了我没写完的那一页。{TA}问‘这一篇后来还写吗’——不是‘你那时候很痛’。”\r\n4\t触发 Anchor-04（重视预感）\t“我说了那个预感。{TA}说‘你是不是也在想选择’。我才发现那可能是我在说自己。”\r\n5\t触发 Anchor-05（接住逃避）\t“{TA}看到我坐在垃圾中间。{TA}没有整理我。{TA}在整理那些盒子。{TA}坐下来的时候没有碰我。”\r\n6\t触发 Anchor-07（阴暗共谋）\t“我说我会在心里评判别人。{TA}说‘那你会评判我吗’——{TA}把自己放进了我的名单里。”\r\n7\t触发 Anchor-09（被看穿接纳）\t“{TA}说‘你在用哪个版本的自己讲这件事’——{TA}是第一个问我这个问题的人。”\r\n八、代码生成补充说明\r\n8.1 游离事件插入算法\r\ntext\r\n游戏启动时执行：\r\n1. 确定场景列表 = [S-01, S-02]\r\n2. 若难度 == 现实线，在 S-02 后插入 S-03\r\n3. 确定可用空位 = 当前场景列表长度 - 1 个间隙\r\n4. 对每个游离事件 (S-E1, S-E2, S-E3)：\r\n   a. 以 30% 概率决定是否出场\r\n   b. 若出场，在可用空位中随机选择一个位置插入\r\n   c. 从可用空位中移除该位置\r\n5. 添加 S-05/S-06（二选一，50%概率）\r\n6. 添加 S-07 至末尾\r\n8.2 前置伏笔状态判定逻辑\r\njavascript\r\nfunction getINFJLine(sceneId, flags) {\r\n  if (sceneId === \"S-E1\") {\r\n    if (flags[\"F-02\"] === \"已触发\") {\r\n      return \"……我刚才发那段话的时候想撤回。但我想了一下——你说过‘你在我面前不用演’。\";\r\n    } else {\r\n      return \"……我本来想撤回的。但我还是发了。\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E2\") {\r\n    if (flags[\"F-03\"] === \"已触发\") {\r\n      return \"……你翻开那本笔记本的时候，我在想你会不会翻到这一页。你翻到了。\";\r\n    } else {\r\n      return \"……很久以前写的。我当时觉得这是一个我想相信但不太确定会不会发生的事。\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E3\") {\r\n    if (flags[\"F-01\"] === \"已触发\" && flags[\"F-02\"] === \"已触发\") {\r\n      return \"……你刚才说‘你在把这件事情讲得很好’——不是‘这件事情本身很好’。你在说我在把它讲好。\";\r\n    } else {\r\n      return \"……你为什么要说‘你在讲得很好’？那不是‘这件事很好’的意思。\";\r\n    }\r\n  }\r\n  return \"\";\r\n}\r\n8.3 终局解锁条件\r\njavascript\r\nfunction canUnlockPE1(flags) {\r\n  return flags[\"Anchor-02\"] && flags[\"Anchor-03\"] && flags[\"Anchor-05\"];\r\n}\r\nfunction canUnlockPE1_alt(flags) {\r\n  return flags[\"Anchor-01\"] && flags[\"Anchor-04\"] && flags[\"Anchor-09\"];\r\n}\r\nfunction canUnlockPE1_both(flags) {\r\n  return canUnlockPE1(flags) || canUnlockPE1_alt(flags);\r\n}\r\n8.4 结局判定（双轨制：Flag锁定优先 + 信任值兜底）\r\njavascript\r\nfunction determineEnding(trust, flags, difficulty) {\r\n  if (trust < 30) return \"BE-1\";\r\n  if (trust >= 30 && trust < 50) return \"BE-2\";\r\n  if (trust >= 50 && trust < 60) return \"BE-3\";\r\n  if (trust >= 60 && trust < 70) return \"NE-1\";\r\n  if (trust >= 70 && trust < 85) return \"GE-1\";\r\n  if (trust >= 85 && difficulty === \"现实线\") {\r\n    const count = Object.values(flags).filter(v => v === true).length;\r\n    if (count >= 6 && flags[\"Anchor-02\"] && flags[\"Anchor-05\"] && flags[\"Anchor-06\"]) {\r\n      return \"PE-1\";\r\n    }\r\n    return \"GE-1\";\r\n  }\r\n  return \"GE-1\";\r\n}\r\nINFJ 剧本 END\n",
+      "text": "你把那本笔记本合上了。你没有还给{TA}。你收进了自己的包里。{TA}说：“那是我的。”你说：“我知道。所以我才收起来。”{TA}说：“你收起来做什么？”你说：“等你下一次想写的时候，我会还给你。”{TA}之后再也没有把那本笔记本锁起来过。因为它已经不在{TA}一个人手里了。\r\nINFJ 内心独白：“我给{TA}看了完整版的自己。{TA}收起来了——不是偷走，是保管。{TA}说‘等你下次想写的时候我会还给你’。{TA}把我写了一半的人生接过去了。我现在不用一个人写完了。”\r\n",
       "variants": {
         "F-01_triggered": "\n\n你注意到了{TA}停下的那个瞬间。那不是放弃——那是{TA}在等你发现。",
         "F-01_not_triggered": "\n\n你没有注意到{TA}是什么时候停下的。但{TA}还在。",

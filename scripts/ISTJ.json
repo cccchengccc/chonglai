@@ -133,7 +133,7 @@
       "title": "计划被打乱",
       "type": "free_roam",
       "narrative": "你们本来有一个计划——{TA}安排好了时间、地点、路线。然后在出发前，一个突发状况打乱了所有安排。你在等{TA的}反应——{TA}通常会快速调整，重新规划。但今天{TA}没有。{TA}只是站在那里，看着手机，安静了很久。\r\n然后{TA}开口了：\r\n",
-      "dialogue": "",
+      "dialogue": "ISTJ（受 F-02 状态影响）：\n若 F-02 为“已触发”：“……计划被打乱了。我需要重新排。”\n若 F-02 为“未触发”：“……算了。下次再说吧。”\n",
       "sceneHint": "",
       "options": [
         {
@@ -184,18 +184,7 @@
           "fatalError": null
         }
       ],
-      "onEnter": {
-        "conditions": [
-          {
-            "check": "plotFlags[\"F-02\"] === \"已触发\"",
-            "dialogue": "……计划被打乱了。我需要重新排。"
-          },
-          {
-            "check": "plotFlags[\"F-02\"] === \"未触发\"",
-            "dialogue": "……算了。下次再说吧。"
-          }
-        ]
-      },
+      "onEnter": null,
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-02",
       "condition": "无"
@@ -325,7 +314,7 @@
       "title": "旧日程本",
       "type": "free_roam",
       "narrative": "你翻到{TA}书柜里一本很旧的本子——不是日记，是{TA}多年前的日程本。每一页都写满了：几点到几点做什么、见了谁、完成了什么。字迹很整齐，像印刷体。\r\n你翻到其中一页，看到一行字：“{TA}那天说了‘改天’。我等了三个星期。”\r\n你问{TA}：“这个是什么？”\r\n{TA}看了一眼：\r\n",
-      "dialogue": "",
+      "dialogue": "ISTJ（受 F-01 状态影响）：\n若 F-01 为“已触发”：“……那是几年前的事了。你说‘改天一起去看’。我等了三周。后来我自己去了。”\n若 F-01 为“未触发”：“……以前的记录。没什么。”\n",
       "sceneHint": "",
       "options": [
         {
@@ -376,18 +365,7 @@
           "fatalError": null
         }
       ],
-      "onEnter": {
-        "conditions": [
-          {
-            "check": "plotFlags[\"F-01\"] === \"已触发\"",
-            "dialogue": "……那是几年前的事了。你说‘改天一起去看’。我等了三周。后来我自己去了。"
-          },
-          {
-            "check": "plotFlags[\"F-01\"] === \"未触发\"",
-            "dialogue": "……以前的记录。没什么。"
-          }
-        ]
-      },
+      "onEnter": null,
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-01",
       "condition": "无"
@@ -519,7 +497,7 @@
       "title": "被要求承诺",
       "type": "free_roam",
       "narrative": "你问{TA}一个关于未来的问题——不是大事，但需要{TA}给一个明确的时间。{TA}安静了一会儿，然后说：\r\n",
-      "dialogue": "",
+      "dialogue": "ISTJ（受 F-01 和 F-04 状态影响）：\n若 F-01 为“已触发”且 F-04 为“已触发”：“……我需要确认一下日历。不是因为不想答应——是因为如果答应了，我想确定我做得到。”\n若未触发以上组合：“……再说吧。到时候看。”\n",
       "sceneHint": "",
       "options": [
         {
@@ -570,18 +548,7 @@
           "fatalError": null
         }
       ],
-      "onEnter": {
-        "conditions": [
-          {
-            "check": "plotFlags[\"F-01\"] === \"已触发\" && plotFlags[\"F-04\"] === \"已触发\"",
-            "dialogue": "……我需要确认一下日历。不是因为不想答应——是因为如果答应了，我想确定我做得到。"
-          },
-          {
-            "check": "true",
-            "dialogue": "……再说吧。到时候看。"
-          }
-        ]
-      },
+      "onEnter": null,
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-04",
       "condition": "无"
@@ -676,7 +643,7 @@
     },
     "PE-1": {
       "title": "锚点",
-      "text": "你把那本牛皮本还给{TA}了。你递给{TA的}时候，里面多了一页——你自己写的。上面只有一行字：“你记了三年。那我也开始了。”下面是你写的第一条记录：“今天{TA}给了我一本{TA}写了三年的书。我翻到最后一页，看到{TA的}笔迹。那页写着——‘也许有人会接住’。”\r\nISTJ 内心独白：“{TA}把那本本子还给了我。我以为是退还——但{TA}翻到了最后一页。{TA}看到我写的那行‘也许有人会接住’。然后{TA}写了下一行。{TA}把我的系统变成了我们的系统。”\r\n七、碎片记忆系统\r\n编号\t解锁条件\t碎片内容\r\n1\t触发 Anchor-01（看见秩序）\t“{TA}问的是‘约定还算不算数’——不是问‘电影还能不能看’。{TA}问到了我真正在乎的那层。”\r\n2\t触发 Anchor-02（识别行动）\t“我修了插座。{TA}递了柚子茶。那天我们都没说话。但我们都说完了。”\r\n3\t触发 Anchor-03（信任预案）\t“我给{TA}看了那张表。{TA}说‘加一条规则’——{TA}把它当提案来回应了。{TA}是认真的。”\r\n4\t触发 Anchor-04（接收修补）\t“{TA}问我‘你整理照片的时候是不是每张都回想了一遍’——第一个问我那是什么感觉的人。”\r\n5\t触发 Anchor-05（接住风暴）\t“我坐在地板上数纸片。{TA}坐下来了。{TA}没有叫我收起来。{TA}在找我在怕什么。”\r\n6\t触发 Anchor-07（共同应对）\t“计划被打乱了。{TA}说‘我们一起重新排’——{TA}说的是‘一起’。”\r\n7\t触发 Anchor-09（时间接纳）\t“{TA}说‘需要确认一下日历’——我问{TA}是在确认时间还是在确认‘能不能做到’。{TA}在确认能不能做到。”\r\n八、代码生成补充说明\r\n8.1 游离事件插入算法\r\ntext\r\n游戏启动时执行：\r\n1. 确定场景列表 = [S-01, S-02]\r\n2. 若难度 == 现实线，在 S-02 后插入 S-03\r\n3. 确定可用空位 = 当前场景列表长度 - 1 个间隙\r\n4. 对每个游离事件 (S-E1, S-E2, S-E3)：\r\n   a. 以 30% 概率决定是否出场\r\n   b. 若出场，在可用空位中随机选择一个位置插入\r\n   c. 从可用空位中移除该位置\r\n5. 添加 S-05/S-06（二选一，50%概率）\r\n6. 添加 S-07 至末尾\r\n8.2 前置伏笔状态判定逻辑\r\njavascript\r\nfunction getISTJLine(sceneId, flags) {\r\n  if (sceneId === \"S-E1\") {\r\n    if (flags[\"F-02\"] === \"已触发\") {\r\n      return \"……计划被打乱了。我需要重新排。\";\r\n    } else {\r\n      return \"……算了。下次再说吧。\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E2\") {\r\n    if (flags[\"F-01\"] === \"已触发\") {\r\n      return \"……那是几年前的事了。你说‘改天一起去看’。我等了三周。后来我自己去了。\";\r\n    } else {\r\n      return \"……以前的记录。没什么。\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E3\") {\r\n    if (flags[\"F-01\"] === \"已触发\" && flags[\"F-04\"] === \"已触发\") {\r\n      return \"……我需要确认一下日历。不是因为不想答应——是因为如果答应了，我想确定我做得到。\";\r\n    } else {\r\n      return \"……再说吧。到时候看。\";\r\n    }\r\n  }\r\n  return \"\";\r\n}\r\n8.3 终局解锁条件\r\njavascript\r\nfunction canUnlockPE1(flags) {\r\n  return flags[\"Anchor-02\"] && flags[\"Anchor-03\"] && flags[\"Anchor-05\"];\r\n}\r\nfunction canUnlockPE1_alt(flags) {\r\n  return flags[\"Anchor-01\"] && flags[\"Anchor-04\"] && flags[\"Anchor-09\"];\r\n}\r\nfunction canUnlockPE1_both(flags) {\r\n  return canUnlockPE1(flags) || canUnlockPE1_alt(flags);\r\n}\r\n8.4 结局判定（双轨制：Flag锁定优先 + 信任值兜底）\r\njavascript\r\nfunction determineEnding(trust, flags, difficulty) {\r\n  if (trust < 30) return \"BE-1\";\r\n  if (trust >= 30 && trust < 50) return \"BE-2\";\r\n  if (trust >= 50 && trust < 60) return \"BE-3\";\r\n  if (trust >= 60 && trust < 70) return \"NE-1\";\r\n  if (trust >= 70 && trust < 85) return \"GE-1\";\r\n  if (trust >= 85 && difficulty === \"现实线\") {\r\n    const count = Object.values(flags).filter(v => v === true).length;\r\n    if (count >= 6 && flags[\"Anchor-02\"] && flags[\"Anchor-05\"] && flags[\"Anchor-06\"]) {\r\n      return \"PE-1\";\r\n    }\r\n    return \"GE-1\";\r\n  }\r\n  return \"GE-1\";\r\n}\r\nISTJ 剧本 END\n",
+      "text": "你把那本牛皮本还给{TA}了。你递给{TA的}时候，里面多了一页——你自己写的。上面只有一行字：“你记了三年。那我也开始了。”下面是你写的第一条记录：“今天{TA}给了我一本{TA}写了三年的书。我翻到最后一页，看到{TA的}笔迹。那页写着——‘也许有人会接住’。”\r\nISTJ 内心独白：“{TA}把那本本子还给了我。我以为是退还——但{TA}翻到了最后一页。{TA}看到我写的那行‘也许有人会接住’。然后{TA}写了下一行。{TA}把我的系统变成了我们的系统。”\r\n",
       "variants": {
         "F-01_triggered": "\n\n你注意到了{TA}停下的那个瞬间。那不是放弃——那是{TA}在等你发现。",
         "F-01_not_triggered": "\n\n你没有注意到{TA}是什么时候停下的。但{TA}还在。",

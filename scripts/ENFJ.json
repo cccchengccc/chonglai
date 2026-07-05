@@ -133,7 +133,7 @@
       "title": "他人危机",
       "type": "free_roam",
       "narrative": "你们共同的朋友深夜打电话来，情绪崩溃。{TA}接了——在电话里轻声安抚了对方四十分钟。挂了电话之后，{TA}坐在沙发上，没有动。你看到{TA的}眼睛是空的——{TA}把自己的能量给了别人，但没有人给{TA}补回来。\r\n",
-      "dialogue": "",
+      "dialogue": "ENFJ（受 F-02 状态影响）：\n若 F-02 为“完全触发”：“……我今天电量用完了。但那个人没事了。”\n若 F-02 为“未触发”或“部分触发”：“……我没事。你不用担心。”\n",
       "sceneHint": "",
       "options": [
         {
@@ -184,14 +184,7 @@
           "fatalError": null
         }
       ],
-      "onEnter": {
-        "conditions": [
-          {
-            "check": "plotFlags[\"F-02\"] === \"完全触发\"",
-            "dialogue": "……我今天电量用完了。但那个人没事了。"
-          }
-        ]
-      },
+      "onEnter": null,
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-04",
       "condition": "无"
@@ -504,7 +497,7 @@
       "title": "被拒绝的给予（事件版）",
       "type": "free_roam",
       "narrative": "{TA}今天非常安静——不是那种“在想事情”的安静，是那种“已经不想说话”的安静。你问{TA}“怎么了”，{TA}摇了摇头。\r\n然后你看到{TA}在手机上打字——但没有发出去。{TA}删了。又打了一段。又删了。你走过去的时候，{TA}抬起头：\r\n",
-      "dialogue": "",
+      "dialogue": "ENFJ（受 F-02 和 F-04 状态影响）：\n若 F-02 为“完全触发”且 F-04 为“已习得”：“……我刚才想说‘我今天电量用完了’。但我不确定你会不会觉得我总是在说这个。”\n若未触发以上组合：“……我刚才想跟你说我今天很累。但我怕说了你会觉得‘{TA}又在说累’。”\n",
       "sceneHint": "",
       "options": [
         {
@@ -553,18 +546,7 @@
           "fatalError": null
         }
       ],
-      "onEnter": {
-        "conditions": [
-          {
-            "check": "plotFlags[\"F-02\"] === \"完全触发\" && plotFlags[\"F-04\"] === \"已习得\"",
-            "dialogue": "……我刚才想说‘我今天电量用完了’。但我不确定你会不会觉得我总是在说这个。"
-          },
-          {
-            "check": "true",
-            "dialogue": "……我刚才想跟你说我今天很累。但我怕说了你会觉得‘{TA}又在说累’。"
-          }
-        ]
-      },
+      "onEnter": null,
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-04",
       "condition": "无"
@@ -659,7 +641,7 @@
     },
     "PE-1": {
       "title": "不用发光的存在的权利",
-      "text": "{TA}把那份“使用者手册”的权限改成了共享。然后在最上面加了一行新的规则：“新增规则：如果我正在照顾别人的时候把自己忘了——你可以拉我一下。”{TA}停了一下，又在下面加了一行：“你拉我的时候，我会说‘好’。”\r\nENFJ 内心独白：“我写了一份‘如何对我’的说明书。{TA}读完了。然后{TA}在我把自己忘了的那天，拉了我一下。我停下来了。我发现自己停下来的时候，不会消失。”\r\n七、碎片记忆系统\r\n编号\t解锁条件\t碎片内容\r\n1\t触发 Anchor-01（看见空杯）\t“{TA}说‘你给自己倒了吗’——我低头看到自己的桌面是空的。{TA}看到了那个空的位置。”\r\n2\t触发 Anchor-02（承接脆弱）\t“我说‘充电宝会没电’。{TA}说‘没电不是充电宝的错’——{TA}接住了我的比喻。”\r\n3\t触发 Anchor-03（允许接受）\t“{TA}读到那本说明书的最后一页。{TA}说‘你不麻烦’——{TA}看到了我藏在最后一行的恐惧。”\r\n4\t触发 Anchor-04（回应给予）\t“{TA}问我‘你帮我的时候你把自己放在哪’——{TA}看到了那个我一直没放进去的东西。”\r\n5\t触发 Anchor-05（接住怀疑）\t“我说‘如果我不给了你们还会在吗’。{TA}问我‘你问过别人吗’——{TA}让我看到了我在害怕那个答案。”\r\n6\t触发 Anchor-07（边界共担）\t“{TA}在别人打电话来的时候坐到了我旁边。{TA}说‘你陪了{TA}四十分钟，我陪你坐一会儿’。”\r\n7\t触发 Anchor-09（留灯空间）\t“我推开了那杯牛奶。{TA}说‘牛奶放这里’——然后{TA}去了客厅。{TA}接受了我的‘不’，但没有走。”\r\n八、代码生成补充说明\r\n8.1 游离事件插入算法\r\ntext\r\n游戏启动时执行：\r\n1. 确定场景列表 = [S-01, S-02]\r\n2. 若难度 == 现实线，在 S-02 后插入 S-03\r\n3. 确定可用空位 = 当前场景列表长度 - 1 个间隙\r\n4. 对每个游离事件 (S-E1, S-E2, S-E3)：\r\n   a. 以 30% 概率决定是否出场\r\n   b. 若出场，在可用空位中随机选择一个位置插入\r\n   c. 从可用空位中移除该位置\r\n5. 添加 S-05/S-06（二选一，50%概率）\r\n6. 添加 S-07 至末尾\r\n8.2 前置伏笔状态判定逻辑\r\njavascript\r\nfunction getENFJLine(sceneId, flags) {\r\n  if (sceneId === \"S-E1\") {\r\n    if (flags[\"F-02\"] === \"完全触发\") {\r\n      return \"……我今天电量用完了。但那个人没事了。\";\r\n    } else {\r\n      return \"……我没事。你不用担心。\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E3\") {\r\n    if (flags[\"F-02\"] === \"完全触发\" && flags[\"F-04\"] === \"已习得\") {\r\n      return \"……我刚才想说‘我今天电量用完了’。但我不确定你会不会觉得我总是在说这个。\";\r\n    } else {\r\n      return \"……我刚才想跟你说我今天很累。但我怕说了你会觉得‘{TA}又在说累’。\";\r\n    }\r\n  }\r\n  // 默认返回\r\n}\r\n8.3 终局解锁条件\r\njavascript\r\nfunction canUnlockPE1(flags) {\r\n  return flags[\"Anchor-02\"] && flags[\"Anchor-03\"] && flags[\"Anchor-05\"];\r\n}\r\nfunction canUnlockPE1_alt(flags) {\r\n  return flags[\"Anchor-01\"] && flags[\"Anchor-04\"] && flags[\"Anchor-09\"];\r\n}\r\n8.4 结局判定（双轨制：Flag锁定优先 + 信任值兜底）\r\njavascript\r\nfunction determineEnding(trust, flags, difficulty) {\r\n  if (trust < 30) return \"BE-1\";\r\n  if (trust >= 30 && trust < 50) return \"BE-2\";\r\n  if (trust >= 50 && trust < 60) return \"BE-3\";\r\n  if (trust >= 60 && trust < 70) return \"NE-1\";\r\n  if (trust >= 70 && trust < 85) return \"GE-1\";\r\n  if (trust >= 85 && difficulty === \"现实线\") {\r\n    const count = Object.values(flags).filter(v => v === true).length;\r\n    if (count >= 6 && flags[\"Anchor-02\"] && flags[\"Anchor-05\"]) {\r\n      return \"PE-1\";\r\n    }\r\n    return \"GE-1\";\r\n  }\r\n  return \"GE-1\";\r\n}\n",
+      "text": "{TA}把那份“使用者手册”的权限改成了共享。然后在最上面加了一行新的规则：“新增规则：如果我正在照顾别人的时候把自己忘了——你可以拉我一下。”{TA}停了一下，又在下面加了一行：“你拉我的时候，我会说‘好’。”\r\nENFJ 内心独白：“我写了一份‘如何对我’的说明书。{TA}读完了。然后{TA}在我把自己忘了的那天，拉了我一下。我停下来了。我发现自己停下来的时候，不会消失。”\r\n",
       "variants": {
         "F-01_triggered": "\n\n你注意到了{TA}停下的那个瞬间。那不是放弃——那是{TA}在等你发现。",
         "F-01_not_triggered": "\n\n你没有注意到{TA}是什么时候停下的。但{TA}还在。",

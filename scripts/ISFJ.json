@@ -133,7 +133,7 @@
       "title": "付出被忽略",
       "type": "free_roam",
       "narrative": "你们刚结束一次见面。你正要走，{TA}忽然问了一句很轻的话——像是想了很久才决定开口的：\r\n",
-      "dialogue": "",
+      "dialogue": "ISFJ（受 F-02 状态影响）：\n若 F-02 为“已触发”：“……我今天帮你把那件衣服的扣子缝好了。你看到了吗？”\n若 F-02 为“未触发”：“……没事。没什么。”\n",
       "sceneHint": "",
       "options": [
         {
@@ -184,18 +184,7 @@
           "fatalError": null
         }
       ],
-      "onEnter": {
-        "conditions": [
-          {
-            "check": "plotFlags[\"F-02\"] === \"已触发\"",
-            "dialogue": "……我今天帮你把那件衣服的扣子缝好了。你看到了吗？"
-          },
-          {
-            "check": "plotFlags[\"F-02\"] === \"未触发\"",
-            "dialogue": "……没事。没什么。"
-          }
-        ]
-      },
+      "onEnter": null,
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-02",
       "condition": "无"
@@ -325,7 +314,7 @@
       "title": "旧礼物",
       "type": "free_roam",
       "narrative": "你翻到{TA}柜子里一个很旧的盒子——里面装着一件东西。是你很久以前送{TA的}一件小礼物，你说过“这就是个普通的小东西”。但{TA}留着它，还用一块布包着。\r\n你问{TA}：“你还留着这个？”\r\n{TA}看了一眼：\r\n",
-      "dialogue": "",
+      "dialogue": "ISFJ（受 F-03 状态影响）：\n若 F-03 为“已触发”：“……你那时候说‘这就是个普通的小东西’。但对我来说不是。因为那是你第一次选一个东西给我。”\n若 F-03 为“未触发”：“……忘了扔。就一直放着。”\n",
       "sceneHint": "",
       "options": [
         {
@@ -376,18 +365,7 @@
           "fatalError": null
         }
       ],
-      "onEnter": {
-        "conditions": [
-          {
-            "check": "plotFlags[\"F-03\"] === \"已触发\"",
-            "dialogue": "……你那时候说‘这就是个普通的小东西’。但对我来说不是。因为那是你第一次选一个东西给我。"
-          },
-          {
-            "check": "plotFlags[\"F-03\"] === \"未触发\"",
-            "dialogue": "……忘了扔。就一直放着。"
-          }
-        ]
-      },
+      "onEnter": null,
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-03",
       "condition": "无"
@@ -519,7 +497,7 @@
       "title": "被索取过度",
       "type": "free_roam",
       "narrative": "你今天状态不好，向{TA}提了一个要求——不算大，但需要{TA}花一些时间。{TA}本来在看书，安静了几秒，然后说：\r\n",
-      "dialogue": "",
+      "dialogue": "ISFJ（受 F-01 和 F-04 状态影响）：\n若 F-01 为“已触发”且 F-04 为“已触发”：“……我今天可能没办法做。不是不想。是今天已经没有多的力气了。”\n若未触发以上组合：“……好。我帮你弄。”\n",
       "sceneHint": "",
       "options": [
         {
@@ -570,18 +548,7 @@
           "fatalError": null
         }
       ],
-      "onEnter": {
-        "conditions": [
-          {
-            "check": "plotFlags[\"F-01\"] === \"已触发\" && plotFlags[\"F-04\"] === \"已触发\"",
-            "dialogue": "……我今天可能没办法做。不是不想。是今天已经没有多的力气了。"
-          },
-          {
-            "check": "true",
-            "dialogue": "……好。我帮你弄。"
-          }
-        ]
-      },
+      "onEnter": null,
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-04",
       "condition": "无"
@@ -676,7 +643,7 @@
     },
     "PE-1": {
       "title": "被看见的守护者",
-      "text": "你发现{TA}用回那个笔记本了——但那一页是空白的。只写了一行字：“今天开始，我写我们之间的事情。而不是只写你的事情。”{TA}把那本笔记推给你。你翻到下一页，看到你写的回应：“那我记录你喜欢的事。”——你们在同一本笔记本上，各占一半。\r\nISFJ 内心独白：“我把那本关于{TA的}笔记本放进了抽屉。然后我拿了一本新的。第一页写的是‘我们’。{TA}也在上面写了。{TA}写的是‘{TA的}’。我不用一个人记得了。”\r\n七、碎片记忆系统\r\n编号\t解锁条件\t碎片内容\r\n1\t触发 Anchor-01（看见缺席）\t“{TA}说‘六百多天’——{TA}数了。{TA}注意到了今天我停下来。{TA}没有说‘没关系’。”\r\n2\t触发 Anchor-02（承认劳动）\t“{TA}说‘是你在六点四十五起来’——{TA}把那些事还给了我。{TA}知道那些是‘我做的’，不是‘本来就有的’。”\r\n3\t触发 Anchor-03（接收无声）\t“{TA}看到那本笔记本的时候，没有说‘你好厉害’。{TA}说‘这页是上周的’。{TA}知道我一直在看。”\r\n4\t触发 Anchor-04（察觉撤离）\t“{TA}说‘你停了三件事’——{TA}数了。{TA}发现我在一件一件减少自己。”\r\n5\t触发 Anchor-05（接住失控）\t“我摊了三本笔记在桌上。{TA}说‘你在害怕’——{TA}走进了我的恐惧里。{TA}没有拉我出来。”\r\n6\t触发 Anchor-07（看见付出）\t“我问‘你看到了吗’——{TA}问我‘你是什么时候缝的’。{TA}在意的是我的时间。”\r\n7\t触发 Anchor-09（边界回应）\t“我说‘今天没有多的力气’——{TA}说‘那你留着’。{TA}没有问‘为什么’。”\r\n八、代码生成补充说明\r\n8.1 游离事件插入算法\r\ntext\r\n游戏启动时执行：\r\n1. 确定场景列表 = [S-01, S-02]\r\n2. 若难度 == 现实线，在 S-02 后插入 S-03\r\n3. 确定可用空位 = 当前场景列表长度 - 1 个间隙\r\n4. 对每个游离事件 (S-E1, S-E2, S-E3)：\r\n   a. 以 30% 概率决定是否出场\r\n   b. 若出场，在可用空位中随机选择一个位置插入\r\n   c. 从可用空位中移除该位置\r\n5. 添加 S-05/S-06（二选一，50%概率）\r\n6. 添加 S-07 至末尾\r\n8.2 前置伏笔状态判定逻辑\r\njavascript\r\nfunction getISFJLine(sceneId, flags) {\r\n  if (sceneId === \"S-E1\") {\r\n    if (flags[\"F-02\"] === \"已触发\") {\r\n      return \"……我今天帮你把那件衣服的扣子缝好了。你看到了吗？\";\r\n    } else {\r\n      return \"……没事。没什么。\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E2\") {\r\n    if (flags[\"F-03\"] === \"已触发\") {\r\n      return \"……你那时候说‘这就是个普通的小东西’。但对我来说不是。因为那是你第一次选一个东西给我。\";\r\n    } else {\r\n      return \"……忘了扔。就一直放着。\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E3\") {\r\n    if (flags[\"F-01\"] === \"已触发\" && flags[\"F-04\"] === \"已触发\") {\r\n      return \"……我今天可能没办法做。不是不想。是今天已经没有多的力气了。\";\r\n    } else {\r\n      return \"……好。我帮你弄。\";\r\n    }\r\n  }\r\n  return \"\";\r\n}\r\n8.3 终局解锁条件\r\njavascript\r\nfunction canUnlockPE1(flags) {\r\n  return flags[\"Anchor-02\"] && flags[\"Anchor-03\"] && flags[\"Anchor-05\"];\r\n}\r\nfunction canUnlockPE1_alt(flags) {\r\n  return flags[\"Anchor-01\"] && flags[\"Anchor-04\"] && flags[\"Anchor-09\"];\r\n}\r\nfunction canUnlockPE1_both(flags) {\r\n  return canUnlockPE1(flags) || canUnlockPE1_alt(flags);\r\n}\r\n8.4 结局判定（双轨制：Flag锁定优先 + 信任值兜底）\r\njavascript\r\nfunction determineEnding(trust, flags, difficulty) {\r\n  if (trust < 30) return \"BE-1\";\r\n  if (trust >= 30 && trust < 50) return \"BE-2\";\r\n  if (trust >= 50 && trust < 60) return \"BE-3\";\r\n  if (trust >= 60 && trust < 70) return \"NE-1\";\r\n  if (trust >= 70 && trust < 85) return \"GE-1\";\r\n  if (trust >= 85 && difficulty === \"现实线\") {\r\n    const count = Object.values(flags).filter(v => v === true).length;\r\n    if (count >= 6 && flags[\"Anchor-02\"] && flags[\"Anchor-05\"] && flags[\"Anchor-06\"]) {\r\n      return \"PE-1\";\r\n    }\r\n    return \"GE-1\";\r\n  }\r\n  return \"GE-1\";\r\n}\r\nISFJ 剧本 END\n",
+      "text": "你发现{TA}用回那个笔记本了——但那一页是空白的。只写了一行字：“今天开始，我写我们之间的事情。而不是只写你的事情。”{TA}把那本笔记推给你。你翻到下一页，看到你写的回应：“那我记录你喜欢的事。”——你们在同一本笔记本上，各占一半。\r\nISFJ 内心独白：“我把那本关于{TA的}笔记本放进了抽屉。然后我拿了一本新的。第一页写的是‘我们’。{TA}也在上面写了。{TA}写的是‘{TA的}’。我不用一个人记得了。”\r\n",
       "variants": {
         "F-01_triggered": "\n\n你注意到了{TA}停下的那个瞬间。那不是放弃——那是{TA}在等你发现。",
         "F-01_not_triggered": "\n\n你没有注意到{TA}是什么时候停下的。但{TA}还在。",

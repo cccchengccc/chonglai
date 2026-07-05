@@ -133,7 +133,7 @@
       "title": "创作被公开",
       "type": "free_roam",
       "narrative": "你发现{TA的}一张画被人发到了社交媒体上——不是{TA}发的，是别人拍的。下面有评论：“这个风格好像 XX 画家”“这个颜色搭配有点奇怪”“还不错”。\r\n{TA}看到了。{TA}没有说话，把手机翻了过去。你问{TA}，{TA}停了一下才开口：\r\n",
-      "dialogue": "",
+      "dialogue": "ISFP（受 F-02 状态影响）：\n若 F-02 为“已触发”：“……我没有想被评价。我只是想画。被评价之后，那张画就不再是我的了。”\n若 F-02 为“未触发”：“……没什么。就是一张画而已。”\n",
       "sceneHint": "",
       "options": [
         {
@@ -184,18 +184,7 @@
           "fatalError": null
         }
       ],
-      "onEnter": {
-        "conditions": [
-          {
-            "check": "plotFlags[\"F-02\"] === \"已触发\"",
-            "dialogue": "……我没有想被评价。我只是想画。被评价之后，那张画就不再是我的了。"
-          },
-          {
-            "check": "plotFlags[\"F-02\"] === \"未触发\"",
-            "dialogue": "……没什么。就是一张画而已。"
-          }
-        ]
-      },
+      "onEnter": null,
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-02",
       "condition": "无"
@@ -325,7 +314,7 @@
       "title": "旧速写",
       "type": "free_roam",
       "narrative": "你翻到{TA}一本旧速写本——里面是很多没画完的东西：一只手、一个侧影、一片天空的一半。都是“没有完成”的。但在其中一页，有一个侧影——是你。只画了一半，但那个轮廓你认得。\r\n你问{TA}：“这个是你画的？”\r\n{TA}看了一眼：\r\n",
-      "dialogue": "",
+      "dialogue": "ISFP（受 F-03 状态影响）：\n若 F-03 为“已触发”：“……那时候你坐在窗户旁边。我画了一半就停下来了。因为画完了就不敢给你看了。”\n若 F-03 为“未触发”：“……随便画的。认不出来吧。”\n",
       "sceneHint": "",
       "options": [
         {
@@ -376,18 +365,7 @@
           "fatalError": null
         }
       ],
-      "onEnter": {
-        "conditions": [
-          {
-            "check": "plotFlags[\"F-03\"] === \"已触发\"",
-            "dialogue": "……那时候你坐在窗户旁边。我画了一半就停下来了。因为画完了就不敢给你看了。"
-          },
-          {
-            "check": "plotFlags[\"F-03\"] === \"未触发\"",
-            "dialogue": "……随便画的。认不出来吧。"
-          }
-        ]
-      },
+      "onEnter": null,
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-03",
       "condition": "无"
@@ -519,7 +497,7 @@
       "title": "创作被限定",
       "type": "free_roam",
       "narrative": "有人问{TA}能不能画一个“指定主题”的东西——一个{TA}不太感兴趣的主题。{TA}没有拒绝，但也没有立刻答应。{TA}安静了一会儿，然后说：\r\n",
-      "dialogue": "",
+      "dialogue": "ISFP（受 F-01 和 F-04 状态影响）：\n若 F-01 为“已触发”且 F-04 为“已触发”：“……我可能画不了这个。不是因为做不到——是因为画完之后，那幅画就不是我的了。”\n若未触发以上组合：“……我试试吧。”\n",
       "sceneHint": "",
       "options": [
         {
@@ -570,18 +548,7 @@
           "fatalError": null
         }
       ],
-      "onEnter": {
-        "conditions": [
-          {
-            "check": "plotFlags[\"F-01\"] === \"已触发\" && plotFlags[\"F-04\"] === \"已触发\"",
-            "dialogue": "……我可能画不了这个。不是因为做不到——是因为画完之后，那幅画就不是我的了。"
-          },
-          {
-            "check": "true",
-            "dialogue": "……我试试吧。"
-          }
-        ]
-      },
+      "onEnter": null,
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-04",
       "condition": "无"
@@ -676,7 +643,7 @@
     },
     "PE-1": {
       "title": "颜色并排",
-      "text": "你收到一颗新的石头。没有颜色。{TA}把原来那颗涂了灰绿和橙色的石头放在旁边。两颗石头并排放着——一颗空白的、一颗有颜色的。{TA}说：“空的那颗是给你画的。你想涂什么颜色都可以。”\r\nISFP 内心独白：“我把颜色放在了{TA}手上。现在我把空白的也放在{TA}手上。{TA}可以画{TA自己}的。”\r\n七、碎片记忆系统\r\n编号\t解锁条件\t碎片内容\r\n1\t触发 Anchor-01（看见缺席）\t“{TA}说‘你调了一块灰绿色’——{TA}看到了调色板上的那块痕迹。{TA}知道我调了、没画完。”\r\n2\t触发 Anchor-02（接纳未完成）\t“{TA}说‘你在找连接方式’——{TA}看的是我的过程，不是我的成品。”\r\n3\t触发 Anchor-03（看见背面）\t“{TA}说‘那片灰蓝色’——{TA}看到了那页。不是问我‘什么意思’，是问我‘在想什么’。”\r\n4\t触发 Anchor-04（接收无声）\t“{TA}看到了铅笔线条的犹豫。{TA}说‘你画了很多遍’。{TA}知道我花了时间决定要不要画那个缺口。”\r\n5\t触发 Anchor-05（接住审判）\t“我画了一张很硬的画。{TA}说‘线条不一样’——{TA}看到了我的愤怒被画出来了。{TA}没有叫我变软。”\r\n6\t触发 Anchor-07（保护创作）\t“我的画被评价了。{TA}说‘被评价之后那张画就不再是你的了’——{TA}确认了我的感受。”\r\n7\t触发 Anchor-09（自由接纳）\t“我说‘画完之后就不是我的了’——{TA}说‘你需要它是你的’。{TA}说出了我没有说完的话。”\r\n八、代码生成补充说明\r\n8.1 游离事件插入算法\r\ntext\r\n游戏启动时执行：\r\n1. 确定场景列表 = [S-01, S-02]\r\n2. 若难度 == 现实线，在 S-02 后插入 S-03\r\n3. 确定可用空位 = 当前场景列表长度 - 1 个间隙\r\n4. 对每个游离事件 (S-E1, S-E2, S-E3)：\r\n   a. 以 30% 概率决定是否出场\r\n   b. 若出场，在可用空位中随机选择一个位置插入\r\n   c. 从可用空位中移除该位置\r\n5. 添加 S-05/S-06（二选一，50%概率）\r\n6. 添加 S-07 至末尾\r\n8.2 前置伏笔状态判定逻辑\r\njavascript\r\nfunction getISFPLine(sceneId, flags) {\r\n  if (sceneId === \"S-E1\") {\r\n    if (flags[\"F-02\"] === \"已触发\") {\r\n      return \"……我没有想被评价。我只是想画。被评价之后，那张画就不再是我的了。\";\r\n    } else {\r\n      return \"……没什么。就是一张画而已。\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E2\") {\r\n    if (flags[\"F-03\"] === \"已触发\") {\r\n      return \"……那时候你坐在窗户旁边。我画了一半就停下来了。因为画完了就不敢给你看了。\";\r\n    } else {\r\n      return \"……随便画的。认不出来吧。\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E3\") {\r\n    if (flags[\"F-01\"] === \"已触发\" && flags[\"F-04\"] === \"已触发\") {\r\n      return \"……我可能画不了这个。不是因为做不到——是因为画完之后，那幅画就不是我的了。\";\r\n    } else {\r\n      return \"……我试试吧。\";\r\n    }\r\n  }\r\n  return \"\";\r\n}\r\n8.3 终局解锁条件\r\njavascript\r\nfunction canUnlockPE1(flags) {\r\n  return flags[\"Anchor-02\"] && flags[\"Anchor-03\"] && flags[\"Anchor-05\"];\r\n}\r\nfunction canUnlockPE1_alt(flags) {\r\n  return flags[\"Anchor-01\"] && flags[\"Anchor-04\"] && flags[\"Anchor-09\"];\r\n}\r\nfunction canUnlockPE1_both(flags) {\r\n  return canUnlockPE1(flags) || canUnlockPE1_alt(flags);\r\n}\r\n8.4 结局判定（双轨制：Flag锁定优先 + 信任值兜底）\r\njavascript\r\nfunction determineEnding(trust, flags, difficulty) {\r\n  if (trust < 30) return \"BE-1\";\r\n  if (trust >= 30 && trust < 50) return \"BE-2\";\r\n  if (trust >= 50 && trust < 60) return \"BE-3\";\r\n  if (trust >= 60 && trust < 70) return \"NE-1\";\r\n  if (trust >= 70 && trust < 85) return \"GE-1\";\r\n  if (trust >= 85 && difficulty === \"现实线\") {\r\n    const count = Object.values(flags).filter(v => v === true).length;\r\n    if (count >= 6 && flags[\"Anchor-02\"] && flags[\"Anchor-05\"] && flags[\"Anchor-06\"]) {\r\n      return \"PE-1\";\r\n    }\r\n    return \"GE-1\";\r\n  }\r\n  return \"GE-1\";\r\n}\r\nISFP 剧本 END\n",
+      "text": "你收到一颗新的石头。没有颜色。{TA}把原来那颗涂了灰绿和橙色的石头放在旁边。两颗石头并排放着——一颗空白的、一颗有颜色的。{TA}说：“空的那颗是给你画的。你想涂什么颜色都可以。”\r\nISFP 内心独白：“我把颜色放在了{TA}手上。现在我把空白的也放在{TA}手上。{TA}可以画{TA自己}的。”\r\n",
       "variants": {
         "F-01_triggered": "\n\n你注意到了{TA}停下的那个瞬间。那不是放弃——那是{TA}在等你发现。",
         "F-01_not_triggered": "\n\n你没有注意到{TA}是什么时候停下的。但{TA}还在。",

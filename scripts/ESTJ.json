@@ -133,7 +133,7 @@
       "title": "方案被否定",
       "type": "free_roam",
       "narrative": "你们在讨论一件“共同决定”——也许是搬家、也许是一笔大额支出、也许是关于未来的某个计划。{TA}做了一个很详细的方案，用了好几天，打印出来，放在桌上。\r\n你看完之后说了一句：“这个方案有一个问题。”\r\n{TA}安静了。不是生气，是“消化”——{TA}在重新评估自己是不是“又做错了”。\r\n",
-      "dialogue": "",
+      "dialogue": "ESTJ（受 F-02 状态影响）：\n若 F-02 为“已触发”：“……你指的那个问题——是我没写清楚，还是我确实没想到？”\n若 F-02 为“未触发”或“未触发”：“……哪个部分？”\n",
       "sceneHint": "",
       "options": [
         {
@@ -184,14 +184,7 @@
           "fatalError": null
         }
       ],
-      "onEnter": {
-        "conditions": [
-          {
-            "check": "plotFlags[\"F-02\"] === \"已触发\"",
-            "dialogue": "……你指的那个问题——是我没写清楚，还是我确实没想到？"
-          }
-        ]
-      },
+      "onEnter": null,
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-02",
       "condition": "无"
@@ -321,7 +314,7 @@
       "title": "旧证书",
       "type": "free_roam",
       "narrative": "你在{TA}书柜里翻到一个旧文件夹——里面有一张证书，是{TA}多年前参加一个培训的结业证书。但旁边贴了一张便利贴，上面写着：“这次没过。下次再考。”\r\n你问{TA}：“这是什么时候的？”\r\n{TA}看了一眼：\r\n",
-      "dialogue": "",
+      "dialogue": "ESTJ（受 F-03 状态影响）：\n若 F-03 为“已触发”：“……那次我没过。我考了两次才过。我以前不会把‘没过的证据’留着——但后来我发现，留着它比扔掉它更诚实。”\n若 F-03 为“未触发”：“……那次我没过。但我后来考过了。留这个是提醒自己。”\n",
       "sceneHint": "",
       "options": [
         {
@@ -372,18 +365,7 @@
           "fatalError": null
         }
       ],
-      "onEnter": {
-        "conditions": [
-          {
-            "check": "plotFlags[\"F-03\"] === \"已触发\"",
-            "dialogue": "……那次我没过。我考了两次才过。我以前不会把‘没过的证据’留着——但后来我发现，留着它比扔掉它更诚实。"
-          },
-          {
-            "check": "plotFlags[\"F-03\"] === \"未触发\"",
-            "dialogue": "……那次我没过。但我后来考过了。留这个是提醒自己。"
-          }
-        ]
-      },
+      "onEnter": null,
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-03",
       "condition": "无"
@@ -515,7 +497,7 @@
       "title": "被拒绝的方案",
       "type": "free_roam",
       "narrative": "{TA}给你看一个新方案——关于你们下次旅行的一个计划。{TA}做了两天，列了航班、酒店、路线、备选方案。你看了之后说：“这个不太行。”\r\n{TA}安静了。不是那种“等一下再说”的安静，是那种“我在消化这句话”的安静。然后{TA}说：\r\n",
-      "dialogue": "",
+      "dialogue": "ESTJ（受 F-01 和 F-04 状态影响）：\n若 F-01 为“已触发”且 F-04 为“已触发”：“……你说‘不太行’——我可以在哪些部分调整？还是整个方向都要换？”\n若未触发以上组合：“……那你想去哪？”\n",
       "sceneHint": "",
       "options": [
         {
@@ -566,18 +548,7 @@
           "fatalError": null
         }
       ],
-      "onEnter": {
-        "conditions": [
-          {
-            "check": "plotFlags[\"F-01\"] === \"已触发\" && plotFlags[\"F-04\"] === \"已触发\"",
-            "dialogue": "……你说‘不太行’——我可以在哪些部分调整？还是整个方向都要换？"
-          },
-          {
-            "check": "true",
-            "dialogue": "……那你想去哪？"
-          }
-        ]
-      },
+      "onEnter": null,
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-04",
       "condition": "无"
@@ -672,7 +643,7 @@
     },
     "PE-1": {
       "title": "值得托付",
-      "text": "{TA}把你给{TA的}那本打印书放在了{TA}书架的最上层——不是“收藏”的位置，是“每天都会看到”的位置。{TA}发了一条消息：“书我看完了。我在想——这是不是就是你说的‘顺便’的意思？如果不是，那我再想一下。”\r\nESTJ 内心独白：“{TA}说‘我也想为你做点什么’。{TA}做了一件事——一本打印的书、一张便利贴、写了‘顺便’。{TA}学会了我的语言。那我也可以学{TA的}——我可以说‘我不知道’、‘我还没想好’。{TA}不会走。”\r\n七、碎片记忆系统\r\n编号\t解锁条件\t碎片内容\r\n1\t触发 Anchor-01（看见承诺）\t“{TA}问我‘取消是因为不重要了还是因为不想去了’。{TA}问到了那个‘我真正在判断的东西’——不是我的安排，是{TA的}位置。”\r\n2\t触发 Anchor-02（识别行动）\t“我修了支架、补了胎、买了那款酸奶。{TA}打印了一本书放在我桌上。写了‘顺便’。{TA}学会了我的语言。”\r\n3\t触发 Anchor-03（接纳不确定）\t“我说‘如果有一天我搞砸了怎么办’。{TA}没有说‘你不会’。{TA}问‘那你会怎么样’。{TA}没有躲开那个问题。”\r\n4\t触发 Anchor-04（接收安排）\t“我在装箱。{TA}问我‘合照会放进去吗’。{TA}在问那个箱子里的最后一样东西是什么。”\r\n5\t触发 Anchor-05（接住焦虑）\t“我停了。{TA}问了‘你停下来了’——{TA}看到那个动作本身。不是问我‘为什么停’，是问我‘你在想什么’。”\r\n6\t触发 Anchor-07（方案信任）\t“{TA}说‘我想跟你一起看一遍’——{TA}把‘有问题’转化成了‘我们一起看’。{TA}走进了我的方案里。”\r\n7\t触发 Anchor-09（反馈接收）\t“我说‘方案不行’。{TA}问我‘你是在说方案还是在说我’——{TA}在帮我把‘否定’和‘我’分开。”\r\n八、代码生成补充说明\r\n8.1 游离事件插入算法\r\ntext\r\n游戏启动时执行：\r\n1. 确定场景列表 = [S-01, S-02]\r\n2. 若难度 == 现实线，在 S-02 后插入 S-03\r\n3. 确定可用空位 = 当前场景列表长度 - 1 个间隙\r\n4. 对每个游离事件 (S-E1, S-E2, S-E3)：\r\n   a. 以 30% 概率决定是否出场\r\n   b. 若出场，在可用空位中随机选择一个位置插入\r\n   c. 从可用空位中移除该位置\r\n5. 添加 S-05/S-06（二选一，50%概率）\r\n6. 添加 S-07 至末尾\r\n8.2 前置伏笔状态判定逻辑\r\njavascript\r\nfunction getESTJLine(sceneId, flags) {\r\n  if (sceneId === \"S-E1\") {\r\n    if (flags[\"F-02\"] === \"已触发\") {\r\n      return \"……你指的那个问题——是我没写清楚，还是我确实没想到？\";\r\n    } else {\r\n      return \"……哪个部分？\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E2\") {\r\n    if (flags[\"F-03\"] === \"已触发\") {\r\n      return \"……那次我没过。我考了两次才过。我以前不会把‘没过的证据’留着——但后来我发现，留着它比扔掉它更诚实。\";\r\n    } else {\r\n      return \"……那次我没过。但我后来考过了。留这个是提醒自己。\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E3\") {\r\n    if (flags[\"F-01\"] === \"已触发\" && flags[\"F-04\"] === \"已触发\") {\r\n      return \"……你说‘不太行’——我可以在哪些部分调整？还是整个方向都要换？\";\r\n    } else {\r\n      return \"……那你想去哪？\";\r\n    }\r\n  }\r\n  return \"\";\r\n}\r\n8.3 终局解锁条件\r\njavascript\r\nfunction canUnlockPE1(flags) {\r\n  return flags[\"Anchor-02\"] && flags[\"Anchor-03\"] && flags[\"Anchor-05\"];\r\n}\r\nfunction canUnlockPE1_alt(flags) {\r\n  return flags[\"Anchor-01\"] && flags[\"Anchor-04\"] && flags[\"Anchor-09\"];\r\n}\r\nfunction canUnlockPE1_both(flags) {\r\n  return canUnlockPE1(flags) || canUnlockPE1_alt(flags);\r\n}\r\n8.4 结局判定（双轨制：Flag锁定优先 + 信任值兜底）\r\njavascript\r\nfunction determineEnding(trust, flags, difficulty) {\r\n  if (trust < 30) return \"BE-1\";\r\n  if (trust >= 30 && trust < 50) return \"BE-2\";\r\n  if (trust >= 50 && trust < 60) return \"BE-3\";\r\n  if (trust >= 60 && trust < 70) return \"NE-1\";\r\n  if (trust >= 70 && trust < 85) return \"GE-1\";\r\n  if (trust >= 85 && difficulty === \"现实线\") {\r\n    const count = Object.values(flags).filter(v => v === true).length;\r\n    if (count >= 6 && flags[\"Anchor-02\"] && flags[\"Anchor-05\"] && flags[\"Anchor-06\"]) {\r\n      return \"PE-1\";\r\n    }\r\n    return \"GE-1\";\r\n  }\r\n  return \"GE-1\";\r\n}\r\nESTJ 剧本 END\n",
+      "text": "{TA}把你给{TA的}那本打印书放在了{TA}书架的最上层——不是“收藏”的位置，是“每天都会看到”的位置。{TA}发了一条消息：“书我看完了。我在想——这是不是就是你说的‘顺便’的意思？如果不是，那我再想一下。”\r\nESTJ 内心独白：“{TA}说‘我也想为你做点什么’。{TA}做了一件事——一本打印的书、一张便利贴、写了‘顺便’。{TA}学会了我的语言。那我也可以学{TA的}——我可以说‘我不知道’、‘我还没想好’。{TA}不会走。”\r\n",
       "variants": {
         "F-01_triggered": "\n\n你注意到了{TA}停下的那个瞬间。那不是放弃——那是{TA}在等你发现。",
         "F-01_not_triggered": "\n\n你没有注意到{TA}是什么时候停下的。但{TA}还在。",
