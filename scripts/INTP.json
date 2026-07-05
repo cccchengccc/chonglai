@@ -1,0 +1,707 @@
+{
+  "meta": {
+    "id": "INTP",
+    "name": "逻辑学家",
+    "theme": "用思考替代感受，用理论测试忠诚",
+    "startingTrust": 30,
+    "originalGender": "male",
+    "genderNote": "剧情已通过模板化处理适配两种性别，部分细节可能更适合原始设计视角"
+  },
+  "scenes": {
+    "S-01": {
+      "id": "S-01",
+      "title": "消失的假设句",
+      "type": "core",
+      "narrative": "你们坐在沙发上。{TA}在看手机——或者更准确地说，{TA}在假装看手机。你注意到{TA}那个页面已经停了很久，屏幕没有动。\r\n你随口说了一件事：“最近天气变化好大，前两天还热，今天一下降温了。”\r\n你等了一秒钟。放在以前，{TA}一定会接上一句类似：“你说‘降温’——但‘体感温度’和‘实际温度’是两个概念。如果湿度变化的话，同样温度，人体感受差别可能很大。”或者“人类对温度的感知本身就是一种奇怪的演化残留——我们其实不太能准确判断‘冷’和‘热’的阈值。”\r\n但{TA}没有。{TA}说：“嗯，确实有点冷。”然后把手机翻了个面。\r\n",
+      "dialogue": "INTP：……（{TA}把那个“会接话”的自己关掉了。{TA}学会了“简短回应”。）\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你是不是有点感冒？怎么话这么少？",
+          "reaction": "{TA}愣了一下：“……没有感冒。就是没话说。”然后{TA}继续看手机。",
+          "trustChange": {
+            "理想线": -15,
+            "现实线": -30,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-02",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你刚才在想什么？你看了那个页面四分多钟了。",
+          "reaction": "{TA}低头看了一眼手机：“……没在想什么。就是在发呆。”",
+          "trustChange": {
+            "理想线": 3,
+            "现实线": 0,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-02",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "刚才我说‘天气变化’的时候——你没有接‘体感温度和实际温度的区别’。你以前会接那种话的。你是怕我会觉得你烦吗？",
+          "reaction": "{TA}停住了。{TA}放下手机，看着你，沉默了几秒——那是一种新的表情，不是“不想说”，是“被看见了”的那种安静。然后{TA}说：“……你记得我会接那种话？”",
+          "trustChange": {
+            "理想线": 12,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-01": true
+          },
+          "plotOps": {},
+          "nextScene": "S-02",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "必出",
+      "foreshadowCheck": "F-01",
+      "condition": "无"
+    },
+    "S-02": {
+      "id": "S-02",
+      "title": "未完成的理论",
+      "type": "core",
+      "narrative": "你准备离开房间的时候，{TA}忽然开口了：\r\n",
+      "dialogue": "INTP：“……我刚才其实在想一件事。你说‘天气变化’的时候，我在想——人类对‘变化’的感知是被‘参照点’决定的。如果你出生在赤道，‘降温’对你来说可能是二十度。如果你出生在极地，可能是零下十度。那‘变化’本身到底有没有一个客观标准……还是它完全是主观的？”\r\n{TA}说完这段话之后，自己停了一下。\r\n“……抱歉，这个可能很无聊。当我没说。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "这个问题好深奥啊。你平时都在想这些吗？",
+          "reaction": "{TA}笑了一下：“……有些吧。”然后把话题转向了“我要去倒杯水”。",
+          "trustChange": {
+            "理想线": -10,
+            "现实线": -25,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E1（若出场）/ S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "‘变化是主观的’——但如果‘主观的’本身也有一个结构呢？比如——每个人都有一个‘自己的温度参照系’，那个参照系是怎么形成的？",
+          "reaction": "{TA}停住了。然后{TA}转过身来，坐在了沙发上——{TA}本来要站起来的，但{TA}坐下来了：“……你刚刚说‘参照系是怎么形成的’——那个我也想了一下。我觉得可能和早期经验有关，但我不确定。”",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-02": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E1（若出场）/ S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你刚才说‘抱歉，这个可能很无聊’——你以前说这种话的时候，会加一句‘但我觉得有意思’。你今天没有加那一句。",
+          "reaction": "{TA}想了很久：“……我没注意到。我好像确实把‘但我觉得有意思’省略掉了。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 4,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E1（若出场）/ S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "必出",
+      "foreshadowCheck": "F-02",
+      "condition": "无"
+    },
+    "S-E1": {
+      "id": "S-E1",
+      "title": "理论被质疑",
+      "type": "free_roam",
+      "narrative": "{TA}今天情绪不太好——不是低落，是“被堵住”的那种。你问{TA}，{TA}说：“我在一个论坛上说了我的想法——结果好几个人说我的逻辑有问题。”\r\n{TA}没有生气。{TA}说这话的时候很平，像是“我在报告一个数据”：\r\n",
+      "dialogue": "INTP（受 F-02 状态影响）：\r\n若 F-02 为“已触发”：“……{TA}们说的其中一点，我其实在上个月自己推翻过。但{TA}们不知道。我也没有写进去。”\r\n若 F-02 为“未触发”：“……算了。可能真的是我逻辑有问题。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "{TA}们的反驳逻辑有漏洞——你要不要跟我拆一下？",
+          "reaction": "{TA}看了你一眼：“……你愿意听？”",
+          "trustChange": {
+            "理想线": 3,
+            "现实线": 0,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-07": true
+          },
+          "plotOps": {},
+          "nextScene": "S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "{TA}们的反驳里——有没有一句话让你觉得‘这个我确实没想过’？",
+          "reaction": "{TA}安静了一下：“……有。第三点我没想过。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-07": true
+          },
+          "plotOps": {},
+          "nextScene": "S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "{TA}们说的——你会在意是因为你觉得{TA}们说的有道理，还是因为你觉得{TA}们在说你？",
+          "reaction": "{TA}想了很久：“……我一开始觉得{TA}们在说逻辑。后来发现我在想‘{TA}们是不是在说我’。”",
+          "trustChange": {
+            "理想线": 5,
+            "现实线": 6,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "30%概率，随机浮动插入",
+      "foreshadowCheck": "F-02",
+      "condition": "无"
+    },
+    "S-03": {
+      "id": "S-03",
+      "title": "逻辑压力测试",
+      "type": "exclusive",
+      "narrative": "你们在聊一个“日常”的话题——比如“要不要换房子”“要不要换个城市生活”。你提出了一个观点。\r\n然后{TA}说了一句很平、很快、没有情绪的话：\r\n",
+      "dialogue": "INTP：“你那个判断的底层假设是什么？”\r\n你回答了。{TA}又问：“那如果你那个假设不成立呢？”\r\n你愣了一下。{TA}又问：“你有没有想过——你做出这个判断，是不是因为你在用‘方便’替代‘正确’？”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你够了没有？我在说一个正经的事，你非要把它变成辩论赛吗？",
+          "reaction": "{TA}停住了。安静了几秒：“……我没有在辩论。我只是想确认你的逻辑路径。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": -30,
+            "fatalError": true
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": null,
+          "fatalError": "BE-1"
+        },
+        {
+          "id": "B",
+          "text": "我的底层假设是‘稳定比变动更安全’。如果你要拆那个假设——你觉得‘安全’这个标准本身有问题吗？",
+          "reaction": "{TA}安静了一下，然后说：“……‘安全’本身不是一个可丈量的东西。但你把它作为标准，你的逻辑是自洽的。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "我的底层假设可能是‘我害怕不确定性’。我不确定那是不是对的，但它是真的。",
+          "reaction": "{TA}沉默了一会儿：“……你刚才说的那个是‘感受’的底层假设，不是‘判断’的底层假设。但两个都算。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 6,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-04",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "现实线必出",
+      "foreshadowCheck": "F-02",
+      "condition": "难度 = 现实线"
+    },
+    "S-04": {
+      "id": "S-04",
+      "title": "半成品的人",
+      "type": "core",
+      "narrative": "你注意到{TA}电脑上有一个文档——标题是一串字母和数字，像是未命名文档的默认格式。{TA}看到你注意到了，犹豫了一下，然后把屏幕转过来一些：\r\n",
+      "dialogue": "INTP：“……这个我写了很久。没有写完。可能永远不会写完。你想看的话可以看。不想看也没关系。”\r\n你凑过去看了一眼——是一篇很长的文字，标题处空着。开头写了一段关于“人类为什么需要被理解”的思考，中间停在一个问题上——“如果被理解的前提是‘被完全看到’，那有没有可能，‘被理解’本身就是一个不可能完成的任务？”\r\n{TA}在那个问题旁边打了个括号：（这里卡住了。如果你在看，你可以帮我写下一句。）\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你写了好多啊。你平时都在写这些吗？你会把它们发出去吗？",
+          "reaction": "{TA}合上了电脑：“……没有。就是自己写写的。”然后{TA}把文档关了。",
+          "trustChange": {
+            "理想线": -10,
+            "现实线": -25,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E2（若出场）/ S-05",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你卡在‘被完全看到’那个地方——你在想，有没有可能‘被理解’不是目的，是过程？",
+          "reaction": "{TA}打开电脑，翻到那一页，停了一下：“……‘不是目的，是过程’。这个我还没有想到。”",
+          "trustChange": {
+            "理想线": 12,
+            "现实线": 12,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-03": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E2（若出场）/ S-05",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你说‘如果被理解的前提是‘被完全看到’’——但如果被理解的前提不是‘被完全看到’，而是‘被允许不完全被看到’呢？",
+          "reaction": "{TA}长时间地看着屏幕。然后{TA}往后靠了靠：“……我写的时候从来没有想过那个方向。我默认了‘完全’是必须的。但如果你说的对……”",
+          "trustChange": {
+            "理想线": 15,
+            "现实线": 35,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-03": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E2（若出场）/ S-05",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "必出",
+      "foreshadowCheck": "F-03",
+      "condition": "无"
+    },
+    "S-E2": {
+      "id": "S-E2",
+      "title": "旧文档",
+      "type": "free_roam",
+      "narrative": "你翻到{TA}电脑上一个很久以前的文档——文件名是“关于XX的思考（未完成）”。日期是很久以前的。打开来看，里面是一堆没写完的句子，中间有很多空白，最后一行写着：“我还没有想清楚，但我想先记下来。”\r\n你问{TA}：“你还会回去看这种‘没想清楚’的东西吗？”\r\n{TA}看了一眼：\r\n",
+      "dialogue": "INTP（受 F-03 状态影响）：\r\n若 F-03 为“已触发”：“……以前不会。但最近会。因为有人告诉我‘未完成’也可以被看到。”\r\n若 F-03 为“未触发”：“……不会。写了就是写了。不会再看了。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你写了一半的东西——你留着是为了什么？",
+          "reaction": "{TA}想了很久：“……留着是因为‘我还没想完’。但我不确定‘没想完’值不值得保存。”",
+          "trustChange": {
+            "理想线": 5,
+            "现实线": 4,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-05",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你写‘我还没有想清楚，但我想先记下来’——你现在还会这样写吗？",
+          "reaction": "{TA}沉默了一会儿：“……现在有时候会写。因为‘没想清楚’也可以被看到。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-08": true
+          },
+          "plotOps": {},
+          "nextScene": "S-05",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你这篇写了一半的东西——你现在看它，能看出来你当时在想什么吗？",
+          "reaction": "{TA}看了很久：“……能看出来一些。有些句子我当时写的时候很确定，现在看不太确定。但那个‘不确定’本身是有意义的。”",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-05",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "30%概率，随机浮动插入",
+      "foreshadowCheck": "F-03",
+      "condition": "无"
+    },
+    "S-05": {
+      "id": "S-05",
+      "title": "无声的撤退",
+      "type": "branch",
+      "narrative": "你发现{TA}在做一些“无声的整理”——{TA}在减少自己在你生活中留下的痕迹。{TA}不再把你的东西放回{TA}旁边了——你的充电器原来一直放在{TA}那边，现在被放在了你自己的那侧。{TA}不再在共享备忘录里写东西了。{TA}不再在你不在的时候给你留言了。\r\n你问{TA}：“你在做什么？”\r\n{TA}正在叠一件衣服，头也不抬：\r\n",
+      "dialogue": "INTP：“……没什么。就是觉得我把东西放得太散了。整理一下。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你东西放得乱一点没关系啊。不用那么整齐。",
+          "reaction": "{TA}点了点头：“嗯。知道。”然后继续“整理”。",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": -15,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-06（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你把充电器放到我那边了——原来在你这边的。你为什么挪它？",
+          "reaction": "{TA}低头看了一眼那个充电器：“……没有为什么。就是觉得你应该更方便拿到。”",
+          "trustChange": {
+            "理想线": 3,
+            "现实线": 0,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-06（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你在降低存在感。你在看我会不会注意到你减少了多少。",
+          "reaction": "{TA}停住了。安静了很久。然后{TA}说：“……我以前写过一个东西，标题叫‘如果我不在了，你什么时候会发现’。我今天早上重读了一遍。然后我开始整理。”",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-04": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-06（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "50%概率，与S-06二选一",
+      "foreshadowCheck": "F-04",
+      "condition": "无"
+    },
+    "S-06": {
+      "id": "S-06",
+      "title": "情绪的意外泄漏",
+      "type": "branch",
+      "narrative": "你听到{TA}在房间里打电话——声音比平时高、语速比平时快、语气不像{TA}。那是{TA}很少用的一种状态：{TA}在跟一个人争辩。争辩的内容不是逻辑、不是理论——是{TA自己}在某个事情上“做错了”的评价。\r\n{TA}挂了电话之后，安静了很久。你进去的时候，{TA}坐在椅子上，看着窗外：\r\n",
+      "dialogue": "INTP：“我刚才在跟一个人吵一个很无聊的事情。吵完之后我在想——我为什么会花那么长时间去说服{TA}我是对的？那种‘被认可’的需求……为什么会存在？”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你刚才确实有点激动。你平时不会那样的。是因为那个人说了什么吗？",
+          "reaction": "{TA}摇了摇头：“……没有。就是我说着说着就变大了。”然后{TA}不说话了。",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": -30,
+            "fatalError": true
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": null,
+          "fatalError": "BE-2"
+        },
+        {
+          "id": "B",
+          "text": "你问‘为什么会存在’——你平时不会问自己那个问题。你刚才是不是很难受？",
+          "reaction": "{TA}沉默了很久。然后说：“……我不知道算不算‘难受’。但确实有一种‘我在失控’的感觉。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-05": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你问‘被认可的需求为什么会存在’——你是在问那个需求本身，还是在问‘为什么你有’？",
+          "reaction": "{TA}想了很久：“……我可能是在问‘为什么我有’。因为我不觉得我应该有。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 6,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "现实线50%概率，与S-05二选一",
+      "foreshadowCheck": "F-04",
+      "condition": "难度 = 现实线"
+    },
+    "S-E3": {
+      "id": "S-E3",
+      "title": "被要求承诺",
+      "type": "free_roam",
+      "narrative": "你们在聊一件关于未来的事。你问了{TA}一个问题——不是很大，但需要{TA}做出一个表态。{TA}安静了很久，然后说：\r\n",
+      "dialogue": "INTP（受 F-01 和 F-04 状态影响）：\r\n若 F-01 为“已触发”且 F-04 为“已触发”：“……我没办法现在就给你答案。我需要想一下。不是因为它不重要——是因为它很重要。”\r\n若未触发以上组合：“……我不知道。下次再说？”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "那你想好了告诉我。",
+          "reaction": "{TA}点了点头：“……嗯。”",
+          "trustChange": {
+            "理想线": 3,
+            "现实线": -15,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你说‘我需要想一下’——不是因为它不重要，是因为它很重要。",
+          "reaction": "{TA}看了你一眼：“……对。很重要。所以我需要想清楚。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-09": true
+          },
+          "plotOps": {},
+          "nextScene": "S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你说‘下次再说’——是真的下次再说，还是在说‘我想说但我不知道怎么把它变成可说的’？",
+          "reaction": "{TA}沉默了很久：“……我在说‘我需要时间把它变成可说的’。”",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-07",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "30%概率，随机浮动插入",
+      "foreshadowCheck": "F-04",
+      "condition": "无"
+    },
+    "S-07": {
+      "id": "S-07",
+      "title": "最后一个问题",
+      "type": "core",
+      "narrative": "{TA}在一个安静的地方等你——不是咖啡馆，是{TA}常去的图书馆角落。{TA}坐在那里，面前没有电脑、没有手机、没有纸笔。{TA}像是在等人来回答一个{TA}已经想了很久的问题。\r\n{TA}看到你来了，开口了：\r\n",
+      "dialogue": "INTP：“我最近在想——人为什么需要另一个人‘理解’自己？如果理解的前提是‘把不可说的变成可说的’，那那个‘不可说的’在被翻译的过程中，会不会已经丢失了一部分？”\r\n{TA}停了一下。然后{TA}说了一句更轻的话：\r\n“我想问的是——如果我不能完整地翻译我自己，你还愿意留在这里吗？”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你不需要翻译你自己。我留在这里，不是因为我听懂了你——是因为你在。",
+          "reaction": "",
+          "trustChange": {
+            "理想线": 5,
+            "现实线": 5,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你那篇‘关于被允许不完全被看到’的文档——我后来也写了一篇。我没有发给你，因为我还没想好怎么让你看到它。但我想说的是——‘不完全被看到’也可以被允许。",
+          "reaction": "",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-06": true
+          },
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": "已触发 Anchor-02 + Anchor-03 + Anchor-05",
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你那个‘如果我不在了，你什么时候会发现’的文档——我看了。我不会等你消失才发现。我现在就告诉你：我会在你整理东西的时候发现。",
+          "reaction": "",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-06": true
+          },
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": "已触发 Anchor-01 + Anchor-04 + Anchor-09",
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "必出（终局）",
+      "condition": "无"
+    }
+  },
+  "endings": {
+    "BE-1": {
+      "title": "理论撤回",
+      "text": "{TA}不再跟你分享任何“未完成”的思考了。你问{TA}在想什么，{TA}说“没什么”。{TA}真的学会了“没什么”——{TA}把那些悬在半空的问题全部收回了自己的空间。你现在跟{TA}说话的时候，{TA}只回应你已经说完的东西。{TA}在你面前变成了一个“已经完成”的版本。\r\nINTP 内心独白：“{TA}说‘好深奥’——我把我的深度收起来了。{TA}说‘你平时都在想这些吗’——我学会了想这些但不让{TA}知道。”\r\n"
+    },
+    "BE-2": {
+      "title": "安全表述",
+      "text": "{TA}还跟你在一起。{TA}还会回答你的问题、回应你的话题。但{TA}开始用“嗯”“对”“也是”来作为大部分对话的结束语。{TA}不再追问你的“底层假设”了——因为{TA}发现追问会让对话变长。{TA}用更短的话来适应你的节奏。\r\nINTP 内心独白：“我学会了用{TA}能接受的语速说话。那些‘我觉得有意思’的部分——我留在了别的地方。”\r\n"
+    },
+    "BE-3": {
+      "title": "你接受的是成品",
+      "text": "{TA}不再给你看“未完稿”了。{TA}给你看的都是“已完成、打磨过、无漏洞”的版本。你夸{TA}“写得好”，{TA}笑着说“谢谢”。但{TA}后来把那个有“卡住了”注释的文档移到了一个你不会看到的地方。\r\nINTP 内心独白：“{TA}说‘你会发出去吗’——{TA}把它当作品。但那是我在纸上走路。{TA}不想看我走路，{TA}只想看我的终点。”\r\n"
+    },
+    "NE-1": {
+      "title": "冰层融化",
+      "text": "{TA}开始不先说“抱歉，这个可能很无聊”了。{TA}开始说“我在想一件事情”——不加前缀、不加括号、不加“你不想听也没关系”。{TA}还在适应这种“不撤回”的状态。但{TA}在练习。\r\nINTP 内心独白：“我开始练习不撤回自己了。{TA}还没有走。所以我可以继续练习。”\r\n"
+    },
+    "GE-1": {
+      "title": "无声共鸣",
+      "text": "{TA}把那个“未命名”的文档发给你了——不是转发，是设置了“可编辑”权限。{TA}什么都没说，只是把链接发了过来。你打开的时候发现，{TA}把你之前说的那句“‘不完全被看到’也可以被允许”写进了正文里——加了引号，标注了你的名字。\r\nINTP 内心独白：“我把那篇未完成的东西发给{TA}了。{TA}可以改。{TA}可以写{TA自己}的版本。我让{TA}进来了。”\r\n",
+      "variants": {
+        "F-01_triggered": "\n\n你注意到了{TA}停下的那个瞬间。那不是放弃——那是{TA}在等你发现。",
+        "F-03_triggered": "\n\n那张纸还留在工具箱里。但{TA}开始让你看到了。"
+      }
+    },
+    "PE-1": {
+      "title": "无需言语",
+      "text": "{TA}删了那个标题——“如果我不在了，你什么时候会发现”。{TA}把那篇东西改成了一篇新的、没有标题的文字。开头第一行是：“我最近在想，有没有可能，‘被理解’不是一个需要完成的任务——它是一个持续的状态。”{TA}发给你的时候，附了一句话：“你之前说的‘过程’那个方向——我走了一下。好像走得通。”\r\nINTP 内心独白：“{TA}在那篇文档的卡住的地方放了一个词——‘过程’。我后来走了很久那个方向。然后我发现：好像真的走得通。我把它写成了一篇新的东西。我会让{TA}看。”\r\n七、碎片记忆系统\r\n编号\t解锁条件\t碎片内容\r\n1\t触发 Anchor-01（看见撤回）\t“{TA}没有问我‘你在想什么’。{TA}说出了我本来想说的那半句。{TA}替我认领了它。”\r\n2\t触发 Anchor-02（进入思辨）\t“我说了一个理论——{TA}问了一个下一步问题。{TA}没有把它当成‘一个有趣的现象’来评价。{TA}在里面。”\r\n3\t触发 Anchor-03（接纳未完成）\t“{TA}看了我的文档里卡住的地方。{TA}说‘不是目的，是过程’——我写进了我的注释里。”\r\n4\t触发 Anchor-04（留痕不追）\t“我在整理自己的存在感。{TA}说‘你在降低存在感’——{TA}看到了那个行动的名字。”\r\n5\t触发 Anchor-05（接住情绪）\t“我情绪化了。{TA}说‘你是不是很难受’——{TA}没有分析我。{TA}在确认我。”\r\n6\t触发 Anchor-07（理论捍卫）\t“我被人反驳了。{TA}说‘你愿意跟我拆一下吗’——{TA}不是要站队，{TA}想拆逻辑。”\r\n7\t触发 Anchor-09（思考接纳）\t“我说‘我需要想一下’——{TA}说‘是因为重要才需要想’。{TA}把我需要时间的原因说出来了。”\r\n八、代码生成补充说明\r\n8.1 游离事件插入算法\r\ntext\r\n游戏启动时执行：\r\n1. 确定场景列表 = [S-01, S-02]\r\n2. 若难度 == 现实线，在 S-02 后插入 S-03\r\n3. 确定可用空位 = 当前场景列表长度 - 1 个间隙\r\n4. 对每个游离事件 (S-E1, S-E2, S-E3)：\r\n   a. 以 30% 概率决定是否出场\r\n   b. 若出场，在可用空位中随机选择一个位置插入\r\n   c. 从可用空位中移除该位置\r\n5. 添加 S-05/S-06（二选一，50%概率）\r\n6. 添加 S-07 至末尾\r\n8.2 前置伏笔状态判定逻辑\r\njavascript\r\nfunction getINTPLine(sceneId, flags) {\r\n  if (sceneId === \"S-E1\") {\r\n    if (flags[\"F-02\"] === \"已触发\") {\r\n      return \"……{TA}们说的其中一点，我其实在上个月自己推翻过。但{TA}们不知道。我也没有写进去。\";\r\n    } else {\r\n      return \"……算了。可能真的是我逻辑有问题。\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E2\") {\r\n    if (flags[\"F-03\"] === \"已触发\") {\r\n      return \"……以前不会。但最近会。因为有人告诉我‘未完成’也可以被看到。\";\r\n    } else {\r\n      return \"……不会。写了就是写了。不会再看了。\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E3\") {\r\n    if (flags[\"F-01\"] === \"已触发\" && flags[\"F-04\"] === \"已触发\") {\r\n      return \"……我没办法现在就给你答案。我需要想一下。不是因为它不重要——是因为它很重要。\";\r\n    } else {\r\n      return \"……我不知道。下次再说？\";\r\n    }\r\n  }\r\n  return \"\";\r\n}\r\n8.3 终局解锁条件\r\njavascript\r\nfunction canUnlockPE1(flags) {\r\n  return flags[\"Anchor-02\"] && flags[\"Anchor-03\"] && flags[\"Anchor-05\"];\r\n}\r\nfunction canUnlockPE1_alt(flags) {\r\n  return flags[\"Anchor-01\"] && flags[\"Anchor-04\"] && flags[\"Anchor-09\"];\r\n}\r\nfunction canUnlockPE1_both(flags) {\r\n  return canUnlockPE1(flags) || canUnlockPE1_alt(flags);\r\n}\r\n8.4 结局判定（双轨制：Flag锁定优先 + 信任值兜底）\r\njavascript\r\nfunction determineEnding(trust, flags, difficulty) {\r\n  if (trust < 30) return \"BE-1\";\r\n  if (trust >= 30 && trust < 50) return \"BE-2\";\r\n  if (trust >= 50 && trust < 60) return \"BE-3\";\r\n  if (trust >= 60 && trust < 70) return \"NE-1\";\r\n  if (trust >= 70 && trust < 85) return \"GE-1\";\r\n  if (trust >= 85 && difficulty === \"现实线\") {\r\n    const count = Object.values(flags).filter(v => v === true).length;\r\n    if (count >= 6 && flags[\"Anchor-02\"] && flags[\"Anchor-05\"] && flags[\"Anchor-06\"]) {\r\n      return \"PE-1\";\r\n    }\r\n    return \"GE-1\";\r\n  }\r\n  return \"GE-1\";\r\n}\r\nINTP 剧本 END\n",
+      "variants": {
+        "F-01_triggered": "\n\n你注意到了{TA}停下的那个瞬间。那不是放弃——那是{TA}在等你发现。",
+        "F-01_not_triggered": "\n\n你没有注意到{TA}是什么时候停下的。但{TA}还在。",
+        "F-02_triggered": "\n\n{TA}不再把修好的东西藏起来了。{TA}学会了把\"做了\"翻译成\"告诉你\"。",
+        "F-02_not_triggered": "\n\n{TA}还是习惯用行动说话。但你开始学习读懂那些没有翻译的语言。",
+        "F-03_triggered": "\n\n那张{TA}写着关于{TA}的纸——{TA}不再藏在工具箱夹层里了。",
+        "F-04_triggered": "\n\n{TA}留在你空间里的东西——{TA}不再悄悄地收走了。"
+      }
+    }
+  },
+  "裂痕记忆": {
+    "type_0": {
+      "background": "",
+      "specialNarrative": "“{TA}坐在沙发上，看起来在看手机。但屏幕是亮的同一个页面——已经四分多钟了。{TA}没有在阅读。{TA}在别的地方。"
+    },
+    "type_1": {
+      "background": "",
+      "specialNarrative": "“{TA}今天说了半句话——‘我在想……’——然后停住了。{TA}看了你一眼，然后说‘……算了，没什么。’{TA}收回了那半句话。"
+    },
+    "type_2": {
+      "background": "",
+      "specialNarrative": "“你问{TA}‘今天怎么样’。{TA}说‘还行’。那个‘还行’的意思是‘我今天想了很多事，但没有一件是我觉得可以跟你说的’。"
+    }
+  },
+  "memories": {
+    "mem_1": {
+      "condition": "触发 Anchor-01（看见撤回）",
+      "text": "“{TA}没有问我‘你在想什么’。{TA}说出了我本来想说的那半句。{TA}替我认领了它。”"
+    },
+    "mem_2": {
+      "condition": "触发 Anchor-02（进入思辨）",
+      "text": "“我说了一个理论——{TA}问了一个下一步问题。{TA}没有把它当成‘一个有趣的现象’来评价。{TA}在里面。”"
+    },
+    "mem_3": {
+      "condition": "触发 Anchor-03（接纳未完成）",
+      "text": "“{TA}看了我的文档里卡住的地方。{TA}说‘不是目的，是过程’——我写进了我的注释里。”"
+    },
+    "mem_4": {
+      "condition": "触发 Anchor-04（留痕不追）",
+      "text": "“我在整理自己的存在感。{TA}说‘你在降低存在感’——{TA}看到了那个行动的名字。”"
+    },
+    "mem_5": {
+      "condition": "触发 Anchor-05（接住情绪）",
+      "text": "“我情绪化了。{TA}说‘你是不是很难受’——{TA}没有分析我。{TA}在确认我。”"
+    },
+    "mem_6": {
+      "condition": "触发 Anchor-07（理论捍卫）",
+      "text": "“我被人反驳了。{TA}说‘你愿意跟我拆一下吗’——{TA}不是要站队，{TA}想拆逻辑。”"
+    },
+    "mem_7": {
+      "condition": "触发 Anchor-09（思考接纳）",
+      "text": "“我说‘我需要想一下’——{TA}说‘是因为重要才需要想’。{TA}把我需要时间的原因说出来了。”"
+    }
+  }
+}

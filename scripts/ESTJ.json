@@ -1,0 +1,703 @@
+{
+  "meta": {
+    "id": "ESTJ",
+    "name": "总经理",
+    "theme": "用行动证明爱，用稳定掩盖恐惧",
+    "startingTrust": 30,
+    "originalGender": "male",
+    "genderNote": "剧情已通过模板化处理适配两种性别，部分细节可能更适合原始设计视角"
+  },
+  "scenes": {
+    "S-01": {
+      "id": "S-01",
+      "title": "被取消的日程",
+      "type": "core",
+      "narrative": "你打开共享日历，发现一件奇怪的事——你们下周六的“家庭聚餐”被取消了。不是“暂定”，不是“改期”，是被直接删掉了。那个条目消失了，连备注都没有留。\r\n你问{TA}，{TA}正在整理书架——{TA}整理书架的方式很特别：按颜色、按大小、按类型。{TA}头也没回：\r\n",
+      "dialogue": "ESTJ：“哦，那个我取消了。因为上次你说你忙，我以为你不想去。那就不去了，省得你为难。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "也是。最近确实忙，取消了也好，省得到时候临时变卦。",
+          "reaction": "{TA}把那本书放回了书架上：“嗯。”然后继续整理。",
+          "trustChange": {
+            "理想线": -15,
+            "现实线": -30,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-02",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你怎么不先问一下我？也许我调整一下就能去呢。",
+          "reaction": "{TA}停了一下：“……你上次说‘忙’，我以为不需要问了。”",
+          "trustChange": {
+            "理想线": 3,
+            "现实线": 0,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-02",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你取消那个聚餐——是因为你觉得‘我不想去’，还是因为你觉得‘这个约定不重要了’？",
+          "reaction": "{TA}把手里的书放下了。{TA}转过来看你：“……我取消是因为我以为你不想去。但你说‘这个约定不重要’的时候——那个是我想问你的事情。”",
+          "trustChange": {
+            "理想线": 12,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-01": true
+          },
+          "plotOps": {},
+          "nextScene": "S-02",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "必出",
+      "foreshadowCheck": "F-01",
+      "condition": "无"
+    },
+    "S-02": {
+      "id": "S-02",
+      "title": "行动的证明",
+      "type": "core",
+      "narrative": "你注意到家里的一些变化。冰箱里多了你喜欢吃的那款酸奶——你上周随口提过“最近超市都不进这款了”。你电脑旁边多了一个新的插线板——你之前那个总松。你的车胎被补过了——你没有跟{TA}说过车胎的事。\r\n你问{TA}，{TA}说：\r\n",
+      "dialogue": "ESTJ：“哦，那款酸奶我打电话问了一下，{TA}们说下周二会补货，我路过的时候顺便买的。插线板是上次看到你那个接触不良，换了一个。车胎——我上周借你车的时候看到胎压有点低，顺便补了。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你太厉害了吧！你怎么什么都能搞定！谢谢你！",
+          "reaction": "{TA}点了一下头：“嗯。不用谢。”然后转身去忙别的了。",
+          "trustChange": {
+            "理想线": -10,
+            "现实线": -25,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E1（若出场）/ S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "（你当天晚上做了一件事——你知道{TA}最近在找一本绝版的书，你托了朋友找到了电子版，打印出来，放在{TA的}桌上。上面贴了一张便利贴：“顺便。”）",
+          "reaction": "{TA}第二天早上看到那本书的时候，停住了。{TA}翻了翻，然后走到你面前：“……你什么时候找的？”",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-02": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E1（若出场）/ S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你是从什么时候开始规划这些的？",
+          "reaction": "{TA}愣了一下：“……没有规划。就是想到了就做。”",
+          "trustChange": {
+            "理想线": 5,
+            "现实线": 2,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E1（若出场）/ S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "必出",
+      "foreshadowCheck": "F-02",
+      "condition": "无"
+    },
+    "S-E1": {
+      "id": "S-E1",
+      "title": "方案被否定",
+      "type": "free_roam",
+      "narrative": "你们在讨论一件“共同决定”——也许是搬家、也许是一笔大额支出、也许是关于未来的某个计划。{TA}做了一个很详细的方案，用了好几天，打印出来，放在桌上。\r\n你看完之后说了一句：“这个方案有一个问题。”\r\n{TA}安静了。不是生气，是“消化”——{TA}在重新评估自己是不是“又做错了”。\r\n",
+      "dialogue": "ESTJ（受 F-02 状态影响）：\r\n若 F-02 为“已触发”：“……你指的那个问题——是我没写清楚，还是我确实没想到？”\r\n若 F-02 为“未触发”或“未触发”：“……哪个部分？”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你花了几天做的方案——我想跟你一起看一遍。不是‘有问题’，是‘我们看看能不能更好’。",
+          "reaction": "{TA}看了你一眼：“……‘我们’？”{TA}把方案推到你面前。",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-07": true
+          },
+          "plotOps": {},
+          "nextScene": "S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你说的那个问题——你自己想过吗？",
+          "reaction": "{TA}低头看了方案：“……我想过。但我觉得那是可接受的。所以没有写进去。”",
+          "trustChange": {
+            "理想线": 5,
+            "现实线": 4,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "算了。你的方案已经很好了。不用改了。",
+          "reaction": "{TA}点了点头：“……好。”但{TA}把那份方案收进了抽屉里。",
+          "trustChange": {
+            "理想线": 3,
+            "现实线": 0,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "30%概率，随机浮动插入",
+      "foreshadowCheck": "F-02",
+      "condition": "无"
+    },
+    "S-03": {
+      "id": "S-03",
+      "title": "失控的会议",
+      "type": "exclusive",
+      "narrative": "你们在讨论一件“共同决定”——也许是搬家、也许是一笔大额支出、也许是关于未来的某个计划。你有不同意见。你说：\r\n“我觉得你那个方案有个问题——XX 方面可能会出状况。”\r\n{TA}立刻进入了“工作会议”模式——眉头收紧、语速变快、逻辑像箭一样射过来：\r\n",
+      "dialogue": "ESTJ：“那个问题我已经考虑过了，我的方案里有覆盖。你提出这个问题——你是看了完整版，还是只看了摘要？你如果只看摘要，你提出的意见可能不全面。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你每次都是这样！我说什么你都要先反驳我！",
+          "reaction": "{TA}停住了。{TA}深吸了一口气：“……我没有反驳你。我在解释我的方案。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": -25,
+            "fatalError": true
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": null,
+          "fatalError": "BE-1"
+        },
+        {
+          "id": "B",
+          "text": "我确实没有看完完整版。你可以给我看一下你覆盖的那部分吗？我想理解你说的‘已经考虑过’是怎么考虑的。",
+          "reaction": "{TA}打开了那个文件，翻到某一页：“……这里。我写了三种应对方式。”{TA}指给你看。",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你说的覆盖部分——是你自己想的，还是参考了谁的意见？",
+          "reaction": "{TA}愣了一下：“……我自己想的。没问别人。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 6,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-04",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "现实线必出",
+      "foreshadowCheck": "F-02",
+      "condition": "难度 = 现实线"
+    },
+    "S-04": {
+      "id": "S-04",
+      "title": "脆弱的数据",
+      "type": "core",
+      "narrative": "你们坐在沙发上。{TA}今天很安静，不是“不说话”的那种安静——是“在想事情”的安静。然后{TA}忽然说：\r\n",
+      "dialogue": "ESTJ：“我最近在想一件事——如果有一天我搞砸了，会怎么样？”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你？不可能。你什么事都能搞定。",
+          "reaction": "{TA}笑了一下：“……希望吧。”然后继续安静。",
+          "trustChange": {
+            "理想线": -10,
+            "现实线": -25,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E2（若出场）/ S-05",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你‘搞砸’过吗？你有过那种‘觉得自己不行’的时候吗？",
+          "reaction": "{TA}安静了很久。然后说：“……有。几年前有一次，一个项目我没做好。我一个月没睡好。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E2（若出场）/ S-05",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "如果你真的搞砸了——那你会怎么样？",
+          "reaction": "{TA}想了很久，久到你以为{TA}不会回答了。然后{TA}说：“……我可能会不知道怎么办。我一直在避免这种情况，所以没有想过‘如果发生了’。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 4,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-03": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E2（若出场）/ S-05",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "必出",
+      "foreshadowCheck": "F-03",
+      "condition": "无"
+    },
+    "S-E2": {
+      "id": "S-E2",
+      "title": "旧证书",
+      "type": "free_roam",
+      "narrative": "你在{TA}书柜里翻到一个旧文件夹——里面有一张证书，是{TA}多年前参加一个培训的结业证书。但旁边贴了一张便利贴，上面写着：“这次没过。下次再考。”\r\n你问{TA}：“这是什么时候的？”\r\n{TA}看了一眼：\r\n",
+      "dialogue": "ESTJ（受 F-03 状态影响）：\r\n若 F-03 为“已触发”：“……那次我没过。我考了两次才过。我以前不会把‘没过的证据’留着——但后来我发现，留着它比扔掉它更诚实。”\r\n若 F-03 为“未触发”：“……那次我没过。但我后来考过了。留这个是提醒自己。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你还留着‘没过’的证书？你不是只看结果的人吗？",
+          "reaction": "{TA}停了一下：“……我以前是只看结果。后来发现只看结果会错过一些东西。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": -15,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-05",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你留着它——是因为那次失败让你改变了什么吗？",
+          "reaction": "{TA}想了很久：“……那次失败让我知道——有些事不是因为‘我够努力’就能成的。它改变了我看待失败的方式。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-08": true
+          },
+          "plotOps": {},
+          "nextScene": "S-05",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你考了两次才过——那两次之间你做了什么不一样的事？",
+          "reaction": "{TA}想了一下：“……我换了学习方法。不再用我之前‘一直有效’的方式——我试了一种新的。”",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-05",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "30%概率，随机浮动插入",
+      "foreshadowCheck": "F-03",
+      "condition": "无"
+    },
+    "S-05": {
+      "id": "S-05",
+      "title": "退场的准备",
+      "type": "branch",
+      "narrative": "你发现{TA}在整理东西——{TA的}文件、{TA的}书、{TA的}工具。{TA}把一些东西装进了箱子，贴上标签：“备用资料”“旧文件”“可能不需要的”。{TA}做得很安静、很有条理。\r\n你问{TA}，{TA}抬起头：\r\n",
+      "dialogue": "ESTJ：“我在整理一下。万一有一天要搬的话，这些东西分类好了比较方便。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你要搬吗？我怎么不知道？",
+          "reaction": "{TA}顿了一下：“……没有要搬。我就是整理一下。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": -15,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-06（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你上次整理文件是两个月前。这次整理……是因为有什么不一样吗？",
+          "reaction": "{TA}停下手里的动作：“……不一样的是——上次整理是为了更好地留下。这次整理是……”",
+          "trustChange": {
+            "理想线": 3,
+            "现实线": 0,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-06（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你装箱的时候——你会把我们的合照也放进去吗？",
+          "reaction": "{TA}停住了。{TA}看着那个装了一半的箱子，然后说：“……还没有决定。”",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-04": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-06（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "50%概率，与S-06二选一",
+      "foreshadowCheck": "F-04",
+      "condition": "无"
+    },
+    "S-06": {
+      "id": "S-06",
+      "title": "焦虑的迷宫",
+      "type": "branch",
+      "narrative": "你凌晨醒来，发现{TA}没睡。{TA}坐在客厅电脑前，屏幕上不是工作，是——一个空白的文档。桌上摊着七本书，每本都翻开了一些。{TA}戴着眼镜，头发有些乱，看起来像是已经坐了很长时间。\r\n你没有说话，走过去。{TA}抬头看你一眼，说：\r\n",
+      "dialogue": "ESTJ：“我在想——如果我现在做的所有事情，最后都没有意义，怎么办？如果我一直努力维持的东西，最后还是会散掉，怎么办？”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你在钻牛角尖。你累了，去睡吧。明天起来就会好的。",
+          "reaction": "{TA}合上了其中一本书：“……嗯。”{TA}站起来，去了卧室。但{TA}没有睡——{TA}关了灯，在黑暗中睁着眼。",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 6,
+            "fatalError": true
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": null,
+          "fatalError": "BE-2"
+        },
+        {
+          "id": "B",
+          "text": "你问了‘怎么办’——你以前不会问‘怎么办’。你以前会直接做。你现在停下来想了，是出了什么事？",
+          "reaction": "{TA}坐在那里沉默了很久。然后{TA}说：“……因为以前我觉得只要我努力，事情就会朝我计划的方向走。但最近我发现——有些事不一定会。不管我多努力。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-05": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你放了七本书在桌上。是每一本都在给你答案，还是每一本都没有？",
+          "reaction": "{TA}低头看了一眼那七本书，然后说：“……每一本都没有。但我还是想试试。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 6,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "现实线50%概率，与S-05二选一",
+      "foreshadowCheck": "F-04",
+      "condition": "难度 = 现实线"
+    },
+    "S-E3": {
+      "id": "S-E3",
+      "title": "被拒绝的方案",
+      "type": "free_roam",
+      "narrative": "{TA}给你看一个新方案——关于你们下次旅行的一个计划。{TA}做了两天，列了航班、酒店、路线、备选方案。你看了之后说：“这个不太行。”\r\n{TA}安静了。不是那种“等一下再说”的安静，是那种“我在消化这句话”的安静。然后{TA}说：\r\n",
+      "dialogue": "ESTJ（受 F-01 和 F-04 状态影响）：\r\n若 F-01 为“已触发”且 F-04 为“已触发”：“……你说‘不太行’——我可以在哪些部分调整？还是整个方向都要换？”\r\n若未触发以上组合：“……那你想去哪？”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "这个方案不行——但我想跟你一起重新做一版。",
+          "reaction": "{TA}看了你一眼：“……‘一起’做？”",
+          "trustChange": {
+            "理想线": 3,
+            "现实线": -15,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你说‘不太行’——你是在说这个方案不行，还是在说‘我’不行？",
+          "reaction": "{TA}沉默了很久：“……我在想你说的是‘方案’还是‘我’。我在试着区分。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-09": true
+          },
+          "plotOps": {},
+          "nextScene": "S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你做了两天——你是在做‘一个方案’，还是在做‘一个不会让你失望的方案’？",
+          "reaction": "{TA}想了很久：“……我在做‘一个不会让你失望的方案’。我以前做方案是为了解决问题。现在做方案有时候是为了不让你不高兴。”",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-07",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "30%概率，随机浮动插入",
+      "foreshadowCheck": "F-04",
+      "condition": "无"
+    },
+    "S-07": {
+      "id": "S-07",
+      "title": "最终的承诺",
+      "type": "core",
+      "narrative": "{TA}约你在一个安静的地方见面——不是家里，也不是餐厅，是一个公园的长椅上。{TA}坐在那里，面前没有电脑、没有手机、没有纸笔。{TA}看起来很清醒——不是那种“刚整理完”的清醒，是那种“我想清楚了”的清醒。\r\n{TA}看到你坐下，开口了：\r\n",
+      "dialogue": "ESTJ：“我这几天在想一件事——我一直在做‘应该做’的事。应该对你好、应该计划未来、应该保持稳定。但我想知道——你是真的想要我做这些事，还是你只是‘接受’了？”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "我想要你做这些事。但我也想知道——你做这些事的时候，你是开心的吗？",
+          "reaction": "",
+          "trustChange": {
+            "理想线": 5,
+            "现实线": 5,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你修的那个手机支架——它还在用。我其实每天都用。你说‘顺便’的那本打印书——我翻完了。我想告诉你：你做的那每一件‘应该做的事’，我都有注意到。",
+          "reaction": "",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-06": true
+          },
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": "已触发 Anchor-02 + Anchor-03 + Anchor-05",
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你上次整理那个箱子的时候——你问了‘合照要不要放进去’。我现在告诉你：放进去。因为我会在那边等你。",
+          "reaction": "",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-06": true
+          },
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": "已触发 Anchor-01 + Anchor-04 + Anchor-09",
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "必出（终局）",
+      "condition": "无"
+    }
+  },
+  "endings": {
+    "BE-1": {
+      "title": "行政终止",
+      "text": "你们的共享日历完全清空了。{TA}不再往里添加任何条目——不是因为生气，是因为“确认了没必要”。你们不再约任何“未来的事”。每次你问“周末有什么安排”的时候，{TA}说“没什么特别的，你看着办吧”。{TA}把“管理关系”的权限交回给了你——因为{TA}在你身上停止了投入。\r\nESTJ 内心独白：“我取消了一个约定。{TA}没有问。我又取消了一个。{TA}还是没有问。我停下来了。因为我终于确认了——我‘计划’的东西对{TA}来说只是‘参考’。我不想再计划了。”\r\n"
+    },
+    "BE-2": {
+      "title": "秩序维护",
+      "text": "{TA}还跟你在一起。{TA}还会准时回家、帮你修东西、记得你需要什么。但{TA}做这些事的时候变成了一种“流程”——不再带温度。{TA}没有离开你，但{TA}也不再把“你”放进{TA}未来的蓝图里了。\r\nESTJ 内心独白：“我还在做所有‘应该做’的事。但我已经不再想‘我想不想做’了。因为想这个没有意义。”\r\n"
+    },
+    "BE-3": {
+      "title": "你接受的是功能",
+      "text": "{TA}不再跟你分享“如果有一天我搞砸了”的那种问题了。{TA}重新变回了那个“什么事都能搞定”的人。你夸{TA}“可靠”，{TA}说“嗯”。但你注意到——{TA}不再问你的意见了。{TA自己}做决定、自己做执行、自己承担结果。\r\nESTJ 内心独白：“我说了那个‘如果搞砸了’的问题。{TA}说‘你不会’——{TA}在要那个‘可靠的版本’。那我把可靠的版本留给{TA}。别的版本，我留着。”\r\n"
+    },
+    "NE-1": {
+      "title": "冰层融化",
+      "text": "{TA}开始说“我不知道”了——不是那种“我不知道答案但我会马上找到”的语气，是“我真的不知道”的那种。{TA}允许自己在没有答案的情况下站立。你问“那怎么办”的时候，{TA}说“还没想好”——然后{TA}没有逃避这句话。\r\nESTJ 内心独白：“我开始练习说‘我不知道’。{TA}不会催我找到答案。{TA}坐在那里陪我。”\r\n"
+    },
+    "GE-1": {
+      "title": "可靠的岸",
+      "text": "{TA}取消了那个“如果有一天要搬”的箱子。{TA}把那些“备用资料”放回了原来的位置——不是因为不准备了，是因为{TA}决定不用了。{TA}重新在共享日历里加了一行字：“下周六——家庭聚餐（已确认）。”\r\nESTJ 内心独白：“{TA}说‘你整理的时候会放合照吗’——我当时没有回答。现在我回答：不会。因为那张合照不需要放进去。”\r\n",
+      "variants": {
+        "F-01_triggered": "\n\n你注意到了{TA}停下的那个瞬间。那不是放弃——那是{TA}在等你发现。",
+        "F-03_triggered": "\n\n那张纸还留在工具箱里。但{TA}开始让你看到了。"
+      }
+    },
+    "PE-1": {
+      "title": "值得托付",
+      "text": "{TA}把你给{TA的}那本打印书放在了{TA}书架的最上层——不是“收藏”的位置，是“每天都会看到”的位置。{TA}发了一条消息：“书我看完了。我在想——这是不是就是你说的‘顺便’的意思？如果不是，那我再想一下。”\r\nESTJ 内心独白：“{TA}说‘我也想为你做点什么’。{TA}做了一件事——一本打印的书、一张便利贴、写了‘顺便’。{TA}学会了我的语言。那我也可以学{TA的}——我可以说‘我不知道’、‘我还没想好’。{TA}不会走。”\r\n七、碎片记忆系统\r\n编号\t解锁条件\t碎片内容\r\n1\t触发 Anchor-01（看见承诺）\t“{TA}问我‘取消是因为不重要了还是因为不想去了’。{TA}问到了那个‘我真正在判断的东西’——不是我的安排，是{TA的}位置。”\r\n2\t触发 Anchor-02（识别行动）\t“我修了支架、补了胎、买了那款酸奶。{TA}打印了一本书放在我桌上。写了‘顺便’。{TA}学会了我的语言。”\r\n3\t触发 Anchor-03（接纳不确定）\t“我说‘如果有一天我搞砸了怎么办’。{TA}没有说‘你不会’。{TA}问‘那你会怎么样’。{TA}没有躲开那个问题。”\r\n4\t触发 Anchor-04（接收安排）\t“我在装箱。{TA}问我‘合照会放进去吗’。{TA}在问那个箱子里的最后一样东西是什么。”\r\n5\t触发 Anchor-05（接住焦虑）\t“我停了。{TA}问了‘你停下来了’——{TA}看到那个动作本身。不是问我‘为什么停’，是问我‘你在想什么’。”\r\n6\t触发 Anchor-07（方案信任）\t“{TA}说‘我想跟你一起看一遍’——{TA}把‘有问题’转化成了‘我们一起看’。{TA}走进了我的方案里。”\r\n7\t触发 Anchor-09（反馈接收）\t“我说‘方案不行’。{TA}问我‘你是在说方案还是在说我’——{TA}在帮我把‘否定’和‘我’分开。”\r\n八、代码生成补充说明\r\n8.1 游离事件插入算法\r\ntext\r\n游戏启动时执行：\r\n1. 确定场景列表 = [S-01, S-02]\r\n2. 若难度 == 现实线，在 S-02 后插入 S-03\r\n3. 确定可用空位 = 当前场景列表长度 - 1 个间隙\r\n4. 对每个游离事件 (S-E1, S-E2, S-E3)：\r\n   a. 以 30% 概率决定是否出场\r\n   b. 若出场，在可用空位中随机选择一个位置插入\r\n   c. 从可用空位中移除该位置\r\n5. 添加 S-05/S-06（二选一，50%概率）\r\n6. 添加 S-07 至末尾\r\n8.2 前置伏笔状态判定逻辑\r\njavascript\r\nfunction getESTJLine(sceneId, flags) {\r\n  if (sceneId === \"S-E1\") {\r\n    if (flags[\"F-02\"] === \"已触发\") {\r\n      return \"……你指的那个问题——是我没写清楚，还是我确实没想到？\";\r\n    } else {\r\n      return \"……哪个部分？\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E2\") {\r\n    if (flags[\"F-03\"] === \"已触发\") {\r\n      return \"……那次我没过。我考了两次才过。我以前不会把‘没过的证据’留着——但后来我发现，留着它比扔掉它更诚实。\";\r\n    } else {\r\n      return \"……那次我没过。但我后来考过了。留这个是提醒自己。\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E3\") {\r\n    if (flags[\"F-01\"] === \"已触发\" && flags[\"F-04\"] === \"已触发\") {\r\n      return \"……你说‘不太行’——我可以在哪些部分调整？还是整个方向都要换？\";\r\n    } else {\r\n      return \"……那你想去哪？\";\r\n    }\r\n  }\r\n  return \"\";\r\n}\r\n8.3 终局解锁条件\r\njavascript\r\nfunction canUnlockPE1(flags) {\r\n  return flags[\"Anchor-02\"] && flags[\"Anchor-03\"] && flags[\"Anchor-05\"];\r\n}\r\nfunction canUnlockPE1_alt(flags) {\r\n  return flags[\"Anchor-01\"] && flags[\"Anchor-04\"] && flags[\"Anchor-09\"];\r\n}\r\nfunction canUnlockPE1_both(flags) {\r\n  return canUnlockPE1(flags) || canUnlockPE1_alt(flags);\r\n}\r\n8.4 结局判定（双轨制：Flag锁定优先 + 信任值兜底）\r\njavascript\r\nfunction determineEnding(trust, flags, difficulty) {\r\n  if (trust < 30) return \"BE-1\";\r\n  if (trust >= 30 && trust < 50) return \"BE-2\";\r\n  if (trust >= 50 && trust < 60) return \"BE-3\";\r\n  if (trust >= 60 && trust < 70) return \"NE-1\";\r\n  if (trust >= 70 && trust < 85) return \"GE-1\";\r\n  if (trust >= 85 && difficulty === \"现实线\") {\r\n    const count = Object.values(flags).filter(v => v === true).length;\r\n    if (count >= 6 && flags[\"Anchor-02\"] && flags[\"Anchor-05\"] && flags[\"Anchor-06\"]) {\r\n      return \"PE-1\";\r\n    }\r\n    return \"GE-1\";\r\n  }\r\n  return \"GE-1\";\r\n}\r\nESTJ 剧本 END\n",
+      "variants": {
+        "F-01_triggered": "\n\n你注意到了{TA}停下的那个瞬间。那不是放弃——那是{TA}在等你发现。",
+        "F-01_not_triggered": "\n\n你没有注意到{TA}是什么时候停下的。但{TA}还在。",
+        "F-02_triggered": "\n\n{TA}不再把修好的东西藏起来了。{TA}学会了把\"做了\"翻译成\"告诉你\"。",
+        "F-02_not_triggered": "\n\n{TA}还是习惯用行动说话。但你开始学习读懂那些没有翻译的语言。",
+        "F-03_triggered": "\n\n那张{TA}写着关于{TA}的纸——{TA}不再藏在工具箱夹层里了。",
+        "F-04_triggered": "\n\n{TA}留在你空间里的东西——{TA}不再悄悄地收走了。"
+      }
+    }
+  },
+  "裂痕记忆": {
+    "type_0": {
+      "background": "",
+      "specialNarrative": "“{TA的}手机里有一个 Excel 文件——《关于{TA的}未来路径分析（第三版）》。{TA}没有给你看。但文件最后一行写着‘此版本未发送’。"
+    },
+    "type_1": {
+      "background": "",
+      "specialNarrative": "“你们共享日历上，下周六的‘家庭聚餐’被改成了‘待定’。{TA}在等你重新确认。如果你不问，{TA}会一直等。"
+    },
+    "type_2": {
+      "background": "",
+      "specialNarrative": "“{TA}桌上有一个手机支架——{TA}上个月修的。修好之后你没有说过‘谢谢’或者‘好用’。支架还在桌上。但{TA}在考虑要不要收起来。"
+    }
+  },
+  "memories": {
+    "mem_1": {
+      "condition": "触发 Anchor-01（看见承诺）",
+      "text": "“{TA}问我‘取消是因为不重要了还是因为不想去了’。{TA}问到了那个‘我真正在判断的东西’——不是我的安排，是{TA的}位置。”"
+    },
+    "mem_2": {
+      "condition": "触发 Anchor-02（识别行动）",
+      "text": "“我修了支架、补了胎、买了那款酸奶。{TA}打印了一本书放在我桌上。写了‘顺便’。{TA}学会了我的语言。”"
+    },
+    "mem_3": {
+      "condition": "触发 Anchor-03（接纳不确定）",
+      "text": "“我说‘如果有一天我搞砸了怎么办’。{TA}没有说‘你不会’。{TA}问‘那你会怎么样’。{TA}没有躲开那个问题。”"
+    },
+    "mem_4": {
+      "condition": "触发 Anchor-04（接收安排）",
+      "text": "“我在装箱。{TA}问我‘合照会放进去吗’。{TA}在问那个箱子里的最后一样东西是什么。”"
+    },
+    "mem_5": {
+      "condition": "触发 Anchor-05（接住焦虑）",
+      "text": "“我停了。{TA}问了‘你停下来了’——{TA}看到那个动作本身。不是问我‘为什么停’，是问我‘你在想什么’。”"
+    },
+    "mem_6": {
+      "condition": "触发 Anchor-07（方案信任）",
+      "text": "“{TA}说‘我想跟你一起看一遍’——{TA}把‘有问题’转化成了‘我们一起看’。{TA}走进了我的方案里。”"
+    },
+    "mem_7": {
+      "condition": "触发 Anchor-09（反馈接收）",
+      "text": "“我说‘方案不行’。{TA}问我‘你是在说方案还是在说我’——{TA}在帮我把‘否定’和‘我’分开。”"
+    }
+  }
+}

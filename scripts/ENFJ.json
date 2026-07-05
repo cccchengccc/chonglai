@@ -1,0 +1,701 @@
+{
+  "meta": {
+    "id": "ENFJ",
+    "name": "主人公",
+    "theme": "用照亮他人证明存在，用过度付出测试回应",
+    "startingTrust": 30,
+    "originalGender": "female",
+    "genderNote": "剧情已通过模板化处理适配两种性别，部分细节可能更适合原始设计视角"
+  },
+  "scenes": {
+    "S-01": {
+      "id": "S-01",
+      "title": "被倒满的杯子",
+      "type": "core",
+      "narrative": "你到{TA}家。{TA}已经准备好了——你的拖鞋摆好了、你想喝的茶已经泡好了、你喜欢的那个零食放在桌上。{TA}穿着围裙笑着：“快进来！我刚好把菜做好。”\r\n你们坐下来吃饭。{TA}一直给你夹菜、帮你倒水、问你“菜会不会太咸”。{TA}做这些事的时候，自己只吃了几口。你注意到{TA的}杯子是空的——{TA}倒了两杯水，两杯都在你那边。\r\n你问{TA}：“你怎么不吃？”\r\n",
+      "dialogue": "ENFJ：“我吃了我吃了——你多吃点。你今天辛苦了。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "这个菜真的好好吃！你也多吃点。",
+          "reaction": "{TA}笑得更开了：“好吃吧？我加了 XX 调料，你上次说喜欢那个。”{TA}继续给你夹菜。",
+          "trustChange": {
+            "理想线": -15,
+            "现实线": -30,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-02",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你做了这么多菜，你自己吃了几口？你别光顾着我。",
+          "reaction": "{TA}低头看了一眼自己的碗：“……我有吃。你快吃吧，菜要凉了。”{TA}还是没有给自己盛新的。",
+          "trustChange": {
+            "理想线": 3,
+            "现实线": 0,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-02",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你倒了两杯水，都在我这边——你给自己倒了吗？",
+          "reaction": "{TA}停住了。{TA}低头看了看自己的桌面——那里确实没有杯子。{TA}笑了一下：“……我忘了。”然后{TA}去给自己倒了一杯水。",
+          "trustChange": {
+            "理想线": 12,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-01": true
+          },
+          "plotOps": {},
+          "nextScene": "S-02",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "必出",
+      "foreshadowCheck": "F-01",
+      "condition": "无"
+    },
+    "S-02": {
+      "id": "S-02",
+      "title": "停止照耀的片刻",
+      "type": "core",
+      "narrative": "你们吃完饭，{TA}坐在沙发上，手里拿着那个{TA}刚给自己倒的杯子——没有喝。{TA}看着杯子，然后说了一句很轻的话：\r\n",
+      "dialogue": "ENFJ：“我有时候会觉得自己像一个……一直在给别人充电的充电宝。但如果我自己没电了——我不知道该怎么跟别人说。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你那么厉害，怎么可能没电呢？你是我认识最正能量的人。",
+          "reaction": "{TA}笑了一下：“……也是。我可能就是想多了。”然后{TA}站起来，开始收拾碗筷。",
+          "trustChange": {
+            "理想线": -10,
+            "现实线": -25,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E1（若出场）/ S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "如果充电宝没电了——那是它工作了很多次之后的事。那不是它的错。如果有人因为你的充电宝没电了就不用你了——那是那个人不会用充电宝。",
+          "reaction": "{TA}安静地坐了一会儿，然后说：“……我以前没有想过‘不会用充电宝’这个说法。”",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-02": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E1（若出场）/ S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你告诉过别人‘你没电了’吗？还是你总是在有电的时候才出现？",
+          "reaction": "{TA}想了很久：“……我没有告诉过别人。因为如果说了，别人会觉得我需要被照顾。我不太习惯那样。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 4,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E1（若出场）/ S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "必出",
+      "foreshadowCheck": "F-02",
+      "condition": "无"
+    },
+    "S-E1": {
+      "id": "S-E1",
+      "title": "他人危机",
+      "type": "free_roam",
+      "narrative": "你们共同的朋友深夜打电话来，情绪崩溃。{TA}接了——在电话里轻声安抚了对方四十分钟。挂了电话之后，{TA}坐在沙发上，没有动。你看到{TA的}眼睛是空的——{TA}把自己的能量给了别人，但没有人给{TA}补回来。\r\n",
+      "dialogue": "ENFJ（受 F-02 状态影响）：\r\n若 F-02 为“完全触发”：“……我今天电量用完了。但那个人没事了。”\r\n若 F-02 为“未触发”或“部分触发”：“……我没事。你不用担心。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你陪了{TA}四十分钟。我陪你坐一会儿。",
+          "reaction": "{TA}靠进沙发里：“……不用陪我。你去睡吧。”但{TA}没有站起来。{TA}把头靠在沙发背上，闭了一会儿眼睛。",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-07": true
+          },
+          "plotOps": {},
+          "nextScene": "S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "下次这样的电话——我可以帮你接。",
+          "reaction": "{TA}睁开眼，看了你一下：“……你？”",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你总是帮别人——但你自己呢？",
+          "reaction": "{TA}安静了一下：“……我自己没什么。我习惯了。”",
+          "trustChange": {
+            "理想线": 3,
+            "现实线": 0,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "30%概率，随机浮动插入",
+      "foreshadowCheck": "F-04",
+      "condition": "无"
+    },
+    "S-03": {
+      "id": "S-03",
+      "title": "被拒绝的给予（场景版）",
+      "type": "exclusive",
+      "narrative": "你看到{TA}为朋友的项目熬夜。你端了一杯热牛奶给{TA}：“你歇一下。这个明天再做也可以。”\r\n{TA}愣了一下——然后{TA}把牛奶推了回来：\r\n",
+      "dialogue": "ENFJ：“不用。你放那边吧。我不喝。这个项目我得今晚做完。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "好吧。那你忙。我先睡了。",
+          "reaction": "点头：“嗯。晚安。”{TA}凌晨四点才睡。第二天见到你时笑得很完整：“我昨晚做完了！还好没睡。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": -25,
+            "fatalError": true
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": null,
+          "fatalError": "BE-1"
+        },
+        {
+          "id": "B",
+          "text": "你不喝——那我把牛奶放在这里。如果你改主意了，凉了也可以热。我再去客厅待一会儿。你忙你的。",
+          "reaction": "{TA}看了一眼杯子，继续打字。二十分钟后，{TA}端起来喝了。",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-09": true
+          },
+          "plotOps": {},
+          "nextScene": "S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你拒绝我的牛奶——是因为你不想被照顾，还是因为你觉得‘被照顾’意味着‘你需要帮忙’？",
+          "reaction": "{TA}停下打字：“……我觉得如果我说‘我需要帮忙’，别人会觉得我很麻烦。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 6,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-04",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "现实线必出",
+      "foreshadowCheck": "F-01",
+      "condition": "难度 = 现实线"
+    },
+    "S-04": {
+      "id": "S-04",
+      "title": "暗面的使用者手册",
+      "type": "core",
+      "narrative": "你收到一封很长的消息。标题：“关于我的一些……不太会主动说的事情。”\r\n文档里列着四条规则：\r\n第一条：“如果我说‘没事’——通常不是没事。但如果我改口说了两遍，就不用再追问了。”\r\n第二条：“如果我连续三天没有主动找你，不是我不爱你了——是我在恢复能量。”\r\n第三条：“我很需要你夸我。但如果我只回‘谢谢’，说明我觉得你夸得不具体。”\r\n第四条：“我不太会拒绝别人的请求。所以如果你看到我在帮别人的忙帮过头了——你可以拉我一下吗？”\r\n最后一行写着：“这是我第一次把这些写下来给别人看。如果你读完了——我想知道你会不会觉得我很麻烦。”\r\n",
+      "dialogue": "",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你写得好详细啊。你好厉害，居然能把这些东西整理出来。",
+          "reaction": "{TA}回了一个“嗯”，没有继续。",
+          "trustChange": {
+            "理想线": -10,
+            "现实线": -25,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E2（若出场）/ S-05",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "最后一行——你说‘如果你读完了，你会不会觉得我很麻烦’——我读完了。我觉得你不麻烦。我觉得你只是习惯了用‘被需要’来确认自己的位置。",
+          "reaction": "{TA}那边“正在输入”了很久。然后{TA}发来一行：“……你读到最后一行了。”",
+          "trustChange": {
+            "理想线": 12,
+            "现实线": 12,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-03": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E2（若出场）/ S-05",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你说‘如果我连续三天没找你，说明我在恢复能量’——那我能不能给你一个‘三天到了我发一条“在吗”’的规则？",
+          "reaction": "{TA}过了一会儿回了一句：“……这个规则，我可以接受。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 4,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E2（若出场）/ S-05",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "必出",
+      "foreshadowCheck": "F-04",
+      "condition": "无"
+    },
+    "S-E2": {
+      "id": "S-E2",
+      "title": "旧照片",
+      "type": "free_roam",
+      "narrative": "你翻开{TA的}相册，看到一张旧照片——{TA}站在一群人中间，所有人都在笑，{TA}在给{TA}们递饮料。{TA}不是照片的焦点，但{TA}是在“让那张照片存在”的人。\r\n你问{TA}：“这是什么时候的？”\r\n",
+      "dialogue": "ENFJ：“……大学。那次是我组织的一次野餐。所有照片里我都在给别人拿东西。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你那时候就在照顾别人了。你一直是这样的人。",
+          "reaction": "{TA}合上了相册：“……嗯。习惯了。”",
+          "trustChange": {
+            "理想线": 5,
+            "现实线": 4,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-05",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "这张照片里——你在给所有人递东西。但有没有一张照片，是你不需要递东西的时候？",
+          "reaction": "{TA}翻了一下相册：“……没有。所有照片里我都在照顾别人。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-08": true
+          },
+          "plotOps": {},
+          "nextScene": "S-05",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "这张照片里的所有人都在笑——是因为你在照顾{TA}们。但你自己在那个时刻，开心吗？",
+          "reaction": "{TA}想了很久：“……我不知道。我当时没有问自己那个问题。”",
+          "trustChange": {
+            "理想线": 12,
+            "现实线": 12,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-05",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "30%概率，随机浮动插入",
+      "foreshadowCheck": "F-03",
+      "condition": "无"
+    },
+    "S-05": {
+      "id": "S-05",
+      "title": "单向的通道",
+      "type": "branch",
+      "narrative": "你发现{TA}最近在帮你做一件“很大的事”——帮你联系了你想去但没时间申请的项目的负责人、帮你整理了一份材料、帮你推进了一件事。{TA}做完之后没有告诉你。你是在第三天才发现的。\r\n你问{TA}：“你怎么不跟我说？”\r\n",
+      "dialogue": "ENFJ：“怕你觉得我在‘管’你。我就是刚好认识人，顺便。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "谢谢你！你太厉害了。我正愁这个怎么弄。",
+          "reaction": "{TA}笑了一下：“没什么啦。我就是顺手。”然后{TA}转开了话题。",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": -15,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-06（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你帮我联系了那个项目的人——你是什么时候开始做这件事的？",
+          "reaction": "{TA}停顿了一下：“……上周。我看到那个项目的截止日期快到了。”",
+          "trustChange": {
+            "理想线": 3,
+            "现实线": 0,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-06（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你帮我做的这个事——你把手头自己的事放下了一部分。我想知道你做这些的时候，你把自己放在哪。",
+          "reaction": "{TA}沉默了很久。然后{TA}说：“……我没有把自己放进去。我只是想帮你做完这件事。”",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-04": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-06（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "50%概率，与S-06二选一",
+      "condition": "无"
+    },
+    "S-06": {
+      "id": "S-06",
+      "title": "怀疑的迷宫",
+      "type": "branch",
+      "narrative": "{TA}在电话里跟一个人说：“……我觉得我可能没有我以为的那么重要。也许我只是在别人需要的时候被需要。如果不需要了呢。”\r\n挂了电话之后，{TA}安静地坐了很久。你走过去，{TA}抬头看你，表情很陌生——不是“温暖的 ENFJ”表情，是一种冷静的、审视的、带着距离的表情：\r\n",
+      "dialogue": "ENFJ：“如果有一天我停止给所有人提供价值——那些人会离开吗？你会离开吗？”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你在说什么啊？你怎么会没有价值？你是我认识最好的人。",
+          "reaction": "{TA}安静了一下，笑了一下：“……嗯。”把话题转开了。",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": -20,
+            "fatalError": true
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": null,
+          "fatalError": "BE-2"
+        },
+        {
+          "id": "B",
+          "text": "你以前问过别人这个问题吗？你的那些朋友——你问过{TA}们‘如果我不给了你们会走吗’？",
+          "reaction": "{TA}愣了一下：“……没有。因为我不确定我敢听答案。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-05": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你刚才在电话里说‘如果不需要了呢’——你是在说别人不需要你，还是在说你可能需要别人——但不知道该怎么让别人知道？",
+          "reaction": "{TA}安静了很久：“……我在说后者。但我不知道怎么说。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 12,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "现实线50%概率，与S-05二选一",
+      "condition": "难度 = 现实线"
+    },
+    "S-E3": {
+      "id": "S-E3",
+      "title": "被拒绝的给予（事件版）",
+      "type": "free_roam",
+      "narrative": "{TA}今天非常安静——不是那种“在想事情”的安静，是那种“已经不想说话”的安静。你问{TA}“怎么了”，{TA}摇了摇头。\r\n然后你看到{TA}在手机上打字——但没有发出去。{TA}删了。又打了一段。又删了。你走过去的时候，{TA}抬起头：\r\n",
+      "dialogue": "ENFJ（受 F-02 和 F-04 状态影响）：\r\n若 F-02 为“完全触发”且 F-04 为“已习得”：“……我刚才想说‘我今天电量用完了’。但我不确定你会不会觉得我总是在说这个。”\r\n若未触发以上组合：“……我刚才想跟你说我今天很累。但我怕说了你会觉得‘{TA}又在说累’。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你不会累的。你只是需要休息一下。",
+          "reaction": "{TA}点了点头，没有回应。",
+          "trustChange": {
+            "理想线": 3,
+            "现实线": -15,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你写了又删——是因为你不知道怎么让我知道你累，还是怕我知道了之后不知道怎么待在你旁边？",
+          "reaction": "{TA}放下手机，沉默了很久：“……两个都是。我不知道怎么开口说累——我也不知道你听到之后会怎么反应。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "（你什么都没说。你坐在{TA}旁边，然后你打开手机，打了一段话给{TA}看：）“我在这里。你不用说话。不用解释。我在。”",
+          "reaction": "{TA}看了那段话，然后把手机放在旁边，把头靠在你肩膀上。没有说“谢谢”，没有说“好”。{TA}只是停下来了。",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-07",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "30%概率，随机浮动插入",
+      "foreshadowCheck": "F-04",
+      "condition": "无"
+    },
+    "S-07": {
+      "id": "S-07",
+      "title": "最后的照亮",
+      "type": "core",
+      "narrative": "{TA}约你在你们常去的天台见面。{TA}站在那里，背对着你，看着远处。你走到{TA}旁边时，{TA}没有转身：\r\n",
+      "dialogue": "ENFJ：“我一直在想一件事——如果我停下来不发光了，那我是谁。我一直在给，一直在照顾，一直在帮别人解决难题。然后有一天我发现——我不知道怎么停下来。”\r\n{TA}转过身来。{TA}没有笑。只是站在那里：\r\n“我想停一下。不是永远。只是想停一下。你会在旁边吗？”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "会。而且你停下来的时候，不用告诉我‘你要停多久’。你可以停到你想走为止。",
+          "reaction": "",
+          "trustChange": {
+            "理想线": 5,
+            "现实线": 5,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你上次写的那份‘使用者手册’——你说‘如果我说没事，但不是真的没事’。你今天没有说‘没事’。你今天说了‘我想停一下’。",
+          "reaction": "",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-06": true
+          },
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": "已触发 Anchor-03 + Anchor-05 + Anchor-02",
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你说的那个‘充电宝’——你之前说怕自己没电了别人就不用你了。我想说——我之所以待在这里，不是因为你‘有电’。是因为你是那个人。‘有电’是附带的。",
+          "reaction": "",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-06": true
+          },
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": "已触发 Anchor-01 + Anchor-09 + Anchor-04",
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "必出（终局）",
+      "condition": "无"
+    }
+  },
+  "endings": {
+    "BE-1": {
+      "title": "单向的光",
+      "text": "{TA}还在帮你、还在照顾你、还在记得你喜欢吃什么。但你注意到——{TA}不再提自己的事了。你问{TA}“最近怎么样”，{TA}说“挺好的”。但{TA}已经三个月没有说“我今天有点累”了。{TA}没有停下来——{TA}只是学会了在没电的时候也保持“亮着”。\r\nENFJ 内心独白：“{TA}喜欢我做的菜、我帮的忙。我继续给。我自己的事——反正也没什么重要的。”\r\n"
+    },
+    "BE-2": {
+      "title": "功能丧失",
+      "text": "{TA}不再主动帮你做任何事了。不是因为不爱了——是因为{TA}发现“帮你做事”已经变成了一种“证明自己存在的证据”。{TA}停止了那个行为，但{TA}也不知道该用什么来替代它。{TA}现在是一个“什么都不给”的人——{TA}在重新学习“不给也能存在”。\r\nENFJ 内心独白：“我说‘如果我不给了你们还会在吗’——{TA}说‘你当然会’。但{TA}没有看我。我觉得{TA}没听懂我在问什么。”\r\n"
+    },
+    "BE-3": {
+      "title": "你留下的是光明",
+      "text": "{TA}还在发光。{TA}还在照亮你。但你也知道——{TA}在你面前从来没有真正停下来过。你看过{TA}写的那份“使用者手册”，但你没有用过它。因为“{TA}很亮”的时候你用不上那本手册。{TA}在等你用一次。\r\nENFJ 内心独白：“我把那本说明书给{TA}看了。{TA}读了，说‘你好厉害’。但{TA}没有用过上面的任何一条。{TA}不知道那本说明书不是作品集——是求救信号。”\r\n"
+    },
+    "NE-1": {
+      "title": "冰层融化",
+      "text": "{TA}开始练习“停一下”了——不是完全停下来，是在那些很短的间隙里，{TA}会让自己不笑、不给出建议。{TA}会在那些间隙里说：“我现在什么都不想做。就坐在这里。”你坐下来了。{TA}开始知道“停一下”不需要被解释。\r\nENFJ 内心独白：“我练习了三次‘什么都不做’。{TA}坐在旁边没有问‘你怎么了’。我开始相信‘停一下’是可以的。”\r\n"
+    },
+    "GE-1": {
+      "title": "双向的光",
+      "text": "{TA}还在给你做菜。但你开始也给{TA}做菜。{TA}还在帮你忙，但{TA}也开始找你帮忙了。{TA}说“你可以帮我改一下这个吗”——在平时{TA}不会说。{TA}把这句“帮我”当成了一种练习。\r\nENFJ 内心独白：“我说了‘帮我’。以前我不会说。{TA}说‘好’。那我可以继续说下一句。”\r\n",
+      "variants": {
+        "F-01_triggered": "\n\n你注意到了{TA}停下的那个瞬间。那不是放弃——那是{TA}在等你发现。",
+        "F-03_triggered": "\n\n那张纸还留在工具箱里。但{TA}开始让你看到了。"
+      }
+    },
+    "PE-1": {
+      "title": "不用发光的存在的权利",
+      "text": "{TA}把那份“使用者手册”的权限改成了共享。然后在最上面加了一行新的规则：“新增规则：如果我正在照顾别人的时候把自己忘了——你可以拉我一下。”{TA}停了一下，又在下面加了一行：“你拉我的时候，我会说‘好’。”\r\nENFJ 内心独白：“我写了一份‘如何对我’的说明书。{TA}读完了。然后{TA}在我把自己忘了的那天，拉了我一下。我停下来了。我发现自己停下来的时候，不会消失。”\r\n七、碎片记忆系统\r\n编号\t解锁条件\t碎片内容\r\n1\t触发 Anchor-01（看见空杯）\t“{TA}说‘你给自己倒了吗’——我低头看到自己的桌面是空的。{TA}看到了那个空的位置。”\r\n2\t触发 Anchor-02（承接脆弱）\t“我说‘充电宝会没电’。{TA}说‘没电不是充电宝的错’——{TA}接住了我的比喻。”\r\n3\t触发 Anchor-03（允许接受）\t“{TA}读到那本说明书的最后一页。{TA}说‘你不麻烦’——{TA}看到了我藏在最后一行的恐惧。”\r\n4\t触发 Anchor-04（回应给予）\t“{TA}问我‘你帮我的时候你把自己放在哪’——{TA}看到了那个我一直没放进去的东西。”\r\n5\t触发 Anchor-05（接住怀疑）\t“我说‘如果我不给了你们还会在吗’。{TA}问我‘你问过别人吗’——{TA}让我看到了我在害怕那个答案。”\r\n6\t触发 Anchor-07（边界共担）\t“{TA}在别人打电话来的时候坐到了我旁边。{TA}说‘你陪了{TA}四十分钟，我陪你坐一会儿’。”\r\n7\t触发 Anchor-09（留灯空间）\t“我推开了那杯牛奶。{TA}说‘牛奶放这里’——然后{TA}去了客厅。{TA}接受了我的‘不’，但没有走。”\r\n八、代码生成补充说明\r\n8.1 游离事件插入算法\r\ntext\r\n游戏启动时执行：\r\n1. 确定场景列表 = [S-01, S-02]\r\n2. 若难度 == 现实线，在 S-02 后插入 S-03\r\n3. 确定可用空位 = 当前场景列表长度 - 1 个间隙\r\n4. 对每个游离事件 (S-E1, S-E2, S-E3)：\r\n   a. 以 30% 概率决定是否出场\r\n   b. 若出场，在可用空位中随机选择一个位置插入\r\n   c. 从可用空位中移除该位置\r\n5. 添加 S-05/S-06（二选一，50%概率）\r\n6. 添加 S-07 至末尾\r\n8.2 前置伏笔状态判定逻辑\r\njavascript\r\nfunction getENFJLine(sceneId, flags) {\r\n  if (sceneId === \"S-E1\") {\r\n    if (flags[\"F-02\"] === \"完全触发\") {\r\n      return \"……我今天电量用完了。但那个人没事了。\";\r\n    } else {\r\n      return \"……我没事。你不用担心。\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E3\") {\r\n    if (flags[\"F-02\"] === \"完全触发\" && flags[\"F-04\"] === \"已习得\") {\r\n      return \"……我刚才想说‘我今天电量用完了’。但我不确定你会不会觉得我总是在说这个。\";\r\n    } else {\r\n      return \"……我刚才想跟你说我今天很累。但我怕说了你会觉得‘{TA}又在说累’。\";\r\n    }\r\n  }\r\n  // 默认返回\r\n}\r\n8.3 终局解锁条件\r\njavascript\r\nfunction canUnlockPE1(flags) {\r\n  return flags[\"Anchor-02\"] && flags[\"Anchor-03\"] && flags[\"Anchor-05\"];\r\n}\r\nfunction canUnlockPE1_alt(flags) {\r\n  return flags[\"Anchor-01\"] && flags[\"Anchor-04\"] && flags[\"Anchor-09\"];\r\n}\r\n8.4 结局判定（双轨制：Flag锁定优先 + 信任值兜底）\r\njavascript\r\nfunction determineEnding(trust, flags, difficulty) {\r\n  if (trust < 30) return \"BE-1\";\r\n  if (trust >= 30 && trust < 50) return \"BE-2\";\r\n  if (trust >= 50 && trust < 60) return \"BE-3\";\r\n  if (trust >= 60 && trust < 70) return \"NE-1\";\r\n  if (trust >= 70 && trust < 85) return \"GE-1\";\r\n  if (trust >= 85 && difficulty === \"现实线\") {\r\n    const count = Object.values(flags).filter(v => v === true).length;\r\n    if (count >= 6 && flags[\"Anchor-02\"] && flags[\"Anchor-05\"]) {\r\n      return \"PE-1\";\r\n    }\r\n    return \"GE-1\";\r\n  }\r\n  return \"GE-1\";\r\n}\n",
+      "variants": {
+        "F-01_triggered": "\n\n你注意到了{TA}停下的那个瞬间。那不是放弃——那是{TA}在等你发现。",
+        "F-01_not_triggered": "\n\n你没有注意到{TA}是什么时候停下的。但{TA}还在。",
+        "F-02_triggered": "\n\n{TA}不再把修好的东西藏起来了。{TA}学会了把\"做了\"翻译成\"告诉你\"。",
+        "F-02_not_triggered": "\n\n{TA}还是习惯用行动说话。但你开始学习读懂那些没有翻译的语言。",
+        "F-03_triggered": "\n\n那张{TA}写着关于{TA}的纸——{TA}不再藏在工具箱夹层里了。",
+        "F-04_triggered": "\n\n{TA}留在你空间里的东西——{TA}不再悄悄地收走了。"
+      }
+    }
+  },
+  "裂痕记忆": {
+    "type_0": {
+      "background": "",
+      "specialNarrative": "“{TA}今天状态不太好，眼睛下有明显的黑眼圈。但你进门时{TA}站了起来：‘你来啦！我今天做了你上次说想吃的那个菜！’"
+    },
+    "type_1": {
+      "background": "",
+      "specialNarrative": "“{TA}今天有一件没有处理好的事——工作上的一个失误。{TA}说这件事的时候语速很快：‘没事，我会解决。你不用担心。’"
+    },
+    "type_2": {
+      "background": "",
+      "specialNarrative": "“{TA}今天在你面前打了一个哈欠——然后迅速用手遮住了。{TA}说‘昨晚没睡好而已’，但{TA}遮住哈欠的动作很快，像是怕被看到那个‘也需要睡觉’的版本。"
+    }
+  },
+  "memories": {
+    "mem_1": {
+      "condition": "触发 Anchor-01（看见空杯）",
+      "text": "“{TA}说‘你给自己倒了吗’——我低头看到自己的桌面是空的。{TA}看到了那个空的位置。”"
+    },
+    "mem_2": {
+      "condition": "触发 Anchor-02（承接脆弱）",
+      "text": "“我说‘充电宝会没电’。{TA}说‘没电不是充电宝的错’——{TA}接住了我的比喻。”"
+    },
+    "mem_3": {
+      "condition": "触发 Anchor-03（允许接受）",
+      "text": "“{TA}读到那本说明书的最后一页。{TA}说‘你不麻烦’——{TA}看到了我藏在最后一行的恐惧。”"
+    },
+    "mem_4": {
+      "condition": "触发 Anchor-04（回应给予）",
+      "text": "“{TA}问我‘你帮我的时候你把自己放在哪’——{TA}看到了那个我一直没放进去的东西。”"
+    },
+    "mem_5": {
+      "condition": "触发 Anchor-05（接住怀疑）",
+      "text": "“我说‘如果我不给了你们还会在吗’。{TA}问我‘你问过别人吗’——{TA}让我看到了我在害怕那个答案。”"
+    },
+    "mem_6": {
+      "condition": "触发 Anchor-07（边界共担）",
+      "text": "“{TA}在别人打电话来的时候坐到了我旁边。{TA}说‘你陪了{TA}四十分钟，我陪你坐一会儿’。”"
+    },
+    "mem_7": {
+      "condition": "触发 Anchor-09（留灯空间）",
+      "text": "“我推开了那杯牛奶。{TA}说‘牛奶放这里’——然后{TA}去了客厅。{TA}接受了我的‘不’，但没有走。”"
+    }
+  }
+}

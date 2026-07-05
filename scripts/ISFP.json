@@ -1,0 +1,703 @@
+{
+  "meta": {
+    "id": "ISFP",
+    "name": "探险家",
+    "theme": "用创作替代语言，用沉默测试理解",
+    "startingTrust": 30,
+    "originalGender": "female",
+    "genderNote": "剧情已通过模板化处理适配两种性别，部分细节可能更适合原始设计视角"
+  },
+  "scenes": {
+    "S-01": {
+      "id": "S-01",
+      "title": "被收起的颜料",
+      "type": "core",
+      "narrative": "你注意到一件安静的事。{TA}之前放在窗边的那套颜料——{TA}用了很久的那套——现在被收进了柜子里。画架靠在墙边，上面没有画。调色板上有一块已经干掉的颜料，颜色是一种灰绿色——{TA}调了，但没有画完。\r\n你问{TA}：“最近怎么没画画了？”\r\n{TA}正在喝茶，眼睛看着窗外，声音很轻：\r\n",
+      "dialogue": "ISFP：“……没灵感。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "没灵感就休息一下。灵感来了再画。",
+          "reaction": "{TA}点了点头：“嗯。”然后继续喝茶。",
+          "trustChange": {
+            "理想线": -15,
+            "现实线": -30,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-02",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你以前的画我都留着。你画不画都没关系。",
+          "reaction": "{TA}转过头看了你一眼：“……你都留着？”",
+          "trustChange": {
+            "理想线": 3,
+            "现实线": 0,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-02",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你调了一块灰绿色，没有画完。那块颜色是你以前不会用的。你试了新颜色——然后把它收起来了。不是因为没有灵感，是因为你试了之后不知道谁会看到。",
+          "reaction": "{TA}端着茶杯的手停住了。然后{TA}说：“……你怎么知道我调了灰绿色。”",
+          "trustChange": {
+            "理想线": 12,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-01": true
+          },
+          "plotOps": {},
+          "nextScene": "S-02",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "必出",
+      "foreshadowCheck": "F-01",
+      "condition": "无"
+    },
+    "S-02": {
+      "id": "S-02",
+      "title": "未完成的颜色",
+      "type": "core",
+      "narrative": "第二天画架上出现了一张灰绿色的底色。然后第三天，灰绿色上面多了一笔橙色——很小的一笔。\r\n你没有问{TA}。你只是看到了。然后{TA}有一天开口了：\r\n",
+      "dialogue": "ISFP：“那张纸……我还没有想好要画什么。但我把底色放上去了。那笔橙色……我也不知道我在画什么。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "灰绿配橙色，感觉有点冷。你是不是心情不太好的时候画的？",
+          "reaction": "{TA}看了一眼那笔橙色：“……我没有心情不好。”",
+          "trustChange": {
+            "理想线": -10,
+            "现实线": -25,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E1（若出场）/ S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "灰绿色的底，一笔橙色——你还没有想好中间是什么。你是在找一种连接{TA}们的方式吗？",
+          "reaction": "{TA}安静了一下，然后轻声说：“……对。我在想中间应该是什么颜色。”",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-02": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E1（若出场）/ S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你不确定那笔橙色要通向哪里——但你还是画了。你是在把它放出来看看。",
+          "reaction": "{TA}看着那张纸：“……对。我经常这样做。先放出来看看。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 4,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E1（若出场）/ S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "必出",
+      "foreshadowCheck": "F-02",
+      "condition": "无"
+    },
+    "S-E1": {
+      "id": "S-E1",
+      "title": "创作被公开",
+      "type": "free_roam",
+      "narrative": "你发现{TA的}一张画被人发到了社交媒体上——不是{TA}发的，是别人拍的。下面有评论：“这个风格好像 XX 画家”“这个颜色搭配有点奇怪”“还不错”。\r\n{TA}看到了。{TA}没有说话，把手机翻了过去。你问{TA}，{TA}停了一下才开口：\r\n",
+      "dialogue": "ISFP（受 F-02 状态影响）：\r\n若 F-02 为“已触发”：“……我没有想被评价。我只是想画。被评价之后，那张画就不再是我的了。”\r\n若 F-02 为“未触发”：“……没什么。就是一张画而已。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "{TA}们不懂。你不要在意那些评论。",
+          "reaction": "{TA}轻轻点了点头：“……嗯。”",
+          "trustChange": {
+            "理想线": 3,
+            "现实线": 0,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你不想被评价——你只是想画。被评价之后，那张画就不再是你的了。",
+          "reaction": "{TA}看了你一眼：“……对。画完它的时候它是我的。但被别人看到之后，它就变成别人嘴里的样子了。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-07": true
+          },
+          "plotOps": {},
+          "nextScene": "S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你被评价的那张画——你画它的时候在想什么？",
+          "reaction": "{TA}想了很久：“……我在想一个人。不是画那个人——是画一种感觉。”",
+          "trustChange": {
+            "理想线": 5,
+            "现实线": 6,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "30%概率，随机浮动插入",
+      "foreshadowCheck": "F-02",
+      "condition": "无"
+    },
+    "S-03": {
+      "id": "S-03",
+      "title": "色彩的审判",
+      "type": "exclusive",
+      "narrative": "你在{TA}桌上看到一幅正在进行的画——{TA}已经画了很多了。画面的主体是一种深蓝色，很重。你看着它的时候，{TA}正好走进来。{TA}看到你在看那幅画，然后{TA}问了一句很轻的话：\r\n",
+      "dialogue": "ISFP：“……你觉得这个蓝色会不会太重？”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "蓝色确实有点重。但你可以在旁边加一点亮色来平衡。",
+          "reaction": "{TA}安静了一下：“……嗯。我试试。”{TA}把那幅画翻了过去。",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": -30,
+            "fatalError": true
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": null,
+          "fatalError": "BE-1"
+        },
+        {
+          "id": "B",
+          "text": "你画的这个深蓝色——你是先铺的底色，还是慢慢叠上去的？",
+          "reaction": "{TA}愣了一下：“……慢慢叠的。铺了很多层。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你问我‘会不会太重’——你是在问这个颜色，还是在问你自己？",
+          "reaction": "{TA}沉默了很久：“……我在问我自己。但我不知道答案。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 6,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-04",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "现实线必出",
+      "foreshadowCheck": "F-02",
+      "condition": "难度 = 现实线"
+    },
+    "S-04": {
+      "id": "S-04",
+      "title": "旧画的背面",
+      "type": "core",
+      "narrative": "你在{TA}抽屉里发现一本旧画册——那种黑色硬壳的素描本。你翻开，里面都是{TA}以前的画：很早期的、技法不成熟的、情绪很直接的。最后一页夹着一张纸，上面只写了一句话：\r\n“今天有人翻了这本画册——{TA}问我‘这个颜色是什么意思’。我没有回答。因为那幅画不是‘什么意思’，是‘我那天在想你’。”\r\n那是{TA自己}写给自己看的。然后你翻到倒数第二页——画的是一片很暗的灰蓝色，没有任何具体的形状，只是颜色。\r\n你合上画册的时候，{TA}正好走进来，看到你手里那本，停住了。{TA}没有拿回去，只是轻声说：\r\n",
+      "dialogue": "ISFP：“……那是旧的。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你画了好多。你能跟我讲讲这些画都是什么意思吗？",
+          "reaction": "{TA}摇头：“……不用讲吧。就是些练习。”",
+          "trustChange": {
+            "理想线": -10,
+            "现实线": -25,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E2（若出场）/ S-05",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "倒数第二页——那片灰蓝色。你画它的时候，是在想什么？",
+          "reaction": "{TA}安静了一会儿：“……我在想一个人。不知道怎么说，就画了。”",
+          "trustChange": {
+            "理想线": 12,
+            "现实线": 12,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-03": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E2（若出场）/ S-05",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你说‘那是旧的’——但这页的日期是两个月前。你还不想让人看到的部分——是正在发生的。",
+          "reaction": "{TA}低头看着那本画册：“……对。我还没有想好要不要让人看到。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 4,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E2（若出场）/ S-05",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "必出",
+      "foreshadowCheck": "F-03",
+      "condition": "无"
+    },
+    "S-E2": {
+      "id": "S-E2",
+      "title": "旧速写",
+      "type": "free_roam",
+      "narrative": "你翻到{TA}一本旧速写本——里面是很多没画完的东西：一只手、一个侧影、一片天空的一半。都是“没有完成”的。但在其中一页，有一个侧影——是你。只画了一半，但那个轮廓你认得。\r\n你问{TA}：“这个是你画的？”\r\n{TA}看了一眼：\r\n",
+      "dialogue": "ISFP（受 F-03 状态影响）：\r\n若 F-03 为“已触发”：“……那时候你坐在窗户旁边。我画了一半就停下来了。因为画完了就不敢给你看了。”\r\n若 F-03 为“未触发”：“……随便画的。认不出来吧。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你画了一半就不画了——是因为画完了就不敢给我看了？",
+          "reaction": "{TA}沉默了一下：“……对。画完了就是一个‘完成的东西’。没画完就是一个‘还在想的东西’。”",
+          "trustChange": {
+            "理想线": 5,
+            "现实线": 4,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-05",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你画了一半——不是因为画不好，是因为“没画完”比“画完了”更容易存在。",
+          "reaction": "{TA}愣住了：“……对。画完了就要被评价。没画完只是‘没画完’。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-08": true
+          },
+          "plotOps": {},
+          "nextScene": "S-05",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你画我的侧脸——你画它的时候，我在做什么？",
+          "reaction": "{TA}想了很久：“……你在看书。阳光在你后面。你翻页的时候，你停了一下。”",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-05",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "30%概率，随机浮动插入",
+      "foreshadowCheck": "F-03",
+      "condition": "无"
+    },
+    "S-05": {
+      "id": "S-05",
+      "title": "无声的馈赠",
+      "type": "branch",
+      "narrative": "你收到一件东西，{TA}放在你桌上，没有告诉你是谁放的。一张很小的纸，上面是一幅画——只有一个细节：你咖啡杯把手上的一个小缺口。你平时喝咖啡的时候会摸到那个缺口，你从来没有说过，但{TA}画下来了。\r\n你问{TA}：“这是你画的？”\r\n{TA}正在做别的事，头没抬：\r\n",
+      "dialogue": "ISFP：“……嗯。随便画的。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "这画得好精细啊。谢谢你。",
+          "reaction": "{TA}点了点头：“……嗯。不用谢。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": -15,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-06（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你画的是那个缺口——我每天早上喝咖啡的时候都会摸到。你是观察到了，还是也在喝同一杯的时候发现的？",
+          "reaction": "{TA}停了一下：“……我在你旁边喝的时候看到的。你在摸那个缺口。”",
+          "trustChange": {
+            "理想线": 3,
+            "现实线": 0,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-06（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "这幅画里的铅笔线条——你画了很多遍。你不是‘随便画的’。你选了这个缺口，因为你看到我每天都会摸它。你在用这幅画告诉我‘我看到你看到的东西了’。",
+          "reaction": "{TA}安静了很久。然后{TA}说：“……你看到那些铅笔线条了。”",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-04": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-06（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "50%概率，与S-06二选一",
+      "foreshadowCheck": "F-04",
+      "condition": "无"
+    },
+    "S-06": {
+      "id": "S-06",
+      "title": "线条的暴怒",
+      "type": "branch",
+      "narrative": "你在{TA}房间的地上看到一张被撕过的纸——它被撕了，又被粘回去了。上面是一幅画，画风很不像{TA}：线条是“命令式”的——直、硬、没有犹豫。{TA}平时画画是柔软的、试探的，但这张画像在发布指令。\r\n{TA}看到你拿着那张纸，没有躲开。{TA}说了一句你从来没听{TA}用过的语气：\r\n",
+      "dialogue": "ISFP：“这张画没用。我想画一个东西，但画不出来。我不知道我在画什么。你别看了。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你撕了又粘回来——说明你其实觉得它有用。别对自己太苛刻了。",
+          "reaction": "{TA}拿走了那张画：“……我没有对自己苛刻。我画不好。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": -30,
+            "fatalError": true
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": null,
+          "fatalError": "BE-2"
+        },
+        {
+          "id": "B",
+          "text": "这张画的线条和你平时不一样。它们很硬、很确定——你在愤怒的时候画的，对不对？",
+          "reaction": "{TA}低下头看着那张画：“……对。我想画一个很确定的东西。但画完之后发现它不是我想要的。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-05": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你想画一个很确定的东西——但你画不出来。是因为那个‘确定’本身可能是假的，还是因为‘确定’不是你自然的状态？",
+          "reaction": "{TA}安静了很久：“……后者。‘确定’不是我的自然状态。但我有时候很想成为那种状态的人。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 6,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "现实线50%概率，与S-05二选一",
+      "foreshadowCheck": "F-03",
+      "condition": "难度 = 现实线"
+    },
+    "S-E3": {
+      "id": "S-E3",
+      "title": "创作被限定",
+      "type": "free_roam",
+      "narrative": "有人问{TA}能不能画一个“指定主题”的东西——一个{TA}不太感兴趣的主题。{TA}没有拒绝，但也没有立刻答应。{TA}安静了一会儿，然后说：\r\n",
+      "dialogue": "ISFP（受 F-01 和 F-04 状态影响）：\r\n若 F-01 为“已触发”且 F-04 为“已触发”：“……我可能画不了这个。不是因为做不到——是因为画完之后，那幅画就不是我的了。”\r\n若未触发以上组合：“……我试试吧。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你可以试试——也许画出来会不一样。",
+          "reaction": "{TA}点了点头：“……嗯。我试试。”然后{TA}画了。但画完之后{TA}没有给别人看。",
+          "trustChange": {
+            "理想线": 3,
+            "现实线": -15,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你说‘画完之后那幅画就不是我的了’——你需要它是你的。",
+          "reaction": "{TA}安静了一下：“……对。我需要它是我的。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-09": true
+          },
+          "plotOps": {},
+          "nextScene": "S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你不想画这个——是因为这个主题不是你的颜色。",
+          "reaction": "{TA}看了你一眼：“……对。它不在我的颜色里。”",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-07",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "30%概率，随机浮动插入",
+      "foreshadowCheck": "F-04",
+      "condition": "无"
+    },
+    "S-07": {
+      "id": "S-07",
+      "title": "最后的色彩",
+      "type": "core",
+      "narrative": "你收到一件完整的东西。不是画在纸上的——是一个很小的物件：{TA}画了一颗石头。石头上涂的颜色是灰绿和橙色——那些{TA}在 S-02 里留下的颜色。现在它们在一个完整的形状里，稳定地停在那里。\r\n{TA}没有给你语言。{TA}给了你这颗石头。然后{TA}说：\r\n",
+      "dialogue": "ISFP：“我把那些颜色放在一起了。它们没有变成一幅画——它们变成了一个可以拿在手里的东西。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "灰绿和橙色，现在它们在一起了。你找到中间的颜色了。",
+          "reaction": "",
+          "trustChange": {
+            "理想线": 5,
+            "现实线": 5,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你那本画册里有一片灰蓝色——你画它的时候在想一个人。你现在给我这颗石头——你在想谁？",
+          "reaction": "",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-06": true
+          },
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": "已触发 Anchor-02 + Anchor-03 + Anchor-05",
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你画的那颗缺口杯子——你一直在看我的细节。然后你现在把这颗石头给我。你是在把你的颜色放到我可以拿到的位置。",
+          "reaction": "",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-06": true
+          },
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": "已触发 Anchor-01 + Anchor-04 + Anchor-09",
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "必出（终局）",
+      "condition": "无"
+    }
+  },
+  "endings": {
+    "BE-1": {
+      "title": "颜色撤退",
+      "text": "{TA}把所有的颜料都收进了柜子里。画架靠墙，上面空着。你问{TA}“最近还画吗”，{TA}说“不画了”。{TA}说的“不画了”后面没有接“没灵感”或“太忙”——{TA}只是“不画了”。{TA}把那条通往{TA的}颜色通道关闭了。\r\nISFP 内心独白：“{TA}说‘没灵感就休息’——{TA}没有问我为什么画了那么久之后突然停下来。我在等一个人发现那块灰绿色的调色盘。{TA}没有发现。”\r\n"
+    },
+    "BE-2": {
+      "title": "沉默继续",
+      "text": "{TA}还在画。但{TA}画的东西不再出现在你能看到的地方。{TA}画完就收起来、画完就收起来。抽屉里积累了很多“已经完成但没有被看到的”作品。{TA}把“被看到”这个要求从{TA的}创作过程里移除了。\r\nISFP 内心独白：“我还在画。但我不放出来了。因为放出来之后被看到的方式不是我想要的。”\r\n"
+    },
+    "BE-3": {
+      "title": "你留下的是功能",
+      "text": "你赞美过{TA的}“才华”、{TA的}“色彩感”、{TA的}“天赋”。{TA}微笑接受。但后来{TA}把那些旧画——那本黑色画册——移到了一个更远的地方。因为{TA}发现“天赋”是你从{TA}身上看到的东西，而“我画这个是因为我在想某个人”是另一种东西。\r\nISFP 内心独白：“{TA}说‘你画得好’——{TA}看到了结果。但{TA}没有看到那些‘犹豫的线条’里藏着什么。”\r\n"
+    },
+    "NE-1": {
+      "title": "冰层融化",
+      "text": "{TA}开始在画完之后把它们留在你可能会经过的地方了。不是专门给你看的——是“如果路过会看到”的位置。{TA}在恢复“被看到”这件事的权限。{TA}还没有直接给你，但{TA}不再把它锁起来了。\r\nISFP 内心独白：“我开始把画放在‘你会路过’的地方。我没有说‘看’。但我放了。”\r\n"
+    },
+    "GE-1": {
+      "title": "色彩被看见",
+      "text": "{TA}把那颗石头的照片发给了你——没有文字，只有图片。你回了一句：“灰绿和橙色。你们在一起了。”{TA}没有回，但{TA}把那张照片设成了{TA的}聊天背景。\r\nISFP 内心独白：“{TA}说‘你们在一起了’。{TA}说的是颜色。但我知道{TA}说的是我们。”\r\n",
+      "variants": {
+        "F-01_triggered": "\n\n你注意到了{TA}停下的那个瞬间。那不是放弃——那是{TA}在等你发现。",
+        "F-03_triggered": "\n\n那张纸还留在工具箱里。但{TA}开始让你看到了。"
+      }
+    },
+    "PE-1": {
+      "title": "颜色并排",
+      "text": "你收到一颗新的石头。没有颜色。{TA}把原来那颗涂了灰绿和橙色的石头放在旁边。两颗石头并排放着——一颗空白的、一颗有颜色的。{TA}说：“空的那颗是给你画的。你想涂什么颜色都可以。”\r\nISFP 内心独白：“我把颜色放在了{TA}手上。现在我把空白的也放在{TA}手上。{TA}可以画{TA自己}的。”\r\n七、碎片记忆系统\r\n编号\t解锁条件\t碎片内容\r\n1\t触发 Anchor-01（看见缺席）\t“{TA}说‘你调了一块灰绿色’——{TA}看到了调色板上的那块痕迹。{TA}知道我调了、没画完。”\r\n2\t触发 Anchor-02（接纳未完成）\t“{TA}说‘你在找连接方式’——{TA}看的是我的过程，不是我的成品。”\r\n3\t触发 Anchor-03（看见背面）\t“{TA}说‘那片灰蓝色’——{TA}看到了那页。不是问我‘什么意思’，是问我‘在想什么’。”\r\n4\t触发 Anchor-04（接收无声）\t“{TA}看到了铅笔线条的犹豫。{TA}说‘你画了很多遍’。{TA}知道我花了时间决定要不要画那个缺口。”\r\n5\t触发 Anchor-05（接住审判）\t“我画了一张很硬的画。{TA}说‘线条不一样’——{TA}看到了我的愤怒被画出来了。{TA}没有叫我变软。”\r\n6\t触发 Anchor-07（保护创作）\t“我的画被评价了。{TA}说‘被评价之后那张画就不再是你的了’——{TA}确认了我的感受。”\r\n7\t触发 Anchor-09（自由接纳）\t“我说‘画完之后就不是我的了’——{TA}说‘你需要它是你的’。{TA}说出了我没有说完的话。”\r\n八、代码生成补充说明\r\n8.1 游离事件插入算法\r\ntext\r\n游戏启动时执行：\r\n1. 确定场景列表 = [S-01, S-02]\r\n2. 若难度 == 现实线，在 S-02 后插入 S-03\r\n3. 确定可用空位 = 当前场景列表长度 - 1 个间隙\r\n4. 对每个游离事件 (S-E1, S-E2, S-E3)：\r\n   a. 以 30% 概率决定是否出场\r\n   b. 若出场，在可用空位中随机选择一个位置插入\r\n   c. 从可用空位中移除该位置\r\n5. 添加 S-05/S-06（二选一，50%概率）\r\n6. 添加 S-07 至末尾\r\n8.2 前置伏笔状态判定逻辑\r\njavascript\r\nfunction getISFPLine(sceneId, flags) {\r\n  if (sceneId === \"S-E1\") {\r\n    if (flags[\"F-02\"] === \"已触发\") {\r\n      return \"……我没有想被评价。我只是想画。被评价之后，那张画就不再是我的了。\";\r\n    } else {\r\n      return \"……没什么。就是一张画而已。\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E2\") {\r\n    if (flags[\"F-03\"] === \"已触发\") {\r\n      return \"……那时候你坐在窗户旁边。我画了一半就停下来了。因为画完了就不敢给你看了。\";\r\n    } else {\r\n      return \"……随便画的。认不出来吧。\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E3\") {\r\n    if (flags[\"F-01\"] === \"已触发\" && flags[\"F-04\"] === \"已触发\") {\r\n      return \"……我可能画不了这个。不是因为做不到——是因为画完之后，那幅画就不是我的了。\";\r\n    } else {\r\n      return \"……我试试吧。\";\r\n    }\r\n  }\r\n  return \"\";\r\n}\r\n8.3 终局解锁条件\r\njavascript\r\nfunction canUnlockPE1(flags) {\r\n  return flags[\"Anchor-02\"] && flags[\"Anchor-03\"] && flags[\"Anchor-05\"];\r\n}\r\nfunction canUnlockPE1_alt(flags) {\r\n  return flags[\"Anchor-01\"] && flags[\"Anchor-04\"] && flags[\"Anchor-09\"];\r\n}\r\nfunction canUnlockPE1_both(flags) {\r\n  return canUnlockPE1(flags) || canUnlockPE1_alt(flags);\r\n}\r\n8.4 结局判定（双轨制：Flag锁定优先 + 信任值兜底）\r\njavascript\r\nfunction determineEnding(trust, flags, difficulty) {\r\n  if (trust < 30) return \"BE-1\";\r\n  if (trust >= 30 && trust < 50) return \"BE-2\";\r\n  if (trust >= 50 && trust < 60) return \"BE-3\";\r\n  if (trust >= 60 && trust < 70) return \"NE-1\";\r\n  if (trust >= 70 && trust < 85) return \"GE-1\";\r\n  if (trust >= 85 && difficulty === \"现实线\") {\r\n    const count = Object.values(flags).filter(v => v === true).length;\r\n    if (count >= 6 && flags[\"Anchor-02\"] && flags[\"Anchor-05\"] && flags[\"Anchor-06\"]) {\r\n      return \"PE-1\";\r\n    }\r\n    return \"GE-1\";\r\n  }\r\n  return \"GE-1\";\r\n}\r\nISFP 剧本 END\n",
+      "variants": {
+        "F-01_triggered": "\n\n你注意到了{TA}停下的那个瞬间。那不是放弃——那是{TA}在等你发现。",
+        "F-01_not_triggered": "\n\n你没有注意到{TA}是什么时候停下的。但{TA}还在。",
+        "F-02_triggered": "\n\n{TA}不再把修好的东西藏起来了。{TA}学会了把\"做了\"翻译成\"告诉你\"。",
+        "F-02_not_triggered": "\n\n{TA}还是习惯用行动说话。但你开始学习读懂那些没有翻译的语言。",
+        "F-03_triggered": "\n\n那张{TA}写着关于{TA}的纸——{TA}不再藏在工具箱夹层里了。",
+        "F-04_triggered": "\n\n{TA}留在你空间里的东西——{TA}不再悄悄地收走了。"
+      }
+    }
+  },
+  "裂痕记忆": {
+    "type_0": {
+      "background": "",
+      "specialNarrative": "“{TA的}画架靠墙放着。上面有一块干掉的颜料——已经三个月了。{TA}以前每天都会换一块新的。"
+    },
+    "type_1": {
+      "background": "",
+      "specialNarrative": "“客厅墙上有一块比周围略浅的色差——那里曾经挂过一幅画。{TA}把画取下来之后没有放新的上去。那个色差像一句话没说完。"
+    },
+    "type_2": {
+      "background": "",
+      "specialNarrative": "“{TA}手机上有一张画，没有发出来过。{TA}有时候会打开看一下——然后锁屏。{TA}不知道该不该让别人看到那些颜色。"
+    }
+  },
+  "memories": {
+    "mem_1": {
+      "condition": "触发 Anchor-01（看见缺席）",
+      "text": "“{TA}说‘你调了一块灰绿色’——{TA}看到了调色板上的那块痕迹。{TA}知道我调了、没画完。”"
+    },
+    "mem_2": {
+      "condition": "触发 Anchor-02（接纳未完成）",
+      "text": "“{TA}说‘你在找连接方式’——{TA}看的是我的过程，不是我的成品。”"
+    },
+    "mem_3": {
+      "condition": "触发 Anchor-03（看见背面）",
+      "text": "“{TA}说‘那片灰蓝色’——{TA}看到了那页。不是问我‘什么意思’，是问我‘在想什么’。”"
+    },
+    "mem_4": {
+      "condition": "触发 Anchor-04（接收无声）",
+      "text": "“{TA}看到了铅笔线条的犹豫。{TA}说‘你画了很多遍’。{TA}知道我花了时间决定要不要画那个缺口。”"
+    },
+    "mem_5": {
+      "condition": "触发 Anchor-05（接住审判）",
+      "text": "“我画了一张很硬的画。{TA}说‘线条不一样’——{TA}看到了我的愤怒被画出来了。{TA}没有叫我变软。”"
+    },
+    "mem_6": {
+      "condition": "触发 Anchor-07（保护创作）",
+      "text": "“我的画被评价了。{TA}说‘被评价之后那张画就不再是你的了’——{TA}确认了我的感受。”"
+    },
+    "mem_7": {
+      "condition": "触发 Anchor-09（自由接纳）",
+      "text": "“我说‘画完之后就不是我的了’——{TA}说‘你需要它是你的’。{TA}说出了我没有说完的话。”"
+    }
+  }
+}

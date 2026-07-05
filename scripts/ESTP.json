@@ -1,0 +1,703 @@
+{
+  "meta": {
+    "id": "ESTP",
+    "name": "企业家",
+    "theme": "用行动替代言语，用冒险测试忠诚",
+    "startingTrust": 30,
+    "originalGender": "male",
+    "genderNote": "剧情已通过模板化处理适配两种性别，部分细节可能更适合原始设计视角"
+  },
+  "scenes": {
+    "S-01": {
+      "id": "S-01",
+      "title": "被取消的冒险",
+      "type": "core",
+      "narrative": "你发现一件事。{TA}周末没有安排任何事。{TA}以前会在周五晚上突然说“明天我们去 XX 吧”——一个你没听过的地方、一个临时的念头、一个不需要规划的行动。但最近几个周末——{TA}都在家。\r\n你问{TA}：“这周没什么计划吗？”\r\n{TA}正在看手机，头也没抬：\r\n",
+      "dialogue": "ESTP：“……没有。没什么特别想去的。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "也是。周末在家休息也挺好的。",
+          "reaction": "{TA}看了你一眼：“……嗯。”然后继续看手机。",
+          "trustChange": {
+            "理想线": -15,
+            "现实线": -30,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-02",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你以前周五晚上会说‘明天去 XX’。最近你没有说了。是你不想去了，还是不想叫我了？",
+          "reaction": "{TA}放下手机：“……不是不想去了。是我不确定你会不会想去。”",
+          "trustChange": {
+            "理想线": 3,
+            "现实线": 0,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-02",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你手机里‘想去的地方’有七条没划掉。你以前会直接去，不写备忘录。你现在写了——然后没有去。是因为你在等我说‘我陪你去’，还是因为你不确定我还会不会跟你去？",
+          "reaction": "{TA}安静了一下，然后说：“……我在等你有一天会看那个备忘录。然后再来问我‘这个我们什么时候去’。”",
+          "trustChange": {
+            "理想线": 12,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-01": true
+          },
+          "plotOps": {},
+          "nextScene": "S-02",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "必出",
+      "foreshadowCheck": "F-01",
+      "condition": "无"
+    },
+    "S-02": {
+      "id": "S-02",
+      "title": "边缘的邀请",
+      "type": "core",
+      "narrative": "第二天{TA}划掉了备忘录里的一条。但划掉的方式很特别——{TA}在那个地方旁边画了一个问号。\r\n你问{TA}：“你画了个问号——是去过了还是还在想？”\r\n{TA}正在系鞋带：\r\n",
+      "dialogue": "ESTP：“……去过了。但那个地方可能还有另一个时间值得去。画个问号，提醒自己。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你自己去了？为什么不叫我？",
+          "reaction": "{TA}停了一下：“……因为不确定你会不会想去看看那个地方。下次叫你。”",
+          "trustChange": {
+            "理想线": -5,
+            "现实线": -20,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E1（若出场）/ S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你说那个地方可能还有另一个时间去——是什么样的地方会让人想回去两次？",
+          "reaction": "{TA}停住了系鞋带的动作：“……那个地方有一片很大的空地。没有人。我在那里站了十分钟。那十分钟什么都没发生——但我觉得那十分钟很重要。”",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-02": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E1（若出场）/ S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你画了个问号——是因为那地方还没结束，还是因为你还没决定要不要带我再去一次？",
+          "reaction": "{TA}想了想：“……两个都是。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 4,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E1（若出场）/ S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "必出",
+      "foreshadowCheck": "F-02",
+      "condition": "无"
+    },
+    "S-E1": {
+      "id": "S-E1",
+      "title": "冲动被劝阻",
+      "type": "free_roam",
+      "narrative": "{TA}说{TA}“想去一个地方”——听起来完全是临时起意。{TA}说的时候眼睛是亮的，像是刚想到。然后{TA}停了一下，看了你一眼，声音低了一点：\r\n",
+      "dialogue": "ESTP（受 F-02 状态影响）：\r\n若 F-02 为“已触发”：“……你想去吗？”\r\n若 F-02 为“未触发”或“未触发”：“……算了。可能不太方便。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你说‘想去’——那就去。我现在有空。",
+          "reaction": "{TA}愣了一下：“……现在？”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-07": true
+          },
+          "plotOps": {},
+          "nextScene": "S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你说完‘想去’之后停了一下——是在等我说‘去’，还是在等我说‘算了’？",
+          "reaction": "{TA}看了你一眼：“……我在等你说‘去’。因为我想去，但我不知道你会不会觉得太突然。”",
+          "trustChange": {
+            "理想线": 5,
+            "现实线": 4,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你今天怎么突然想去那个地方？",
+          "reaction": "{TA}想了一下：“……没有特别的原因。就是突然想到了。以前我想到就会去。现在想的时候会先想‘你会不会觉得太突然’。”",
+          "trustChange": {
+            "理想线": 3,
+            "现实线": 0,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "30%概率，随机浮动插入",
+      "foreshadowCheck": "F-02",
+      "condition": "无"
+    },
+    "S-03": {
+      "id": "S-03",
+      "title": "危险的测试",
+      "type": "exclusive",
+      "narrative": "{TA}今天做了一件“不像{TA}但又是{TA}”的事。{TA}说：“我们今天去一个地方——我不告诉你是什么地方。你上车就行。”\r\n{TA}开了一个多小时，到了一个{TA}没来过的山腰。没有规划、没有路线、没有返回时间。路越走越窄，开始出现沙石路段。{TA}说：“这个路我也没有开过。”\r\n",
+      "dialogue": "",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "这路你也没开过？那你怎么不先查一下？",
+          "reaction": "{TA}没有回答。但{TA}减慢了车速。不是因为{TA}变了主意——是因为你的“问题”让{TA}必须回答，而{TA}不想停下来回答。",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": -25,
+            "fatalError": true
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": null,
+          "fatalError": "BE-1"
+        },
+        {
+          "id": "B",
+          "text": "你没开过这条路，但你选了它。那你觉得这条路的终点是什么样的？",
+          "reaction": "{TA}看了你一眼，然后把视线转回路上：“……我想象过。可能有一片水，也可能没有。但如果到了才知道，那才是我想去的原因。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你没开过的路——但你选了它。因为如果知道了终点，去就没有意义了。",
+          "reaction": "{TA}看了你一眼：“……你知道。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 6,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-04",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "现实线必出",
+      "foreshadowCheck": "F-02",
+      "condition": "难度 = 现实线"
+    },
+    "S-04": {
+      "id": "S-04",
+      "title": "未说出口的暂停",
+      "type": "core",
+      "narrative": "你们从那次“未知的路”回来之后，{TA}安静了几天。不是冷暴力——是一种“在”但不“动”的状态。{TA}没有像平时那样找新的事情做、新地方去。{TA}坐在沙发上，看着窗外。\r\n你走过去，{TA}开口了：\r\n",
+      "dialogue": "ESTP：“那天在山上，我停了一下的时候——我在想：如果我一直需要‘下一个地方’才能感觉自己在活着——那停下来的时候，我是谁？”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你平时想那么多干嘛？你就是喜欢动的人，停下来休息休息就好了。",
+          "reaction": "{TA}看了你一眼：“……可能吧。”然后{TA}打开了电视。",
+          "trustChange": {
+            "理想线": -10,
+            "现实线": -25,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E2（若出场）/ S-05",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你停下来的那天——你在山上站了十分钟。你说那十分钟什么都没发生，但你觉得很重要。你在想的是什么？",
+          "reaction": "{TA}安静了很久：“……我在想，如果我不动了，还会有人在我旁边吗。”",
+          "trustChange": {
+            "理想线": 12,
+            "现实线": 12,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-03": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E2（若出场）/ S-05",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你停下来的时候在想——如果你不再提‘我们去哪’，还有没有人会陪着你。",
+          "reaction": "{TA}沉默了一会儿：“……对。我在测试。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 4,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E2（若出场）/ S-05",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "必出",
+      "foreshadowCheck": "F-03",
+      "condition": "无"
+    },
+    "S-E2": {
+      "id": "S-E2",
+      "title": "旧票根",
+      "type": "free_roam",
+      "narrative": "你在{TA}抽屉里发现一张很旧的票根——不是电影票，不是火车票，是一张入场券，地点你从来没听说过，日期是很久以前的。票根被夹在一本笔记本里，平整，没有折痕。\r\n你问{TA}：“这是什么地方？”\r\n{TA}看了一眼：\r\n",
+      "dialogue": "ESTP（受 F-02 状态影响）：\r\n若 F-02 为“已触发”：“……那是我一个人去的一个地方。那天我没有告诉任何人。我回来之后也没有说。但我留着那张票——因为那天我自己站了一会儿。”\r\n若 F-02 为“未触发”：“……一个很早以前去的地方。当时没想那么多就去了。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你自己去了一个地方——然后没有告诉任何人。你以前会这样吗？",
+          "reaction": "{TA}想了很久：“……以前不会。以前去了会想跟人说。现在有时候去了也不会跟人说。”",
+          "trustChange": {
+            "理想线": 5,
+            "现实线": 4,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-05",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你留着一张票根——是因为那天很重要，还是因为那天只有你自己知道？",
+          "reaction": "{TA}安静了一下：“……因为那天只有我自己知道。我后来觉得——有些体验不需要跟人说。但我想留下‘它发生过’的证据。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-08": true
+          },
+          "plotOps": {},
+          "nextScene": "S-05",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你留着这张票——是因为那个地方你还会再去吗？",
+          "reaction": "{TA}摇了摇头：“……不会再去了。但我想记住那天的感觉。”",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-05",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "30%概率，随机浮动插入",
+      "foreshadowCheck": "F-02",
+      "condition": "无"
+    },
+    "S-05": {
+      "id": "S-05",
+      "title": "存在感的递减",
+      "type": "branch",
+      "narrative": "你发现{TA}最近“出现”的频率在变。以前{TA}会经常出现在你空间里——路过你的房间会晃进来、在你在家的时候{TA}会待在附近。但最近{TA}出现的时间变短了。{TA}会说“我出去一下”，然后消失几个小时。\r\n你问{TA}：“你最近去哪了？”\r\n{TA}正在穿外套：\r\n",
+      "dialogue": "ESTP：“……没去哪。就是走走。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "嗯。那你注意安全。",
+          "reaction": "{TA}点了点头：“嗯。”然后出门了。",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": -15,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-06（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你最近出去的次数多了。以前你会在附近待着——现在你‘走’的时间变长了。是你在找什么，还是你在躲什么？",
+          "reaction": "{TA}停了一下：“……我没有在躲。我只是在试着减少存在感。然后看你会不会注意到。”",
+          "trustChange": {
+            "理想线": 3,
+            "现实线": 0,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-06（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你以前会在附近待着。现在你‘出去走走’的频率高了、时间长了。你是在测试我会不会发现你不在的时间里——我有没有在找你。",
+          "reaction": "{TA}拿着外套的手放了下来：“……你会找我吗？”",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-04": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-06（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "50%概率，与S-06二选一",
+      "foreshadowCheck": "F-04",
+      "condition": "无"
+    },
+    "S-06": {
+      "id": "S-06",
+      "title": "未来的深渊",
+      "type": "branch",
+      "narrative": "你深夜醒来，发现{TA}坐在客厅没睡。灯开着，但没有做任何事。{TA}看到你出来，说了一句{TA}平时不会说的话：\r\n",
+      "dialogue": "ESTP：“我在想——如果我一直这样移动、这样走、这样不停下来——有一天会不会所有人都走了，只有我一个人还在那里。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你怎么突然想这些？你不会一个人的。你不是向来走到哪都有人吗？",
+          "reaction": "{TA}安静了一下：“……那些人是会换的。不是留下来的人。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": -30,
+            "fatalError": true
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": null,
+          "fatalError": "BE-2"
+        },
+        {
+          "id": "B",
+          "text": "你说‘只有我一个人还在那里’——你在想象一个没有人在旁边的时间。那个想象是什么时候出现的？",
+          "reaction": "{TA}停了很久：“……那天在山上停下来的十分钟之后。我开始在想‘如果我不动了会怎样’。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-05": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你那天在山上停了十分钟。你在想如果停下来了会怎样。你现在是不是在延续那个十分钟？",
+          "reaction": "{TA}想了想：“……对。那十分钟没有结束。它还在继续。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 6,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "现实线50%概率，与S-05二选一",
+      "foreshadowCheck": "F-03",
+      "condition": "难度 = 现实线"
+    },
+    "S-E3": {
+      "id": "S-E3",
+      "title": "被限制行动",
+      "type": "free_roam",
+      "narrative": "你说了一句：“你能不能先想好再去？”——{TA}正在穿鞋。{TA}停住了。不是“生气”的停，是“被按住了”的停。然后{TA}说：\r\n",
+      "dialogue": "ESTP（受 F-01 和 F-04 状态影响）：\r\n若 F-01 为“已触发”且 F-04 为“已触发”：“……你刚才说的‘想好’——是想好路线，还是想好‘为什么要去’？”\r\n若未触发以上组合：“……你说的‘想好’是指什么？我带上导航算想好了吗？”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "就是想好再走。先确认一下目的地和路线。",
+          "reaction": "{TA}穿好鞋：“……好。那我确认一下。”{TA}打开手机查了路线，然后说：“确认好了。”",
+          "trustChange": {
+            "理想线": 3,
+            "现实线": -15,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "我说‘先想好再去’——你听了之后停了一下。你在停的那一下里，是在想‘{TA}说得有道理’，还是在想‘我在被拦住’？",
+          "reaction": "{TA}想了想：“……我在想‘我是不是在被拦住’。然后我在想‘{TA}想拦我什么’。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-09": true
+          },
+          "plotOps": {},
+          "nextScene": "S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "我说‘先想好再去’——是因为我在乎你会不会迷路。但‘迷路’对你来说可能是去的一部分。",
+          "reaction": "{TA}安静了一下：“……‘迷路’确实有时候是去的一部分。但你说‘担心’——我会记住。”",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-07",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "30%概率，随机浮动插入",
+      "foreshadowCheck": "F-04",
+      "condition": "无"
+    },
+    "S-07": {
+      "id": "S-07",
+      "title": "最后的行动",
+      "type": "core",
+      "narrative": "{TA}在一个平常的傍晚来到你面前。没有计划、没有目的地——{TA}只是站在那里，然后说：\r\n",
+      "dialogue": "ESTP：“我最近在想——我以前觉得‘去哪里’是最重要的事。我现在觉得‘跟谁去’好像更重要。我那天去那个地方——我一个人去的。我没有觉得不好，但我一直在想——如果你在那里的话，那十分钟会不会不一样。”\r\n{TA}看着你，然后问了一句{TA}从来没问过的问题：\r\n“我想再回去一次那个地方——不是一个人。你要不要来？”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "要。什么时候？",
+          "reaction": "",
+          "trustChange": {
+            "理想线": 5,
+            "现实线": 5,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你那天说如果不动了会怎样——你回到那个地方的时候，你还会停在那片空地吗？",
+          "reaction": "",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-06": true
+          },
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": "已触发 Anchor-02 + Anchor-03 + Anchor-05",
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你说的那七条备忘录——你没有划掉的那几条。如果我们一起划掉它们，你还需要新的吗？",
+          "reaction": "",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-06": true
+          },
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": "已触发 Anchor-01 + Anchor-04 + Anchor-09",
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "必出（终局）",
+      "condition": "无"
+    }
+  },
+  "endings": {
+    "BE-1": {
+      "title": "单独行动",
+      "text": "{TA}继续一个人去那些“想去的地方”。备忘录上的条目一条条被划掉——都是{TA}一个人去的。你问{TA}“今天去哪了”，{TA}说“没去哪”。{TA}不是在隐瞒——{TA}是在确认“即使我不告诉你我去哪里，也没有人会问第二个问题”。{TA}已经不再需要回答了。\r\nESTP 内心独白：“我说‘周末没什么计划’——{TA}说‘好’。我把备忘录划掉了七条。{TA}不知道那些地方是我想跟{TA}一起去的。{TA}只看到了空的周末。”\r\n"
+    },
+    "BE-2": {
+      "title": "安静撤退",
+      "text": "{TA}还在你身边。但{TA}不再邀请你去任何地方了。{TA自己}去、自己回来、自己决定什么时候出发。{TA的}“行动”和“你”被分成了两个独立的部分。{TA}还会跟你说话——但{TA}已经不再分享“那些{TA}还没去的地方”了。\r\nESTP 内心独白：“我减少存在感是为了让{TA}注意到。{TA}注意到了——但{TA}问的是‘你最近出去多了’，不是‘我可以跟你去吗’。{TA}接受了我的减少。”\r\n"
+    },
+    "BE-3": {
+      "title": "你留下的是冒险",
+      "text": "你赞美过{TA的}“探险精神”、{TA的}“勇气”、{TA的}“行动力”。你接受了那些“去未知的地方”的邀请。但{TA}后来发现——你跟{TA}去的是“行动”，不是“{TA}”。{TA}问“你为什么会跟我来”的时候，你说“因为听起来很好玩”。那一次之后{TA}不再问了。\r\nESTP 内心独白：“{TA}说‘听起来很好玩’——{TA}来是因为那个地方好玩。但我邀请{TA}去是因为我想让{TA}在。这两个不一样。”\r\n"
+    },
+    "NE-1": {
+      "title": "冰层融化",
+      "text": "{TA}学会了在出门前说“我出去一下——但我等下回来”。不是因为{TA}不自由了——是因为{TA}想让“有人知道{TA}会回来”这件事存在。{TA}还在去新的地方，但{TA}开始把“回来”也写进计划里了。\r\nESTP 内心独白：“我开始说‘我出去了，但我等下回来’。不是为了报备——是为了让{TA}知道我会回来。”\r\n"
+    },
+    "GE-1": {
+      "title": "并行轨迹",
+      "text": "{TA}把你带到了那片山腰上的空地。你们一起停了十分钟。不是沉默的那种停——是你们都在那里，没有别的地方要去。{TA}后来把那个地方从备忘录里划掉了。不是因为{TA}不再想去了——是因为{TA}已经把最重要的一次去完了。\r\nESTP 内心独白：“我把那个地方划掉了。不是因为我不会再去了——是因为我已经带{TA}去过一次了。那是我最想做的事。”\r\n",
+      "variants": {
+        "F-01_triggered": "\n\n你注意到了{TA}停下的那个瞬间。那不是放弃——那是{TA}在等你发现。",
+        "F-03_triggered": "\n\n那张纸还留在工具箱里。但{TA}开始让你看到了。"
+      }
+    },
+    "PE-1": {
+      "title": "那十分钟共享",
+      "text": "{TA}重新打开那个备忘录。{TA}在最上面写了一条新条目：“和{TA}一起去的那片空地——十分钟。划掉了。”{TA}在旁边画了一个句号——不是问号，是句号。{TA}已经完成了那件最重要的事。\r\nESTP 内心独白：“{TA}说‘要。什么时候’——我第一次觉得‘去一个地方’不是最重要的。‘{TA}在’才是。我把那条最长的备忘录划掉了。”\r\n七、碎片记忆系统\r\n编号\t解锁条件\t碎片内容\r\n1\t触发 Anchor-01（看见取消）\t“{TA}说‘七条没划掉’——{TA}看了我的备忘录。{TA}知道我在计划，但把计划留在那里没动。”\r\n2\t触发 Anchor-02（跟上节奏）\t“{TA}问我‘那里怎么样’——不是‘为什么不叫我’。{TA}走进了我的行动里。”\r\n3\t触发 Anchor-03（接纳停顿）\t“{TA}说‘如果我不动了还会有人在我旁边吗’——{TA}说出了{TA}在安静里真正想问的那句。”\r\n4\t触发 Anchor-04（主动靠近）\t“{TA}说‘你是在测试我会不会发现你不在的时候我在找你’——{TA}把我的行动翻译成了问题。”\r\n5\t触发 Anchor-05（接住黑暗）\t“{TA}说‘那个想象是什么时候出现的’——{TA}没有说‘你不会一个人’。{TA}走进了我的想象里。”\r\n6\t触发 Anchor-07（行动同行）\t“我说‘想去’——{TA}说‘那就去’。{TA}没有问‘去哪’‘多远’‘安不安全’。{TA}上了车。”\r\n7\t触发 Anchor-09（边界回应）\t“{TA}说‘我说先想好再去——你听了之后停了一下。你在想什么’——{TA}在意的是我停的那一下，不是我说的话。”\r\n八、代码生成补充说明\r\n8.1 游离事件插入算法\r\ntext\r\n游戏启动时执行：\r\n1. 确定场景列表 = [S-01, S-02]\r\n2. 若难度 == 现实线，在 S-02 后插入 S-03\r\n3. 确定可用空位 = 当前场景列表长度 - 1 个间隙\r\n4. 对每个游离事件 (S-E1, S-E2, S-E3)：\r\n   a. 以 30% 概率决定是否出场\r\n   b. 若出场，在可用空位中随机选择一个位置插入\r\n   c. 从可用空位中移除该位置\r\n5. 添加 S-05/S-06（二选一，50%概率）\r\n6. 添加 S-07 至末尾\r\n8.2 前置伏笔状态判定逻辑\r\njavascript\r\nfunction getESTPLine(sceneId, flags) {\r\n  if (sceneId === \"S-E1\") {\r\n    if (flags[\"F-02\"] === \"已触发\") {\r\n      return \"……你想去吗？\";\r\n    } else {\r\n      return \"……算了。可能不太方便。\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E2\") {\r\n    if (flags[\"F-02\"] === \"已触发\") {\r\n      return \"……那是我一个人去的一个地方。那天我没有告诉任何人。我回来之后也没有说。但我留着那张票——因为那天我自己站了一会儿。\";\r\n    } else {\r\n      return \"……一个很早以前去的地方。当时没想那么多就去了。\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E3\") {\r\n    if (flags[\"F-01\"] === \"已触发\" && flags[\"F-04\"] === \"已触发\") {\r\n      return \"……你刚才说的‘想好’——是想好路线，还是想好‘为什么要去’？\";\r\n    } else {\r\n      return \"……你说的‘想好’是指什么？我带上导航算想好了吗？\";\r\n    }\r\n  }\r\n  return \"\";\r\n}\r\n8.3 终局解锁条件\r\njavascript\r\nfunction canUnlockPE1(flags) {\r\n  return flags[\"Anchor-02\"] && flags[\"Anchor-03\"] && flags[\"Anchor-05\"];\r\n}\r\nfunction canUnlockPE1_alt(flags) {\r\n  return flags[\"Anchor-01\"] && flags[\"Anchor-04\"] && flags[\"Anchor-09\"];\r\n}\r\nfunction canUnlockPE1_both(flags) {\r\n  return canUnlockPE1(flags) || canUnlockPE1_alt(flags);\r\n}\r\n8.4 结局判定（双轨制：Flag锁定优先 + 信任值兜底）\r\njavascript\r\nfunction determineEnding(trust, flags, difficulty) {\r\n  if (trust < 30) return \"BE-1\";\r\n  if (trust >= 30 && trust < 50) return \"BE-2\";\r\n  if (trust >= 50 && trust < 60) return \"BE-3\";\r\n  if (trust >= 60 && trust < 70) return \"NE-1\";\r\n  if (trust >= 70 && trust < 85) return \"GE-1\";\r\n  if (trust >= 85 && difficulty === \"现实线\") {\r\n    const count = Object.values(flags).filter(v => v === true).length;\r\n    if (count >= 6 && flags[\"Anchor-02\"] && flags[\"Anchor-05\"] && flags[\"Anchor-06\"]) {\r\n      return \"PE-1\";\r\n    }\r\n    return \"GE-1\";\r\n  }\r\n  return \"GE-1\";\r\n}\r\nESTP 剧本 END\n",
+      "variants": {
+        "F-01_triggered": "\n\n你注意到了{TA}停下的那个瞬间。那不是放弃——那是{TA}在等你发现。",
+        "F-01_not_triggered": "\n\n你没有注意到{TA}是什么时候停下的。但{TA}还在。",
+        "F-02_triggered": "\n\n{TA}不再把修好的东西藏起来了。{TA}学会了把\"做了\"翻译成\"告诉你\"。",
+        "F-02_not_triggered": "\n\n{TA}还是习惯用行动说话。但你开始学习读懂那些没有翻译的语言。",
+        "F-03_triggered": "\n\n那张{TA}写着关于{TA}的纸——{TA}不再藏在工具箱夹层里了。",
+        "F-04_triggered": "\n\n{TA}留在你空间里的东西——{TA}不再悄悄地收走了。"
+      }
+    }
+  },
+  "裂痕记忆": {
+    "type_0": {
+      "background": "",
+      "specialNarrative": "“{TA的}手机里有一个备忘录，叫‘想去的地方’。最近一条是上个月加的。没有划掉——说明还没有去。{TA}以前会直接去，不写备忘录。"
+    },
+    "type_1": {
+      "background": "",
+      "specialNarrative": "“{TA}今天说了一句‘我最近在想……’然后看了你一眼——然后说‘算了，没事’。{TA}把‘在想’的那个版本收回去了。"
+    },
+    "type_2": {
+      "background": "",
+      "specialNarrative": "“{TA}最近开始一个人出门了。出门前{TA}会说‘我出去一下’，然后不说是去哪。不是隐瞒，是觉得‘说了你也不会注意’。"
+    }
+  },
+  "memories": {
+    "mem_1": {
+      "condition": "触发 Anchor-01（看见取消）",
+      "text": "“{TA}说‘七条没划掉’——{TA}看了我的备忘录。{TA}知道我在计划，但把计划留在那里没动。”"
+    },
+    "mem_2": {
+      "condition": "触发 Anchor-02（跟上节奏）",
+      "text": "“{TA}问我‘那里怎么样’——不是‘为什么不叫我’。{TA}走进了我的行动里。”"
+    },
+    "mem_3": {
+      "condition": "触发 Anchor-03（接纳停顿）",
+      "text": "“{TA}说‘如果我不动了还会有人在我旁边吗’——{TA}说出了{TA}在安静里真正想问的那句。”"
+    },
+    "mem_4": {
+      "condition": "触发 Anchor-04（主动靠近）",
+      "text": "“{TA}说‘你是在测试我会不会发现你不在的时候我在找你’——{TA}把我的行动翻译成了问题。”"
+    },
+    "mem_5": {
+      "condition": "触发 Anchor-05（接住黑暗）",
+      "text": "“{TA}说‘那个想象是什么时候出现的’——{TA}没有说‘你不会一个人’。{TA}走进了我的想象里。”"
+    },
+    "mem_6": {
+      "condition": "触发 Anchor-07（行动同行）",
+      "text": "“我说‘想去’——{TA}说‘那就去’。{TA}没有问‘去哪’‘多远’‘安不安全’。{TA}上了车。”"
+    },
+    "mem_7": {
+      "condition": "触发 Anchor-09（边界回应）",
+      "text": "“{TA}说‘我说先想好再去——你听了之后停了一下。你在想什么’——{TA}在意的是我停的那一下，不是我说的话。”"
+    }
+  }
+}

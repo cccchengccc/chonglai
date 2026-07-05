@@ -1,0 +1,703 @@
+{
+  "meta": {
+    "id": "ENTP",
+    "name": "辩论家",
+    "theme": "用智力代替情感，用辩论测试忠诚",
+    "startingTrust": 30,
+    "originalGender": "male",
+    "genderNote": "剧情已通过模板化处理适配两种性别，部分细节可能更适合原始设计视角"
+  },
+  "scenes": {
+    "S-01": {
+      "id": "S-01",
+      "title": "消失的杠精",
+      "type": "core",
+      "narrative": "你们坐在沙发上闲聊。你说了一个观点——大意是“现代人太依赖手机了”——放在以前，{TA}一定会接上一句：“但这算不算一种新的人机共生形态？你仔细想想，手机可能不是工具，是外挂器官。”\r\n但{TA}没有。{TA}点了点头，说：“嗯，确实是。”\r\n你等了五秒。{TA}没有继续说。\r\n你又说了一个观点：“我觉得那个新来的同事不太靠谱。”放在以前，{TA}会说：“你判断‘不靠谱’的标准是什么？是基于{TA的}迟到次数还是你跟{TA}合作过一次的主观感受？”但{TA}没有。{TA}说：“嗯，可能吧。”\r\n{TA}在收。{TA}把那个“杠精”关起来了。因为{TA}觉得你不需要——或者不想要——那个会反驳的{TA}。\r\n",
+      "dialogue": "ENTP：……\r\n（{TA}没有说任何反驳的话。{TA}只是在点头。）\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你今天好安静啊。是不是累了？",
+          "reaction": "{TA}笑了一下：“嗯，有点。”然后继续安静。{TA}顺着你给的理由滑下去了——因为“我累了”比“我害怕你觉得我很烦”更容易被接受。",
+          "trustChange": {
+            "理想线": -15,
+            "现实线": -30,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-02",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你最近怎么都不反驳我了？你是在忍着吗？",
+          "reaction": "{TA}顿了一下：“……也没有在忍。就是觉得没必要。”",
+          "trustChange": {
+            "理想线": 5,
+            "现实线": 0,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-02",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你刚才没有接我的话。以前你一定会说‘手机可能是外挂器官’——你是在怕我觉得你烦吗？",
+          "reaction": "{TA}愣住了。然后{TA}笑了——是真正的、放松的笑，不是“嗯嗯”的那种。{TA}说：“……你居然知道我要说什么。”",
+          "trustChange": {
+            "理想线": 12,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-01": true
+          },
+          "plotOps": {},
+          "nextScene": "S-02",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "必出",
+      "foreshadowCheck": "F-01",
+      "condition": "无"
+    },
+    "S-02": {
+      "id": "S-02",
+      "title": "观点的邀请函",
+      "type": "core",
+      "narrative": "{TA}看着你，表情像刚找到一个有意思的游戏对手：\r\n",
+      "dialogue": "ENTP：“那你觉得——手机是工具还是器官？你刚才说‘依赖’，但依赖就一定是贬义吗？氧气你依赖吧，你怎么不骂氧气？”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你又来了。我说的是‘过度依赖’，不是‘依赖’。你又在歪曲我的意思。",
+          "reaction": "{TA}举起双手，做了个“投降”的手势：“好。不说了。”然后{TA}重新低下头，划手机。",
+          "trustChange": {
+            "理想线": -10,
+            "现实线": -30,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E1（若出场）/ S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "依赖不一定贬义。但问题是——如果它已经是器官了，那它‘失灵’的时候，我们还能活吗？",
+          "reaction": "{TA}身体微微前倾：“……你刚刚那句话，是认真的还是在跟我聊？”",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-02": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E1（若出场）/ S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你这个问题有意思。但我想先问你——你写那个文档的时候，结论是什么？",
+          "reaction": "{TA}笑了一下：“……你还记得我那个文档？”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 4,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E1（若出场）/ S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "必出",
+      "foreshadowCheck": "F-02",
+      "condition": "无"
+    },
+    "S-E1": {
+      "id": "S-E1",
+      "title": "辩论邀请",
+      "type": "free_roam",
+      "narrative": "{TA}今天很兴奋——有个人在网上对{TA的}观点发起了公开辩论。{TA}给你看那条消息的时候，眼睛是亮的：\r\n",
+      "dialogue": "ENTP：“这个人说我的逻辑有根本性错误。{TA}列了三点。第一点是对的。第二点我写过反驳——在{TA的}引用里其实已经包含了。第三点——{TA}说的跟我说的不是同一件事。”\r\n{TA}停了一下，没有继续说下去。{TA}在等你的反应。等你说“你要回应吗”还是“别理{TA}”。\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你写得很快。你要不要先写个初稿，我帮你读一遍？",
+          "reaction": "{TA}看了你一眼：“……你要读？”{TA}没有说“好”，但{TA}把文档权限打开了。",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-07": true
+          },
+          "plotOps": {},
+          "nextScene": "S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "{TA}说你的引用里其实已经包含了{TA}第二点的反驳——你是故意留的，还是{TA}读漏了？",
+          "reaction": "{TA}愣了一下：“……你读了{TA的}反驳？”{TA}停了一下，“……我是故意留的。我想看{TA}会不会发现。”",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你打算回应吗？还是觉得不值得？",
+          "reaction": "{TA}看了你一眼：“……还没想好。”",
+          "trustChange": {
+            "理想线": 3,
+            "现实线": 0,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "30%概率，随机浮动插入",
+      "foreshadowCheck": "F-02",
+      "condition": "无"
+    },
+    "S-03": {
+      "id": "S-03",
+      "title": "火力的测试",
+      "type": "exclusive",
+      "narrative": "{TA}今天状态不太一样。不是“收敛”的那种不一样——是反过来：{TA}火力全开。\r\n你们聊到一个话题——关于“婚姻的必要性”。{TA}直接抛出了一句：\r\n",
+      "dialogue": "ENTP：“你认为婚姻制度是合理的吗？”\r\n你回答之后，{TA}立刻追问：“你那个理由，是基于传统，还是基于需求？如果你说‘因为大家都要结婚’——那你也承认你只是在复制别人的人生路径？”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你今天怎么了？你为什么一直在挑我毛病？",
+          "reaction": "{TA}停下来了。{TA}安静了。然后{TA}说：“……我没有在挑你毛病。我就是……想聊。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": -30,
+            "fatalError": true
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": null,
+          "fatalError": "BE-1"
+        },
+        {
+          "id": "B",
+          "text": "婚姻制度是不是合理的——取决于你问的是‘个体’还是‘系统’。你问的是哪一个？",
+          "reaction": "{TA}停下来看了你两秒。然后{TA}说：“……我刚才问的是个体。但你现在让我想——系统那个维度我还没有好好推过。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 12,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你问我的这个问题，我也有个问题想问回你——你问我的时候，心里有没有答案？",
+          "reaction": "{TA}愣了一下，然后笑：“……有。但那个答案会变。所以不算。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-04",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "现实线必出",
+      "foreshadowCheck": "F-02",
+      "condition": "难度 = 现实线"
+    },
+    "S-04": {
+      "id": "S-04",
+      "title": "实验室的入口",
+      "type": "core",
+      "narrative": "你到{TA}家的时候，发现{TA}电脑上开着一份文档——标题很怪，像一份还没长成的东西：“关于善意的判定标准（非终版）”。\r\n{TA}看到你注意到了，没有关掉。{TA}犹豫了一下，然后说：\r\n",
+      "dialogue": "ENTP：“这个我写了三天。一直没写完。不是因为难——是因为我每次写到一个地方就会卡住。我卡在‘善意是否需要被对方识别才算存在’——如果你偷偷做了好事但对方不知道，那算善意吗？”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "善意当然算。你做了好事对方不知道，那也是善意。你太钻牛角尖了。",
+          "reaction": "{TA}笑了一下：“嗯，可能吧。”然后{TA}保存了文档，但没有关。{TA}之后没再跟你提过这篇文。",
+          "trustChange": {
+            "理想线": -10,
+            "现实线": -25,
+            "fatalError": true
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E2（若出场）/ S-05",
+          "condition": null,
+          "fatalError": true
+        },
+        {
+          "id": "B",
+          "text": "你卡住的那个点——不是因为‘善意是否存在’无法定义，是因为你找不到一个‘所有情况都不矛盾’的定义。你卡在‘任何定义都会有例外’。",
+          "reaction": "{TA}看了你很久。然后{TA}起身，从冰箱拿了两瓶啤酒，递给你一瓶：“……你什么时候学会看我的代码逻辑的？”",
+          "trustChange": {
+            "理想线": 12,
+            "现实线": 12,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-03": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E2（若出场）/ S-05",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你写了三天没写完——那之前你写那些‘已完成’的东西，花了多久？",
+          "reaction": "{TA}想了一下：“……已完成的，最快半天。因为这个——三天了。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 4,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E2（若出场）/ S-05",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "必出",
+      "foreshadowCheck": "F-03",
+      "condition": "无"
+    },
+    "S-E2": {
+      "id": "S-E2",
+      "title": "旧辩论",
+      "type": "free_roam",
+      "narrative": "你在{TA}书架里翻到一本很旧的笔记本——翻开一看，不是日记，是{TA}记录的一场辩论：“关于自由的边界”，日期是好几年前。{TA}在里面写了双方的观点、{TA}当时的立场、对方最有力的反驳、以及{TA自己}后来写的一条备注：“这场辩论我没有赢。但对方没有完全说服我。”\r\n你问{TA}：“你还留着这个？”\r\n{TA}看了一眼：“……那场辩论让我想了很多。我记下来，是想提醒自己——有些观点值得反复想，不是因为它在‘对’和‘错’之间，是因为它在‘还没想完’之间。”\r\n",
+      "dialogue": "ENTP（受 F-01 状态影响）：\r\n若 F-01 为“已触发”：“……就像你那天替我说出我本来想说的话。你在帮我完成一件‘还没想完’的事。”\r\n若 F-01 为“未触发”或“未触发”：“……我后来很少在辩论后记录‘还没想完’的部分了。因为很少有人愿意听。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你说‘对方没有完全说服你’——那你后来想清楚了吗？",
+          "reaction": "{TA}翻到那一页的底部：“……后来我写了三条补充。但没写在辩论里，是写给我自己的。”",
+          "trustChange": {
+            "理想线": 3,
+            "现实线": -15,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-05",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你记录了对方的观点、{TA的}反驳、你自己后来的备注——你在想‘如果有机会重来一次，你会怎么回应{TA}’对吗？",
+          "reaction": "{TA}愣了一下：“……对。我会换一种方式回应。不是改变立场，是让{TA的}反驳在{TA的}系统里成立——然后从那里继续。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-08": true
+          },
+          "plotOps": {},
+          "nextScene": "S-05",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你输了那场辩论——你现在还觉得当时的立场是对的吗？",
+          "reaction": "{TA}想了很久：“……我当时觉得我是对的。现在我觉得——那个问题本身可能没有‘对’的答案。”",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-05",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "30%概率，随机浮动插入",
+      "foreshadowCheck": "F-01",
+      "condition": "无"
+    },
+    "S-05": {
+      "id": "S-05",
+      "title": "自由的边界",
+      "type": "branch",
+      "narrative": "{TA}给你发了一条消息。措辞很随意，但内容是最近三个月以来最严肃的一句：\r\n",
+      "dialogue": "ENTP：“如果我们现在停下来——你不需要承担任何责任，我也不会恨你。我只是在想，如果你需要自由，我可以给你。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你在说什么？我怎么会走？我从来没想过要走。",
+          "reaction": "{TA}回了一个：“嗯。知道了。”然后隔了很久才补了一句：“那就好。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": -15,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-06（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "如果我说我需要一点自由——你会怎么处理那句话？",
+          "reaction": "{TA}过了一会儿才回：“……我会觉得，你说了这句话，说明你想好了。那我不会再问第二遍。”",
+          "trustChange": {
+            "理想线": 3,
+            "现实线": 0,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-06（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你刚才说‘如果你需要自由，我可以给你’——但你好像没有说‘如果你留下来，我会怎样’。你留了那个部分没写。",
+          "reaction": "{TA}那边显示“正在输入”了很久。最后只发来一句：“……我还没想好‘留的回报’要怎么定义。所以没写。”",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-04": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-06（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "50%概率，与S-06二选一",
+      "foreshadowCheck": "F-04",
+      "condition": "无"
+    },
+    "S-06": {
+      "id": "S-06",
+      "title": "规则暴君",
+      "type": "branch",
+      "narrative": "你们因为一件小事吵了一架——很小的事，比如你忘了把钥匙放在固定的位置，或者你迟到了十分钟。\r\n{TA}平时不会因为这种事生气。{TA}会说“没事，下次注意”——然后真的翻篇。但今天{TA}没有。\r\n{TA的}声音是平的，不是吼的，但每一个字都像在念清单：\r\n",
+      "dialogue": "ENTP：“你上个月也忘了一次。四月也忘了一次。我帮你记了。这已经是你今年第四次没有把钥匙放回原位。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你为什么要把这些事情记下来？你以前从来不记这种事的。",
+          "reaction": "{TA}愣了一下，然后说：“……因为你在重复犯错。我需要知道频率。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": -30,
+            "fatalError": true
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": null,
+          "fatalError": "BE-2"
+        },
+        {
+          "id": "B",
+          "text": "四次。你记得这么清楚——是因为你在害怕我在重复犯错，还是因为你害怕‘重复’本身？",
+          "reaction": "{TA}沉默了。然后{TA}说：“……我不知道。我以前不在意小事。但最近我发现——如果小事会重复，那大事也会。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-05": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你帮我记了四次——那这四次之间，你有没有一次想过‘算了，我来放’？",
+          "reaction": "{TA}停了一下：“……没有。我觉得那是你的事。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 12,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "现实线50%概率，与S-05二选一",
+      "foreshadowCheck": "F-04",
+      "condition": "难度 = 现实线"
+    },
+    "S-E3": {
+      "id": "S-E3",
+      "title": "被误解",
+      "type": "free_roam",
+      "narrative": "{TA}今天状态很不一样——不是“火力全开”的兴奋，不是“收回观点”的安静，是一种“被堵住”的沉默。\r\n你问{TA}怎么了，{TA}说：“今天有人跟我说——我只会抬杠，不会真正讨论。”\r\n",
+      "dialogue": "ENTP（受 F-02 状态影响）：\r\n若 F-02 为“已触发”或“完全触发”：“……{TA}说我‘只是在找存在感’。我想反驳{TA}，但我停了一下，没说话。”\r\n若 F-02 为“未触发”或“部分触发”：“……{TA}说的也许没错。我确实经常在别人说话的时候想‘这个漏洞在哪’。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "{TA}不懂你。你只是在认真思考而已。",
+          "reaction": "{TA}笑了一下——但不是放松的笑：“……{TA}说的也不是完全没道理。”",
+          "trustChange": {
+            "理想线": 3,
+            "现实线": -15,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "{TA}说你‘只会抬杠’——那你是怎么区分‘抬杠’和‘追问’的？你在什么时候停下来问自己‘这是在抬杠还是在追问’？",
+          "reaction": "{TA}安静了很久：“……我没有停下来问过自己这个问题。我都是在说完了才想的。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-09": true
+          },
+          "plotOps": {},
+          "nextScene": "S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "{TA}说你‘只会抬杠’——我认识你这么久，确实觉得你有时候会为了‘好玩’去拆别人的观点。但‘好玩’和‘攻击’之间——你觉得你在哪边？",
+          "reaction": "{TA}想了很久：“……我以前觉得我在‘好玩’这边。但今天我在想，我可能有时候已经走到‘攻击’那边了，但没有发现。”",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-07",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "30%概率，随机浮动插入",
+      "foreshadowCheck": "F-03",
+      "condition": "无"
+    },
+    "S-07": {
+      "id": "S-07",
+      "title": "最后一题",
+      "type": "core",
+      "narrative": "{TA}约你在一个{TA}很喜欢的老书店见面。你到的时候，{TA}坐在靠窗的位置，面前摊着一本翻开的书——但你没来得及看是哪一本，因为{TA}先开口了。\r\n{TA}看着你，声音比平时慢：\r\n",
+      "dialogue": "ENTP：“我最近在想一件事——我一直在想：你到底是那个‘接住我所有问题’的人，还是那个‘接住我所有答案’的人。这两个是不一样的。前者是我的对手，后者是我的容器。”\r\n{TA}合上了面前的那本书，露出封面——是那本关于“手机是工具还是器官”的书。{TA}翻到的那一页，夹着一张折过的书签。\r\n“我想了很久——我需要的是对手。所以最后一个问题：你愿意做我的对手吗？不是‘让我赢’的那种对手——是‘会让我输得心服口服’的那种。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "我愿意。但你得先告诉我——你那篇‘关于善意’的文档，写完没有？",
+          "reaction": "",
+          "trustChange": {
+            "理想线": 5,
+            "现实线": 5,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你不是需要对手——你是需要一个人，在你输的时候不会嘲笑你。",
+          "reaction": "",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-06": true
+          },
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": "已触发 Anchor-02 + Anchor-03 + Anchor-05",
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你那个‘关于善意’的文档——你卡住是因为你找不到例外。如果你让我做对手，那我帮你找那个例外。",
+          "reaction": "",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-06": true
+          },
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": "已触发 Anchor-01 + Anchor-04 + Anchor-09",
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "必出（终局）",
+      "condition": "无"
+    }
+  },
+  "endings": {
+    "BE-1": {
+      "title": "安全无聊",
+      "text": "{TA}不再跟你争论任何事了。你说什么{TA}都说“嗯”“好”“有道理”。你终于得到了一个“不抬杠”的恋人。{TA}学会了用你的语言说话——简短、肯定、不追问。但{TA}也不再写那些“未完成”的文档了。因为没有人看。\r\nENTP 内心独白：“{TA}想要不吵架的恋人。我给了{TA}。我把那个杠精关起来了。但那是我唯一能用来爱{TA的}方式。现在那个方式没了。”\r\n"
+    },
+    "BE-2": {
+      "title": "逻辑驳火",
+      "text": "你们之间没有吵架——只有辩论。每一次对话最后都会变成“你的逻辑有问题”“你的推理有漏洞”。你们谁也没有真的生气——但也没有真的靠近。{TA}在证明自己是对的。你也在证明自己是对的。没有人停下来问：“那我们对了吗？”\r\nENTP 内心独白：“我赢了所有辩论。但我输了所有我想要的关系。{TA}成了我的对手——但{TA}不愿意成为我‘愿意输给’的那个人。”\r\n"
+    },
+    "BE-3": {
+      "title": "舒适牢笼",
+      "text": "{TA}不再给你看“未完成”的东西了。{TA}给你的都是“已完成、无漏洞、防弹”的版本。你夸{TA}聪明、夸{TA}想得深。{TA}听了会笑——但那种笑是“谢谢你的打分”的笑。你在{TA}眼里从“听众”变成了“观众”。\r\nENTP 内心独白：“{TA}说‘你太钻牛角尖了’。我就把角尖磨平了再给{TA}看。现在{TA}觉得我一切都很完美——但那个写了一半就卡住、会抓狂的人，我一个人留着。”\r\n"
+    },
+    "NE-1": {
+      "title": "冰层融化",
+      "text": "{TA}开始说一些“不太对”的话了。不是完美的、经过打磨的结论——是“我在想一件事，但还没想清楚”。{TA}开始用“未完成”的方式跟你说话了。你问：“那你写完了吗？”{TA}说：“没有。但没关系，因为你在看。”\r\nENTP 内心独白：“我让{TA}看到了我写一半的文档。{TA}没有帮我写完。{TA}问了我‘你卡在哪一行’。那一行就是我需要{TA}坐的位置。”\r\n"
+    },
+    "GE-1": {
+      "title": "智力共振",
+      "text": "你们之间的对话变成了一种新的东西——不是辩论，不是附和，是一种“一起想”的方式。{TA}会说“我在想……”你会接“然后呢？”{TA}开始习惯“未完成”被看见。\r\nENTP 内心独白：“{TA}说{TA}愿意做我的对手。不是‘打败我’的对手——是‘会让我输得心服口服’的对手。我一直在找那个人。我发现{TA}一直在。”\r\n",
+      "variants": {
+        "F-01_triggered": "\n\n你注意到了{TA}停下的那个瞬间。那不是放弃——那是{TA}在等你发现。",
+        "F-03_triggered": "\n\n那张纸还留在工具箱里。但{TA}开始让你看到了。"
+      }
+    },
+    "PE-1": {
+      "title": "永不无聊",
+      "text": "{TA}没有用语言回应你。{TA}给你发了一个文档——标题是《关于善意的判定标准（完整版）》。你翻开，发现它仍然不是“已完成”的。最后一行写着：“V2含例外版——例外1：如果你看到了我写不完的部分，那意味着你已经收到了我完整的善意。”\r\nENTP 内心独白：“我给了{TA}‘完整版’。但那个版本里还有未完成的例外。因为我发现——如果我写完了，{TA}就不需要再看了。我想让{TA}继续看下去。”\r\n七、碎片记忆系统\r\n编号\t解锁条件\t碎片内容\r\n1\t触发 Anchor-01（看见无聊）\t“{TA}替我说出了我没说的那句反驳。我以为{TA}嫌我烦。原来{TA}记住了我的‘默认话术’。”\r\n2\t触发 Anchor-02（智力回击）\t“我说‘依赖是不是贬义’。{TA}没有说‘是’或‘不是’。{TA}说‘如果它是器官了，失灵了我们还能活吗’——{TA}会回球。”\r\n3\t触发 Anchor-03（接纳混乱）\t“{TA}看了我卡住的那一行。{TA}说‘你在找无例外的定义’——{TA}在看我的思考方式，不是答案。”\r\n4\t触发 Anchor-04（留门不追）\t“我说‘给你自由’。{TA}没有说‘好’或‘不好’。{TA}说‘你没写留下来会怎样’——{TA}看到了我话里的空行。”\r\n5\t触发 Anchor-05（接住坠落）\t“我背出了{TA}四次犯错的记录。{TA}说‘你是害怕重复本身’——{TA}知道了我在怕什么。”\r\n6\t触发 Anchor-07（辩论共振）\t“{TA}说‘你要不要先写个初稿，我帮你读一遍’——{TA}不是在问‘要不要回应’，{TA}已经在陪我写了。”\r\n7\t触发 Anchor-09（读心回击）\t“{TA}说‘你在什么时候停下来问自己这是在抬杠还是在追问’——{TA}给了我一面我从来没有照过的镜子。”\r\n八、代码生成补充说明\r\n8.1 游离事件插入算法\r\ntext\r\n游戏启动时执行：\r\n1. 确定场景列表 = [S-01, S-02]\r\n2. 若难度 == 现实线，在 S-02 后插入 S-03\r\n3. 确定可用空位 = 当前场景列表长度 - 1 个间隙\r\n4. 对每个游离事件 (S-E1, S-E2, S-E3)：\r\n   a. 以 30% 概率决定是否出场\r\n   b. 若出场，在可用空位中随机选择一个位置插入\r\n   c. 从可用空位中移除该位置\r\n5. 添加 S-05/S-06（二选一，50%概率）\r\n6. 添加 S-07 至末尾\r\n8.2 前置伏笔状态判定逻辑\r\njavascript\r\nfunction getENTPLine(sceneId, flags) {\r\n  if (sceneId === \"S-E1\") {\r\n    if (flags[\"F-02\"] === \"完全触发\" || flags[\"F-02\"] === \"部分触发\") {\r\n      return \"这个人说我的逻辑有根本性错误。{TA}列了三点。第一点是对的。第二点我写过反驳——在{TA的}引用里其实已经包含了。第三点——{TA}说的跟我说的不是同一件事。\";\r\n    } else {\r\n      return \"这个人说我的逻辑有根本性错误。{TA}列了三点……算了，你可能不感兴趣。\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E2\") {\r\n    if (flags[\"F-01\"] === \"已触发\") {\r\n      return \"……就像你那天替我说出我本来想说的话。你在帮我完成一件‘还没想完’的事。\";\r\n    } else {\r\n      return \"……我后来很少在辩论后记录‘还没想完’的部分了。因为很少有人愿意听。\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E3\") {\r\n    if (flags[\"F-02\"] === \"完全触发\" || flags[\"F-02\"] === \"部分触发\") {\r\n      return \"……今天有人说我‘只会抬杠，不会真正讨论’。{TA}说我‘只是在找存在感’。我想反驳{TA}，但我停了一下，没说话。\";\r\n    } else {\r\n      return \"……今天有人说我‘只会抬杠，不会真正讨论’。{TA}说的也许没错。\";\r\n    }\r\n  }\r\n  return \"\";\r\n}\r\n8.3 终局解锁条件\r\njavascript\r\nfunction canUnlockPE1(flags) {\r\n  return flags[\"Anchor-02\"] && flags[\"Anchor-03\"] && flags[\"Anchor-05\"];\r\n}\r\nfunction canUnlockPE1_alt(flags) {\r\n  return flags[\"Anchor-01\"] && flags[\"Anchor-04\"] && flags[\"Anchor-09\"];\r\n}\r\nfunction canUnlockPE1_both(flags) {\r\n  return canUnlockPE1(flags) || canUnlockPE1_alt(flags);\r\n}\r\n8.4 结局判定（双轨制：Flag锁定优先 + 信任值兜底）\r\njavascript\r\nfunction determineEnding(trust, flags, difficulty) {\r\n  if (trust < 30) return \"BE-1\";\r\n  if (trust >= 30 && trust < 50) return \"BE-2\";\r\n  if (trust >= 50 && trust < 60) return \"BE-3\";\r\n  if (trust >= 60 && trust < 70) return \"NE-1\";\r\n  if (trust >= 70 && trust < 85) return \"GE-1\";\r\n  if (trust >= 85 && difficulty === \"现实线\") {\r\n    const count = Object.values(flags).filter(v => v === true).length;\r\n    if (count >= 6 && flags[\"Anchor-02\"] && flags[\"Anchor-05\"] && flags[\"Anchor-06\"]) {\r\n      return \"PE-1\";\r\n    }\r\n    return \"GE-1\";\r\n  }\r\n  return \"GE-1\";\r\n}\r\nENTP 剧本 END\n",
+      "variants": {
+        "F-01_triggered": "\n\n你注意到了{TA}停下的那个瞬间。那不是放弃——那是{TA}在等你发现。",
+        "F-01_not_triggered": "\n\n你没有注意到{TA}是什么时候停下的。但{TA}还在。",
+        "F-02_triggered": "\n\n{TA}不再把修好的东西藏起来了。{TA}学会了把\"做了\"翻译成\"告诉你\"。",
+        "F-02_not_triggered": "\n\n{TA}还是习惯用行动说话。但你开始学习读懂那些没有翻译的语言。",
+        "F-03_triggered": "\n\n那张{TA}写着关于{TA}的纸——{TA}不再藏在工具箱夹层里了。",
+        "F-04_triggered": "\n\n{TA}留在你空间里的东西——{TA}不再悄悄地收走了。"
+      }
+    }
+  },
+  "裂痕记忆": {
+    "type_0": {
+      "background": "",
+      "specialNarrative": "“你们聊了十五分钟。{TA}没提出任何一个反对意见。这在以前不可能发生。{TA}在练习‘不说’。"
+    },
+    "type_1": {
+      "background": "",
+      "specialNarrative": "“{TA}问了你三遍‘今天怎么样’，每个问题都停在表层。{TA}没有追问‘为什么’——那是{TA}最习惯的追问方式，但{TA}收住了。"
+    },
+    "type_2": {
+      "background": "",
+      "specialNarrative": "“{TA}在写一个东西。你靠近的时候，{TA}换了窗口。不是藏着什么见不得人的——是藏着‘还没想好’的东西。"
+    }
+  },
+  "memories": {
+    "mem_1": {
+      "condition": "触发 Anchor-01（看见无聊）",
+      "text": "“{TA}替我说出了我没说的那句反驳。我以为{TA}嫌我烦。原来{TA}记住了我的‘默认话术’。”"
+    },
+    "mem_2": {
+      "condition": "触发 Anchor-02（智力回击）",
+      "text": "“我说‘依赖是不是贬义’。{TA}没有说‘是’或‘不是’。{TA}说‘如果它是器官了，失灵了我们还能活吗’——{TA}会回球。”"
+    },
+    "mem_3": {
+      "condition": "触发 Anchor-03（接纳混乱）",
+      "text": "“{TA}看了我卡住的那一行。{TA}说‘你在找无例外的定义’——{TA}在看我的思考方式，不是答案。”"
+    },
+    "mem_4": {
+      "condition": "触发 Anchor-04（留门不追）",
+      "text": "“我说‘给你自由’。{TA}没有说‘好’或‘不好’。{TA}说‘你没写留下来会怎样’——{TA}看到了我话里的空行。”"
+    },
+    "mem_5": {
+      "condition": "触发 Anchor-05（接住坠落）",
+      "text": "“我背出了{TA}四次犯错的记录。{TA}说‘你是害怕重复本身’——{TA}知道了我在怕什么。”"
+    },
+    "mem_6": {
+      "condition": "触发 Anchor-07（辩论共振）",
+      "text": "“{TA}说‘你要不要先写个初稿，我帮你读一遍’——{TA}不是在问‘要不要回应’，{TA}已经在陪我写了。”"
+    },
+    "mem_7": {
+      "condition": "触发 Anchor-09（读心回击）",
+      "text": "“{TA}说‘你在什么时候停下来问自己这是在抬杠还是在追问’——{TA}给了我一面我从来没有照过的镜子。”"
+    }
+  }
+}

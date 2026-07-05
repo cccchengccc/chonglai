@@ -1,0 +1,703 @@
+{
+  "meta": {
+    "id": "INFJ",
+    "name": "提倡者",
+    "theme": "用面具保护灵魂，用投射测试真实",
+    "startingTrust": 30,
+    "originalGender": "female",
+    "genderNote": "剧情已通过模板化处理适配两种性别，部分细节可能更适合原始设计视角"
+  },
+  "scenes": {
+    "S-01": {
+      "id": "S-01",
+      "title": "完美的微笑",
+      "type": "core",
+      "narrative": "你们约在一家咖啡馆见面。你已经迟到了十二分钟。你到的时候，{TA}坐在靠窗的位置，面前放着一杯已经喝了一半的茶，正在看手机。你刚坐下来，{TA}抬起头——笑了一下。\r\n那个笑很好看，很完整。牙齿露出来了，眼角也有纹路。{TA}甚至歪了一下头：\r\n",
+      "dialogue": "INFJ：“来啦？没事，我也刚到不久。你饿不饿？要不要先点个东西？”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "对不起迟到了。你等很久了吧？你茶都快喝完了。",
+          "reaction": "{TA}笑了一下：“也没有很久。茶是我喝得慢。”{TA}承认了“喝了半杯”，但{TA}没有承认“等了很久”。",
+          "trustChange": {
+            "理想线": 3,
+            "现实线": 0,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-02",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你今天很好看。看起来状态不错。",
+          "reaction": "{TA}笑得更开了：“真的吗？我今天随便穿的。”{TA}接受了这个“表面评价”，然后把话题转向了更安全的领域——天气、食物、工作。",
+          "trustChange": {
+            "理想线": -10,
+            "现实线": -30,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": null,
+          "fatalError": "BE-1"
+        },
+        {
+          "id": "C",
+          "text": "你刚才笑的时候——你眼睛没有弯。",
+          "reaction": "{TA}停住了。然后{TA}低头看了一下自己的茶杯，轻声说：“……你注意到了。”",
+          "trustChange": {
+            "理想线": 12,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-01": true
+          },
+          "plotOps": {},
+          "nextScene": "S-02",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "必出",
+      "foreshadowCheck": "F-01",
+      "condition": "无"
+    },
+    "S-02": {
+      "id": "S-02",
+      "title": "阴影的邀请",
+      "type": "core",
+      "narrative": "你们走在一条不太热闹的街道上。{TA}忽然安静了下来——不是“没话找话”的安静，是“想说话但还没决定要不要说”的安静。\r\n然后{TA}说：\r\n",
+      "dialogue": "INFJ：“你有没有过一种感觉——你有时候觉得自己在‘演’一个角色？在父母面前演一个版本，在朋友面前演一个版本，在工作场合演一个版本……然后有一天你照镜子，你突然分不清哪一个才是真正的你了。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你想太多了。每个人在不同场合就是会不一样啊。那不算演。",
+          "reaction": "{TA}安静了一下，然后笑：“嗯，也是。”{TA}没有继续这个话题。",
+          "trustChange": {
+            "理想线": -10,
+            "现实线": -25,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E1（若出场）/ S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "那你在我面前——你演的是哪一个角色？",
+          "reaction": "{TA}停住了脚步。{TA}看着你，看了很久——久到你以为{TA}不会回答了。然后{TA}说：“……我在你面前演的是‘不需要被照顾’的那个角色。”{TA自己}说了出来。{TA}从“思考”进入了“承认”。",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-02": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E1（若出场）/ S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "如果我说——我也分不清。但我在你面前，应该不用演吧？",
+          "reaction": "{TA}轻轻地点了点头——很轻，但那是{TA}今天第一次用“点头”来回应一件事。{TA}说：“……嗯。应该不用。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 4,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E1（若出场）/ S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "必出",
+      "foreshadowCheck": "F-02",
+      "condition": "无"
+    },
+    "S-E1": {
+      "id": "S-E1",
+      "title": "阴暗暴露",
+      "type": "free_roam",
+      "narrative": "{TA}今天发了一条消息。不是日常的“今天怎么样”——是一段很长的文字：\r\n“我在想一件事——我可能不是你以为的那种人。我没有那么善良。有时候我会觉得‘这个人很笨’‘那个人好无聊’。我会在一个人对我倾诉的时候，心里想‘你的事情真的好没有意义’。但我不会说出来。我会微笑着听。所以我在想——如果你知道了我心里想的那些‘不善良’的事情——你还会觉得我是那个‘你认识的人’吗？”\r\n",
+      "dialogue": "INFJ（受 F-02 状态影响）：\r\n若 F-02 为“已触发”：“……我刚才发那段话的时候想撤回。但我想了一下——你说过‘你在我面前不用演’。”\r\n若 F-02 为“未触发”：“……我本来想撤回的。但我还是发了。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你只是太累了。人累了就是会负面一点。你不是不善良。",
+          "reaction": "{TA}回了一个：“嗯。”然后就离线了。",
+          "trustChange": {
+            "理想线": 3,
+            "现实线": 0,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你心里会评判别人——那你心里会评判我吗？",
+          "reaction": "{TA}那边“正在输入”了很久。然后{TA}回了一行字：“……会。但我评判完你之后，我还是想跟你说话。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-07": true
+          },
+          "plotOps": {},
+          "nextScene": "S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你心里那些‘不善良’的想法——你第一次跟人说吗？",
+          "reaction": "{TA}回了一个字：“嗯。”然后过了一会儿：“……因为如果说了，别人会觉得我不是我以为的那种人。”",
+          "trustChange": {
+            "理想线": 5,
+            "现实线": 6,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "30%概率，随机浮动插入",
+      "foreshadowCheck": "F-02",
+      "condition": "无"
+    },
+    "S-03": {
+      "id": "S-03",
+      "title": "镜子的测试",
+      "type": "exclusive",
+      "narrative": "你们坐在一个安静的地方。{TA}看着你，表情很平——不是冷漠，是“准备好了”的平。然后{TA}说：\r\n",
+      "dialogue": "INFJ：“我一直在想一件事——如果有一天你看到了真正的我，你会发现我没有你以为的那么好。我不是那个‘能理解一切’的人。我不是那个‘永远温柔’的人。我会不耐烦。我会在心里给人打分。我会在别人需要我的时候想‘我可以不用在’。如果你看到那个版本的我——你还会坐在现在这个位置吗？”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你在我心里就是那么好。你不要这样否定自己。",
+          "reaction": "{TA}安静了一下，然后说：“……我是不是在否定自己？”{TA}停了一下，“……可能不是。我可能只是在让你看到我。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": -25,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": null,
+          "fatalError": "BE-1"
+        },
+        {
+          "id": "B",
+          "text": "你刚才说‘我会不耐烦’——你是在告诉我你会有那种时候，还是在告诉我你已经有过那种时候了？",
+          "reaction": "{TA}想了很久：“……我在预告。因为我知道它会发生。我想提前让你知道。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "如果我坐在这个位置——不是因为你是‘那么好’的人。是因为你是‘完整’的人。你的不耐烦也是你的。",
+          "reaction": "{TA}沉默了很长时间。然后{TA}说：“……‘完整’比‘好’更接近我想要的。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 6,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-04",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "现实线必出",
+      "foreshadowCheck": "F-02",
+      "condition": "难度 = 现实线"
+    },
+    "S-04": {
+      "id": "S-04",
+      "title": "地下室的门",
+      "type": "core",
+      "narrative": "你到{TA}家的时候，{TA}正在整理东西。桌上有三个笔记本——旧的、翻得边角都卷了的那种。{TA}看到你进来了，犹豫了一下，然后把其中一本朝你的方向推了一下：\r\n",
+      "dialogue": "INFJ：“这个我十八岁开始写的。从来没有给别人看过。里面有我写的所有东西——好的，不好的，很暗的那种。……你可以翻一下。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "（翻开笔记本，看到其中一篇很暗的文字）“……你那时候一定很难过。”然后合上，放下。",
+          "reaction": "{TA}点了点头：“……那时候是挺难过的。”然后{TA}收回了笔记本。",
+          "trustChange": {
+            "理想线": -10,
+            "现实线": -25,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E2（若出场）/ S-05",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "（翻开笔记本，翻到一篇看起来还在续写的部分）“……这一篇没写完。你后来还写吗？”",
+          "reaction": "{TA}愣了一下，然后凑过来看了一眼那一页：“……这篇我没写完。因为写着写着就不敢往下写了。”",
+          "trustChange": {
+            "理想线": 12,
+            "现实线": 12,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-03": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E2（若出场）/ S-05",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你十八岁开始写这本——现在你看它的感觉，跟当时写的时候一样吗？",
+          "reaction": "{TA}想了很久：“……不太一样了。现在看那本，我会觉得‘当时的我好像不太认识自己’。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 4,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E2（若出场）/ S-05",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "必出",
+      "foreshadowCheck": "F-03",
+      "condition": "无"
+    },
+    "S-E2": {
+      "id": "S-E2",
+      "title": "旧日记",
+      "type": "free_roam",
+      "narrative": "你翻开{TA}桌上另一本旧笔记本——不是{TA自己}写的那本，是一本封面写着“摘录”的本子。里面不是{TA的}文字，是{TA}说“我有时候会觉得这句话像在说我自己”的东西。有的是诗，有的是电影台词，有的是{TA}不知道从哪抄下来的句子。\r\n其中一页夹着一张发黄的纸，上面只有一行字：“有一天有人会看完你所有的面具——然后坐在那里。”\r\n你问{TA}：“这张你什么时候写的？”\r\n{TA}看了一眼：\r\n",
+      "dialogue": "INFJ（受 F-03 状态影响）：\r\n若 F-03 为“已触发”：“……你翻开那本笔记本的时候，我在想你会不会翻到这一页。你翻到了。”\r\n若 F-03 为“未触发”：“……很久以前写的。我当时觉得这是一个我想相信但不太确定会不会发生的事。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你留着这张纸——是在等那个人出现吗？",
+          "reaction": "{TA}安静了一下：“……我在等一个人。但我不知道我等的是谁。”",
+          "trustChange": {
+            "理想线": 5,
+            "现实线": 4,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-05",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你写‘有一天有人会看完你所有的面具——然后坐在那里’——你现在觉得那个人坐在那里了吗？",
+          "reaction": "{TA}看了你很久。然后{TA}说：“……我在想。可能出现了。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-08": true
+          },
+          "plotOps": {},
+          "nextScene": "S-05",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你写‘所有的面具’——你自己数过你有几个面具吗？",
+          "reaction": "{TA}想了很久：“……我以前觉得我有五六个。现在我觉得可能只有一个。就是‘看起来没事’的那个。”",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-05",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "30%概率，随机浮动插入",
+      "foreshadowCheck": "F-03",
+      "condition": "无"
+    },
+    "S-05": {
+      "id": "S-05",
+      "title": "预言的重量",
+      "type": "branch",
+      "narrative": "你们在聊天的时候，{TA}忽然安静了一下，然后说了一句“很奇怪的话”：\r\n",
+      "dialogue": "INFJ：“我感觉到一件事——你最近可能会遇到一个选择。不会很大，但会让你想很久的那种。我不知道我怎么知道的。我只是有这种感觉。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "哇，你会预言啊？那你说说我会遇到什么选择？",
+          "reaction": "{TA}笑了一下：“……我也不知道。就是感觉。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": -15,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-06（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你觉得那个选择大概是什么方向的？工作？关系？还是别的？",
+          "reaction": "{TA}想了想：“……偏向工作吧。但我也说不准。”",
+          "trustChange": {
+            "理想线": 3,
+            "现实线": 0,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-06（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你感觉到它——你最近是不是也在想什么事情需要做选择？",
+          "reaction": "{TA}安静了很久。然后{TA}说：“……我最近在想是不是应该换一种方式生活。但我不知道那算不算‘选择’。”",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-04": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-06（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "50%概率，与S-06二选一",
+      "foreshadowCheck": "F-04",
+      "condition": "无"
+    },
+    "S-06": {
+      "id": "S-06",
+      "title": "感官暴走",
+      "type": "branch",
+      "narrative": "你联系不上{TA}。发消息不回、电话不接——这在你们认识以来从来没有发生过。\r\n你到{TA}家的时候，门没锁。{TA}坐在客厅地板上，周围是外卖盒子、空酒瓶、打开没吃的零食。电视开着，但声音关掉了——画面在闪，但没有声音。{TA}没有换衣服，也没有洗澡。{TA}在用一种“短暂刺激”的方式麻醉自己。\r\n你开门的时候，{TA}抬头看了你一眼。{TA}平时的“状态管理”完全消失了：\r\n",
+      "dialogue": "INFJ：“……你怎么来了。我没有叫你来。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你家里怎么变成这样了？你几天没出门了？你还好吗？",
+          "reaction": "{TA}看了一眼那些外卖盒，声音很平：“……几天吧。我不知道。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": -30,
+            "fatalError": true
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": null,
+          "fatalError": "BE-2"
+        },
+        {
+          "id": "B",
+          "text": "（你走进来，没有问话。你把地上的外卖盒收到一个袋子里，把酒瓶放到门口，然后坐在地板上——和{TA}一起，没有触碰{TA}。安静了三分钟后你说：“我来了。你不用说话。”）",
+          "reaction": "{TA}没有任何回应。但{TA}把那个无声的电视关掉了。然后{TA}把头靠在了墙上，慢慢地呼了一口气——那是{TA}这几个小时以来第一次呼吸。",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-05": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你关机了。我在想你是不是在躲什么——但我没想到你是在把整个房间关掉。",
+          "reaction": "{TA}轻轻地点了点头：“……我把所有东西都关掉了。声音、人、想法。因为太响了。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 6,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "现实线50%概率，与S-05二选一",
+      "foreshadowCheck": "F-03",
+      "condition": "难度 = 现实线"
+    },
+    "S-E3": {
+      "id": "S-E3",
+      "title": "被看穿",
+      "type": "free_roam",
+      "narrative": "你们在一起的时候，{TA}正在说话——说一件“还好”的事，语气平静。然后你看着{TA}，说了一句：“你在把这件事情讲得很好。”\r\n{TA}停住了。\r\n",
+      "dialogue": "INFJ（受 F-01 和 F-02 状态影响）：\r\n若 F-01 为“已触发”且 F-02 为“已触发”：“……你刚才说‘你在把这件事情讲得很好’——不是‘这件事情本身很好’。你在说我在把它讲好。”\r\n若未触发以上组合：“……你为什么要说‘你在讲得很好’？那不是‘这件事很好’的意思。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你在把什么事情都讲得“可以接受”。但你讲它的方式——你自己信吗？",
+          "reaction": "{TA}安静了很久：“……我信。有时候信。但有时候我讲完自己也不确定。”",
+          "trustChange": {
+            "理想线": 3,
+            "现实线": -15,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你说‘你在把这件事情讲得很好’——我说的是‘你在讲’的方式。我不在意那件事好不好。我在意你在讲它的时候，你在用哪个版本的自己。",
+          "reaction": "{TA}看着你，很久：“……你是第一个说‘我在意你在用哪个版本的自己’的人。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-09": true
+          },
+          "plotOps": {},
+          "nextScene": "S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你刚才讲那件事的时候——你用了你‘社交版本’的声音。你什么时候会用‘自己版本’的声音？",
+          "reaction": "{TA}想了很久：“……我用‘自己版本’说话的时候很少。因为不确定别人会不会想听那个版本。”",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-07",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "30%概率，随机浮动插入",
+      "foreshadowCheck": "F-02",
+      "condition": "无"
+    },
+    "S-07": {
+      "id": "S-07",
+      "title": "最后一副面具",
+      "type": "core",
+      "narrative": "{TA}约你在一个安静的地方见面——不是咖啡馆，是{TA}常去的旧书店的角落。\r\n{TA}坐在那里，面前没有放任何东西。没有书、没有茶、没有手机。{TA}看到你来了，没有站起来。{TA}就那样坐在那里，没有任何“角色”的姿势——没有社交微笑、没有礼貌起身、没有“你好吗”的开场白。\r\n{TA}开口了，声音很平，像是把最后一层薄膜撕掉了：\r\n",
+      "dialogue": "INFJ：“我没有别的东西可以给你看了。所有的面具、所有的版本、所有我练习过怎么跟人说话的方式——你都见过了。我不确定你看到的是全部，还是你看到的是‘我让你看到的全部’。”\r\n{TA}停了一下，然后说了一句更平的话：\r\n“如果你愿意留下来——那我会把最后那层也拿掉。但如果你需要时间考虑，我也理解。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "我不需要时间考虑。我留下来。但我想知道——你最后一层，是什么？",
+          "reaction": "",
+          "trustChange": {
+            "理想线": 5,
+            "现实线": 5,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你十八岁那本笔记本里——有一页你写‘今天有人看穿了我’。那是你第一次被别人看到吧？",
+          "reaction": "",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-06": true
+          },
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": "已触发 Anchor-02 + Anchor-03 + Anchor-05",
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你说的那个‘关于我的选择’的预感——后来那件事确实发生了。你感觉对了。所以我想跟你说：你感觉到的事情，我会认真听。",
+          "reaction": "",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-06": true
+          },
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": "已触发 Anchor-01 + Anchor-04 + Anchor-09",
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "必出（终局）",
+      "condition": "无"
+    }
+  },
+  "endings": {
+    "BE-1": {
+      "title": "伪装的尽头",
+      "text": "{TA}把所有的“面具”都收起来了——不是跟你一起收的，是收进了别人找不到的地方。{TA}学会了在你的世界里用一种更简单的方式存在：不复杂、不深想、不多问。{TA}说“今天天气不错”的时候，是真的只说天气。\r\nINFJ 内心独白：“{TA}说‘你想太多了’——我就想少一点。{TA}说‘你看起来挺好的’——我就一直看起来挺好的。直到有一天，我自己也分不清‘看起来好’和‘真的好’的区别了。”\r\n"
+    },
+    "BE-2": {
+      "title": "安全距离",
+      "text": "{TA}还跟你在一起。{TA}还在爱你。但{TA}不再把“无法解释的东西”给你看了——{TA的}直觉、{TA的}预感、{TA的}“我就是知道”。那些东西被{TA}锁回了那本十八岁的笔记本里。你问{TA}“你最近在想什么”的时候，{TA}说“没什么特别的”。\r\nINFJ 内心独白：“我停止给{TA}看我‘无法证明’的部分了。因为{TA}说那是‘想太多’。那我把想得少的那部分留给{TA}。”\r\n"
+    },
+    "BE-3": {
+      "title": "你爱的是温柔",
+      "text": "{TA}给你看了那本笔记本。你翻了几页，说“你那时候一定很难过”。{TA}笑了笑，收了起来。你后来再也没有看到过那本笔记本。{TA}把完整的那一版藏了起来，给你看了简化的版本。\r\nINFJ 内心独白：“{TA}看了我的地下室，然后说‘那是难过的时期’——{TA}把我看成了需要被同情的人。但那些文字不是难过，是那个在想办法活下去的我。{TA}认不出我。”\r\n"
+    },
+    "NE-1": {
+      "title": "冰层融化",
+      "text": "{TA}开始说一些“不知道有没有意义”的话了。{TA}会说“我今天有一个奇怪的感觉”——然后看你会不会问“什么感觉”。你开始问了。{TA}开始说了。{TA}不是不戴面具了——{TA}是开始练习“在面具上面开一扇小窗”。\r\nINFJ 内心独白：“我开始给{TA}看我‘不确定’的部分。{TA}问了‘然后呢’。不是‘你想多了’。”\r\n"
+    },
+    "GE-1": {
+      "title": "深度看见",
+      "text": "{TA}给你看了那本笔记本的最后一页。{TA}新写了一行字：“如果有人翻到了这一页——恭喜你，你是第一个读完的人。”然后{TA}给你看的是完整的那一版——不是挑过的、不是简化过的。{TA}把自己放进了你的手里。\r\nINFJ 内心独白：“{TA}翻到了‘未完成’的那一页。{TA}问了‘后来呢’。后来——我给了{TA}那部分。”\r\n",
+      "variants": {
+        "F-01_triggered": "\n\n你注意到了{TA}停下的那个瞬间。那不是放弃——那是{TA}在等你发现。",
+        "F-03_triggered": "\n\n那张纸还留在工具箱里。但{TA}开始让你看到了。"
+      }
+    },
+    "PE-1": {
+      "title": "不用面具",
+      "text": "你把那本笔记本合上了。你没有还给{TA}。你收进了自己的包里。{TA}说：“那是我的。”你说：“我知道。所以我才收起来。”{TA}说：“你收起来做什么？”你说：“等你下一次想写的时候，我会还给你。”{TA}之后再也没有把那本笔记本锁起来过。因为它已经不在{TA}一个人手里了。\r\nINFJ 内心独白：“我给{TA}看了完整版的自己。{TA}收起来了——不是偷走，是保管。{TA}说‘等你下次想写的时候我会还给你’。{TA}把我写了一半的人生接过去了。我现在不用一个人写完了。”\r\n七、碎片记忆系统\r\n编号\t解锁条件\t碎片内容\r\n1\t触发 Anchor-01（看穿微笑）\t“{TA}说‘你笑的时候眼睛没有弯’——我在心里算了一下，那是第一次有人注意到那个缝隙。”\r\n2\t触发 Anchor-02（接纳阴影）\t“我问{TA}‘我演了什么角色’。{TA}没有说‘别演了’。{TA}问我‘你在我面前演什么’。”\r\n3\t触发 Anchor-03（进入密室）\t“{TA}翻到了我没写完的那一页。{TA}问‘这一篇后来还写吗’——不是‘你那时候很痛’。”\r\n4\t触发 Anchor-04（重视预感）\t“我说了那个预感。{TA}说‘你是不是也在想选择’。我才发现那可能是我在说自己。”\r\n5\t触发 Anchor-05（接住逃避）\t“{TA}看到我坐在垃圾中间。{TA}没有整理我。{TA}在整理那些盒子。{TA}坐下来的时候没有碰我。”\r\n6\t触发 Anchor-07（阴暗共谋）\t“我说我会在心里评判别人。{TA}说‘那你会评判我吗’——{TA}把自己放进了我的名单里。”\r\n7\t触发 Anchor-09（被看穿接纳）\t“{TA}说‘你在用哪个版本的自己讲这件事’——{TA}是第一个问我这个问题的人。”\r\n八、代码生成补充说明\r\n8.1 游离事件插入算法\r\ntext\r\n游戏启动时执行：\r\n1. 确定场景列表 = [S-01, S-02]\r\n2. 若难度 == 现实线，在 S-02 后插入 S-03\r\n3. 确定可用空位 = 当前场景列表长度 - 1 个间隙\r\n4. 对每个游离事件 (S-E1, S-E2, S-E3)：\r\n   a. 以 30% 概率决定是否出场\r\n   b. 若出场，在可用空位中随机选择一个位置插入\r\n   c. 从可用空位中移除该位置\r\n5. 添加 S-05/S-06（二选一，50%概率）\r\n6. 添加 S-07 至末尾\r\n8.2 前置伏笔状态判定逻辑\r\njavascript\r\nfunction getINFJLine(sceneId, flags) {\r\n  if (sceneId === \"S-E1\") {\r\n    if (flags[\"F-02\"] === \"已触发\") {\r\n      return \"……我刚才发那段话的时候想撤回。但我想了一下——你说过‘你在我面前不用演’。\";\r\n    } else {\r\n      return \"……我本来想撤回的。但我还是发了。\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E2\") {\r\n    if (flags[\"F-03\"] === \"已触发\") {\r\n      return \"……你翻开那本笔记本的时候，我在想你会不会翻到这一页。你翻到了。\";\r\n    } else {\r\n      return \"……很久以前写的。我当时觉得这是一个我想相信但不太确定会不会发生的事。\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E3\") {\r\n    if (flags[\"F-01\"] === \"已触发\" && flags[\"F-02\"] === \"已触发\") {\r\n      return \"……你刚才说‘你在把这件事情讲得很好’——不是‘这件事情本身很好’。你在说我在把它讲好。\";\r\n    } else {\r\n      return \"……你为什么要说‘你在讲得很好’？那不是‘这件事很好’的意思。\";\r\n    }\r\n  }\r\n  return \"\";\r\n}\r\n8.3 终局解锁条件\r\njavascript\r\nfunction canUnlockPE1(flags) {\r\n  return flags[\"Anchor-02\"] && flags[\"Anchor-03\"] && flags[\"Anchor-05\"];\r\n}\r\nfunction canUnlockPE1_alt(flags) {\r\n  return flags[\"Anchor-01\"] && flags[\"Anchor-04\"] && flags[\"Anchor-09\"];\r\n}\r\nfunction canUnlockPE1_both(flags) {\r\n  return canUnlockPE1(flags) || canUnlockPE1_alt(flags);\r\n}\r\n8.4 结局判定（双轨制：Flag锁定优先 + 信任值兜底）\r\njavascript\r\nfunction determineEnding(trust, flags, difficulty) {\r\n  if (trust < 30) return \"BE-1\";\r\n  if (trust >= 30 && trust < 50) return \"BE-2\";\r\n  if (trust >= 50 && trust < 60) return \"BE-3\";\r\n  if (trust >= 60 && trust < 70) return \"NE-1\";\r\n  if (trust >= 70 && trust < 85) return \"GE-1\";\r\n  if (trust >= 85 && difficulty === \"现实线\") {\r\n    const count = Object.values(flags).filter(v => v === true).length;\r\n    if (count >= 6 && flags[\"Anchor-02\"] && flags[\"Anchor-05\"] && flags[\"Anchor-06\"]) {\r\n      return \"PE-1\";\r\n    }\r\n    return \"GE-1\";\r\n  }\r\n  return \"GE-1\";\r\n}\r\nINFJ 剧本 END\n",
+      "variants": {
+        "F-01_triggered": "\n\n你注意到了{TA}停下的那个瞬间。那不是放弃——那是{TA}在等你发现。",
+        "F-01_not_triggered": "\n\n你没有注意到{TA}是什么时候停下的。但{TA}还在。",
+        "F-02_triggered": "\n\n{TA}不再把修好的东西藏起来了。{TA}学会了把\"做了\"翻译成\"告诉你\"。",
+        "F-02_not_triggered": "\n\n{TA}还是习惯用行动说话。但你开始学习读懂那些没有翻译的语言。",
+        "F-03_triggered": "\n\n那张{TA}写着关于{TA}的纸——{TA}不再藏在工具箱夹层里了。",
+        "F-04_triggered": "\n\n{TA}留在你空间里的东西——{TA}不再悄悄地收走了。"
+      }
+    }
+  },
+  "裂痕记忆": {
+    "type_0": {
+      "background": "",
+      "specialNarrative": "“{TA}今天讲了两个笑话。都是社交型笑话——安全、无害、大家都能笑的那种。{TA}以前讲的笑话需要想两秒才能懂。"
+    },
+    "type_1": {
+      "background": "",
+      "specialNarrative": "“{TA}看了一眼窗外，说了一句‘可能要下雨’。但天气预报是晴天。{TA}没有解释为什么这么说。{TA}只是在说——然后等你会不会问。"
+    },
+    "type_2": {
+      "background": "",
+      "specialNarrative": "“{TA}今天的妆容比平时精致一些。不是‘变好看了’的那种精致——是‘更完整’了。像是盖上了最后一层。"
+    }
+  },
+  "memories": {
+    "mem_1": {
+      "condition": "触发 Anchor-01（看穿微笑）",
+      "text": "“{TA}说‘你笑的时候眼睛没有弯’——我在心里算了一下，那是第一次有人注意到那个缝隙。”"
+    },
+    "mem_2": {
+      "condition": "触发 Anchor-02（接纳阴影）",
+      "text": "“我问{TA}‘我演了什么角色’。{TA}没有说‘别演了’。{TA}问我‘你在我面前演什么’。”"
+    },
+    "mem_3": {
+      "condition": "触发 Anchor-03（进入密室）",
+      "text": "“{TA}翻到了我没写完的那一页。{TA}问‘这一篇后来还写吗’——不是‘你那时候很痛’。”"
+    },
+    "mem_4": {
+      "condition": "触发 Anchor-04（重视预感）",
+      "text": "“我说了那个预感。{TA}说‘你是不是也在想选择’。我才发现那可能是我在说自己。”"
+    },
+    "mem_5": {
+      "condition": "触发 Anchor-05（接住逃避）",
+      "text": "“{TA}看到我坐在垃圾中间。{TA}没有整理我。{TA}在整理那些盒子。{TA}坐下来的时候没有碰我。”"
+    },
+    "mem_6": {
+      "condition": "触发 Anchor-07（阴暗共谋）",
+      "text": "“我说我会在心里评判别人。{TA}说‘那你会评判我吗’——{TA}把自己放进了我的名单里。”"
+    },
+    "mem_7": {
+      "condition": "触发 Anchor-09（被看穿接纳）",
+      "text": "“{TA}说‘你在用哪个版本的自己讲这件事’——{TA}是第一个问我这个问题的人。”"
+    }
+  }
+}

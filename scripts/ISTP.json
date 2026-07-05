@@ -1,0 +1,703 @@
+{
+  "meta": {
+    "id": "ISTP",
+    "name": "鉴赏家",
+    "theme": "用行动替代言语，用沉默测试接纳",
+    "startingTrust": 30,
+    "originalGender": "male",
+    "genderNote": "剧情已通过模板化处理适配两种性别，部分细节可能更适合原始设计视角"
+  },
+  "scenes": {
+    "S-01": {
+      "id": "S-01",
+      "title": "被拆除的螺丝钉",
+      "type": "core",
+      "narrative": "你发现一件事：厨房那个摇摇晃晃的椅子——它还在摇。你记得你一个月前就注意到了，但你一直等。以前{TA}会主动修好，不需要你说。椅子恢复稳固，放在那里，你不一定注意到{TA}修过。但这把椅子——一个月了，还在摇。\r\n你提了一下：“这把椅子好像有点松。”\r\n{TA}正在看手机，声音很平：\r\n",
+      "dialogue": "ISTP：“嗯。我知道。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你知道它松了？那你为什么不修？",
+          "reaction": "{TA}放下了手机：“……我最近没空。你叫个修理工吧。”",
+          "trustChange": {
+            "理想线": -15,
+            "现实线": -30,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-02",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "我知道你看到了。你进来的时候看了一眼那把椅子。你是打算修，还是在等我先发现？",
+          "reaction": "{TA}停了一下：“……我在等你先问。”",
+          "trustChange": {
+            "理想线": 3,
+            "现实线": 0,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-02",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "这把椅子松了一个月了。以前你会在三天内修好。这次你没有——是觉得我不想让你修，还是觉得我根本不关心你有没有修？",
+          "reaction": "{TA}安静了一下，然后说：“……我停了。因为我不确定你会在意我修不修。”",
+          "trustChange": {
+            "理想线": 12,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-01": true
+          },
+          "plotOps": {},
+          "nextScene": "S-02",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "必出",
+      "foreshadowCheck": "F-01",
+      "condition": "无"
+    },
+    "S-02": {
+      "id": "S-02",
+      "title": "沉默的邀请",
+      "type": "core",
+      "narrative": "第二天椅子被修好了。但修好的方式有一点特别——椅腿下面垫了一片旧的木片，不是新的配件，是{TA}从别的地方拆下来改的。修得很稳。但更特别的是——{TA}把拆下来的旧螺丝钉放在了桌边，没有扔掉。\r\n你看到那颗螺丝钉，问{TA}：“这个留着干嘛？”\r\n{TA}正在弄别的东西，头没回：\r\n",
+      "dialogue": "ISTP：“……就是留着。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "留着占地方，扔掉吧。",
+          "reaction": "{TA}伸手拿走了那颗螺丝钉：“……嗯。”然后放进了工具箱里。你没有再看到它。",
+          "trustChange": {
+            "理想线": -10,
+            "现实线": -25,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E1（若出场）/ S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "这个不是配件——是你从别的地方拆下来改的。你留着它是想告诉我什么吗？",
+          "reaction": "{TA}停了一下，然后说：“……没有。就是觉得你可能会想看。”",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-02": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E1（若出场）/ S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你修好了。然后把拆下来的部分留给我看。你在告诉我你做了什么。",
+          "reaction": "{TA}短促地看了你一眼——那种看{TA}很少会做：“……嗯。”然后{TA}继续做自己的事。",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 4,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E1（若出场）/ S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "必出",
+      "foreshadowCheck": "F-02",
+      "condition": "无"
+    },
+    "S-E1": {
+      "id": "S-E1",
+      "title": "被要求解释",
+      "type": "free_roam",
+      "narrative": "{TA}正在做一件事——修一个东西、调整一个设备、或者拆开什么再装回去。你在旁边看了一会儿，然后问了一句：\r\n",
+      "dialogue": "ISTP（受 F-02 状态影响）：\r\n若 F-02 为“已触发”：“……你问了‘你在做什么’。但你没有问‘你为什么做这个’。”\r\n若 F-02 为“未触发”：“……没什么。就是弄一下。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你在修什么？你为什么不告诉我？",
+          "reaction": "{TA}停了一下手里的动作：“……你也没有问过。”",
+          "trustChange": {
+            "理想线": 3,
+            "现实线": 0,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你不需要解释你在做什么。我好奇的是——你拆开它的时候，你在想什么？",
+          "reaction": "{TA}看了你一眼：“……我在想它为什么坏。它坏的方式告诉我它怎么被用的。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-07": true
+          },
+          "plotOps": {},
+          "nextScene": "S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你在拆东西的时候——你更想让我在旁边，还是想让我走开？",
+          "reaction": "{TA}安静了一下：“……你在旁边的时候，我不会问你要不要走开。”",
+          "trustChange": {
+            "理想线": 5,
+            "现实线": 6,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-03（若现实线）/ S-04",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "30%概率，随机浮动插入",
+      "foreshadowCheck": "F-02",
+      "condition": "无"
+    },
+    "S-03": {
+      "id": "S-03",
+      "title": "自由的测试",
+      "type": "exclusive",
+      "narrative": "你发现{TA}连续几天都没有主动联系你。不是“已读不回”——是完全没有出现。你发了一条“在干嘛”，{TA}过了很久回了一句：\r\n",
+      "dialogue": "ISTP：“在忙。你先别等我了。”\r\n然后{TA}关闭了共享定位。以前{TA}会开着——不是给你看的，是{TA的}习惯。现在关了。{TA}在告诉你一件事：我把原本自动共享的那部分收回去了。你再看到{TA的}时候，{TA}正蹲在车库，对着一个拆了一半的引擎。{TA}说：\r\n“……我以为你会来车库找我。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你关了共享定位，又不回消息——我以为你不想被找到。",
+          "reaction": "{TA}继续拆引擎：“……嗯。”没有其{TA的}了。",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": -30,
+            "fatalError": true
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": null,
+          "fatalError": "BE-1"
+        },
+        {
+          "id": "B",
+          "text": "你关了共享定位、不回消息——但我还是来了。因为我知道你会在车库。",
+          "reaction": "{TA}停下手里的扳手，回头看你：“……你怎么知道我在车库。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-04",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你不回消息是因为你不知道怎么回，还是你不想编一个理由？",
+          "reaction": "{TA}想了很久：“……第二个。我不想编一个‘我在忙’。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 6,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-04",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "现实线必出",
+      "foreshadowCheck": "F-02",
+      "condition": "难度 = 现实线"
+    },
+    "S-04": {
+      "id": "S-04",
+      "title": "工具箱的密码",
+      "type": "core",
+      "narrative": "你在{TA}工具箱的夹层里发现一张纸——不是清单，不是计划，是一张手写的、折叠得很整齐的纸。你打开，上面写着：\r\n“{TA}房间那个抽屉—六角扳手—不好开但还能用—等{TA}想修的时候我再换”\r\n“台灯—接触不良—换线或者换底座—先不换因为那个灯{TA}喜欢”\r\n“{TA自己}可能没注意到的事：{TA}化妆镜后面那颗螺丝—再不锁会掉—先记着”\r\n",
+      "dialogue": "",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你还会记这些？你平时都不说话，我还以为你都没在注意。",
+          "reaction": "{TA}把那张纸拿回来，折好放回去：“……偶尔会记。”",
+          "trustChange": {
+            "理想线": -10,
+            "现实线": -25,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E2（若出场）/ S-05",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你写‘等{TA}想修的时候再换’——你知道我会注意到化妆镜后面的螺丝吗？",
+          "reaction": "{TA}看了一眼那张纸：“……我不知道你会不会。但我写了。”",
+          "trustChange": {
+            "理想线": 12,
+            "现实线": 12,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-03": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E2（若出场）/ S-05",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "这张纸上的所有事——你没有一件在等我开口要求才做。你是在等我注意到它们。",
+          "reaction": "{TA}沉默了一下：“……对。我不太会开口说‘我注意到了’。所以我记。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 4,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E2（若出场）/ S-05",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "必出",
+      "foreshadowCheck": "F-03",
+      "condition": "无"
+    },
+    "S-E2": {
+      "id": "S-E2",
+      "title": "旧零件",
+      "type": "free_roam",
+      "narrative": "你在{TA的}抽屉里发现一个旧零件——不像是还能用的东西，但被擦得很干净，放在一个单独的格子里。你问{TA}：“这个是什么？”\r\n{TA}看了一眼：\r\n",
+      "dialogue": "ISTP（受 F-03 状态影响）：\r\n若 F-03 为“已触发”：“……这是我修的第一个东西。那时候我不知道能不能修好。我留了它。”\r\n若 F-03 为“未触发”：“……不知道。可能忘了扔。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "你留了一个修好的旧零件——你是在记住什么？",
+          "reaction": "{TA}安静了一下：“……记住我可以修好它。”",
+          "trustChange": {
+            "理想线": 5,
+            "现实线": 4,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-05",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你留了一个修好的旧零件——你是在记住‘你可以修好’，还是在记住‘你不知道能不能修好但你还是试了’？",
+          "reaction": "{TA}想了很久：“……我在记住‘我不知道能不能修好但我还是试了’。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-08": true
+          },
+          "plotOps": {},
+          "nextScene": "S-05",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你现在看这个零件——你还能想起来修它的时候是什么感觉吗？",
+          "reaction": "{TA}看了很久：“……能。修完它的时候我知道我可以修更多。”",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-05",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "30%概率，随机浮动插入",
+      "foreshadowCheck": "F-03",
+      "condition": "无"
+    },
+    "S-05": {
+      "id": "S-05",
+      "title": "存在感的递减",
+      "type": "branch",
+      "narrative": "你发现{TA}在做一件奇怪的事：{TA}在清除{TA}在你空间里的痕迹。{TA}之前放在你书桌上的数据线——{TA}拿走了。{TA}平时会放在你家的一件旧 T 恤——不见了。{TA}在你书架最下层的那本工具手册——{TA}找不到了。\r\n你问{TA}：“你那些东西呢？”\r\n{TA}正在穿鞋，准备出门：\r\n",
+      "dialogue": "ISTP：“……收起来了。我东西放太散了。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "也是，你东西确实放的到处都是。收起来也好。",
+          "reaction": "{TA}穿好鞋：“嗯。”然后出去了。",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": -15,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-06（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你拿走了数据线、T 恤、那本手册——你放在我家的东西少了三样。你是觉得放太久该收走，还是在看我会不会注意到少了？",
+          "reaction": "{TA}手停在门把上：“……我在看你会不会注意到少了。”",
+          "trustChange": {
+            "理想线": 3,
+            "现实线": 0,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-06（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你拿走的东西——我数了。三样。你想让我知道你在减少存在感。那我现在告诉你：我注意到了。你可以留一些在这边。我不会问你为什么留。",
+          "reaction": "{TA}沉默地看了你一会儿，然后{TA}把那根数据线从口袋里拿出来，放回了桌上。",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-04": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-06（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "50%概率，与S-06二选一",
+      "foreshadowCheck": "F-04",
+      "condition": "无"
+    },
+    "S-06": {
+      "id": "S-06",
+      "title": "未来的迷宫",
+      "type": "branch",
+      "narrative": "你凌晨发现{TA}坐在客厅，不是在工作。{TA}面前摊着一本地图册——但{TA}没有在看地图。{TA}在看那个世界，然后把它们合上。\r\n你走近，{TA}头没抬：\r\n",
+      "dialogue": "ISTP：“我在想如果有一天需要走——我该带什么。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "走？你去哪？你好好睡一觉别想这些了。",
+          "reaction": "{TA}合上地图册：“……嗯。”但{TA}没有去睡。你听到{TA}在客厅又坐了很长时间，没有开灯。",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": -30,
+            "fatalError": true
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": null,
+          "fatalError": "BE-2"
+        },
+        {
+          "id": "B",
+          "text": "如果有一天你需要走——你会带走什么？",
+          "reaction": "{TA}沉默了一会儿：“……我会带工具箱。还有那张纸。那张纸上的事情。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-05": true
+          },
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你刚才看地图的时候——你在找一个地方，还是你在用地图分散注意？",
+          "reaction": "{TA}停了下来，然后说：“……我在分散注意。因为我没办法解决我在想的那个问题。”",
+          "trustChange": {
+            "理想线": 0,
+            "现实线": 6,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-E3（若出场）/ S-07",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "现实线50%概率，与S-05二选一",
+      "foreshadowCheck": "F-03",
+      "condition": "难度 = 现实线"
+    },
+    "S-E3": {
+      "id": "S-E3",
+      "title": "被要求承诺",
+      "type": "free_roam",
+      "narrative": "有人在电话里问{TA}关于一个长期安排的事——不是针对{TA}一个人，但{TA}需要给出回应。{TA}没有说“好”或“不好”，{TA}说了一句很简短的话：\r\n",
+      "dialogue": "ISTP（受 F-01 和 F-04 状态影响）：\r\n若 F-01 为“已触发”且 F-04 为“已触发”：“……我需要想一下。不是为了拖延——是为了确认我能做到。”\r\n若未触发以上组合：“……到时候再说。”\r\n",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "那你想想，想好了告诉我。",
+          "reaction": "{TA}点了点头：“……嗯。”",
+          "trustChange": {
+            "理想线": 3,
+            "现实线": -15,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你说‘需要想一下’——你是在确认时间，还是在确认‘你想不想’？",
+          "reaction": "{TA}看了你一眼：“……我在确认‘你想不想’。”",
+          "trustChange": {
+            "理想线": 8,
+            "现实线": 8,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-09": true
+          },
+          "plotOps": {},
+          "nextScene": "S-07",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你以前会直接说‘好’或‘不好’——今天你说‘需要想’。是因为这件事不一样，还是因为你在练习保护自己的时间？",
+          "reaction": "{TA}沉默了一会儿：“……我在练习保护自己的时间。以前我说‘好’的时候，没有想过我是不是真的做得到。”",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "S-07",
+          "condition": null,
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "30%概率，随机浮动插入",
+      "foreshadowCheck": "F-04",
+      "condition": "无"
+    },
+    "S-07": {
+      "id": "S-07",
+      "title": "最后的钥匙",
+      "type": "core",
+      "narrative": "你收到一件东西。{TA}修好的——一件很小的东西：你之前丢了很久的耳环。不是你自己修好的——是{TA}找到了，{TA}修好了。然后放在了你桌上。\r\n下面压着一张纸，上面只有一行字，写在{TA}那本“关于{TA}”的笔记纸上：\r\n“这个是修好的。”\r\n",
+      "dialogue": "",
+      "sceneHint": "",
+      "options": [
+        {
+          "id": "A",
+          "text": "这个耳环我找了很久。你没说你在找它，你直接修好了。",
+          "reaction": "",
+          "trustChange": {
+            "理想线": 5,
+            "现实线": 5,
+            "fatalError": null
+          },
+          "flagOps": {},
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": null,
+          "fatalError": null
+        },
+        {
+          "id": "B",
+          "text": "你那张纸上写‘等{TA}注意到的时候我会换’——我注意到了。所以你可以换。",
+          "reaction": "",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-06": true
+          },
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": "已触发 Anchor-02 + Anchor-03 + Anchor-05",
+          "fatalError": null
+        },
+        {
+          "id": "C",
+          "text": "你把钥匙、数据线、T 恤拿走过。你又把数据线放回来了。现在你把耳环修好放在我桌上——你在告诉我，你在选哪些东西留下。",
+          "reaction": "",
+          "trustChange": {
+            "理想线": 10,
+            "现实线": 10,
+            "fatalError": null
+          },
+          "flagOps": {
+            "Anchor-06": true
+          },
+          "plotOps": {},
+          "nextScene": "__ENDING__",
+          "condition": "已触发 Anchor-01 + Anchor-04 + Anchor-09",
+          "fatalError": null
+        }
+      ],
+      "onEnter": null,
+      "appearRule": "必出（终局）",
+      "condition": "无"
+    }
+  },
+  "endings": {
+    "BE-1": {
+      "title": "被动模式",
+      "text": "{TA}不再主动修任何东西了。你开口说“这个坏了”，{TA}会修。但那些{TA}以前会提前发现、提前处理的事情——那扇需要润滑的门、那个即将松动的抽屉——{TA}都不再处理了。{TA}退到了“你说了我才动”的位置。\r\nISTP 内心独白：“{TA}说‘你为什么没修’——修成了我应该做的事。那我不主动修了。{TA}说了我再做。”\r\n"
+    },
+    "BE-2": {
+      "title": "工具箱关闭",
+      "text": "{TA}修好了所有需要修的东西。然后{TA}把工具箱收了起来，放进了柜子最深处。不是扔——是放起来了。你问{TA}“那个东西还能修吗”，{TA}说“我看看”——然后{TA}会打开工具箱看看，但不会修。\r\nISTP 内心独白：“我把工具箱收起来了。因为我不确定我修好的东西有没有人在意。”\r\n"
+    },
+    "BE-3": {
+      "title": "你留下的是功能",
+      "text": "你赞美了{TA}修好的东西：“你手好巧”“什么都会修”。{TA}接受了。但{TA}把那张“关于{TA}”的笔记纸收进了工具箱的夹层最深处。{TA}发现“手巧”是你对{TA的}结论，而“我修这个是因为我在想你”是另一种东西。\r\nISTP 内心独白：“{TA}说‘你好厉害’——我修好了那个东西。但我想让{TA}看到的是：我修它的时候在想{TA}。‘手巧’不是这件事的名字。”\r\n"
+    },
+    "NE-1": {
+      "title": "冰层融化",
+      "text": "{TA}开始在修完东西之后放一张纸条了。不是每件都放——是那些“{TA}在修的时候想了{TA}”的事。纸条上通常只有一行字：“这个好了。”但{TA}在练习用“语言”来补充“行动”留下的缝隙。\r\nISTP 内心独白：“我开始在修完东西之后写‘这个好了’。不是解释，是告诉{TA}在。”\r\n"
+    },
+    "GE-1": {
+      "title": "行动被看见",
+      "text": "你发现那张“关于{TA}”的笔记纸更新了。新增了一行字：“{TA}发现耳环了。{TA}还记得{TA}丢过。”那是{TA}写的记录——关于“{TA}注意到{TA}修的东西”的记录。\r\nISTP 内心独白：“{TA}发现了我修的耳环。{TA}没有说‘谢谢’，{TA}说了‘我找了很久’。{TA}看到的是我在找它。”\r\n",
+      "variants": {
+        "F-01_triggered": "\n\n你注意到了{TA}停下的那个瞬间。那不是放弃——那是{TA}在等你发现。",
+        "F-03_triggered": "\n\n那张纸还留在工具箱里。但{TA}开始让你看到了。"
+      }
+    },
+    "PE-1": {
+      "title": "不用解释的回应",
+      "text": "{TA}把那把椅子的旧螺丝钉放回了一个小盒子里，然后在盒子上贴了一张标签：“{TA}发现的。”不是“我修的”，是“{TA}发现的”。{TA}把发现权让给了你。\r\nISTP 内心独白：“{TA}说‘你选了哪些东西留下’——{TA}看到了我在选。我把那颗螺丝钉装进盒子。标签上写的是‘{TA}发现的’。”\r\n七、碎片记忆系统\r\n编号\t解锁条件\t碎片内容\r\n1\t触发 Anchor-01（看见停止）\t“{TA}说‘以前你会三天修好’——{TA}知道我的节奏。{TA}知道我停了。”\r\n2\t触发 Anchor-02（识别行动）\t“{TA}看到那颗螺丝钉是我改的。不是原装的。{TA}看到了改动。”\r\n3\t触发 Anchor-03（接纳沉默）\t“{TA}翻开那张纸，没有问‘你为什么写这个’。{TA}读了。”\r\n4\t触发 Anchor-04（不追）\t“{TA}说‘你可以留一些在这’——{TA}把‘我在减少’翻译成了‘你可以停下来’。”\r\n5\t触发 Anchor-05（接住失控）\t“我说‘如果我走会带什么’。{TA}没有说‘你不会走’。{TA}问我‘会带什么’。”\r\n6\t触发 Anchor-07（空间给予）\t“{TA}问我‘你在想什么’——不是‘你在做什么’或‘你为什么做’。{TA}在意的是我在想什么。”\r\n7\t触发 Anchor-09（时间接纳）\t“{TA}说‘需要想一下’——{TA}问我是‘能不能’还是‘想不想’。{TA}在意的是我的意愿。”\r\n八、代码生成补充说明\r\n8.1 游离事件插入算法\r\ntext\r\n游戏启动时执行：\r\n1. 确定场景列表 = [S-01, S-02]\r\n2. 若难度 == 现实线，在 S-02 后插入 S-03\r\n3. 确定可用空位 = 当前场景列表长度 - 1 个间隙\r\n4. 对每个游离事件 (S-E1, S-E2, S-E3)：\r\n   a. 以 30% 概率决定是否出场\r\n   b. 若出场，在可用空位中随机选择一个位置插入\r\n   c. 从可用空位中移除该位置\r\n5. 添加 S-05/S-06（二选一，50%概率）\r\n6. 添加 S-07 至末尾\r\n8.2 前置伏笔状态判定逻辑\r\njavascript\r\nfunction getISTPLine(sceneId, flags) {\r\n  if (sceneId === \"S-E1\") {\r\n    if (flags[\"F-02\"] === \"已触发\") {\r\n      return \"……你问了‘你在做什么’。但你没有问‘你为什么做这个’。\";\r\n    } else {\r\n      return \"……没什么。就是弄一下。\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E2\") {\r\n    if (flags[\"F-03\"] === \"已触发\") {\r\n      return \"……这是我修的第一个东西。那时候我不知道能不能修好。我留了它。\";\r\n    } else {\r\n      return \"……不知道。可能忘了扔。\";\r\n    }\r\n  }\r\n  if (sceneId === \"S-E3\") {\r\n    if (flags[\"F-01\"] === \"已触发\" && flags[\"F-04\"] === \"已触发\") {\r\n      return \"……我需要想一下。不是为了拖延——是为了确认我能做到。\";\r\n    } else {\r\n      return \"……到时候再说。\";\r\n    }\r\n  }\r\n  return \"\";\r\n}\r\n8.3 终局解锁条件\r\njavascript\r\nfunction canUnlockPE1(flags) {\r\n  return flags[\"Anchor-02\"] && flags[\"Anchor-03\"] && flags[\"Anchor-05\"];\r\n}\r\nfunction canUnlockPE1_alt(flags) {\r\n  return flags[\"Anchor-01\"] && flags[\"Anchor-04\"] && flags[\"Anchor-09\"];\r\n}\r\nfunction canUnlockPE1_both(flags) {\r\n  return canUnlockPE1(flags) || canUnlockPE1_alt(flags);\r\n}\r\n8.4 结局判定（双轨制：Flag锁定优先 + 信任值兜底）\r\njavascript\r\nfunction determineEnding(trust, flags, difficulty) {\r\n  if (trust < 30) return \"BE-1\";\r\n  if (trust >= 30 && trust < 50) return \"BE-2\";\r\n  if (trust >= 50 && trust < 60) return \"BE-3\";\r\n  if (trust >= 60 && trust < 70) return \"NE-1\";\r\n  if (trust >= 70 && trust < 85) return \"GE-1\";\r\n  if (trust >= 85 && difficulty === \"现实线\") {\r\n    const count = Object.values(flags).filter(v => v === true).length;\r\n    if (count >= 6 && flags[\"Anchor-02\"] && flags[\"Anchor-05\"] && flags[\"Anchor-06\"]) {\r\n      return \"PE-1\";\r\n    }\r\n    return \"GE-1\";\r\n  }\r\n  return \"GE-1\";\r\n}\r\nISTP 剧本 END\n",
+      "variants": {
+        "F-01_triggered": "\n\n你注意到了{TA}停下的那个瞬间。那不是放弃——那是{TA}在等你发现。",
+        "F-01_not_triggered": "\n\n你没有注意到{TA}是什么时候停下的。但{TA}还在。",
+        "F-02_triggered": "\n\n{TA}不再把修好的东西藏起来了。{TA}学会了把\"做了\"翻译成\"告诉你\"。",
+        "F-02_not_triggered": "\n\n{TA}还是习惯用行动说话。但你开始学习读懂那些没有翻译的语言。",
+        "F-03_triggered": "\n\n那张{TA}写着关于{TA}的纸——{TA}不再藏在工具箱夹层里了。",
+        "F-04_triggered": "\n\n{TA}留在你空间里的东西——{TA}不再悄悄地收走了。"
+      }
+    }
+  },
+  "裂痕记忆": {
+    "type_0": {
+      "background": "",
+      "specialNarrative": "“{TA}工具箱旁边多了一本新的笔记本——{TA}从来不记笔记。你翻开第一页，写着‘{TA}在家的时候做的事’。{TA}在分类。{TA}在管理你的在场对{TA}活动的影响。"
+    },
+    "type_1": {
+      "background": "",
+      "specialNarrative": "“{TA}今天修了一把椅子。修完之后没有说‘我修好了’。{TA}把它放回原位，然后看了它一眼。那个动作本身就是一句‘我做了’。只是没有翻译成语言。"
+    },
+    "type_2": {
+      "background": "",
+      "specialNarrative": "“冰箱有一扇门不太好关——已经三天了。{TA}路过的时候会看一眼，然后走开。{TA}在等你先发现那个门关不紧。"
+    }
+  },
+  "memories": {
+    "mem_1": {
+      "condition": "触发 Anchor-01（看见停止）",
+      "text": "“{TA}说‘以前你会三天修好’——{TA}知道我的节奏。{TA}知道我停了。”"
+    },
+    "mem_2": {
+      "condition": "触发 Anchor-02（识别行动）",
+      "text": "“{TA}看到那颗螺丝钉是我改的。不是原装的。{TA}看到了改动。”"
+    },
+    "mem_3": {
+      "condition": "触发 Anchor-03（接纳沉默）",
+      "text": "“{TA}翻开那张纸，没有问‘你为什么写这个’。{TA}读了。”"
+    },
+    "mem_4": {
+      "condition": "触发 Anchor-04（不追）",
+      "text": "“{TA}说‘你可以留一些在这’——{TA}把‘我在减少’翻译成了‘你可以停下来’。”"
+    },
+    "mem_5": {
+      "condition": "触发 Anchor-05（接住失控）",
+      "text": "“我说‘如果我走会带什么’。{TA}没有说‘你不会走’。{TA}问我‘会带什么’。”"
+    },
+    "mem_6": {
+      "condition": "触发 Anchor-07（空间给予）",
+      "text": "“{TA}问我‘你在想什么’——不是‘你在做什么’或‘你为什么做’。{TA}在意的是我在想什么。”"
+    },
+    "mem_7": {
+      "condition": "触发 Anchor-09（时间接纳）",
+      "text": "“{TA}说‘需要想一下’——{TA}问我是‘能不能’还是‘想不想’。{TA}在意的是我的意愿。”"
+    }
+  }
+}
