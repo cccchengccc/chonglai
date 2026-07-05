@@ -463,8 +463,8 @@
     <div class="intro-s"><div class="l">TA 最在乎</div><div class="v" id="iNeed"></div></div>
     <div class="intro-s"><div class="l">不要触碰的</div><div class="v" id="iMine"></div></div>
     <div class="intro-s"><div class="l">矛盾降临时</div><div class="v" id="iConflict"></div></div>
-    <button class="btn-p" onclick="startGame()" style="margin-top:12px">开始挽回</button>
-    <button class="btn-s" onclick="backStart()">返回</button>
+    <button class="btn-p" style="margin-top:12px">开始挽回</button>
+    <button class="btn-s">返回</button>
   </div>
 
   <!-- ===== 游戏画面 ===== -->
@@ -502,7 +502,7 @@
     <div class="rs"><h3>选择回顾</h3><div id="choices"></div></div>
     <div class="end-act">
       <button class="btn-r" onclick="restartSame()">重来一次</button>
-      <button class="btn-b" onclick="backStart()">返回主菜单</button>
+      <button class="btn-b">返回主菜单</button>
     </div>
   </div>
 
@@ -510,14 +510,26 @@
   <div id="galleryScreen" class="screen">
     <div class="gal-h">
       <h2>结局图鉴</h2>
-      <button class="gal-bk" onclick="backStart()">← 返回</button>
+      <button class="gal-bk">← 返回</button>
     </div>
     <div id="galC"></div>
   </div>
 
 </div>
 
-<script src="GameEngine.js"></script>
+<script src="GameEngine.js">
+  document.querySelectorAll('#dg .gb').forEach(function(el){
+    el.addEventListener('click',function(){sd(el)})
+  });
+  document.getElementById('btnGo').addEventListener('click',goIntro);
+  var galBtn=document.querySelector('.btn-s');
+  if(galBtn)galBtn.addEventListener('click',showGal);
+  // 开始按钮在intro页面，由HTML直接调用
+  // 返回按钮
+  var backBtns=document.querySelectorAll('.btn-s');
+  backBtns.forEach(function(b){b.addEventListener('click',backStart)});
+});
+</script>
 <script>
 const DL={cache:{},async load(p){if(this.cache[p])return this.cache[p];const r=await fetch(`scripts/${p}.json`);const d=await r.json();this.cache[p]=d;return d}};
 
