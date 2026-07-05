@@ -519,7 +519,7 @@
       "title": "被索取过度",
       "type": "free_roam",
       "narrative": "你今天状态不好，向{TA}提了一个要求——不算大，但需要{TA}花一些时间。{TA}本来在看书，安静了几秒，然后说：\r\n",
-      "dialogue": "ISFJ（受 F-01 和 F-04 状态影响）：\n若 F-01 为“已触发”且 F-04 为“已触发”：“……我今天可能没办法做。不是不想。是今天已经没有多的力气了。”\n若未触发以上组合：“……好。我帮你弄。”\n",
+      "dialogue": "",
       "sceneHint": "",
       "options": [
         {
@@ -570,7 +570,18 @@
           "fatalError": null
         }
       ],
-      "onEnter": null,
+      "onEnter": {
+        "conditions": [
+          {
+            "check": "plotFlags[\"F-01\"] === \"已触发\" && plotFlags[\"F-04\"] === \"已触发\"",
+            "dialogue": "……我今天可能没办法做。不是不想。是今天已经没有多的力气了。"
+          },
+          {
+            "check": "true",
+            "dialogue": "……好。我帮你弄。"
+          }
+        ]
+      },
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-04",
       "condition": "无"

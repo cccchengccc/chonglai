@@ -519,7 +519,7 @@
       "title": "创作被限定",
       "type": "free_roam",
       "narrative": "有人问{TA}能不能画一个“指定主题”的东西——一个{TA}不太感兴趣的主题。{TA}没有拒绝，但也没有立刻答应。{TA}安静了一会儿，然后说：\r\n",
-      "dialogue": "ISFP（受 F-01 和 F-04 状态影响）：\n若 F-01 为“已触发”且 F-04 为“已触发”：“……我可能画不了这个。不是因为做不到——是因为画完之后，那幅画就不是我的了。”\n若未触发以上组合：“……我试试吧。”\n",
+      "dialogue": "",
       "sceneHint": "",
       "options": [
         {
@@ -570,7 +570,18 @@
           "fatalError": null
         }
       ],
-      "onEnter": null,
+      "onEnter": {
+        "conditions": [
+          {
+            "check": "plotFlags[\"F-01\"] === \"已触发\" && plotFlags[\"F-04\"] === \"已触发\"",
+            "dialogue": "……我可能画不了这个。不是因为做不到——是因为画完之后，那幅画就不是我的了。"
+          },
+          {
+            "check": "true",
+            "dialogue": "……我试试吧。"
+          }
+        ]
+      },
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-04",
       "condition": "无"

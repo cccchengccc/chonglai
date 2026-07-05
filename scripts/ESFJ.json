@@ -515,7 +515,7 @@
       "title": "被索取过度",
       "type": "free_roam",
       "narrative": "{TA}今天比平时更安静。你问{TA}“怎么了”，{TA}犹豫了一下才开口：\r\n",
-      "dialogue": "ESFJ（受 F-02 和 F-04 状态影响）：\n若 F-02 为“已触发”且 F-04 为“已触发”：“……今天有人让我帮忙做一件很花时间的事。我本来想答应。但我想了一下——我选不帮。”\n若未触发以上组合：“……今天有人让我帮忙做一件很花时间的事。我不知道怎么拒绝。所以答应了。”\n",
+      "dialogue": "",
       "sceneHint": "",
       "options": [
         {
@@ -566,7 +566,18 @@
           "fatalError": null
         }
       ],
-      "onEnter": null,
+      "onEnter": {
+        "conditions": [
+          {
+            "check": "plotFlags[\"F-02\"] === \"已触发\" && plotFlags[\"F-04\"] === \"已触发\"",
+            "dialogue": "……今天有人让我帮忙做一件很花时间的事。我本来想答应。但我想了一下——我选不帮。"
+          },
+          {
+            "check": "true",
+            "dialogue": "……今天有人让我帮忙做一件很花时间的事。我不知道怎么拒绝。所以答应了。"
+          }
+        ]
+      },
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-04",
       "condition": "无"

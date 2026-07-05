@@ -512,7 +512,7 @@
       "title": "旧物发现",
       "type": "free_roam",
       "narrative": "你在整理书柜时，发现了一个旧信封。里面是你刚开始谈恋爱时写给{TA的}第一张便签纸——“今天很开心，你笑起来还挺好看的”。\r\n{TA}保留了三年。纸已经发黄了，但没有任何折痕。\r\n",
-      "dialogue": "INTJ（受 F-01 和 F-03 状态影响）：\n若 F-01 为“已触发”且 F-03 为“已触发”：“……我留着是因为它证明了一件事——你那时候就看见我了。”\n若未触发以上组合：“哦，忘了丢。”\n",
+      "dialogue": "",
       "sceneHint": "",
       "options": [
         {
@@ -563,7 +563,18 @@
           "fatalError": null
         }
       ],
-      "onEnter": null,
+      "onEnter": {
+        "conditions": [
+          {
+            "check": "plotFlags[\"F-01\"] === \"已触发\" && plotFlags[\"F-03\"] === \"已触发\"",
+            "dialogue": "……我留着是因为它证明了一件事——你那时候就看见我了。"
+          },
+          {
+            "check": "true",
+            "dialogue": "哦，忘了丢。"
+          }
+        ]
+      },
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-03",
       "condition": "无"

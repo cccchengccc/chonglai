@@ -523,7 +523,7 @@
       "title": "被要求承诺",
       "type": "free_roam",
       "narrative": "你们在聊一件关于未来的事。你问了{TA}一个问题——不是很大，但需要{TA}做出一个表态。{TA}安静了很久，然后说：\r\n",
-      "dialogue": "INTP（受 F-01 和 F-04 状态影响）：\n若 F-01 为“已触发”且 F-04 为“已触发”：“……我没办法现在就给你答案。我需要想一下。不是因为它不重要——是因为它很重要。”\n若未触发以上组合：“……我不知道。下次再说？”\n",
+      "dialogue": "",
       "sceneHint": "",
       "options": [
         {
@@ -574,7 +574,18 @@
           "fatalError": null
         }
       ],
-      "onEnter": null,
+      "onEnter": {
+        "conditions": [
+          {
+            "check": "plotFlags[\"F-01\"] === \"已触发\" && plotFlags[\"F-04\"] === \"已触发\"",
+            "dialogue": "……我没办法现在就给你答案。我需要想一下。不是因为它不重要——是因为它很重要。"
+          },
+          {
+            "check": "true",
+            "dialogue": "……我不知道。下次再说？"
+          }
+        ]
+      },
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-04",
       "condition": "无"

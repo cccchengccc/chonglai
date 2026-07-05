@@ -519,7 +519,7 @@
       "title": "被要求承诺",
       "type": "free_roam",
       "narrative": "你问{TA}一个关于未来的问题——不是大事，但需要{TA}给一个明确的时间。{TA}安静了一会儿，然后说：\r\n",
-      "dialogue": "ISTJ（受 F-01 和 F-04 状态影响）：\n若 F-01 为“已触发”且 F-04 为“已触发”：“……我需要确认一下日历。不是因为不想答应——是因为如果答应了，我想确定我做得到。”\n若未触发以上组合：“……再说吧。到时候看。”\n",
+      "dialogue": "",
       "sceneHint": "",
       "options": [
         {
@@ -570,7 +570,18 @@
           "fatalError": null
         }
       ],
-      "onEnter": null,
+      "onEnter": {
+        "conditions": [
+          {
+            "check": "plotFlags[\"F-01\"] === \"已触发\" && plotFlags[\"F-04\"] === \"已触发\"",
+            "dialogue": "……我需要确认一下日历。不是因为不想答应——是因为如果答应了，我想确定我做得到。"
+          },
+          {
+            "check": "true",
+            "dialogue": "……再说吧。到时候看。"
+          }
+        ]
+      },
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-04",
       "condition": "无"

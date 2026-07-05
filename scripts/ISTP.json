@@ -519,7 +519,7 @@
       "title": "被要求承诺",
       "type": "free_roam",
       "narrative": "有人在电话里问{TA}关于一个长期安排的事——不是针对{TA}一个人，但{TA}需要给出回应。{TA}没有说“好”或“不好”，{TA}说了一句很简短的话：\r\n",
-      "dialogue": "ISTP（受 F-01 和 F-04 状态影响）：\n若 F-01 为“已触发”且 F-04 为“已触发”：“……我需要想一下。不是为了拖延——是为了确认我能做到。”\n若未触发以上组合：“……到时候再说。”\n",
+      "dialogue": "",
       "sceneHint": "",
       "options": [
         {
@@ -570,7 +570,18 @@
           "fatalError": null
         }
       ],
-      "onEnter": null,
+      "onEnter": {
+        "conditions": [
+          {
+            "check": "plotFlags[\"F-01\"] === \"已触发\" && plotFlags[\"F-04\"] === \"已触发\"",
+            "dialogue": "……我需要想一下。不是为了拖延——是为了确认我能做到。"
+          },
+          {
+            "check": "true",
+            "dialogue": "……到时候再说。"
+          }
+        ]
+      },
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-04",
       "condition": "无"

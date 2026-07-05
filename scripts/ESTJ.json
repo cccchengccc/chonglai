@@ -515,7 +515,7 @@
       "title": "被拒绝的方案",
       "type": "free_roam",
       "narrative": "{TA}给你看一个新方案——关于你们下次旅行的一个计划。{TA}做了两天，列了航班、酒店、路线、备选方案。你看了之后说：“这个不太行。”\r\n{TA}安静了。不是那种“等一下再说”的安静，是那种“我在消化这句话”的安静。然后{TA}说：\r\n",
-      "dialogue": "ESTJ（受 F-01 和 F-04 状态影响）：\n若 F-01 为“已触发”且 F-04 为“已触发”：“……你说‘不太行’——我可以在哪些部分调整？还是整个方向都要换？”\n若未触发以上组合：“……那你想去哪？”\n",
+      "dialogue": "",
       "sceneHint": "",
       "options": [
         {
@@ -566,7 +566,18 @@
           "fatalError": null
         }
       ],
-      "onEnter": null,
+      "onEnter": {
+        "conditions": [
+          {
+            "check": "plotFlags[\"F-01\"] === \"已触发\" && plotFlags[\"F-04\"] === \"已触发\"",
+            "dialogue": "……你说‘不太行’——我可以在哪些部分调整？还是整个方向都要换？"
+          },
+          {
+            "check": "true",
+            "dialogue": "……那你想去哪？"
+          }
+        ]
+      },
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-04",
       "condition": "无"

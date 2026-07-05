@@ -515,7 +515,7 @@
       "title": "被限制行动",
       "type": "free_roam",
       "narrative": "你说了一句：“你能不能先想好再去？”——{TA}正在穿鞋。{TA}停住了。不是“生气”的停，是“被按住了”的停。然后{TA}说：\r\n",
-      "dialogue": "ESTP（受 F-01 和 F-04 状态影响）：\n若 F-01 为“已触发”且 F-04 为“已触发”：“……你刚才说的‘想好’——是想好路线，还是想好‘为什么要去’？”\n若未触发以上组合：“……你说的‘想好’是指什么？我带上导航算想好了吗？”\n",
+      "dialogue": "",
       "sceneHint": "",
       "options": [
         {
@@ -566,7 +566,18 @@
           "fatalError": null
         }
       ],
-      "onEnter": null,
+      "onEnter": {
+        "conditions": [
+          {
+            "check": "plotFlags[\"F-01\"] === \"已触发\" && plotFlags[\"F-04\"] === \"已触发\"",
+            "dialogue": "……你刚才说的‘想好’——是想好路线，还是想好‘为什么要去’？"
+          },
+          {
+            "check": "true",
+            "dialogue": "……你说的‘想好’是指什么？我带上导航算想好了吗？"
+          }
+        ]
+      },
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-04",
       "condition": "无"
