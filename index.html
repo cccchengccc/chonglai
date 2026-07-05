@@ -593,7 +593,7 @@ function backStart(){U.scr('startScreen');U.g=null}
 
 async function startGame(){const p=document.getElementById('selP').value,d=U.selD,g=U.selG;if(!p||!g)return;U.scr('loadingScreen');U.g=new GameEngine(DL);const dt=await DL.load(p);document.getElementById('ghCode').textContent=p;document.getElementById('ghName').textContent=dt.meta.name;const de=document.getElementById('ghDiff');de.textContent=d;de.className=d==='现实线'?'gh-d rl':'gh-d';U.g.subscribe(e=>{if(e.type==='scene'&&U._skipAdvance){U._pendingRender={id:e.sceneId,scene:e.scene}}else if(e.type==='scene'){U.render(e.sceneId,e.scene)}if(e.type==='choice'&&e.nextScene&&!e.nextScene.startsWith('__')){}});U.scr('gameScreen');U.clr();await U.g.startGame(p,d,g)}
 
-function showEndResult(){document.getElementById("endBtnArea").style.display="none";document.getElementById("endResultArea").style.display="block";U.recap()}
+function showEndResult(){document.getElementById("endBtnArea").style.display="none";document.getElementById("endNarrArea").style.display="none";document.getElementById("endMonoArea").style.display="none";document.getElementById("endResultArea").style.display="block";U.recap()}
 
 function restartSame(){U._pendingAdvance=null;U._pendingRender=null;U._skipAdvance=false;U._pendingOpts=[];document.getElementById("pauseBtn").style.display="none";goIntro()}
 function sl(ms){return new Promise(r=>setTimeout(r,ms))}
