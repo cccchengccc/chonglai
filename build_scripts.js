@@ -272,6 +272,37 @@ function extractSceneData(mdContent) {
     }
   }
 
+  // 处理条件对话
+  for (const sid of Object.keys(scenes)) {
+    const scene = scenes[sid];
+    const dia = scene.dialogue;
+    if (!dia || !dia.includes('受 F-')) continue;
+
+    const conditions = [];
+    const lines = dia.split('\n');
+    for (const line of lines) {
+      const tl = line.trim();
+      if (!tl) continue;
+      // 双条件: 若 F-XX 为"状态"且 F-YY 为"状态"："text"
+      let m = tl.match(/^若 (F-\d+) 为["']([^"']+)["']且 (F-\d+) 为["']([^"']+)["']：?["']([^"']*)["']/);
+      if (m) { conditions.push({check: 'plotFlags["'+m[1]+'"]==="'+m[2]+'" && plotFlags["'+m[3]+'"]==="'+m[4]+'"', dialogue: m[5]}); continue; }
+      // 单条件: 若 F-XX 为"状态"："text"
+      m = tl.match(/^若 (F-\d+) 为["']([^"']+)["']：?["']([^"']*)["']/);
+      if (m) { conditions.push({check: 'plotFlags["'+m[1]+'"]==="'+m[2]+'"', dialogue: m[3]}); continue; }
+      // 默认: 若未触发以上组合："text"
+      m = tl.match(/^若未触发以上组合：?["']([^"']*)["']/);
+      if (m) { conditions.push({check: 'true', dialogue: m[1]}); continue; }
+      // 或条件: 若 F-XX 为"状态1"或"状态2"："text"
+      m = tl.match(/^若 (F-\d+) 为["']([^"']+)["']或["']([^"']+)["']：?["']([^"']*)["']/);
+      if (m) { conditions.push({check: 'plotFlags["'+m[1]+'"]==="'+m[2]+'" || plotFlags["'+m[1]+'"]==="'+m[3]+'"', dialogue: m[4]}); continue; }
+    }
+
+    if (conditions.length > 0) {
+      scene.onEnter = { conditions };
+      scene.dialogue = '';  // 由onEnter条件决定对话
+    }
+  }
+
   return scenes;
 }
 
