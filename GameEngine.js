@@ -329,13 +329,40 @@ class GameEngine {
     if (!nextSceneDef) return null;
     if (nextSceneDef === '__ENDING__') return '__ENDING__';
 
-    // 处理条件跳转
+    // 处理条件跳转对象
     if (typeof nextSceneDef === 'object') {
       for (const [condition, target] of Object.entries(nextSceneDef)) {
         if (condition === 'default') continue;
         if (this._checkCondition(condition)) return target;
       }
       return nextSceneDef.default || null;
+    }
+
+    // 处理Markdown条件格式: "S-E1（若出场）/ S-03（若现实线）/ S-04"
+    if (typeof nextSceneDef === 'string' && (nextSceneDef.includes('若') || nextSceneDef.includes('/'))) {
+      const parts = nextSceneDef.split('/').map(s => s.trim());
+      for (const part of parts) {
+        const match = part.match(/^([\w-]+)\s*（若(.+)）$/);
+        if (match) {
+          const sceneId = match[1];
+          const cond = match[2];
+          if (cond === '出场' && this.state.activeEvents?.includes(sceneId)) {
+            return sceneId;
+          }
+          if (cond === '现实线' && this.state.difficulty === '现实线') {
+            return sceneId;
+          }
+          // 其他条件默认跳过
+          continue;
+        }
+        // 无条件的部分作为默认跳转
+        if (part.match(/^[\w-]+$/)) {
+          return part;
+        }
+      }
+      // 所有条件都不满足，返回最后一个无条件项
+      const simpleParts = parts.filter(p => p.match(/^[\w-]+$/));
+      return simpleParts.length > 0 ? simpleParts[simpleParts.length - 1] : null;
     }
 
     return nextSceneDef;
