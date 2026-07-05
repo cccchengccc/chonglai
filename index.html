@@ -384,6 +384,18 @@
     .b.pa .t,.b.pl .t{max-width:92%;font-size:13px}
     .intro-h .name{font-size:22px}
     #endScreen{padding:40px 28px}
+    .ob{font-size:12px;padding:13px 14px;word-break:break-word}
+    .b.pa .t,.b.pl .t{font-size:13px;padding:12px 14px;word-break:break-word}
+    .gh{padding:12px 14px 10px}
+    .chat{padding:16px 14px 150px}
+    .rs{padding:14px 16px}
+  }
+  @media(max-width:360px){
+    #startScreen h1{font-size:36px;letter-spacing:10px}
+    .b.pa .t,.b.pl .t{font-size:12px;padding:10px 12px}
+    .ob{font-size:11px;padding:11px 12px}
+    .sg select{font-size:13px;padding:12px 14px}
+    .g2 .b{font-size:13px;padding:12px}
   }
 </style>
 </head>
@@ -469,7 +481,12 @@
       <div class="tl"><span>信任值 <span id="tv">30</span></span><span id="tlv">疏远</span></div>
     </div>
     <div class="chat" id="chat"></div>
-    <div class="oa hidden" id="oa"><div id="optC"></div></div>
+    <div class="oa hidden" id="oa">
+    <div id="pauseBtn" style="display:none">
+      <button class="ob" id="continueBtn" onclick="U.cont()" style="text-align:center;letter-spacing:3px;color:var(--text-dim)">回应 TA</button>
+    </div>
+    <div id="optC"></div>
+  </div>
   </div>
 
   <!-- ===== 结局/复盘 ===== -->
@@ -507,14 +524,34 @@ const DL={cache:{},async load(p){if(this.cache[p])return this.cache[p];const r=a
 const U={g:null,selG:null,selD:'理想线',
   scr(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active')},
   clr(){document.getElementById('chat').innerHTML=''},
-  bub(t,txt){const a=document.getElementById('chat'),d=document.createElement('div');d.className=`b ${t}`;d.innerHTML=`<div class="t">${txt}</div>`;a.appendChild(d);a.scrollTop=a.scrollHeight;return d},
+  _t(s){if(!s)return s;const g=this.g?.state?.partnerGender||'male';return s.replace(/\{TA\}/g,g==='male'?'他':'她').replace(/\{TA的\}/g,g==='male'?'他的':'她的').replace(/\{TA自己\}/g,g==='male'?'他自己':'她自己')},
+  bub(t,txt){const a=document.getElementById('chat'),d=document.createElement('div');d.className=`b ${t}`;d.innerHTML=`<div class="t">${this._t(txt)}</div>`;a.appendChild(d);a.scrollTop=a.scrollHeight;return d},
   tr(v){document.getElementById('tb').style.width=v+'%';document.getElementById('tv').textContent=v;const l=document.getElementById('tlv');l.textContent=v>=85?'信任':v>=70?'亲近':v>=50?'平淡':'疏远'},
   op(opts){const c=document.getElementById('optC'),a=document.getElementById('oa');c.innerHTML='';a.classList.remove('hidden');opts.forEach((o,i)=>{const b=document.createElement('button');b.className='ob'+(o.condition?' dis':'');b.textContent=`${['A','B','C'][i]}. ${o.text||''}`;b.onclick=()=>this.pk(i,o.id);c.appendChild(b)})},
   hide(){document.getElementById('oa').classList.add('hidden')},
   async pk(i,id){if(!this.g)return;this.hide();const d=await DL.load(this.g.state.personality),s=d.scenes[this.g.state.currentScene],o=s?.options?.find(x=>x.id===id);if(o){this.bub('pl',o.text||'');await sl(200);if(o.reaction){this.bub('re',o.reaction);await sl(400)}}const r=await this.g.chooseOption(id);if(r&&r.startsWith&&r.startsWith('BE-')){this.end(r)}},
   async end(code){const d=this.g.state,s=await DL.load(d.personality);GameEngine.saveEndingToGallery(d.personality,code,d.trust);this.scr('endScreen');const vt=this.g.getEndingVariant(code,s),bt=s.endings?.[code]?.text||'';const em={'BE-1':'💔','BE-2':'💔','BE-3':'💔','NE-1':'🌊','GE-1':'🔥','PE-1':'✨'};document.getElementById('eEmoji').textContent=em[code]||'💔';document.getElementById('eCode').textContent=code;const nm={'BE-1':'被动模式','BE-2':'工具箱关闭','BE-3':'你留下的是功能','NE-1':'冰层融化','GE-1':'行动被看见','PE-1':'不用解释的回应'};document.getElementById('eTitle').textContent=nm[code]||code;document.getElementById('eText').textContent=(this.g.state.currentScene===null)?(vt||bt):(s.endings?.[code]?.text||'');this.recap(s);this.g.saveGame()},
   recap(sd){const r=this.g.getRecap();const h=r.trustHistory;let ch='';if(h.length>1){const mx=Math.max(100,...h.map(x=>x.trust));ch='<div class="chart">';h.forEach((x,i)=>{const p=Math.max(2,(x.trust/mx)*40);const c=x.change>0?'p':x.change<0?'n':'z';ch+=`<div class="bar ${c}" style="height:${p}px" title="第${i}步: ${x.trust} (${x.change>0?'+':''}${x.change||0})"></div>`});ch+='</div>'}else{ch='<div style="color:var(--text-dimmer);font-size:12px">数据不足</div>'}document.getElementById('tChart').innerHTML=ch;const fc=r.flagCount;document.getElementById('stats').innerHTML=`<div class="rs-r"><span class="l">最终信任值</span><span class="v ${r.trust>=70?'g':r.trust<30?'ag':'gr'}">${r.trust}</span></div><div class="rs-r"><span class="l">关键 Flag</span><span class="v">${fc}/9</span></div><div class="rs-r"><span class="l">经历场景</span><span class="v">${r.sceneHistory.length}</span></div><div class="rs-r"><span class="l">选择次数</span><span class="v">${r.choiceHistory.length}</span></div><div class="rs-r"><span class="l">解锁碎片</span><span class="v">${r.unlockedMemories.length}/7</span></div><div class="rs-r"><span class="l">轨迹</span><span class="v">${r.difficulty}</span></div>`;let ch2='';if(!r.choiceHistory.length){ch2='<div style="color:var(--text-dimmer);font-size:12px">暂无记录</div>'}else{r.choiceHistory.forEach((c,i)=>{const cls=c.trustChange>0?'p':c.trustChange<0?'n':'';const sign=c.trustChange>0?'+':'';ch2+=`<div class="ch-item"><div class="sc">${c.scene} · 选项 ${c.optionId}</div><div class="tx">${c.text||''}</div><div class="delta ${cls}">信任值 ${sign}${c.trustChange||0}</div></div>`})}document.getElementById('choices').innerHTML=ch2},
-  async render(id,r){this.clr();if(id==='S-01'){const d=await DL.load(this.g.state.personality),c=d.裂gn||{},t=this.g.state.裂痕类型,tn=['被入侵','被情感压迫','被忽视的付出'];if(c[`type_${t}`]){this.bub('sys','✦ '+tn[t]);await sl(300)}}if(r.narrative?.trim()){this.bub('nar',r.narrative.trim());await sl(300)}if(r.dialogue?.trim()){await sl(200);this.bub('pa',r.dialogue.trim());await sl(400)}if(r.sceneHint){await sl(100);this.bub('sys',r.sceneHint)}this.tr(this.g.state.trust);await sl(300);const vo=(r.options||[]).filter(o=>!o.condition);this.op(vo)},
+  cont(){
+    document.getElementById('pauseBtn').style.display='none';
+    const opts=this._pendingOpts||[];
+    this.op(opts);
+  }
+  showPause(){
+    // 获取当前场景的有效选项并暂存
+    const d=this.g&&this.g.state;
+    if(!d)return;
+    // 从当前场景获取选项
+    const self=this;
+    (async()=>{
+      const sd=await DL.load(d.personality);
+      const sc=sd.scenes[d.currentScene];
+      self._pendingOpts=(sc?.options||[]).filter(o=>!o.condition);
+      document.getElementById('pauseBtn').style.display='block';
+      document.getElementById('optC').innerHTML='';
+    })();
+  }
+  async render(id,r){this.clr();if(id==='S-01'){const d=await DL.load(this.g.state.personality),c=d.裂痕记忆||{},t=this.g.state.裂痕类型,tn=['被入侵','被情感压迫','被忽视的付出'];if(c[`type_${t}`]){this.bub('sys','✦ '+tn[t]);await sl(300)}}if(r.narrative?.trim()){this.bub('nar',r.narrative.trim());await sl(300)}if(r.dialogue?.trim()){await sl(200);this.bub('pa',r.dialogue.trim());await sl(400)}if(r.sceneHint){await sl(100);this.bub('sys',r.sceneHint)}this.tr(this.g.state.trust);await sl(300);this.showPause()},
 };
 
 function sg(el){document.querySelectorAll('#gg .b').forEach(b=>b.classList.remove('on'));el.classList.add('on');U.selG=el.dataset.v;ub()}

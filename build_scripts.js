@@ -249,9 +249,16 @@ function extractSceneData(mdContent) {
       }
     }
 
-    // 累积台词
+    // 累积台词（去掉人格代号前缀）
     if (section === 'dialogue' && line.trim()) {
-      scenes[currentScene].dialogue += line + '\n';
+      let clean = line.trim();
+      // 去掉 ENFP： "..."、ISTP：“...” 之类的前缀
+      clean = clean.replace(/^[A-Z]+[：:]\s*/, '');
+      // 去掉 {TA} 反应： 前缀（保留内容）
+      clean = clean.replace(/^\{TA\}\s*反应[：:]\s*/, '');
+      // 去掉 人格名 反应： 前缀
+      clean = clean.replace(/^[A-Z]+\s*反应[：:]\s*/, '');
+      scenes[currentScene].dialogue += clean + '\n';
     }
 
     // 累积选项文本
