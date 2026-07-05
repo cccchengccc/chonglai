@@ -133,7 +133,7 @@
       "title": "他人危机",
       "type": "free_roam",
       "narrative": "你们共同的朋友深夜打电话来，情绪崩溃。{TA}接了——在电话里轻声安抚了对方四十分钟。挂了电话之后，{TA}坐在沙发上，没有动。你看到{TA的}眼睛是空的——{TA}把自己的能量给了别人，但没有人给{TA}补回来。\r\n",
-      "dialogue": "ENFJ（受 F-02 状态影响）：\n若 F-02 为“完全触发”：“……我今天电量用完了。但那个人没事了。”\n若 F-02 为“未触发”或“部分触发”：“……我没事。你不用担心。”\n",
+      "dialogue": "",
       "sceneHint": "",
       "options": [
         {
@@ -184,7 +184,14 @@
           "fatalError": null
         }
       ],
-      "onEnter": null,
+      "onEnter": {
+        "conditions": [
+          {
+            "check": "plotFlags[\"F-02\"] === \"完全触发\"",
+            "dialogue": "……我今天电量用完了。但那个人没事了。"
+          }
+        ]
+      },
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-04",
       "condition": "无"

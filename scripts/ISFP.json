@@ -133,7 +133,7 @@
       "title": "创作被公开",
       "type": "free_roam",
       "narrative": "你发现{TA的}一张画被人发到了社交媒体上——不是{TA}发的，是别人拍的。下面有评论：“这个风格好像 XX 画家”“这个颜色搭配有点奇怪”“还不错”。\r\n{TA}看到了。{TA}没有说话，把手机翻了过去。你问{TA}，{TA}停了一下才开口：\r\n",
-      "dialogue": "ISFP（受 F-02 状态影响）：\n若 F-02 为“已触发”：“……我没有想被评价。我只是想画。被评价之后，那张画就不再是我的了。”\n若 F-02 为“未触发”：“……没什么。就是一张画而已。”\n",
+      "dialogue": "",
       "sceneHint": "",
       "options": [
         {
@@ -184,7 +184,18 @@
           "fatalError": null
         }
       ],
-      "onEnter": null,
+      "onEnter": {
+        "conditions": [
+          {
+            "check": "plotFlags[\"F-02\"] === \"已触发\"",
+            "dialogue": "……我没有想被评价。我只是想画。被评价之后，那张画就不再是我的了。"
+          },
+          {
+            "check": "plotFlags[\"F-02\"] === \"未触发\"",
+            "dialogue": "……没什么。就是一张画而已。"
+          }
+        ]
+      },
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-02",
       "condition": "无"
@@ -314,7 +325,7 @@
       "title": "旧速写",
       "type": "free_roam",
       "narrative": "你翻到{TA}一本旧速写本——里面是很多没画完的东西：一只手、一个侧影、一片天空的一半。都是“没有完成”的。但在其中一页，有一个侧影——是你。只画了一半，但那个轮廓你认得。\r\n你问{TA}：“这个是你画的？”\r\n{TA}看了一眼：\r\n",
-      "dialogue": "ISFP（受 F-03 状态影响）：\n若 F-03 为“已触发”：“……那时候你坐在窗户旁边。我画了一半就停下来了。因为画完了就不敢给你看了。”\n若 F-03 为“未触发”：“……随便画的。认不出来吧。”\n",
+      "dialogue": "",
       "sceneHint": "",
       "options": [
         {
@@ -365,7 +376,18 @@
           "fatalError": null
         }
       ],
-      "onEnter": null,
+      "onEnter": {
+        "conditions": [
+          {
+            "check": "plotFlags[\"F-03\"] === \"已触发\"",
+            "dialogue": "……那时候你坐在窗户旁边。我画了一半就停下来了。因为画完了就不敢给你看了。"
+          },
+          {
+            "check": "plotFlags[\"F-03\"] === \"未触发\"",
+            "dialogue": "……随便画的。认不出来吧。"
+          }
+        ]
+      },
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-03",
       "condition": "无"

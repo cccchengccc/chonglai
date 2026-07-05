@@ -318,7 +318,7 @@
       "title": "家人干涉",
       "type": "free_roam",
       "narrative": "你妈妈给你打了个电话，声音很大——你忘了关免提。“那个人有什么好？天天加班，以后结婚了你一个人守着家？”\r\n{TA}正坐在旁边看书。{TA}翻了一页。手指没有抖。\r\n",
-      "dialogue": "INTJ（受 F-01 状态影响）：\n若 F-01 为“已触发”：“……你妈说得对。你考虑一下。”\n若 F-01 为“未触发”：“……{TA}说的是事实。”\n",
+      "dialogue": "",
       "sceneHint": "",
       "options": [
         {
@@ -369,7 +369,18 @@
           "fatalError": null
         }
       ],
-      "onEnter": null,
+      "onEnter": {
+        "conditions": [
+          {
+            "check": "plotFlags[\"F-01\"] === \"已触发\"",
+            "dialogue": "……你妈说得对。你考虑一下。"
+          },
+          {
+            "check": "plotFlags[\"F-01\"] === \"未触发\"",
+            "dialogue": "……{TA}说的是事实。"
+          }
+        ]
+      },
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-01",
       "condition": "无"

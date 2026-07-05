@@ -133,7 +133,7 @@
       "title": "被要求解释",
       "type": "free_roam",
       "narrative": "{TA}正在做一件事——修一个东西、调整一个设备、或者拆开什么再装回去。你在旁边看了一会儿，然后问了一句：\r\n",
-      "dialogue": "ISTP（受 F-02 状态影响）：\n若 F-02 为“已触发”：“……你问了‘你在做什么’。但你没有问‘你为什么做这个’。”\n若 F-02 为“未触发”：“……没什么。就是弄一下。”\n",
+      "dialogue": "",
       "sceneHint": "",
       "options": [
         {
@@ -184,7 +184,18 @@
           "fatalError": null
         }
       ],
-      "onEnter": null,
+      "onEnter": {
+        "conditions": [
+          {
+            "check": "plotFlags[\"F-02\"] === \"已触发\"",
+            "dialogue": "……你问了‘你在做什么’。但你没有问‘你为什么做这个’。"
+          },
+          {
+            "check": "plotFlags[\"F-02\"] === \"未触发\"",
+            "dialogue": "……没什么。就是弄一下。"
+          }
+        ]
+      },
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-02",
       "condition": "无"
@@ -314,7 +325,7 @@
       "title": "旧零件",
       "type": "free_roam",
       "narrative": "你在{TA的}抽屉里发现一个旧零件——不像是还能用的东西，但被擦得很干净，放在一个单独的格子里。你问{TA}：“这个是什么？”\r\n{TA}看了一眼：\r\n",
-      "dialogue": "ISTP（受 F-03 状态影响）：\n若 F-03 为“已触发”：“……这是我修的第一个东西。那时候我不知道能不能修好。我留了它。”\n若 F-03 为“未触发”：“……不知道。可能忘了扔。”\n",
+      "dialogue": "",
       "sceneHint": "",
       "options": [
         {
@@ -365,7 +376,18 @@
           "fatalError": null
         }
       ],
-      "onEnter": null,
+      "onEnter": {
+        "conditions": [
+          {
+            "check": "plotFlags[\"F-03\"] === \"已触发\"",
+            "dialogue": "……这是我修的第一个东西。那时候我不知道能不能修好。我留了它。"
+          },
+          {
+            "check": "plotFlags[\"F-03\"] === \"未触发\"",
+            "dialogue": "……不知道。可能忘了扔。"
+          }
+        ]
+      },
       "appearRule": "30%概率，随机浮动插入",
       "foreshadowCheck": "F-03",
       "condition": "无"
