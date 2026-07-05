@@ -226,7 +226,16 @@ class GameEngine {
     return scene;
   }
 
-  /** 渲染 {TA} 模板变量 */
+  /** 渲染单个文本中的 {TA} 模板变量 */
+  _renderTemplate(text, gender) {
+    if (!text) return text;
+    const ta = gender === 'male' ? '他' : '她';
+    const taDe = gender === 'male' ? '他的' : '她的';
+    const taSelf = gender === 'male' ? '他自己' : '她自己';
+    return text.replace(/\{TA\}/g, ta).replace(/\{TA的\}/g, taDe).replace(/\{TA自己\}/g, taSelf);
+  }
+
+  /** 渲染场景 {TA} 模板变量 */
   _renderTemplates(scene, gender) {
     const ta = gender === 'male' ? '他' : '她';
     const taDe = gender === 'male' ? '他的' : '她的';
@@ -282,6 +291,34 @@ class GameEngine {
     if (trust < 70) return 'NE-1';
     if (trust < 85) return 'GE-1';
     return 'GE-1';
+  }
+
+  /** 获取结局文本变体（基于伏笔状态） */
+  getEndingVariant(endingId, scriptData) {
+    const ending = scriptData.endings?.[endingId];
+    if (!ending || !ending.variants) return ending?.text || '';
+
+    let text = ending.text;
+    const pf = this.state.plotFlags;
+
+    if (pf['F-01'] === '已触发' && ending.variants['F-01_triggered']) {
+      text += this._renderTemplate(ending.variants['F-01_triggered'], this.state.partnerGender);
+    } else if (ending.variants['F-01_not_triggered']) {
+      text += this._renderTemplate(ending.variants['F-01_not_triggered'], this.state.partnerGender);
+    }
+    if (pf['F-02'] === '已触发' && ending.variants['F-02_triggered']) {
+      text += this._renderTemplate(ending.variants['F-02_triggered'], this.state.partnerGender);
+    } else if (ending.variants['F-02_not_triggered']) {
+      text += this._renderTemplate(ending.variants['F-02_not_triggered'], this.state.partnerGender);
+    }
+    if (pf['F-03'] === '已触发' && ending.variants['F-03_triggered']) {
+      text += this._renderTemplate(ending.variants['F-03_triggered'], this.state.partnerGender);
+    }
+    if (pf['F-04'] === '已触发' && ending.variants['F-04_triggered']) {
+      text += this._renderTemplate(ending.variants['F-04_triggered'], this.state.partnerGender);
+    }
+
+    return text;
   }
 
   /** 获取复盘数据 */
