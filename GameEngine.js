@@ -177,9 +177,17 @@ class GameEngine {
       return ending;
     }
 
+    if (this._skipEnter) {
+      return { nextScene, scriptData, trust: this.state.trust };
+    }
     await this.enterScene(nextScene, scriptData);
     this._notify({ type: 'choice', optionId, nextScene });
     return nextScene;
+  }
+
+  /** 设置跳过自动进入场景（用于"在那之后…"停顿） */
+  setSkipEnter(val) {
+    this._skipEnter = val;
   }
 
   /** 进入场景 */
