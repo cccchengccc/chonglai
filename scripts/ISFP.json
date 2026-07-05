@@ -3,9 +3,7 @@
     "id": "ISFP",
     "name": "探险家",
     "theme": "用创作替代语言，用沉默测试理解",
-    "startingTrust": 30,
-    "originalGender": "female",
-    "genderNote": "剧情已通过模板化处理适配两种性别，部分细节可能更适合原始设计视角"
+    "startingTrust": 30
   },
   "scenes": {
     "S-01": {

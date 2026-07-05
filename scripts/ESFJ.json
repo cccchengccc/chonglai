@@ -3,9 +3,7 @@
     "id": "ESFJ",
     "name": "执政官",
     "theme": "用照顾证明价值，用馈赠测试记忆",
-    "startingTrust": 30,
-    "originalGender": "female",
-    "genderNote": "剧情已通过模板化处理适配两种性别，部分细节可能更适合原始设计视角"
+    "startingTrust": 30
   },
   "scenes": {
     "S-01": {

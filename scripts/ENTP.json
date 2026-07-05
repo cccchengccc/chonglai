@@ -3,9 +3,7 @@
     "id": "ENTP",
     "name": "辩论家",
     "theme": "用智力代替情感，用辩论测试忠诚",
-    "startingTrust": 30,
-    "originalGender": "male",
-    "genderNote": "剧情已通过模板化处理适配两种性别，部分细节可能更适合原始设计视角"
+    "startingTrust": 30
   },
   "scenes": {
     "S-01": {

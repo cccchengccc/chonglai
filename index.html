@@ -426,7 +426,7 @@
       </div>
     </div>
 
-    <div id="gn"></div>
+    <div id="gn" style="display:none"></div>
     <button class="btn-p" onclick="goIntro()" id="btnGo" disabled>了解 TA</button>
     <button class="btn-s" onclick="showGal()">结局图鉴</button>
   </div>
@@ -445,7 +445,7 @@
       <div class="theme" id="iTheme"></div>
     </div>
     <div class="intro-k">
-      <div class="l">挽回密钥</div>
+      <div class="l">关于 TA</div>
       <div class="v" id="iKey"></div>
     </div>
     <div class="intro-s"><div class="l">核心需求</div><div class="v" id="iNeed"></div></div>
@@ -515,12 +515,11 @@ const U={g:null,selG:null,selD:'理想线',
   async end(code){const d=this.g.state,s=await DL.load(d.personality);GameEngine.saveEndingToGallery(d.personality,code,d.trust);this.scr('endScreen');const vt=this.g.getEndingVariant(code,s),bt=s.endings?.[code]?.text||'';const em={'BE-1':'💔','BE-2':'💔','BE-3':'💔','NE-1':'🌊','GE-1':'🔥','PE-1':'✨'};document.getElementById('eEmoji').textContent=em[code]||'💔';document.getElementById('eCode').textContent=code;const nm={'BE-1':'被动模式','BE-2':'工具箱关闭','BE-3':'你留下的是功能','NE-1':'冰层融化','GE-1':'行动被看见','PE-1':'不用解释的回应'};document.getElementById('eTitle').textContent=nm[code]||code;document.getElementById('eText').textContent=(this.g.state.currentScene===null)?(vt||bt):(s.endings?.[code]?.text||'');this.recap(s);this.g.saveGame()},
   recap(sd){const r=this.g.getRecap();const h=r.trustHistory;let ch='';if(h.length>1){const mx=Math.max(100,...h.map(x=>x.trust));ch='<div class="chart">';h.forEach((x,i)=>{const p=Math.max(2,(x.trust/mx)*40);const c=x.change>0?'p':x.change<0?'n':'z';ch+=`<div class="bar ${c}" style="height:${p}px" title="第${i}步: ${x.trust} (${x.change>0?'+':''}${x.change||0})"></div>`});ch+='</div>'}else{ch='<div style="color:var(--text-dimmer);font-size:12px">数据不足</div>'}document.getElementById('tChart').innerHTML=ch;const fc=r.flagCount;document.getElementById('stats').innerHTML=`<div class="rs-r"><span class="l">最终信任值</span><span class="v ${r.trust>=70?'g':r.trust<30?'ag':'gr'}">${r.trust}</span></div><div class="rs-r"><span class="l">关键 Flag</span><span class="v">${fc}/9</span></div><div class="rs-r"><span class="l">经历场景</span><span class="v">${r.sceneHistory.length}</span></div><div class="rs-r"><span class="l">选择次数</span><span class="v">${r.choiceHistory.length}</span></div><div class="rs-r"><span class="l">解锁碎片</span><span class="v">${r.unlockedMemories.length}/7</span></div><div class="rs-r"><span class="l">轨迹</span><span class="v">${r.difficulty}</span></div>`;let ch2='';if(!r.choiceHistory.length){ch2='<div style="color:var(--text-dimmer);font-size:12px">暂无记录</div>'}else{r.choiceHistory.forEach((c,i)=>{const cls=c.trustChange>0?'p':c.trustChange<0?'n':'';const sign=c.trustChange>0?'+':'';ch2+=`<div class="ch-item"><div class="sc">${c.scene} · 选项 ${c.optionId}</div><div class="tx">${c.text||''}</div><div class="delta ${cls}">信任值 ${sign}${c.trustChange||0}</div></div>`})}document.getElementById('choices').innerHTML=ch2},
   async render(id,r){this.clr();if(id==='S-01'){const d=await DL.load(this.g.state.personality),c=d.裂gn||{},t=this.g.state.裂痕类型,tn=['被入侵','被情感压迫','被忽视的付出'];if(c[`type_${t}`]){this.bub('sys','✦ '+tn[t]);await sl(300)}}if(r.narrative?.trim()){this.bub('nar',r.narrative.trim());await sl(300)}if(r.dialogue?.trim()){await sl(200);this.bub('pa',r.dialogue.trim());await sl(400)}if(r.sceneHint){await sl(100);this.bub('sys',r.sceneHint)}this.tr(this.g.state.trust);await sl(300);const vo=(r.options||[]).filter(o=>!o.condition);this.op(vo)},
-  async gn(p){const n=document.getElementById('gn');if(!p||!this.selG){n.style.display='none';return}try{const d=await DL.load(p),og=d.meta.originalGender;if(og!=='neutral'&&this.selG!==og){const nm={male:'男性',female:'女性'};n.style.cssText='display:block;background:rgba(196,166,122,.06);border:1px solid rgba(196,166,122,.12);color:var(--gold)';n.innerHTML=`该剧本原本围绕 <strong>${nm[og]}</strong> 伴侣设计。选择 ${nm[this.selG]} 可能使部分台词的自然度下降。`}else{n.style.display='none'}}catch(e){n.style.display='none'}}
 };
 
 function sg(el){document.querySelectorAll('#gg .b').forEach(b=>b.classList.remove('on'));el.classList.add('on');U.selG=el.dataset.v;ub()}
 function sd(el){document.querySelectorAll('#dg .b').forEach(b=>b.classList.remove('on'));el.classList.add('on');U.selD=el.dataset.v}
-function ub(){const b=document.getElementById('btnGo'),p=document.getElementById('selP').value;b.disabled=!(p&&U.selG);U.gn(p)}
+function ub(){const b=document.getElementById('btnGo'),p=document.getElementById('selP').value;b.disabled=!(p&&U.selG)}
 document.getElementById('selP').onchange=ub;
 
 const PF={ISTJ:{need:'忠诚专一，重视承诺。生活需要秩序和稳定，感情需要规划和保障。',mine:'不守时、不守承诺、打乱其计划秩序、情绪化的无理取闹。',conf:'撤退与沉默是首选。用遵守规则来履行责任，用行动而非语言表达立场。'},
@@ -540,7 +539,7 @@ ESFJ:{need:'稳定有安全感的关系。希望被信任和重视，被需要�
 ENFJ:{need:'激发出伴侣的最佳潜能。重视承诺，需要被真诚对待。',mine:'冷漠不回应其付出、否定其帮助他人的努力。',conf:'在让步和回避之间摇摆。同时积极合作寻求解决方案。'},
 ENTJ:{need:'忠诚聪明、能够辅佐其「征服天下」的伴侣。极强的认同感。',mine:'优柔寡断模棱两可、挑战其权威、不守时不兑现承诺。',conf:'强势的逻辑主导对话。喜欢掌控局面，愿意在目标一致时进行战略性合作。'}};
 
-async function goIntro(){const p=document.getElementById('selP').value,g=U.selG;if(!p||!g)return;U.scr('loadingScreen');const d=await DL.load(p),pf=PF[p]||{};document.getElementById('iCode').textContent=p;document.getElementById('iName').textContent=d.meta.name;document.getElementById('iTheme').textContent=`「${d.meta.theme||''}」`;document.getElementById('iKey').textContent=d.meta.theme||'——';document.getElementById('iNeed').textContent=pf.need||'——';document.getElementById('iMine').textContent=pf.mine||'——';document.getElementById('iConflict').textContent=pf.conf||'——';U.scr('introScreen')}
+async function goIntro(){const p=document.getElementById('selP').value,g=U.selG;if(!p||!g)return;U.scr('loadingScreen');const d=await DL.load(p),pf=PF[p]||{};document.getElementById('iCode').textContent=p;document.getElementById('iName').textContent=d.meta.name;document.getElementById('iTheme').textContent=`「${d.meta.theme||''}」`;document.getElementById('iKey').textContent=pf.need?.split('。')[0]||'——';document.getElementById('iNeed').textContent=pf.need||'——';document.getElementById('iMine').textContent=pf.mine||'——';document.getElementById('iConflict').textContent=pf.conf||'——';U.scr('introScreen')}
 
 function backStart(){U.scr('startScreen');U.g=null}
 

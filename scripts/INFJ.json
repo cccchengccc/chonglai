@@ -3,9 +3,7 @@
     "id": "INFJ",
     "name": "提倡者",
     "theme": "用面具保护灵魂，用投射测试真实",
-    "startingTrust": 30,
-    "originalGender": "female",
-    "genderNote": "剧情已通过模板化处理适配两种性别，部分细节可能更适合原始设计视角"
+    "startingTrust": 30
   },
   "scenes": {
     "S-01": {

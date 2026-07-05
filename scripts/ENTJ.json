@@ -3,9 +3,7 @@
     "id": "ENTJ",
     "name": "指挥官",
     "theme": "用目标掩盖脆弱，用掌控测试忠诚",
-    "startingTrust": 30,
-    "originalGender": "male",
-    "genderNote": "剧情已通过模板化处理适配两种性别，部分细节可能更适合原始设计视角"
+    "startingTrust": 30
   },
   "scenes": {
     "S-01": {
