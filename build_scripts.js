@@ -305,6 +305,14 @@ function extractSceneData(mdContent) {
     }
   }
 
+  // 叙事文本自动分段：按。！？拆分长句
+  for (const sid of Object.keys(scenes)) {
+    const s = scenes[sid];
+    if (s.narrative) {
+      s.narrative = s.narrative.replace(/([。！？」」])(?!\n)/g, '$1\n\n');
+    }
+  }
+
   return scenes;
 }
 
